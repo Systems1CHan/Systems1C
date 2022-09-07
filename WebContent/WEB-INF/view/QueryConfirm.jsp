@@ -7,72 +7,62 @@
 修正履歴（修正日：担当者：修正内容）
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>予約情報一覧画面</title>
-	<script type="text/javascript" src="./static/js/common.js"></script>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+<%-- css用 リンクはheadに格納 --%>
+<link rel="stylesheet" href="./static/css/CommonHeader.css">
+<link rel="stylesheet" href="./static/css/CommonMain.css">
+<link rel="stylesheet" href="./static/css/CommonFooter.css">
+<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<%-- JavaScript用 --%>
+<script type="text/javascript" src="./static/js/login.js"></script>
 </head>
+
 <body>
 	<header>
-			<!-- タイトルと画像  -->
-		<h1>
-			<img src="./static/img/airplane_logo.gif" alt="logo">
-			契約管理・事故受付システム　ハンディー
-		</h1>
-
-		<button type="button" onclick="toStartPage()">新規手続きを開始</button>
-
-		<!-- 表題 -->
-		<h2>
-			契約内容照会確認(契約条件タブ)(個人)
-		</h2>
-		<h3>
-			現在までに申し込みをされた予約情報の一覧を表示します。
-		</h3>
+		<div class="header_title">契約管理・事故受付システム ハンディー</div>
 	</header>
 	<main>
-			<!-- お名前フォーム -->
 		<article>
-			<form action="" id="result_frm" method="post">
-
-		<!-- 次画面ID用フィールド -->
-		<input type="hidden" name="BUTTON_ID" value="">
-		<div align="center">
-			<!-- 予約結果表示テーブル -->
-			<table border="1">
-				<tr>
-					<th nowrap align="center" width="100">予約番号</th>
-					<th nowrap align="center" width="100">ご出発日</th>
-					<th nowrap align="center" width="100">経路</th>
-					<th nowrap align="center" width="100">携行品保険への加入</th>
-					<th nowrap align="center" width="100">ご請求金額</th>
-					<th nowrap align="center" width="100">氏名</th>
-					<th nowrap align="center" width="100">電話番号</th>
-				</tr>
-					<c:forEach items="${entityList}" var="x">
+				<form action="" id="@@@@@@@@@" method="post">
+					<table class="button_table">
 						<tr>
-							<th nowrap align="center" width="100"><c:out value="${x.getNo()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getDepartureDate()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getRoute()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getBaggageCompForLabel()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getAmountForLabel()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getCustomerNameForLabel()}" /></th>
-							<th nowrap align="center" width="100"><c:out value="${x.getCustomerPhoneNo()}" /></th>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">照会検索</button></th>
+							<td><input type="reset" value="リセット" class="button_design"></td>
 						</tr>
-					</c:forEach>
-			</table>
-		</div>
+					</table>
+				</form>
+			<div class="roundedConer">
+				<div class="subTitle">契約内容照会開始</div>
+				<form action="" id="login_process" method="post">
+					<table class="IDpass_table">
+						<tr>
+							<!-- 入力フォーム（証券番号） -->
+							<th class="password_string">証券番号</th>
+							<td><input type="password" maxlength="10"></td>
+						</tr>
+					</table>
 
-				<!-- onclick でボタンが押された際に実行する関数を指定する -->
-				<button type="button" onclick="toStartPage()">新規手続きを開始</button>
-
-			</form>
+					<table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">照会検索</button></th>
+							<td><input type="reset" value="リセット" class="button_design"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
 		</article>
 	</main>
+	<footer>
+		<div class="footer_title">Handy</div>
+	</footer>
 </body>
 </html>
