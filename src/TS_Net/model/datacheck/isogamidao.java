@@ -1,5 +1,5 @@
 package TS_Net.model.datacheck;
 
-public class NoguchiTest {
+public class isogamidao {
 
 }
