@@ -16,6 +16,7 @@ function toTopNew(){
 
  function toTopCancel(){
 	location.href = "./toTopCancel"
+
 }
 
  function toTopAccept(){
