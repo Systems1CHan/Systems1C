@@ -2,38 +2,22 @@
  *
  */
 
- function toLogin(){
-
-	location.href = "./toLogin"
-
+function toTopNew(){
+	location.href = "./toTopNew"
 }
 
- function toA(){
-
-	location.href = "./toA"
-
+ function toTopRecording(){
+	location.href = "./toTopRecording"
 }
 
- function toB(){
-
-	location.href = "./toB"
-
+ function toTopInquiry(){
+	location.href = "./toTopInquiry"
 }
 
- function toC(){
-
-	location.href = "./toC"
-
+ function toTopCancel(){
+	location.href = "./toTopCancel"
 }
 
- function toD(){
-
-	location.href = "./toD"
-
-}
-
- function toE(){
-
-	location.href = "./toE"
-
+ function toTopAccept(){
+	location.href = "./toTopAccept"
 }
