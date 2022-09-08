@@ -97,15 +97,16 @@ public class PolNoChecker {
 	 *4. 取り出した値が"1"（解約）の場合、エラーメッセージを戻り値として返す
 	 * </p>
 	 */
-	public String polNoExistenceCheck(ContractInfo contractInfo) {
+	public String polNoCancelledCheck(ContractInfo contractInfo) {
 
 
 		if(contractInfo.getCancelFlg() == "1"){
 
 			return ErrorMsgConst.FORM_ERROR0007;
 
-		}else if(contractInfo.getCancelFlg() == "0") {
+		}else {
 		return null;
+
 		}
 	}
 
