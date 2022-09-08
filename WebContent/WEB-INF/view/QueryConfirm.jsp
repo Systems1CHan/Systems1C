@@ -105,7 +105,7 @@
    								 <td>払込方法</td><td><c:out value="${requestScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-カナ</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>氏名-カナ</td><td><c:out value="${requestScope.contractInfo.getkanaNameForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>性別</td><td><c:out value="${requestScope.contractInfo.getGenderForLabel()}"/></td>
@@ -114,16 +114,16 @@
    								 <td>氏名-漢字</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>生年月日</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>生年月日</td><td><c:out value="${requestScope.contractInfo.getBirthdayForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-カナ</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>住所-カナ</td><td><c:out value="${requestScope.contractInfo.getKanaAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>郵便番号</td><td><c:out value="${requestScope.contractInfo.getPostcodeForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-漢字</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>住所-漢字</td><td><c:out value="${requestScope.contractInfo.getKanjiAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
