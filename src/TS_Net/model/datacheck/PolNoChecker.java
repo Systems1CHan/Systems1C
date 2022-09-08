@@ -35,24 +35,13 @@ public class PolNoChecker {
 	public String polNoInputCheck(ContractInfo contractInfo) {
 
 
-		if((contractInfo.getDepartureDate() == null) || ("".equals(contractInfo.getDepartureDate()))){
+		if(((contractInfo.getPolNo() == null) || ("".equals(contractInfo.getPolNo()))) && ((contractInfo.getClaimNo() == null) || ("".equals(contractInfo.getClaimNo())))){
 
-			return ErrorMsgConst.FORM_ERROR;
+			return ErrorMsgConst.FORM_ERROR0001;
 
-		}else if((rsv.getComeTo() == null) || ("".equals(rsv.getComeTo()))){
-
-			return ErrorMsgConst.FORM_ERROR;
-
-		}else if((rsv.getComeFrom() == null) || ("".equals(rsv.getComeFrom()))) {
-
-			return ErrorMsgConst.FORM_ERROR;
-
-		}
-
+		}else {
 		return null;
-
+		}
 	}
-
-
 
 }
