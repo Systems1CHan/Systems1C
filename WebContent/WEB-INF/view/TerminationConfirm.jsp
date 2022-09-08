@@ -182,6 +182,16 @@
 
             </div>
 
+            <form action="" id="@@@@@@@@@" method="post">
+					<table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">解約申込書印刷</button></th>
+						</tr>
+					</table>
+				</form>
+
             <script type="text/javascript">
 
                 // 対象の要素を得る

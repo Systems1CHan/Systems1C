@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>照会開始画面</title>
+<title>解約開始画面</title>
 <%-- css用 リンクはheadに格納 --%>
 <link rel="stylesheet" href="./static/css/CommonHeader.css">
 <link rel="stylesheet" href="./static/css/CommonMain.css">
@@ -38,7 +38,7 @@
 					</table>
 				</form>
 			<div class="roundedConer">
-				<div class="subTitle">契約内容照会開始</div>
+				<div class="subTitle">解約開始</div>
 				<form action="" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>
@@ -52,8 +52,7 @@
 						<tr>
 							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="toQueryConfirm();"
-									class="button_design">照会検索</button></th>
-							<td><input type="reset" value="リセット" class="button_design"></td>
+									class="button_design">次へ</button></th>
 						</tr>
 					</table>
 				</form>
@@ -64,4 +63,5 @@
 		<div class="footer_title">Handy</div>
 	</footer>
 </body>
+</html>
 </html>
