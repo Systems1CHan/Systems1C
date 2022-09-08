@@ -85,8 +85,6 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		}
 
 
-
-
 		try {
 			compensationDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
