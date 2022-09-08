@@ -1,63 +1,116 @@
+/*------------------------------------------------------------------------------
+ * 演習番号：[総合演習]
+ * クラス名：[LoginDAO]
+ * 作成日  ：[2022/09/07]
+ * 作成者  ：[NarimichiHenmi/SYS]
+ *------------------------------------------------------------------------------
+ * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ *------------------------------------------------------------------------------
+ */
 package TS_Net.model.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import TS_Net.model.constant.SystemConst;
+
+/**
+ * ログインDAOクラス
+ * <p>
+ * ログインユーザーテーブルにおけるSQL操作を行う
+ * </p>
+ * @author NarimichiHenmi/SYS 2022/09/08
+ */
+
 public class LoginDAO {
+
+	/** 引数なしコンストラクタ */
+	public LoginDAO() {};
 
 	/** データベースの接続 */
 	private Connection con;
 
 	/**
-	 * コンストラクタ
-	 *
-	 * @param con
-	 *            データベースの接続オブジェクト
+	 * DB接続メソッド。
+	 * <p>
+	 * メンバ変数のコネクションオブジェクトを用いて、DBと接続する。
+	 * </p>
+	 * @throws SQLException SQL実行例外
+	 * @throws ClassNotFoundException クラスロード例外
 	 */
-	public LoginDAO(Connection con) {
-		this.con = con;
+	public void connect() throws SQLException, ClassNotFoundException {
+		/* JDBCドライバをロード */
+		try {
+			Class.forName(SystemConst.JDBC_DRIVER_NAME);
+		} catch (ClassNotFoundException e) {
+		}
+
+		/* DBへの接続 */
+		try {
+			con = DriverManager.getConnection(SystemConst.JDBC_URL, SystemConst.USER, SystemConst.PASSWORD);
+			/* 自動コミットはオフ */
+			con.setAutoCommit(false);
+		} catch (SQLException e) {
+		}
+	}
+
+	/**
+	 * DB切断メソッド。
+	 * <p>
+	 * メンバ変数のコネクションオブジェクトを用いて、DB接続を切断する。
+	 * </p>
+	 * @throws SQLException SQL実行例外
+	 */
+	public void close() throws SQLException {
+		/* DBの切断 */
+		try {
+			if (con != null) {
+				con.close();
+			}
+		} catch (SQLException e) {
+		}
 	}
 
 	/**
 	 * ログイン情報を検索する。
 	 *
-	 * @param empId
-	 *            従業員番号
-	 * @param password
-	 *            パスワード
-	 * @return 検索結果
-	 * @throws SQLException
-	 *             データベースエラーが発生した場合
+	 * @param iD  従業員番号
+	 * @param password  パスワード
+	 * @return  検索結果
+	 * @throws  SQLException  データベースエラーが発生した場合
 	 */
-	public boolean findEmployee(int empId, String password) throws SQLException {
-		String sql = "SELECT employee_id FROM login WHERE employee_id = ? and password = ?";
-		PreparedStatement stmt = null;
-		ResultSet res = null;
-		boolean result = false;
+	public boolean findEmployee(String iD, String password) throws SQLException {
+		//スタブまたはドライバ。今はaccountCheck()がすべて通る状態
+		return true;
 
-		try {
-			// PreparedStatementの作成
-			stmt = con.prepareStatement(sql);
-			// パラメータの設定
-			stmt.setInt(1, empId);
-			stmt.setString(2, password);
-			// SQL文の実行
-			res = stmt.executeQuery();
-			// 結果セットの確認
-			if (res.next()) {
-				result = true;
-			}
-		} finally {
-			// クローズ処理
-			if (res != null) {
-				res.close();
-			}
-			if (stmt != null) {
-				stmt.close();
-			}
-		}
-		return result;
+//		String sql = "SELECT employee_id FROM login WHERE employee_id = ? and password = ?";
+//		PreparedStatement stmt = null;
+//		ResultSet res = null;
+//		boolean result = false;
+//
+//		try {
+//			// PreparedStatementの作成
+//			stmt = con.prepareStatement(sql);
+//			// パラメータの設定
+//			stmt.setString(1, iD);
+//			stmt.setString(2, password);
+//			// SQL文の実行
+//			res = stmt.executeQuery();
+//			// 結果セットの確認
+//			if (res.next()) {
+//				result = true;
+//			}
+//		} finally {
+//			// クローズ処理
+//			if (res != null) {
+//				res.close();
+//			}
+//			if (stmt != null) {
+//				stmt.close();
+//			}
+//		}
+//
+//		return result;
 	}
 }
