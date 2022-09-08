@@ -56,10 +56,10 @@ public class CompensationDao {
 	 * @param entity 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void registCompensation(CompensationInf comInf) throws SQLException {
+	public void registCompensation(CompensationInf compensationInf) throws SQLException {
 
 		/* 登録データ : スタブ用変数のため必ず除去すること */
-		insertData = comInf;
+		insertData = compensationInf;
 
 	}
 
@@ -78,7 +78,7 @@ public class CompensationDao {
 
 		CompensationInf compensationInf = new CompensationInf();
 		compensationInf.setComcoverId(00000001);
-		compensationInf.setInsatsuRenban(A0000001);
+		compensationInf.setInsatsuRenban("A0000001");
 		compensationInf.setMaker("TOYOTA");
 		compensationInf.setCarName("レクサス");
 		compensationInf.setLicenseNo("多摩500さ4649");
@@ -93,9 +93,7 @@ public class CompensationDao {
 		compensationInf.setPremiumInstallment(1000000);
 
 
-		contractInfo.setFaxNo("1234567890");
-
-		return contractInfo;
+		return compensationInf;
 
 	}
 

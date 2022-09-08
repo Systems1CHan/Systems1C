@@ -13,6 +13,7 @@
 package TS_Net.model.datacheck;
 
 import TS_Net.model.constant.ErrorMsgConst;
+import TS_Net.model.data.ContractInfo;
 
 /**
  * 証券番号データチェッククラス。
@@ -31,10 +32,10 @@ public class PolNoChecker {
 	 *がともに入力されていた場合、エラーメッセージを返却する。
 	 * </p>
 	 */
-	public String polNoInputCheck(Reservation rsv, ) {
+	public String polNoInputCheck(ContractInfo contractInfo) {
 
 
-		if((rsv.getDepartureDate() == null) || ("".equals(rsv.getDepartureDate()))){
+		if((contractInfo.getDepartureDate() == null) || ("".equals(contractInfo.getDepartureDate()))){
 
 			return ErrorMsgConst.FORM_ERROR;
 
