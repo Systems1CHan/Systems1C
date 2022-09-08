@@ -5,6 +5,7 @@
 作成者		：NarimichiHenmi/SYS
 -------------------------------------------------
 修正履歴(修正日：担当者；修正内容)
+(2022/09/08 ： NarimichiHenmi/SYS ：パスワードフォームに目玉を追加)
 ------------------------------------------------->
 
 <!DOCTYPE html>
@@ -34,16 +35,21 @@
 				<form action="" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>
-							<!-- 入力フォーム（お名前） -->
+							<!-- 入力フォーム（ID） -->
 							<th class="ID_string">ID</th>
 							<td><input type="text" name="iD" maxlength="30"
 								class="ID_form" /></td>
 						</tr>
 						<tr>
-							<!-- 入力フォーム（電話番号） -->
+							<!-- 入力フォーム（パスワード・目玉あり） -->
 							<th class="password_string">パスワード</th>
-							<td><input type="password" name="password" maxlength="30"
-								class="password_form" /></td>
+							<td><input type="checkbox" id="checkPassword">
+								<div class="togglePassword">
+									<input type="password" class="hideText" value="password123">
+									<input type="text" class="showText" value="password123">
+									<label for="checkPassword" class="fa fa-eye"></label> <label
+										for="checkPassword" class="fa fa-eye-slash"></label>
+								</div></td>
 						</tr>
 					</table>
 
@@ -54,7 +60,6 @@
 
 					<table class="button_table">
 						<tr>
-							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="loginProcess();"
 									class="button_design">ログイン</button></th>
 							<td><input type="reset" value="リセット" class="button_design"></td>
