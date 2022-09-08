@@ -10,14 +10,15 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<!-- JSTL用 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
-<%-- css用 リンクはheadに格納 --%>
+<%-- css用 --%>
 <link rel="stylesheet" href="./static/css/Common.css">
-<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<link rel="stylesheet" href="./static/css/Login.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/login.js"></script>
 </head>
@@ -35,15 +36,21 @@
 						<tr>
 							<!-- 入力フォーム（お名前） -->
 							<th class="ID_string">ID</th>
-							<td><input type="text" maxlength="30" class="ID_form" /></td>
+							<td><input type="text" name="iD" maxlength="30"
+								class="ID_form" /></td>
 						</tr>
 						<tr>
 							<!-- 入力フォーム（電話番号） -->
 							<th class="password_string">パスワード</th>
-							<td><input type="password" maxlength="30"
+							<td><input type="password" name="password" maxlength="30"
 								class="password_form" /></td>
 						</tr>
 					</table>
+
+					<div class="error">
+						<!-- エラーメッセージ表示場所 -->
+						<c:out value="${requestScope.errorMsg}" />
+					</div>
 
 					<table class="button_table">
 						<tr>
