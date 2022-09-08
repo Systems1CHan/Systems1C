@@ -80,6 +80,7 @@
             </table>
         </header>
         <main>
+        <form>
             <div class="sample-area">
 
                 <p id="tabcontrol">
@@ -87,11 +88,117 @@
                     <a href="#tabpage2">補償</a>
                 </p>
                 <div id="tabbody">
-                    <div id="tabpage1">タブ1の中身</div>
-                    <div id="tabpage2">タブ2の中身</div>
+                    <div id="tabpage1">
+						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
+						<table border="1" style="border-collapse: collapse">
+ 							 <tr>
+ 							 <td colspan="2">計上確認</td>
+ 							 </tr>
+ 							 <tr>
+   								 <td>保険期間</td><td>甘い</td>
+  							</tr>
+ 							 <tr>
+   								 <td>証券番号</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>印刷連番</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>契約状態</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>被保険者の個人法人区分</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>払込方法</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>氏名-カナ</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>性別</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>氏名-漢字</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>生年月日</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>住所-カナ</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>郵便番号</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>住所-漢字</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>電話番号</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>携帯電話番号</td><td>酸っぱい</td>
+  							</tr>
+  							 <tr>
+   								 <td>FAX番号</td><td>酸っぱい</td>
+  							</tr>
+						</table>
+                    </div>
+                    <div id="tabpage2">
+                    						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
+						<table border="1" style="border-collapse: collapse">
+ 							 <tr>
+ 							 <td colspan="2">計上確認</td>
+ 							 </tr>
+							 <tr>
+   								 <td>保険料</td><td>甘い</td>
+  							 </tr>
+ 							 <tr>
+   								 <td>メーカー</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>車名</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>車のナンバー</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>車両保険金額</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>免許証の色</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>車両料率</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>退陣料率</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>対物料率</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>障害料率</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>年齢条件</td><td>酸っぱい</td>
+  							 </tr>
+  							 <tr>
+   								 <td>１回分保険料</td><td>酸っぱい</td>
+  							</tr>
+						</table>
+                    </div>
                 </div>
 
             </div>
+				<table class="button_table">
+					<tr>
+						<!-- 入力フォーム（お名前） -->
+						<th><button type="button" onclick="toFinishPrintCancelPage();"
+								class="button_design">代理店計上</button></th>
+					</tr>
+				</table>
+			</form>
 
             <script type="text/javascript">
 
