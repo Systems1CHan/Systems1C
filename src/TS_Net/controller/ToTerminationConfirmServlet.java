@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ToQueryConfirm")
-public class ToQueryConfirmServlet extends HttpServlet {
+@WebServlet("/ToTerminationConfirm")
+public class ToTerminationConfirmServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,11 +18,9 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 
 		/* TOPメニューJSPへforwardする。*/
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/QueryConfirm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/TerminationConfirm.jsp");
 		rd.forward(request, response);
 
 	}
 
 }
-
-
