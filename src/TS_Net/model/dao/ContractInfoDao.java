@@ -11,6 +11,8 @@ package TS_Net.model.dao;
 
 import java.sql.SQLException;
 
+import TS_Net.model.data.ContractInfo;
+
 public class ContractInfoDao {
 
 	/* 登録データ : スタブ用変数のため必ず除去すること */

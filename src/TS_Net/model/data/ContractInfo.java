@@ -43,7 +43,7 @@ public class ContractInfo implements Serializable {
     /* 払込方法*/
     private String paymentMethod;
     /* 払込回数*/
-    private String installment;
+    private Integer installment;
     /* 被保険者区分*/
     private String insuredKbn;
     /* 氏名カナ１*/
@@ -252,11 +252,11 @@ public class ContractInfo implements Serializable {
 		this.paymentMethod = paymentMethod;
 	}
 
-	public String getInstallment() {
+	public Integer getInstallment() {
 		return installment;
 	}
 
-	public void setInstallment(String installment) {
+	public void setInstallment(Integer installment) {
 		this.installment = installment;
 	}
 
