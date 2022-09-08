@@ -32,7 +32,7 @@
 				<table class="button_table">
 					<tr>
 						<!-- 入力フォーム（お名前） -->
-						<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+						<th><button type="button" onclick="toTopMenu();"
 								class="button_design">トップへ戻る</button></th>
 					</tr>
 				</table>
@@ -42,7 +42,7 @@
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">証券番号</th>
-							<td><input maxlength="10"></td>
+							<td><input name="polNo" maxlength="10"></td>
 						</tr>
 					</table>
 					<table class="button_table">
