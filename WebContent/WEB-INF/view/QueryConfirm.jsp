@@ -51,6 +51,7 @@
             #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) { background-color: #ddffdd; }	/* 2つ目のタブとその中身用の配色 */
 
         </style>
+        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
