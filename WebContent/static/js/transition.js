@@ -242,3 +242,14 @@ function toTopNew(){
  function toTopAccept(){
 	location.href = "./toTopAccept"
 }
+/**
+ *------------------------------------------------------
+ *関数名        :TOPメニューへボタン押下時の処理
+ *引数          :なし
+ *戻り値        :なし
+ *機能          :TOPメニュー画面に遷移
+ *------------------------------------------------------
+*/
+function toTopMenu(){
+	location.href = "./toTopMenu"
+}
