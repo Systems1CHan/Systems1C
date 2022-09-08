@@ -7,9 +7,7 @@
 <meta charset="UTF-8">
 <title>TOPメニュー</title>
 <%-- css用 リンクはheadに格納 --%>
-<link rel="stylesheet" href="./static/css/CommonHeader.css">
-<link rel="stylesheet" href="./static/css/CommonMainButton.css">
-<link rel="stylesheet" href="./static/css/CommonFooter.css">
+<!-- <link rel="stylesheet" href="./static/css/Common.css"> -->
 <link rel="stylesheet" href="./static/css/HenmiTopMenu.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
@@ -21,8 +19,8 @@
 	</header>
 	<main>
 		<article>
-			<div class="roundedConer">
-				<div class="subTitle">TOPメニュー</div>
+			<div class="body_roundedConer">
+				<div class="body_subTitle">TOPメニュー</div>
 				<div class="button_center">
 					<button type="button" onclick="toTopNew();" class="button_design">新規試算</button>
 				</div>

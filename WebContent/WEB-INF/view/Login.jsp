@@ -1,27 +1,22 @@
 <!-----------------------------------------------
-演習番号	：siyousho_1-1
-プログラム名：契約内容入力画面
-作成日		：2022/08/05
+演習番号	：総合演習
+プログラム名：ログイン画面
+作成日		：2022/09/07
 作成者		：NarimichiHenmi/SYS
 -------------------------------------------------
 修正履歴(修正日：担当者；修正内容)
-(2022/08/10：NarimichiHenmi；ご出発日のinputタグのtypeが"data"になっていたので、"date"に変更した。)
-(2022/08/10：NarimichiHenmi；出発地と目的地のinputタグのtypeに"select"が設定されていたので、両方とも削除した。)
-(2022/08/19：NarimichiHenmi；出発地と目的地のプルダウンの表示順を東京、福岡、札幌、沖縄に変更。)
-(2022/08/19：NarimichiHenmi；ご出発日～携行品保険の項目までをテーブルに変更。)
 ------------------------------------------------->
 
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
 <%-- css用 リンクはheadに格納 --%>
-<link rel="stylesheet" href="./static/css/CommonHeader.css">
-<link rel="stylesheet" href="./static/css/CommonMain.css">
-<link rel="stylesheet" href="./static/css/CommonFooter.css">
+<link rel="stylesheet" href="./static/css/Common.css">
 <link rel="stylesheet" href="./static/css/HenmiLogin.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/login.js"></script>
@@ -33,8 +28,8 @@
 	</header>
 	<main>
 		<article>
-			<div class="roundedConer">
-				<div class="subTitle">ログイン</div>
+			<div class="body_roundedConer">
+				<div class="body_subTitle">ログイン</div>
 				<form action="" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>

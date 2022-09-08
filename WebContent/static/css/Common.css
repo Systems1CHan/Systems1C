@@ -1,0 +1,66 @@
+/* headerタグ（契約管理・事故受付システム　ハンディー） */
+.header_title {
+	/* 文字の大きさ */
+	font-size: 30px;
+	/* 文字の色 */
+	color: #000000;
+	/* 文字の下にボーダーライン（緑） */
+	border-bottom: solid 2px #a9d18e;
+	/* 文字とボーダーの横の長さ */
+	width: 95%;
+	/* 文字とボーダーを中央に配置（外側の空白範囲（左右）） */
+	margin-left: auto;
+	margin-right: auto;
+	/* 内側の空白範囲 */
+	padding: 10px;
+}
+
+/* bodyタグ */
+/* 角が丸い緑の背景部分 */
+.body_roundedConer {
+	/* 背景の色 */
+	background: #a9d18e;
+	/* 白ボーダー */
+	border: 1px solid #FFFFFF;
+	/* 外側の空白範囲 */
+	margin: 80px 35px 80px;
+	/* （背景の）角の丸め具合 */
+	border-radius: 30px;
+}
+
+/* 緑の背景内の一番上の文字（ログインやTOPメニュー等） */
+.body_subTitle {
+	/* 文字の大きさ */
+	font-size: 30px;
+	/* 文字の色 */
+	color: #000000;
+	/* 文字の下にボーダーライン（黒） */
+	border-bottom: solid 2px #000000;
+	/* 文字とボーダーの横の長さ */
+	width: 90%;
+	/* 文字とボーダーを中央に配置（外側の空白範囲（左右）） */
+	margin-left: auto;
+	margin-right: auto;
+	/* 外側の空白範囲（上下） */
+	margin-top: 15px;
+	margin-bottom: 30px;
+	/* 内側の空白範囲 */
+	padding: 10px;
+}
+
+/* footerタグ（英字右寄せHandy） */
+.footer_title {
+	/* 文字の上にボーダーライン */
+	border-top: solid 2px #a9d18e;
+	/* 文字が右寄り */
+	text-align: right;
+	/* 文字の色 */
+	color: #a9d18e;
+	/* 文字とボーダーの横の長さ */
+	width: 95%;
+	/* 文字とボーダーを中央に配置（外側の空白範囲（左右）） */
+	margin-left: auto;
+	margin-right: auto;
+	/* 内側の空白範囲 */
+	padding: 10px;
+}
