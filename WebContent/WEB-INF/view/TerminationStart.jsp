@@ -28,40 +28,36 @@
 	</header>
 	<main>
 		<article>
-				<form action="" id="@@@@@@@@@" method="post">
-					<table class="button_table">
-						<tr>
-							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
-									class="button_design">トップへ戻る</button></th>
-						</tr>
-					</table>
-				</form>
+			<form action="" id="cancel_frm" method="post">
+				<table class="button_table">
+					<tr>
+						<!-- 入力フォーム（お名前） -->
+						<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+								class="button_design">トップへ戻る</button></th>
+					</tr>
+				</table>
 			<div class="roundedConer">
 				<div class="subTitle">解約開始</div>
-				<form action="" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">証券番号</th>
-							<td><input type="password" maxlength="10"></td>
+							<td><input maxlength="10"></td>
 						</tr>
 					</table>
-
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="toQueryConfirm();"
+							<th><button type="button" onclick="toNextPage();"
 									class="button_design">次へ</button></th>
 						</tr>
 					</table>
-				</form>
-			</div>
+				</div>
+			</form>
 		</article>
 	</main>
 	<footer>
 		<div class="footer_title">Handy</div>
 	</footer>
 </body>
-</html>
 </html>
