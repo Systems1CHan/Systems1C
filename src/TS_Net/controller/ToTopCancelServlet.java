@@ -1,3 +1,12 @@
+/*------------------------------------------------------------------------------
+ * 演習番号：[総合演習]
+ * クラス名：[ToTopCancelServlet]
+ * 作成日  ：[2022/09/07]
+ * 作成者  ：[NarimichiHenmi/SYS]
+ *------------------------------------------------------------------------------
+ * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ *------------------------------------------------------------------------------
+ */
 package TS_Net.controller;
 
 import java.io.IOException;
@@ -10,7 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class toAServlet
+ * 解約へコントローラ
+ * <p>
+ * 要求『解約へ』に対する処理を行う。
+ * </p>
+ * @author NarimichiHenmi/SYS 2022/09/07
  */
 @WebServlet("/toTopCancel")
 public class ToTopCancelServlet extends HttpServlet {
