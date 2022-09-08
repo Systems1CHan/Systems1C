@@ -93,46 +93,46 @@
    								 <td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>印刷連番</td><td>酸っぱい</td>
+   								 <td>印刷連番</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
   							</tr>
   							 <tr>
-   								 <td>契約状態</td><td>酸っぱい</td>
+   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo.getStatusFlgForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>被保険者の個人法人区分</td><td>酸っぱい</td>
+   								 <td>被保険者の個人法人区分</td><td><c:out value="${requestScope.contractInfo.getInsuredKbnForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>払込方法</td><td>酸っぱい</td>
+   								 <td>払込方法</td><td><c:out value="${requestScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-カナ</td><td>酸っぱい</td>
+   								 <td>氏名-カナ</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>性別</td><td>酸っぱい</td>
+   								 <td>性別</td><td><c:out value="${requestScope.contractInfo.getGenderForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-漢字</td><td>酸っぱい</td>
+   								 <td>氏名-漢字</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>生年月日</td><td>酸っぱい</td>
+   								 <td>生年月日</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-カナ</td><td>酸っぱい</td>
+   								 <td>住所-カナ</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>郵便番号</td><td>酸っぱい</td>
+   								 <td>郵便番号</td><td><c:out value="${requestScope.contractInfo.getPostcodeForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-漢字</td><td>酸っぱい</td>
+   								 <td>住所-漢字</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>電話番号</td><td>酸っぱい</td>
+   								 <td>電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>携帯電話番号</td><td>酸っぱい</td>
+   								 <td>携帯電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>FAX番号</td><td>酸っぱい</td>
+   								 <td>FAX番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
 						</table>
                     </div>
