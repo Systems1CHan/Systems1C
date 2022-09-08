@@ -56,6 +56,8 @@ public class ToQueryConfirmServlet extends HttpServlet {
 			contractInfoDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 			contractInfo = contractInfoDao.getContractInfo(polNo);
+			//リクエスト領域に格納する。
+			request.setAttribute("contractInfo", contractInfo);
 
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -88,8 +90,8 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		try {
 			compensationDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			compensation = contractInfoDao.getCompensation(contractInfo.getInsatsuRenban());
-
+			compensation = compensationDao.getCompensation(contractInfo.getInsatsuRenban());
+			request.setAttribute("compensation", compensation);
 
 		} catch (ClassNotFoundException | SQLException e) {
 

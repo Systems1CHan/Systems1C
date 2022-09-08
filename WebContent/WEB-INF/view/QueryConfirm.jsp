@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -86,10 +87,10 @@
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
  							 <tr>
-   								 <td>保険期間</td><td>甘い</td>
+   								 <td>保険期間</td><td>aaaaa</td>
   							</tr>
  							 <tr>
-   								 <td>証券番号</td><td>酸っぱい</td>
+   								 <td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
    								 <td>印刷連番</td><td>酸っぱい</td>
