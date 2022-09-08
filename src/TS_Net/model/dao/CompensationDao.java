@@ -11,6 +11,8 @@ package TS_Net.model.dao;
 
 import java.sql.SQLException;
 
+import TS_Net.model.data.Compensation;
+
 /**
  * 予約テーブルDAOクラス。（スタブ）
  * <p>
@@ -21,7 +23,7 @@ import java.sql.SQLException;
 public class CompensationDao {
 
 	/* 登録データ : スタブ用変数のため必ず除去すること */
-	CompensationInf insertData = new CompensationInf();
+	Compensation insertData = new Compensation();
 
 	/**
 	 * DB接続メソッド。
@@ -56,7 +58,7 @@ public class CompensationDao {
 	 * @param entity 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void registCompensation(CompensationInf compensationInf) throws SQLException {
+	public void registCompensation(Compensation compensationInf) throws SQLException {
 
 		/* 登録データ : スタブ用変数のため必ず除去すること */
 		insertData = compensationInf;
@@ -68,27 +70,28 @@ public class CompensationDao {
 	 * <p>
 	 * 予約テーブルから、すべての予約情報を取得する。
 	 * </p>
+	 * @return
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public getCompensation(Integer insatsuRenban) throws SQLException {
+	public Compensation getCompensation(Integer insatsuRenban) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		CompensationInf compensationInf = new CompensationInf();
-		compensationInf.setComcoverId(00000001);
+		Compensation compensationInf = new Compensation();
+		compensationInf.setCoverId(00000001);
 		compensationInf.setInsatsuRenban("A0000001");
 		compensationInf.setMaker("TOYOTA");
 		compensationInf.setCarName("レクサス");
 		compensationInf.setLicenseNo("多摩500さ4649");
 		compensationInf.setVehiclePrice(1000000);
-		compensationInf.setVehicleRates(3);
-		compensationInf.setBodilyRates(3);
-		compensationInf.setPropertyDamageRates(3);
-		compensationInf.setAccidentRates(3);
-		compensationInf.setLicenseColor(2);
-		compensationInf.setAgeLimit(3);
+		compensationInf.setVehicleRates("3");
+		compensationInf.setBodilyRates("3");
+		compensationInf.setPropertyDamageRates("3");
+		compensationInf.setAccidentRates("3");
+		compensationInf.setLicenseColor("2");
+		compensationInf.setAgeLimit("3");
 		compensationInf.setPremiumAmount(1000000);
 		compensationInf.setPremiumInstallment(1000000);
 

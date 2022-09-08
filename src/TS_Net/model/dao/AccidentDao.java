@@ -12,6 +12,8 @@ package TS_Net.model.dao;
 
 import java.sql.SQLException;
 
+import TS_Net.model.data.AccidentReception;
+
 /**
  * 予約テーブルDAOクラス。（スタブ）
  * <p>

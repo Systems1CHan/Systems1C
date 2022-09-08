@@ -63,37 +63,38 @@ ContractInfo insertData = new ContractInfo();
 	 * <p>
 	 * 予約テーブルから、すべての予約情報を取得する。
 	 * </p>
+	 * @return
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public getContractInfo(Integer polNo) throws SQLException {
+	public ContractInfo getContractInfo(String polNo) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		contractInfo contractInfo = new ContractInfo();
+		ContractInfo contractInfo = new ContractInfo();
 		contractInfo.setInsatsuRenban("A0000001");
 		contractInfo.setPolNo("B000000001");
-		contractInfo.setStatusFlg(1);
-		contractInfo.setCancelFlg(0);
+		contractInfo.setStatusFlg("1");
+		contractInfo.setCancelFlg("0");
 		contractInfo.setInceptionDate("20220909");
 		contractInfo.setInceptionTime("16");
 		contractInfo.setConclusionDate("20230909");
 		contractInfo.setConclusionTime("16");
-		contractInfo.setPaymentMethod(1);
+		contractInfo.setPaymentMethod("1");
 		contractInfo.setInstallment(1);
-		contractInfo.setInsuredKbn(1);
+		contractInfo.setInsuredKbn("1");
 		contractInfo.setNameKana1("ムナカタ");
-		contractInfo.setNameKana2("レン");
+		contractInfo.setNamekana2("レン");
 		contractInfo.setNameKanji1("宗形");
 		contractInfo.setNameKanji2("鎌");
-		contractInfo.setPostcode(1234567);
+		contractInfo.setPostcode("1234567");
 		contractInfo.setAddressKana1("トウキョウトタマシ");
 		contractInfo.setAddressKana2("オチアイ");
 		contractInfo.setAddressKanji1("東京都多摩市");
 		contractInfo.setAddressKanji2("落合");
 		contractInfo.setBirthday("11111111");
-		contractInfo.setGender(1);
+		contractInfo.setGender("1");
 		contractInfo.setTelephoneNo("1234567890");
 		contractInfo.setMobilephoneNo("12345678901");
 		contractInfo.setFaxNo("1234567890");
