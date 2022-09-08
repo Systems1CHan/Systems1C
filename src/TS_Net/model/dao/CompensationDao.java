@@ -77,20 +77,20 @@ public class CompensationDao {
 		/* 返却用スタブデータの生成 */
 
 		CompensationInf compensationInf = new CompensationInf();
-		compensationInf.setComcoverId();
-		compensationInf.setInsatsuRenban();
-		compensationInf.setMaker();
-		compensationInf.setCarName();
-		compensationInf.setLicenseNo();
-		compensationInf.setVehiclePrice(;)
-		compensationInf.setVehicleRates();
-		compensationInf.setBodilyRates();
-		compensationInf.setPropertyDamageRates();
-		compensationInf.setAccidentRates();
-		compensationInf.setLicenseColor();
-		compensationInf.setAgeLimit();
-		compensationInf.setPremiumAmount();
-		compensationInf.setPremiumInstallment();
+		compensationInf.setComcoverId(00000001);
+		compensationInf.setInsatsuRenban(A0000001);
+		compensationInf.setMaker("TOYOTA");
+		compensationInf.setCarName("レクサス");
+		compensationInf.setLicenseNo("多摩500さ4649");
+		compensationInf.setVehiclePrice(1000000);
+		compensationInf.setVehicleRates(3);
+		compensationInf.setBodilyRates(3);
+		compensationInf.setPropertyDamageRates(3);
+		compensationInf.setAccidentRates(3);
+		compensationInf.setLicenseColor(2);
+		compensationInf.setAgeLimit(3);
+		compensationInf.setPremiumAmount(1000000);
+		compensationInf.setPremiumInstallment(1000000);
 
 
 		contractInfo.setFaxNo("1234567890");
