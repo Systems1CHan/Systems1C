@@ -15,7 +15,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>計上開始</title>
 	<%-- css用 リンクはheadに格納 --%>
 <link rel="stylesheet" href="./static/css/CommonHeader.css">
 <link rel="stylesheet" href="./static/css/CommonMain.css">
@@ -54,8 +54,7 @@
 						<tr>
 							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="toQueryConfirm();"
-									class="button_design">照会検索</button></th>
-							<td><input type="reset" value="リセット" class="button_design"></td>
+									class="button_design">計上開始</button></th>
 						</tr>
 					</table>
 				</form>
