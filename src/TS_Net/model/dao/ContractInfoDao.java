@@ -51,10 +51,10 @@ ContractInfo insertData = new ContractInfo();
 	 * @param entity 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void registContractInfo(ContractInfo conInf) throws SQLException {
+	public void registContractInfo(ContractInfo contractInfo) throws SQLException {
 
 		/* 登録データ : スタブ用変数のため必ず除去すること */
-		insertData = conInf;
+		insertData = contractInfo;
 
 	}
 
@@ -71,7 +71,7 @@ ContractInfo insertData = new ContractInfo();
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		ContractInfo contractInfo = new ContractInfo();
+		contractInfo contractInfo = new ContractInfo();
 		contractInfo.setInsatsuRenban("A0000001");
 		contractInfo.setPolNo("B000000001");
 		contractInfo.setStatusFlg(1);
