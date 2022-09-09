@@ -15,7 +15,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>計上開始</title>
+	<title>計上開始画面</title>
 	<%-- css用 リンクはheadに格納 --%>
 <link rel="stylesheet" href="./static/css/CommonHeader.css">
 <link rel="stylesheet" href="./static/css/CommonMain.css">
@@ -30,11 +30,11 @@
 	</header>
 	<main>
 		<article>
-				<form action="" id="@@@@@@@@@" method="post">
+				<form action="" id="inquiry_frm" method="post">
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+							<th><button type="button" onclick="toTopMenu();"
 									class="button_design">トップへ戻る</button></th>
 						</tr>
 					</table>
@@ -49,11 +49,14 @@
 							<td><input type="password" maxlength="8"></td>
 						</tr>
 					</table>
-
+				<!-- エラーメッセージ -->
+				<div align="center" id="FORM_ERROR">
+  			    	<c:out value="${requestScope.FORM_ERROR }" />
+				</div>
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="toQueryConfirm();"
+							<th><button type="button" onclick="toRecordingPage();"
 									class="button_design">計上開始</button></th>
 						</tr>
 					</table>

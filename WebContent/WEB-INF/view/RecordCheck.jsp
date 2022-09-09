@@ -9,7 +9,7 @@
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>計上確認</title>
-        <%-- css用 リンクはheadに格納 --%>
-		<link rel="stylesheet" href="./static/css/CommonHeader.css">
-		<link rel="stylesheet" href="./static/css/CommonMain.css">
-		<link rel="stylesheet" href="./static/css/CommonFooter.css">
-		<link rel="stylesheet" href="./static/css/HenmiLogin.css">
-		<%-- JavaScript用 --%>
-		<script type="text/javascript" src="./static/js/login.js"></script>
+        <title>Document</title>
+
         <style type="text/css">
 
             /* タブ領域全体 */
@@ -68,6 +62,7 @@
             #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) { background-color: #ddffdd; }	/* 2つ目のタブとその中身用の配色 */
 
         </style>
+        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
@@ -80,10 +75,16 @@
             </table>
         </header>
         <main>
-        <button type="button" onclick="toTopMenu();">トップへ戻る</button>
-        <form>
+            <form action="" id="@@@@@@@@@" method="post">
+					<table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="toTopMenu();"
+									class="button_design">トップへ戻る</button></th>
+						</tr>
+					</table>
+				</form>
             <div class="sample-area">
-
                 <p id="tabcontrol">
                     <a href="#tabpage1">契約条件</a>
                     <a href="#tabpage2">補償</a>
@@ -96,60 +97,60 @@
  							 <td colspan="2">計上確認</td>
  							 </tr>
  							 <tr>
-   								 <td>保険期間</td><td>甘い</td>
+   								 <td>保険期間</td><td>aaaaa</td>
   							</tr>
  							 <tr>
-   								 <td>証券番号</td><td>酸っぱい</td>
+   								 <td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>印刷連番</td><td>酸っぱい</td>
+   								 <td>印刷連番</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
   							</tr>
   							 <tr>
-   								 <td>契約状態</td><td>酸っぱい</td>
+   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo.getStatusFlgForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>被保険者の個人法人区分</td><td>酸っぱい</td>
+   								 <td>被保険者の個人法人区分</td><td><c:out value="${requestScope.contractInfo.getInsuredKbnForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>払込方法</td><td>酸っぱい</td>
+   								 <td>払込方法</td><td><c:out value="${requestScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-カナ</td><td>酸っぱい</td>
+   								 <td>氏名-カナ</td><td><c:out value="${requestScope.contractInfo.getkanaNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>性別</td><td>酸っぱい</td>
+   								 <td>性別</td><td><c:out value="${requestScope.contractInfo.getGenderForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-漢字</td><td>酸っぱい</td>
+   								 <td>氏名-漢字</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>生年月日</td><td>酸っぱい</td>
+   								 <td>生年月日</td><td><c:out value="${requestScope.contractInfo.getBirthdayForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-カナ</td><td>酸っぱい</td>
+   								 <td>住所-カナ</td><td><c:out value="${requestScope.contractInfo.getKanaAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>郵便番号</td><td>酸っぱい</td>
+   								 <td>郵便番号</td><td><c:out value="${requestScope.contractInfo.getPostcodeForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-漢字</td><td>酸っぱい</td>
+   								 <td>住所-漢字</td><td><c:out value="${requestScope.contractInfo.getKanjiAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>電話番号</td><td>酸っぱい</td>
+   								 <td>電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>携帯電話番号</td><td>酸っぱい</td>
+   								 <td>携帯電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>FAX番号</td><td>酸っぱい</td>
+   								 <td>FAX番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   							</tr>
 						</table>
                     </div>
                     <div id="tabpage2">
-                    						<div class="subTitle">計上確認(補償タブ)</div>
+                    						<div class="subTitle">計上確認(補償タブ)/div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
- 							 <td colspan="2">自動車保険料試算果</td>
+ 							 <td colspan="2">計上確認</td>
  							 </tr>
 							 <tr>
    								 <td>保険料</td><td>甘い</td>
@@ -192,15 +193,13 @@
                 </div>
 
             </div>
-				<table class="button_table">
-					<tr>
-						<!-- 入力フォーム（お名前） -->
-						<th><button type="button" onclick="toFinishPrintCancelPage();"
-								class="button_design">代理店計上</button></th>
-					</tr>
-				</table>
-			</form>
-
+            <table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="toFinishRecordPage();"
+									class="button_design">代理店計上</button></th>
+						</tr>
+			</table>
             <script type="text/javascript">
 
                 // 対象の要素を得る
