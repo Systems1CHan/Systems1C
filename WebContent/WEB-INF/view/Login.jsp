@@ -5,6 +5,8 @@
 作成者		：NarimichiHenmi/SYS
 -------------------------------------------------
 修正履歴(修正日：担当者；修正内容)
+(2022/09/08 ： NarimichiHenmi/SYS ：パスワードフォームに目玉を追加)
+(2022/09/09 ： NarimichiHenmi/SYS ：目玉のコードを変更)
 ------------------------------------------------->
 
 <!DOCTYPE html>
@@ -19,6 +21,8 @@
 <%-- css用 --%>
 <link rel="stylesheet" href="./static/css/Common.css">
 <link rel="stylesheet" href="./static/css/Login.css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+	rel="stylesheet">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/login.js"></script>
 </head>
@@ -34,16 +38,18 @@
 				<form action="" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>
-							<!-- 入力フォーム（お名前） -->
+							<!-- 入力フォーム（ID） -->
 							<th class="ID_string">ID</th>
-							<td><input type="text" name="iD" maxlength="30"
-								class="ID_form" /></td>
+							<td class="ID_form"><input type="text" name="iD"
+								class="ID_form_default" maxlength="30">
 						</tr>
 						<tr>
-							<!-- 入力フォーム（電話番号） -->
+							<!-- 入力フォーム（パスワード） -->
 							<th class="password_string">パスワード</th>
-							<td><input type="password" name="password" maxlength="30"
-								class="password_form" /></td>
+							<td class="password_form"><input type="password"
+								name="password" id="textPassword" class="password_form_default"
+								maxlength="30" > <span id="buttonEye"
+								class="fa fa-eye-slash" onclick="pushHideButton()"></span></td>
 						</tr>
 					</table>
 
@@ -54,7 +60,6 @@
 
 					<table class="button_table">
 						<tr>
-							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="loginProcess();"
 									class="button_design">ログイン</button></th>
 							<td><input type="reset" value="リセット" class="button_design"></td>
