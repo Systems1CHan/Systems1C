@@ -8,6 +8,7 @@
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +43,13 @@
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">証券番号</th>
-							<td><input maxlength="10"></td>
+							<td><input name="polNo"　maxlength="10"></td>
 						</tr>
 					</table>
+					<!-- エラーメッセージ -->
+				<div align="center" id="FORM_ERROR">
+  			    	<c:out value="${requestScope.FORM_ERROR }" />
+				</div>
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->

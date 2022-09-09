@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -85,53 +86,53 @@
  							 <tr>
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
- 							 <tr>
-   								 <td>保険期間</td><td>甘い</td>
+							 <tr>
+   								 <td>保険期間</td><td><c:out value="${sessionScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
   							</tr>
  							 <tr>
-   								 <td>証券番号</td><td>酸っぱい</td>
+   								 <td>証券番号</td><td><c:out value="${sessionScope.contractInfo.polNo}"/></td>
   							</tr>
   							 <tr>
-   								 <td>印刷連番</td><td>酸っぱい</td>
+   								 <td>印刷連番</td><td><c:out value="${sessionScope.contractInfo.insatsuRenban}"/></td>
   							</tr>
   							 <tr>
-   								 <td>契約状態</td><td>酸っぱい</td>
+   								 <td>契約状態</td><td><c:out value="${sessionScope.contractInfo.getStatusFlgForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>被保険者の個人法人区分</td><td>酸っぱい</td>
+   								 <td>被保険者の個人法人区分</td><td><c:out value="${sessionScope.contractInfo.getInsuredKbnForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>払込方法</td><td>酸っぱい</td>
+   								 <td>払込方法</td><td><c:out value="${sessionScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-カナ</td><td>酸っぱい</td>
+   								 <td>氏名-カナ</td><td><c:out value="${sessionScope.contractInfo.getkanaNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>性別</td><td>酸っぱい</td>
+   								 <td>性別</td><td><c:out value="${sessionScope.contractInfo.getGenderForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>氏名-漢字</td><td>酸っぱい</td>
+   								 <td>氏名-漢字</td><td><c:out value="${sessionScope.contractInfo.getNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>生年月日</td><td>酸っぱい</td>
+   								 <td>生年月日</td><td><c:out value="${sessionScope.contractInfo.getBirthdayForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-カナ</td><td>酸っぱい</td>
+   								 <td>住所-カナ</td><td><c:out value="${sessionScope.contractInfo.getKanaAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>郵便番号</td><td>酸っぱい</td>
+   								 <td>郵便番号</td><td><c:out value="${sessionScope.contractInfo.getPostcodeForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-漢字</td><td>酸っぱい</td>
+   								 <td>住所-漢字</td><td><c:out value="${sessionScope.contractInfo.getKanjiAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>電話番号</td><td>酸っぱい</td>
+   								 <td>電話番号</td><td><c:out value="${sessionScope.contractInfo.getTelephoneNoForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>携帯電話番号</td><td>酸っぱい</td>
+   								 <td>携帯電話番号</td><td><c:out value="${sessionScope.contractInfo.getMobilePhoneNoForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>FAX番号</td><td>酸っぱい</td>
+   								 <td>FAX番号</td><td><c:out value="${sessionScope.contractInfo.getFaxNoForLabel()}"/></td>
   							</tr>
 						</table>
                     </div>
@@ -142,42 +143,42 @@
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
 							 <tr>
-   								 <td>保険料</td><td>甘い</td>
+   								 <td>保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
  							 <tr>
-   								 <td>メーカー</td><td>酸っぱい</td>
+   								 <td>メーカー</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車名</td><td>酸っぱい</td>
+   								 <td>車名</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車のナンバー</td><td>酸っぱい</td>
+   								 <td>車のナンバー</td><td><c:out value="${requestScope.compensation.getCarNameForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両保険金額</td><td>酸っぱい</td>
+   								 <td>車両保険金額</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>免許証の色</td><td>酸っぱい</td>
+   								 <td>免許証の色</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両料率</td><td>酸っぱい</td>
+   								 <td>車両料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>退陣料率</td><td>酸っぱい</td>
+   								 <td>退陣料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>対物料率</td><td>酸っぱい</td>
+   								 <td>対物料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>障害料率</td><td>酸っぱい</td>
+   								 <td>障害料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>年齢条件</td><td>酸っぱい</td>
+   								 <td>年齢条件</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>１回分保険料</td><td>酸っぱい</td>
+   								 <td>１回分保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							</tr>
-						</table>
+								</table>
                     </div>
                 </div>
 

@@ -103,7 +103,7 @@ ContractInfo insertData = new ContractInfo();
 
 	}
 
-	public void terminationAppCompletion(Integer polNo) throws SQLException {
+	public void terminationAppCompletion(String polNo) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */

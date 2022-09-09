@@ -258,6 +258,17 @@ public class Compensation implements Serializable {
 		return premiumInstallment + "円";
 	}
 
+	/**
+	 * 車ナンバーメソッド
+	 * <p>
+	 * 画面に表示させるためのナンバーを取得する。
+	 * </p>
+	 * @return 多摩 た 12-34
+	 */
+	public String getCarNameForLabel() {
+		return licenseNo.substring(0, 2) + " " + licenseNo.substring(2, 5) + " " + licenseNo.substring(5, 6) + " " + licenseNo.substring(6, 8) + "-" + licenseNo.substring(8, 10) ;
+	}
+
 	 /*
      * 以下各メンバ変数のゲッター・セッター
      */

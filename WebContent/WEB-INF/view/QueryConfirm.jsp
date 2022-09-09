@@ -146,37 +146,37 @@
    								 <td>保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
  							 <tr>
-   								 <td>メーカー</td><td>酸っぱい</td>
+   								 <td>メーカー</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車名</td><td>酸っぱい</td>
+   								 <td>車名</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車のナンバー</td><td>酸っぱい</td>
+   								 <td>車のナンバー</td><td><c:out value="${requestScope.compensation.getCarNameForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両保険金額</td><td>酸っぱい</td>
+   								 <td>車両保険金額</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>免許証の色</td><td>酸っぱい</td>
+   								 <td>免許証の色</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両料率</td><td>酸っぱい</td>
+   								 <td>車両料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>退陣料率</td><td>酸っぱい</td>
+   								 <td>退陣料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>対物料率</td><td>酸っぱい</td>
+   								 <td>対物料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>障害料率</td><td>酸っぱい</td>
+   								 <td>障害料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>年齢条件</td><td>酸っぱい</td>
+   								 <td>年齢条件</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>１回分保険料</td><td>酸っぱい</td>
+   								 <td>１回分保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							</tr>
 						</table>
                     </div>

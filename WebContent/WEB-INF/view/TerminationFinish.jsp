@@ -8,6 +8,7 @@
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,13 +44,13 @@
  						<td colspan="2">解約申込書印刷完了</td>
  					</tr>
 					<tr>
-   						<td>印刷連番</td><td>甘い</td>
+   						<td>印刷連番</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
   					</tr>
  					<tr>
-   						<td>証券番号</td><td>酸っぱい</td>
+   						<td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
   					</tr>
   					<tr>
-   						<td>契約者名</td><td>酸っぱい</td>
+   						<td>契約者名</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
   					</tr>
 				</table>
 		</article>
