@@ -6,6 +6,7 @@
 -------------------------------------------------
 修正履歴(修正日：担当者；修正内容)
 (2022/09/08 ： NarimichiHenmi/SYS ：パスワードフォームに目玉を追加)
+(2022/09/09 ： NarimichiHenmi/SYS ：目玉のコードを変更)
 ------------------------------------------------->
 
 <!DOCTYPE html>
@@ -20,6 +21,8 @@
 <%-- css用 --%>
 <link rel="stylesheet" href="./static/css/Common.css">
 <link rel="stylesheet" href="./static/css/Login.css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+	rel="stylesheet">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/login.js"></script>
 </head>
@@ -37,19 +40,16 @@
 						<tr>
 							<!-- 入力フォーム（ID） -->
 							<th class="ID_string">ID</th>
-							<td><input type="text" name="iD" maxlength="30"
-								class="ID_form" /></td>
+							<td class="ID_form"><input type="text" name="iD"
+								class="ID_form_default" maxlength="30">
 						</tr>
 						<tr>
-							<!-- 入力フォーム（パスワード・目玉あり） -->
+							<!-- 入力フォーム（パスワード） -->
 							<th class="password_string">パスワード</th>
-							<td><input type="checkbox" id="checkPassword">
-								<div class="togglePassword">
-									<input type="password" class="hideText" value="password123">
-									<input type="text" class="showText" value="password123">
-									<label for="checkPassword" class="fa fa-eye"></label> <label
-										for="checkPassword" class="fa fa-eye-slash"></label>
-								</div></td>
+							<td class="password_form"><input type="password"
+								name="password" id="textPassword" class="password_form_default"
+								maxlength="30" > <span id="buttonEye"
+								class="fa fa-eye-slash" onclick="pushHideButton()"></span></td>
 						</tr>
 					</table>
 

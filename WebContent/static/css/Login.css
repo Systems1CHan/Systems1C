@@ -5,11 +5,11 @@
  * 作成者      ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
- * (2022/09/08 ： NarimichiHenmi/SYS ：パスワードフォームに目玉を追加)
+ * (2022/09/09 ： NarimichiHenmi/SYS ：IDとパスワードのフォームを変更)
  *------------------------------------------------------------------------------
  */
 
- /* 入力フォームのテーブル */
+/* 入力フォームのテーブル */
 .IDpass_table {
 	/* 文字の大きさ */
 	font-size: 20px;
@@ -26,10 +26,26 @@
 	text-align: left;
 }
 
-/* IDのフォーム */
+/* デフォルトのIDのフォーム（パスワードフォームと大きさを統一するためIDもパスワードフォームに合わせる） */
+.ID_form_default {
+	/* デフォルトの枠線を消す */
+	border: none;
+	/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	width: 290px;
+	/* Google Chromeのためにデフォルトフォームの縦を設定 */
+	height: 30px;
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
 .ID_form {
-	/* フォームの長さ */
-	width: 300px
+	/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	background-color: #FFFFFF;
+	/* フォームの枠 */
+	border-width: thin;
+	border-style: solid;
+	/* フォームの縦横 */
+	width: 290px;
+	height: 24px;
 }
 
 /* パスワードの文字 */
@@ -38,11 +54,31 @@
 	text-align: left;
 }
 
-/* パスワードのフォームは一番下にまとめてある */
+/* デフォルトのパスワードのフォーム */
+.password_form_default {
+	/* デフォルトの枠線を消す */
+	border: none;
+	/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	width: 250px;
+	/* Google Chromeのためにデフォルトフォームの縦を設定 */
+	height: 28px;
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
+.password_form {
+	/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	background-color: #FFFFFF;
+	/* フォームの枠 */
+	border-width: thin;
+	border-style: solid;
+	/* フォームの縦横 */
+	width: 290px;
+	height: 24px;
+}
 
 /* 未入力とアカウントチェックのエラーメッセージ */
 .error {
-	color:red;
+	color: red;
 	text-align: center;
 }
 
@@ -74,59 +110,3 @@
 	margin: 30px;
 }
 
-
-
-/* 以下、パスワードのフォーム */
-
-#checkPassword {
-	display: none;
-}
-
-/*入力欄のデフォルト枠は隠す*/
-.hideText, .showText {
-	border: none;
-	outline: none;
-}
-/*新しく入力欄の枠を表示*/
-.togglePassword {
-	border: 1px solid;
-	border-radius: 2px;
-	width: 300px;
-	background-color:#FFFFFF;
-}
-
-/*黒丸表示*/
-.hideText {
-	display: inline;
-}
-/*テキストは非表示*/
-.showText {
-	display: none;
-}
-/* "目のマーク" を表示*/
-.fa-eye:before {
-	display: inline;
-	margin-left: 116.5px;
-}
-/* "目のマーク(スラッシュ)" は非表示*/
-.fa-eye-slash:before {
-	display: none;
-	margin-left: 105px;
-}
-
-/*ボタンが押されたとき(チェックボックスにチェックしたとき) "目のマーク" は非表示*/
-#checkPassword:checked+.togglePassword>.fa-eye:before {
-	display: none;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき) "目のマーク(スラッシュ)" を表示*/
-#checkPassword:checked+.togglePassword>.fa-eye-slash:before {
-	display: inline-block;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき)黒丸を非表示*/
-#checkPassword:checked+.togglePassword>.hideText {
-	display: none;
-}
-/*ボタンが押されたとき(チェックボックスにチェックしたとき)テキストを表示*/
-#checkPassword:checked+.togglePassword>.showText {
-	display: inline-block;
-}
