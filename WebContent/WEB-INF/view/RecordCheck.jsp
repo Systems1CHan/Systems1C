@@ -80,6 +80,7 @@
             </table>
         </header>
         <main>
+        <button type="button" onclick="toTopMenu();">トップへ戻る</button>
         <form>
             <div class="sample-area">
 
@@ -145,10 +146,10 @@
 						</table>
                     </div>
                     <div id="tabpage2">
-                    						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
+                    						<div class="subTitle">計上確認(補償タブ)</div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
- 							 <td colspan="2">計上確認</td>
+ 							 <td colspan="2">自動車保険料試算果</td>
  							 </tr>
 							 <tr>
    								 <td>保険料</td><td>甘い</td>

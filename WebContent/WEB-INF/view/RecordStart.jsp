@@ -29,6 +29,7 @@
 		<div class="header_title">契約管理・事故受付システム ハンディー</div>
 	</header>
 	<main>
+	<button type="button" onclick="toTopMenu();">トップへ戻る</button>
 		<article>
 				<form action="" id="@@@@@@@@@" method="post">
 					<table class="button_table">
