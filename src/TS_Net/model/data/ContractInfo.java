@@ -217,6 +217,7 @@ public class ContractInfo implements Serializable {
 	 */
 	public String getInsureanceIntervalForLabel() {
 		String inceptionTime24 = null;
+		String conclusionTime24 = null;
 
 		if(Integer.parseInt(inceptionTime) <= 12 ) {
 			inceptionTime24 = "午前" + inceptionTime + "時";
@@ -224,7 +225,16 @@ public class ContractInfo implements Serializable {
 			int num = Integer.parseInt(inceptionTime) - 12;
 			inceptionTime24 = "午後" + Integer.toString(num) + "時";
 		}
-		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" + inceptionTime24  ;
+
+		if(Integer.parseInt(conclusionTime) <= 12 ) {
+			conclusionTime24 = "午前" + inceptionTime + "時";
+		} else if (Integer.parseInt(conclusionTime) > 12) {
+			int num = Integer.parseInt(conclusionTime) - 12;
+			conclusionTime24 = "午後" + Integer.toString(num) + "時";
+		}
+
+
+		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" + inceptionTime24 + "から" + conclusionDate.substring(0, 4) + "年" + conclusionDate.substring(4, 6) + "月" + conclusionDate.substring(6, 8) + "日" + conclusionTime24 + "まで"   ;
 	}
 
 
@@ -244,6 +254,38 @@ public class ContractInfo implements Serializable {
 		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
 		maskFormatter.setValueContainsLiteralCharacters(false);
 		return maskFormatter.valueToString(telephoneNo);
+	}
+
+	/**
+	 * FAX番号取得メソッド
+	 * <p>
+	 * 画面に表示させるための電話番号を取得する。
+	 * また電話番号は市外局番(3桁)-市内局番(4桁)-番号(4桁)の形で表示する。
+	 * </p>
+	 * @return FAX番号
+	 * @throws ParseException
+	 */
+	public String getFaxNoForLabel() throws ParseException {
+		String phoneMask= "###-####-####";
+		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
+		maskFormatter.setValueContainsLiteralCharacters(false);
+		return maskFormatter.valueToString(faxNo);
+	}
+
+	/**
+	 * 携帯電話番号取得メソッド
+	 * <p>
+	 * 画面に表示させるための電話番号を取得する。
+	 * また電話番号は市外局番(3桁)-市内局番(4桁)-番号(4桁)の形で表示する。
+	 * </p>
+	 * @return 携帯電話番号
+	 * @throws ParseException
+	 */
+	public String getMobilePhoneNoForLabel() throws ParseException {
+		String phoneMask= "###-####-####";
+		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
+		maskFormatter.setValueContainsLiteralCharacters(false);
+		return maskFormatter.valueToString(faxNo);
 	}
 
 

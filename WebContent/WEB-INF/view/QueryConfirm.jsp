@@ -87,7 +87,7 @@
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
  							 <tr>
-   								 <td>保険期間</td><td>aaaaa</td>
+   								 <td>保険期間</td><td><c:out value="${requestScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
   							</tr>
  							 <tr>
    								 <td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
@@ -126,13 +126,13 @@
    								 <td>住所-漢字</td><td><c:out value="${requestScope.contractInfo.getKanjiAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>電話番号</td><td><c:out value="${requestScope.contractInfo.getTelephoneNoForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>携帯電話番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>携帯電話番号</td><td><c:out value="${requestScope.contractInfo.getMobilePhoneNoForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>FAX番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   								 <td>FAX番号</td><td><c:out value="${requestScope.contractInfo.getFaxNoForLabel()}"/></td>
   							</tr>
 						</table>
                     </div>
