@@ -143,7 +143,7 @@
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
 							 <tr>
-   								 <td>保険料</td><td>甘い</td>
+   								 <td>保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
  							 <tr>
    								 <td>メーカー</td><td>酸っぱい</td>

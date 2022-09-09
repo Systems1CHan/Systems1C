@@ -186,7 +186,7 @@ public class Compensation implements Serializable {
 	 * @param compensation 補償情報オブジェクト
 	 * @return 総額保険料
 	 */
-	public String getPremiumAmountForLabel(Compensation compensation) {
+	public String getPremiumAmountForLabel() {
 		//Integer rateSum = vehicleRates + bodilyRates + propertyDamageRates + accidentRates;
 		//premiumAmount = vehiclePrice * rateSum * 12 * licenseColor * ageLimit;
 		return premiumAmount + "円";

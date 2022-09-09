@@ -88,8 +88,26 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		try {
 			compensationDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			compensation = compensationDao.getCompensation(contractInfo.getInsatsuRenban());
-			request.setAttribute("compensation", compensation);
+//			compensation = compensationDao.getCompensation(contractInfo.getInsatsuRenban());
+
+
+			Compensation compensationInf = new Compensation();
+			compensationInf.setCoverId(00000001);
+			compensationInf.setInsatsuRenban("A0000001");
+			compensationInf.setMaker("TOYOTA");
+			compensationInf.setCarName("レクサス");
+			compensationInf.setLicenseNo("多摩500さ4649");
+			compensationInf.setVehiclePrice(1000000);
+			compensationInf.setVehicleRates("3");
+			compensationInf.setBodilyRates("3");
+			compensationInf.setPropertyDamageRates("3");
+			compensationInf.setAccidentRates("3");
+			compensationInf.setLicenseColor("2");
+			compensationInf.setAgeLimit("3");
+			compensationInf.setPremiumAmount(1000000);
+			compensationInf.setPremiumInstallment(1000000);
+
+			request.setAttribute("compensation", compensationInf);
 
 		} catch (ClassNotFoundException | SQLException e) {
 
