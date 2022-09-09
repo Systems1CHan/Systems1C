@@ -74,7 +74,7 @@ public class CompensationDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public Compensation getCompensation(Integer insatsuRenban) throws SQLException {
+	public Compensation getCompensation(String insatsuRenban) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */

@@ -150,6 +150,40 @@ public class ContractInfo implements Serializable {
 	}
 
 	/**
+	 * 契約者名取得メソッド
+	 * <p>
+	 * 画面に表示させるためのカナ契約者氏名を取得する。
+	 * また顧客氏名は敬称をつけてリターンする。
+	 * </p>
+	 * @return 顧客カナ氏名（敬称つき）
+	 */
+	public String getkanaNameForLabel() {
+		return nameKana1 + namekana2 + "様";
+	}
+
+	/**
+	 * 契約者漢字住所メソッド
+	 * <p>
+	 * 画面に表示させるための漢字住所を取得する。
+	 * </p>
+	 * @return 漢字住所
+	 */
+	public String getKanjiAddressForLabel() {
+		return addressKanji1 + addressKanji2;
+	}
+
+	/**
+	 * 契約者カナ住所メソッド
+	 * <p>
+	 * 画面に表示させるためのカナ住所を取得する。
+	 * </p>
+	 * @return カナ住所
+	 */
+	public String getKanaAddressForLabel() {
+		return addressKana1 + addressKana2;
+	}
+
+	/**
 	 * 郵便番号取得メソッド
 	 * <p>
 	 * 画面に表示させるための郵便番号を取得する。
@@ -158,8 +192,33 @@ public class ContractInfo implements Serializable {
 	 * @return 郵便番号
 	 */
 	public String getPostcodeForLabel() {
-		return "〒" + postcode;
+		return "〒" + postcode.substring(0, 3) + "-" + postcode.substring(3, 6);
 	}
+
+	/**
+	 * 生年月日メソッド
+	 * <p>
+	 * 画面に表示させるための生年月日を取得する。
+	 * 西暦でリターンする。
+	 * </p>
+	 * @return 生年月日
+	 */
+	public String getBirthdayForLabel() {
+		return birthday.substring(0, 4) + "年" + birthday.substring(4, 6) + "月" + birthday.substring(6, 8) + "日";
+	}
+
+	/**
+	 * 保険期間メソッド
+	 * <p>
+	 * 画面に表示させるための保険期間を取得する。
+	 * 西暦でリターンする。＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃※作成中
+	 * </p>
+	 * @return 保険期間
+	 */
+	public String getInsureanceIntervalForLabel() {
+		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" ;
+	}
+
 
 	/**
 	 * 電話番号取得メソッド
@@ -176,6 +235,10 @@ public class ContractInfo implements Serializable {
 		maskFormatter.setValueContainsLiteralCharacters(false);
 		return maskFormatter.valueToString(telephoneNo);
 	}
+
+
+
+
 
     /*
      * 以下各メンバ変数のゲッター・セッター
