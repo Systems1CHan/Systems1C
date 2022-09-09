@@ -47,7 +47,7 @@ public class Compensation implements Serializable {
 	private Integer premiumAmount;
 	/* 一回分保険料*/
 	private Integer premiumInstallment;
-	/* 一回分保険料*/
+	/* 印刷連番*/
 	ContractInfo contractInf = new ContractInfo();
 	private String insatsuRenban = contractInf.getInsatsuRenban();
 
@@ -186,11 +186,58 @@ public class Compensation implements Serializable {
 	 * @param compensation 補償情報オブジェクト
 	 * @return 総額保険料
 	 */
+
+	public double rate(String string) {
+
+	if(string.equals("0")) {
+		return 0.0;
+	}else if(accidentRates.equals("1")){
+		return 1.0;
+	}else if(accidentRates.equals("2")){
+		return 1.2;
+	}else if(accidentRates.equals("3")) {
+		return 1.4;
+	}else if(accidentRates.equals("4")) {
+		return 1.6;
+	}else {
+		return 1.9;
+	}
+	}
+
+	public double licenserate(String string) {
+
+	if(string.equals("3")) {
+		return 0.7;
+	}else if(accidentRates.equals("2")){
+		return 1.0;
+	}else{
+		return 1.3;
+	}
+	}
+
+	public double olderRate(String string) {
+			if(ageLimit.equals("1")) {
+				return 1.5;
+			}else if(ageLimit.equals("2")){
+				return 1.2;
+			}else {
+				return 1.0;
+			}
+	}
+
+
 	public String getPremiumAmountForLabel() {
-		//Integer rateSum = vehicleRates + bodilyRates + propertyDamageRates + accidentRates;
-		//premiumAmount = vehiclePrice * rateSum * 12 * licenseColor * ageLimit;
+
+
+		double dpremiumAmount = (int) (vehiclePrice * (rate(vehicleRates) + rate(bodilyRates) + rate(propertyDamageRates) + rate(accidentRates))) * 12 * licenserate(licenseColor) * olderRate(ageLimit)  ;
+		premiumAmount = (int) dpremiumAmount;
 		return premiumAmount + "円";
 	}
+
+//	車両保険金額 * （料率・車両 + 料率・対人 + 料率・対物 + 料率・傷害） * 12 * 免許証の色 * 年齢条件
+
+
+
 
 	/**
 	 * 一回分保険料取得メソッド。
@@ -202,7 +249,11 @@ public class Compensation implements Serializable {
 	 * @param installment 払込回数
 	 * @return 一回分保険料
 	 */
-	public String getPremiumInstallmentForLabel(Integer premiumAmount, Integer installment) {
+	public String getPremiumInstallmentForLabel() {
+
+		ContractInfo contractInf = new ContractInfo();
+		Integer installment = contractInf.getInstallment();
+
 		premiumInstallment = this.premiumAmount / installment;
 		return premiumInstallment + "円";
 	}
