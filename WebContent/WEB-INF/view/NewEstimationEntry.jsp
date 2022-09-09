@@ -84,56 +84,83 @@
                 </p>
                 <div id="tabbody">
                     <div id="tabpage1">
-                        <form id="mailformpro" action="mailformpro/mailformpro.cgi" method="POST">
+                        <form action="" method="post" class="radiochange">
                             <table border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td align="center">
-                                <h1>新規試算入力（契約条件タブ）</h1>
-                                <h2>
-                                  被保険者の個人・法人区分&emsp;&emsp;
-                                  <label>
-                                    <input type="radio" name="entryPlan" value="hoge1" onclick="entryChange1();" checked="checked" />
-                                    個人</label>
-                                  <label>
-                                    <input type="radio" name="entryPlan" value="hoge2" onclick="entryChange1();" />
-                                    法人</label>
-                                </h2>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td align="center">
+                                    <h1>新規試算入力（契約条件タブ）</h1>
+                                    <h2>
+                                      被保険者の個人・法人区分&emsp;&emsp;
+                                        <label>
+                                            <input type="radio" name="entryPlan" value="hoge1" onclick="entryChange1();" checked="checked" />個人
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="entryPlan" value="hoge2" onclick="entryChange1();" />法人
+                                        </label>
+                                    </h2>
+                                    </td>
+                                </tr>
                             </table>
-                              <!-- 表示切り替えfirstBox -->
-                            <table border="0">
-                            <dl id="firstBox">
-                                <dl class="mailform" align="center">
-                                    <h3>
-                                        印刷連番
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        保険期間始期日
-                                        <input type="date" placeholder="YYYY/MM/DD">
-                                    </h3>
-                                    <h3>
-                                        保険期間始期時刻
-                                    </h3>
-                                    <h3>
-                                        保険期間満期日
-                                        <input type="date" placeholder="YYYY/MM/DD">
-                                    </h3>
-                                    <h3>
-                                        保険期間満期時刻
-                                    </h3>
-                                    <h3>
-                                        支払方法
-                                        <select>
+                            <table id="firstBox" width="2500">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">印刷連番</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="inceptionDate">保険期間始期日</label>
+                                    </th>
+                                    <td>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="inceptionTime">保険期間始期時刻</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="inceptionTime" name="inceptionTime" size="60">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="conclusionDate">保険期間満期日</label>
+                                    </th>
+                                    <td>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="conclusionTime">保険期間満期時刻</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="conclusionTime" name="conclusionTime" size="60">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="paymentMethod">払込方法</label>
+                                    </th>
+                                    <td>
+                                        <select name="paymentMethod">
                                             <option>直接集金</option>
                                             <option>口座振替</option>
                                             <option>クレジットカード</option>
                                         </select>
-                                    </h3>
-                                    <h3>
-                                        払込回数
-                                        <select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="installment">払込回数</label>
+                                    </th>
+                                    <td>
+                                        <select name="installment">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -141,133 +168,294 @@
                                             <option>6</option>
                                             <option>12</option>
                                         </select>
-                                    </h3>
-                                    <h3>
-                                        氏名カナ１
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        氏名カナ２
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        氏名漢字１
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        氏名漢字２
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        郵便番号
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        住所カナ１
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        住所カナ２
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        住所漢字１
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        住所漢字２
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        生年月日
-                                        <input type="date" placeholder="YYYY/MM/DD">
-                                    </h3>
-                                    <h3>
-                                        性別
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKana1">氏名カナ１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKana2">氏名カナ２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKanji1">氏名漢字１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKanji2">氏名漢字２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="postcode">郵便番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKana1">住所カナ１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKana2">住所カナ２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKanji1">住所漢字１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKanji2">住所漢字２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="birthday">生年月日</label>
+                                    </th>
+                                    <td>
+                                        <input type="date" id="birthday" name="birthday" size="60" placeholder="YYYY/MM/DD">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="gender">性別</label>
+                                    </th>
+                                    <td>
                                         <label>
-                                            <input type="radio"/>男
-                                            <input type="radio"/>女
+                                            <input type="radio" id="gender" name="gender" value="1">男
+                                            <input type="radio" id="gender" name="gender" value="2">女
                                         </label>
-                                    </h3>
-                                    <h3>
-                                        電話番号
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        携帯電話番号
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                    <h3>
-                                        FAX番号
-                                        <input type="text" placeholder="A0000001">
-                                    </h3>
-                                </dl>
-                            </dl>
-
-                              <!-- 表示切り替えsecondBox -->
-                            <dl id="secondBox">
-                                <dl class="mailform" align="center">
-                                    <h3>
-                                        印刷連番
-                                    </h3>
-                                    <h3>
-                                        保険期間始期日
-                                    </h3>
-                                    <h3>
-                                        保険期間始期時刻
-                                    </h3>
-                                    <h3>
-                                        保険期間満期日
-                                    </h3>
-                                    <h3>
-                                        保険期間満期時刻
-                                    </h3>
-                                    <h3>
-                                        支払方法
-                                    </h3>
-                                    <h3>
-                                        払込回数
-                                    </h3>
-                                    <h3>
-                                        会社名カナ１
-                                    </h3>
-                                    <h3>
-                                        会社名カナ２
-                                    </h3>
-                                    <h3>
-                                        会社名漢字１
-                                    </h3>
-                                    <h3>
-                                        会社名漢字２
-                                    </h3>
-                                    <h3>
-                                        郵便番号
-                                    </h3>
-                                    <h3>
-                                        住所カナ１
-                                    </h3>
-                                    <h3>
-                                        住所カナ２
-                                    </h3>
-                                    <h3>
-                                        住所漢字１
-                                    </h3>
-                                    <h3>
-                                        住所漢字２
-                                    </h3>
-                                    <h3>
-                                        電話番号
-                                    </h3>
-                                    <h3>
-                                        携帯電話番号
-                                    </h3>
-                                    <h3>
-                                        FAX番号
-                                    </h3>
-                                </dl>
-                            </dl>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="telephoneNo">電話番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="mobliephoneNo">携帯電話番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="faxNo">FAX番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789">
+                                    </td>
+                                </tr>
+                            </tbody>
                             </table>
-                          </form>
+
+                            <table id="secondBox" width="2500">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">印刷連番</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="inceptionDate">保険期間始期日</label>
+                                    </th>
+                                    <td>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="inceptionTime">保険期間始期時刻</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="inceptionTime" name="inceptionTime" size="60">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="conclusionDate">保険期間満期日</label>
+                                    </th>
+                                    <td>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="conclusionTime">保険期間満期時刻</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="conclusionTime" name="conclusionTime" size="60">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="paymentMethod">払込方法</label>
+                                    </th>
+                                    <td>
+                                        <select name="paymentMethod">
+                                            <option>直接集金</option>
+                                            <option>口座振替</option>
+                                            <option>クレジットカード</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="installment">払込回数</label>
+                                    </th>
+                                    <td>
+                                        <select name="installment">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>6</option>
+                                            <option>12</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKana1">会社名カナ１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）タマホケン">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKana2">会社名カナ２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）カブシキガイシャ">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKanji1">会社名漢字１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）多摩保険">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="nameKanji2">会社名漢字２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）株式会社">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="postcode">郵便番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKana1">住所カナ１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKana2">住所カナ２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKanji1">住所漢字１</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="addressKanji2">住所漢字２</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="telephoneNo">電話番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="mobliephoneNo">携帯電話番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="faxNo">FAX番号</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </form>
                     </div>
                     <div id="tabpage2">
                         <h1>新規試算入力（補償タブ）</h1>
@@ -280,7 +468,7 @@
                                 <td>○○円</td>
                             </tr>
                         </table>
-                        <table border="0">
+                        <table border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td align="center">
                                 <h3>
