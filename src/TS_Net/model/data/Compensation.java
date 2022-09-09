@@ -76,6 +76,14 @@ public class Compensation implements Serializable {
 		}
 	}
 
+	public String getInsatsuRenban() {
+		return insatsuRenban;
+	}
+
+	public void setInsatsuRenban(String insatsuRenban) {
+		this.insatsuRenban = insatsuRenban;
+	}
+
 	/**
 	 * 対人料率取得メソッド。
 	 * <p>
