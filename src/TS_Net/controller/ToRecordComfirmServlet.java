@@ -106,18 +106,15 @@ public class ToRecordComfirmServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 
-		} catch (SQLException e) {
-			/* SQLExceptionが発生した場合。 */
-			request.setAttribute("message", e.getMessage());
-			String jsp = "/WEB-INF/view/RecordStart.jsp";
-			RequestDispatcher rd = request.getRequestDispatcher(jsp);
+		 } catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+			// システムエラー画面を戻り値に設定する。
+			//システムエラー画面へforwardする。
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
-		} catch (ClassNotFoundException e) {
-			/* ClassNotFoundExceptionが発生した場合。 */
-			request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-			String jsp ="/WEB-INF/view/RecordStart.jsp";
-			RequestDispatcher rd = request.getRequestDispatcher(jsp);
-			rd.forward(request, response);
+;
 		} finally {
 			try {
 				/* DAOクローズ */
