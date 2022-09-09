@@ -216,8 +216,18 @@ public class ContractInfo implements Serializable {
 	 * @return 保険期間
 	 */
 	public String getInsureanceIntervalForLabel() {
-		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" ;
+		String inceptionTime24 = null;
+
+		if(Integer.parseInt(inceptionTime) <= 12 ) {
+			inceptionTime24 = "午前" + inceptionTime + "時";
+		} else if (Integer.parseInt(inceptionTime) > 12) {
+			int num = Integer.parseInt(inceptionTime) - 12;
+			inceptionTime24 = "午後" + Integer.toString(num) + "時";
+		}
+		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" + inceptionTime24  ;
 	}
+
+
 
 
 	/**
