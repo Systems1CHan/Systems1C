@@ -47,9 +47,6 @@ public class Compensation implements Serializable {
 	private Integer premiumAmount;
 	/* 一回分保険料*/
 	private Integer premiumInstallment;
-	/* 一回分保険料*/
-	ContractInfo contractInf = new ContractInfo();
-	private String insatsuRenban = contractInf.getInsatsuRenban();
 
 	/**
 	 * 車両料率取得メソッド。
@@ -312,13 +309,5 @@ public class Compensation implements Serializable {
 
 	public void setPremiumInstallment(Integer premiumInstallment) {
 		this.premiumInstallment = premiumInstallment;
-	}
-
-	public String getInsatsuRenban() {
-		return insatsuRenban;
-	}
-
-	public void setInsatsuRenban(String insatsuRenban) {
-		this.insatsuRenban = insatsuRenban;
 	}
 }

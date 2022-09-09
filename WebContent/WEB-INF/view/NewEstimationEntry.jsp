@@ -465,48 +465,114 @@
                                 <td colspan="2">自動車保険料試算結果</td>
                             </tr>
                             <tr>
-                                <td>保険料</td>
+                                <td>総額保険料</td>
+                                <td>○○円</td>
+                            </tr>
+                            <tr>
+                                <td>一回分保険料</td>
                                 <td>○○円</td>
                             </tr>
                         </table>
-                        <table border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td align="center">
-                                <h3>
-                                    メーカー
-                                </h3>
-                                <h3>
-                                    車名
-                                </h3>
-                                <h3>
-                                    車のナンバー
-                                </h3>
-                                <h3>
-                                    一回分保険料
-                                </h3>
-                                <h3>
-                                    車両保険金額
-                                </h3>
-                                <h3>
-                                    免許証の色
-                                </h3>
-                                <h3>
-                                    車両料率
-                                </h3>
-                                <h3>
-                                    対人料率
-                                </h3>
-                                <h3>
-                                    対物料率
-                                </h3>
-                                <h3>
-                                    傷害料率
-                                </h3>
-                                <h3>
-                                    年齢条件
-                                </h3>
-                                </td>
-                            </tr>
+                        <table id="secondBox" width="2500">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="maker">メーカー</label>
+                                    </th>
+                                    <td>
+                                        <select name="maker">
+                                            <option>レクサス</option>
+                                            <option>マツダ</option>
+                                            <option>ホンダ</option>
+                                            <option>ニッサン</option>
+                                            <option>トヨタ</option>
+                                            <option>スバル</option>
+                                            <option>スズキ</option>
+                                            <option>三菱</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">車名</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="licenseNo">車のナンバー</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）多摩 12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">車両保険金額</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="licenseColor">免許証の色</label>
+                                    </th>
+                                    <td>
+                                        <select name="licenseColor">
+                                            <option>ブルー</option>
+                                            <option>グリーン</option>
+                                            <option>ゴールド</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">料率・車両</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">料率・対人</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">料率・対物</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="insatsuRenban">料率・傷害</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="ageLimit">年齢条件</label>
+                                    </th>
+                                    <td>
+                                        <select name="ageLimit">
+                                            <option>無条件</option>
+                                            <option>21歳以上</option>
+                                            <option>26歳以上</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
