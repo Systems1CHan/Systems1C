@@ -63,7 +63,7 @@ public class LoginProcessServlet extends HttpServlet {
 		if (errorMsg != null) {
 			/* セッションスコープにエラーメッセージをセットする。 */
 			request.setAttribute("errorMsg", errorMsg);
-			/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */
+			/* ログインページに遷移 */
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
 			rd.forward(request, response);
 			return;
@@ -84,7 +84,7 @@ public class LoginProcessServlet extends HttpServlet {
 		} catch (SQLException | ClassNotFoundException e) {
 			/* セッションスコープにエラーメッセージをセットする。 */
 			request.setAttribute("errorMsg", ErrorMsgConst.SYSTEM_ERROR);
-			/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */
+			/* エラーページに遷移 */
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
 		} finally {
@@ -94,7 +94,7 @@ public class LoginProcessServlet extends HttpServlet {
 			} catch (SQLException e) {
 				/* セッションスコープにエラーメッセージをセットする。 */
 				request.setAttribute("errorMsg", ErrorMsgConst.SYSTEM_ERROR);
-				/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */
+				/* エラーページに遷移 */
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 				rd.forward(request, response);
 			}
@@ -107,7 +107,7 @@ public class LoginProcessServlet extends HttpServlet {
 		if (errorMsg != null) {
 			/* セッションスコープにエラーメッセージをセットする。 */
 			request.setAttribute("errorMsg", errorMsg);
-			/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */
+			/* ログインページに遷移 */
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
 			rd.forward(request, response);
 			return;
