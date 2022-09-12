@@ -105,6 +105,9 @@
    								 <td>払込方法</td><td><c:out value="${requestScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
   							 <tr>
+   								 <td>払込回数</td><td><c:out value="${requestScope.contractInfo.getInstallment()}"/></td>
+  							</tr>
+  							 <tr>
    								 <td>氏名-カナ</td><td><c:out value="${requestScope.contractInfo.getkanaNameForLabel()}"/></td>
   							</tr>
   							 <tr>
@@ -149,34 +152,34 @@
    								 <td>メーカー</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車名</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>
+   								 <td>車名</td><td><c:out value="${requestScope.compensation.getMaker()}"/></td>
   							 </tr>
   							 <tr>
    								 <td>車のナンバー</td><td><c:out value="${requestScope.compensation.getCarNameForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両保険金額</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>車両保険金額</td><td><c:out value="${requestScope.compensation.getVehiclePrice()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>免許証の色</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>免許証の色</td><td><c:out value="${requestScope.compensation.getLicenseColorForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>車両料率</td><td><c:out value="${requestScope.compensation.getVehicleRatesForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>退陣料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>対人料率</td><td><c:out value="${requestScope.compensation.getBodilyRatesForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>対物料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>対物料率</td><td><c:out value="${requestScope.compensation.getPropertyDamageRatesForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>障害料率</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>障害料率</td><td><c:out value="${requestScope.compensation.getAccidentRatesForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>年齢条件</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>年齢条件</td><td><c:out value="${requestScope.compensation.getAgeLimitForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>１回分保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td>１回分保険料</td><td><c:out value="${requestScope.compensation.getPremiumInstallment()}"/></td>
   							</tr>
 						</table>
                     </div>
