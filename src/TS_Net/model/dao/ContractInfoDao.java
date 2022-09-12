@@ -113,7 +113,7 @@ public class ContractInfoDao {
 		ResultSet res =  null;
 		ContractInfo contractInfo = new ContractInfo();
 
-		try {	stmt=con.prepareStatement(sql);
+//		try {	stmt=con.prepareStatement(sql);
 //				res=stmt.executeQuery();
 //				stmt.setString(1, polNo);
 
@@ -173,14 +173,14 @@ public class ContractInfoDao {
 //			contractInfo.setMobilephoneNo(res.getString("mobilephone_no"));
 //			contractInfo.setFaxNo(res.getString("fax_no"));
 
-		}finally {
-			if(res != null) {
-				res.close();
-			}
-			if(stmt != null) {
-				stmt.close();
-			}
-		}
+//		}finally {
+//			if(res != null) {
+//				res.close();
+//			}
+//			if(stmt != null) {
+//				stmt.close();
+//			}
+//		}
 		return contractInfo;
 //
 	}
