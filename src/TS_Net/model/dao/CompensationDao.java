@@ -118,7 +118,7 @@ public class CompensationDao {
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		Compensation compensation = new Compensation();
-		insatsuRenban = "A0000001";
+//		insatsuRenban = "A0000001";
 
 		try {	stmt=con.prepareStatement(sql);
 				stmt.setString(1, insatsuRenban);
@@ -138,7 +138,7 @@ public class CompensationDao {
 			compensation.setVehicleRates(res.getString("vehicle_rates"));
 			compensation.setBodilyRates(res.getString("bodily_rates"));
 			compensation.setPropertyDamageRates(res.getString("property_damage_rates"));
-			compensation.setInsatsuRenban(res.getString("accident_rates"));
+			compensation.setAccidentRates(res.getString("accident_rates"));
 			compensation.setLicenseColor(res.getString("license_color"));
 			compensation.setAgeLimit(res.getString("age_limit"));
 		}
@@ -152,21 +152,21 @@ public class CompensationDao {
 			}
 		}
 
-//		Compensation compensationInf = new Compensation();
-//		compensationInf.setCoverId(00000001);
-//		compensationInf.setInsatsuRenban("A0000001");
-//		compensationInf.setMaker("TOYOTA");
-//		compensationInf.setCarName("レクサス");
-//		compensationInf.setLicenseNo("多摩500さ4649");
-//		compensationInf.setVehiclePrice(1000000);
-//		compensationInf.setVehicleRates("3");
-//		compensationInf.setBodilyRates("3");
-//		compensationInf.setPropertyDamageRates("3");
-//		compensationInf.setAccidentRates("3");
-//		compensationInf.setLicenseColor("2");
-//		compensationInf.setAgeLimit("3");
-//		compensationInf.setPremiumAmount(1000000);
-//		compensationInf.setPremiumInstallment(1000000);
+//		Compensation compensation = new Compensation();
+//		compensation.setCoverId(00000001);
+//		compensation.setInsatsuRenban("A0000001");
+//		compensation.setMaker("TOYOTA");
+//		compensation.setCarName("レクサス");
+//		compensation.setLicenseNo("多摩500さ4649");
+//		compensation.setVehiclePrice(1000000);
+//		compensation.setVehicleRates("3");
+//		compensation.setBodilyRates("3");
+//		compensation.setPropertyDamageRates("3");
+//		compensation.setAccidentRates("3");
+//		compensation.setLicenseColor("2");
+//		compensation.setAgeLimit("3");
+//		compensation.setPremiumAmount(1000000);
+//		compensation.setPremiumInstallment(1000000);
 
 
 		return compensation;

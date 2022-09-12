@@ -130,7 +130,7 @@ public class ContractInfo implements Serializable {
 	 * @return 被保険者区分
 	 */
 	public String getInsuredKbnForLabel() {
-		if(installment == 1) {
+		if(insuredKbn.equals("1")) {
 			return "個人";
 		}else {
 			return "法人";
