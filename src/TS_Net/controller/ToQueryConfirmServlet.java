@@ -56,6 +56,10 @@ public class ToQueryConfirmServlet extends HttpServlet {
 			contractInfoDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 			contractInfo = contractInfoDao.getContractInfo(polNo);
+			if(contractInfo.getInstallment() == 2) {
+				page = "/WEB-INF/view/QueryConfirmCompany.jsp";
+
+			}
 			//リクエスト領域に格納する。
 			request.setAttribute("contractInfo", contractInfo);
 

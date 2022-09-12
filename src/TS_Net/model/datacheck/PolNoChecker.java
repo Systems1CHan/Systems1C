@@ -30,12 +30,16 @@ public class PolNoChecker {
 	 *契約情報オブジェクトの証券番号、
 	 *事故受付情報オブジェクトの事故受付番号
 	 *がともに入力されていた場合、エラーメッセージを返却する。
+	 *※注意！！変数がオブジェクトではなく証券番号と事故受け付け番号になっている！！！
 	 * </p>
 	 */
-	public String polNoInputCheck(ContractInfo contractInfo) {
+	public String polNoInputCheck(String polNo, String claimNo) {
 
 
-		if(((contractInfo.getPolNo() != null) || (contractInfo.getPolNo().length() != 0)) && ((contractInfo.getClaimNo() != null) || (contractInfo.getClaimNo().length() != 0))){
+//		if(((polNo != null) || (polNo.length() != 0)) && ((claimNo != null) || (claimNo.length() != 0))){
+
+		if(polNo != null && polNo.length() != 0 && claimNo != null && claimNo.length() != 0){
+
 
 			return ErrorMsgConst.FORM_ERROR0001;
 
@@ -51,12 +55,14 @@ public class PolNoChecker {
 	 *契約情報オブジェクトの証券番号、
 	 *事故受付情報オブジェクトの事故受付番号がともに未入力の場合、
 	 *エラーメッセージを返却する。
+	 *
+	 *※注意！！変数がオブジェクトではなく証券番号と事故受け付け番号になっている！！！
 	 * </p>
 	 */
-	public String polNoNotInputCheck(ContractInfo contractInfo) {
+	public String polNoNotInputCheck(String polNo, String claimNo) {
 
 
-		if(((contractInfo.getPolNo() == null) || ("".equals(contractInfo.getPolNo()))) && ((contractInfo.getClaimNo() == null) || ("".equals(contractInfo.getClaimNo())))){
+		if(((polNo == null) || ("".equals(polNo))) && ((claimNo == null) || ("".equals(claimNo)))){
 
 			return ErrorMsgConst.FORM_ERROR0018;
 

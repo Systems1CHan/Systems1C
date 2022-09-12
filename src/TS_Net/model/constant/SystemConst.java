@@ -23,17 +23,16 @@ public class SystemConst {
 	public static final String JDBC_DRIVER_NAME = "com.mysql.jdbc.Driver";
 
 	/** JDBC接続文字列 */
-	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/sal_reservation_db?useSSL=false";
+	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/final_exercise_db?useSSL=false";
 
 	/** ユーザー名 */
-	public static final String USER = "mysql";
+	public static final String USER = "user_name";
 
 	/** パスワード */
 	public static final String PASSWORD = "mysql";
 
 	/** 文字コード */
 	public static final String CHAR_SET = "UTF-8";
-
 
 
 }

@@ -58,6 +58,10 @@ public class AccidentReception implements Serializable {
 	/* 支払金額*/
 	private Integer paymentPrice;
 
+	/* 補償ID*/
+	Compensation compensation = new Compensation();
+	private Integer coverId = compensation.getCoverId();
+
 	/**
 	 * 事故受付フラグ取得メソッド。
 	 * <p>
@@ -71,6 +75,14 @@ public class AccidentReception implements Serializable {
 		}else {
 			return "受付完了済み";
 		}
+	}
+
+	public Integer getCoverId() {
+		return coverId;
+	}
+
+	public void setCoverId(Integer coverId) {
+		this.coverId = coverId;
 	}
 
 	/**

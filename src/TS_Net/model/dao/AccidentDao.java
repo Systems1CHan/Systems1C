@@ -67,7 +67,7 @@ public class AccidentDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public getAccidentReception(Integer claimNo) throws SQLException {
+	public AccidentReception getAccidentReception(Integer claimNo) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
@@ -75,13 +75,13 @@ public class AccidentDao {
 		AccidentReception accidentReception = new AccidentReception();
 		accidentReception.setClaimNo("C0000001");
 		accidentReception.setCoverId(00000001);
-		accidentReception.setClaimStatu(1);
+		accidentReception.setClaimStatus("1");
 		accidentReception.setPaymentPrice(10000);
 		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
-		accidentReception.setAccidentLocationKana("オチアイ");
+		accidentReception.setAccidentLocationKana2("オチアイ");
 		accidentReception.setAccidentLocationKanji1("東京都多摩市");
 		accidentReception.setAccidentLocationKanji2("落合");
-		accidentReception.setAccidentDate(20220909);
+		accidentReception.setAccidentDate("20220909");
 		accidentReception.setRatingBlameMyself(20);
 		accidentReception.setRatingBlameYourself(80);
 		accidentReception.setDamageCarPrice(100000);
