@@ -6,13 +6,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>新規試算入力画面</title>
 
 		<style type="text/css">
 
             /* タブ領域全体 */
             #tabcontrol {
                 margin: 0;
+                width: 300;
             }
 
             /* タブ */
@@ -49,34 +50,108 @@
             /* タブの配色 */
             #tabcontrol a:nth-child(1), #tabbody div:nth-child(1) { background-color: #ffffdd; }	/* 1つ目のタブとその中身用の配色 */
             #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) { background-color: #ddffdd; }	/* 2つ目のタブとその中身用の配色 */
-
         </style>
 
         <script type="text/javascript">
             function entryChange1(){
-                radio = document.getElementsByName('entryPlan')
+                radio = document.getElementsByName('insuredKbn')
                 if(radio[0].checked) {
-                    document.getElementById('firstBox').style.display = "";
-                    document.getElementById('secondBox').style.display = "none";
+                    document.getElementById('個人').style.display = "";
+                    document.getElementById('法人').style.display = "none";
                 }else if(radio[1].checked) {
-                    document.getElementById('firstBox').style.display = "none";
-                    document.getElementById('secondBox').style.display = "";
+                    document.getElementById('個人').style.display = "none";
+                    document.getElementById('法人').style.display = "";
                 }
             }
             window.onload = entryChange1;
         </script>
-	</head>
-	<body>
-		<header>
-            <table>
-                <tr>
-                    <td>
-                        <h1>契約管理・事故受付システム　ハンディー</h1>
-                    </td>
-                </tr>
-            </table>
+    </head>
+    <body>
+        <header>
+            <h1>契約管理・事故受付システム　ハンディー</h1>
         </header>
         <main>
+            <form>
+                <button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
+            </form>
+            <style>
+                .btn {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    max-width: 240px;
+                    padding: 10px 25px;
+                    color: #FFF;
+                    transition: 0.3s ease-in-out;
+                    font-weight: 600;
+                    background: #6bb6ff;
+                    border-radius: 8px;
+                    border-bottom: solid 5px #1d7fde;
+                    margin-bottom: 15px;
+                    margin-top: 25px;
+                    display: inline-block;
+                }
+                .btn:hover {
+                    border-bottom: solid 2px #1d7fde;
+                    transform: translateY(3px);
+                }
+
+                table{
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                table tr{
+                    border-bottom: solid 2px white;
+                }
+
+                table tr:last-child{
+                    border-bottom: none;
+                }
+
+                table th{
+                    position: relative;
+                    text-align: left;
+                    width: 30%;
+                    background-color: #52c2d0;
+                    color: white;
+                    text-align: center;
+                    padding: 10px 0;
+                }
+
+                table th:after{
+                    display: block;
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    position: absolute;
+                    top:calc(50% - 10px);
+                    right:-10px;
+                    border-left: 10px solid #52c2d0;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }
+
+                table td{
+                    text-align: left;
+                    width: 70%;
+                    text-align: center;
+                    background-color: #eee;
+                    padding: 10px 0;
+                }
+
+                input:required{
+                    background: #ffcdd2;
+                }
+                input:valid{
+                    background: transparent;
+                }
+                input:focus{
+                    background: #DCEDC8;
+                }
+            </style>
+
             <div class="sample-area">
 
                 <p id="tabcontrol">
@@ -93,23 +168,25 @@
                                     <h2>
                                       被保険者の個人・法人区分&emsp;&emsp;
                                         <label>
-                                            <input type="radio" name="entryPlan" value="hoge1" onclick="entryChange1();" checked="checked" />個人
+                                            <input type="radio" name="insuredKbn" value="1" onclick="entryChange1();" checked="checked" />個人
                                         </label>
                                         <label>
-                                            <input type="radio" name="entryPlan" value="hoge2" onclick="entryChange1();" />法人
+                                            <input type="radio" name="insuredKbn" value="2" onclick="entryChange1();" />法人
                                         </label>
                                     </h2>
                                     </td>
                                 </tr>
                             </table>
-                            <table id="firstBox" width="2500">
+                            <table id="個人" width="2500">
                             <tbody>
                                 <tr>
                                     <th scope="row">
-                                        <label for="insatsuRenban">印刷連番</label>
+                                        <label for="insatsuRenban">
+                                            <span class="label label-danger">必須</span>印刷連番
+                                        </label>
                                     </th>
                                     <td>
-                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -117,7 +194,7 @@
                                         <label for="inceptionDate">保険期間始期日</label>
                                     </th>
                                     <td>
-                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD">
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -125,7 +202,33 @@
                                         <label for="inceptionTime">保険期間始期時刻</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="inceptionTime" name="inceptionTime" size="60">
+                                        <select name="inceptionTime" required>
+                                            <option value="">保険期間始期時刻を選択してください</option>
+                                            <option value="0">午前0時</option>
+                                            <option value="1">午前1時</option>
+                                            <option value="2">午前2時</option>
+                                            <option value="3">午前3時</option>
+                                            <option value="4">午前4時</option>
+                                            <option value="5">午前5時</option>
+                                            <option value="6">午前6時</option>
+                                            <option value="7">午前7時</option>
+                                            <option value="8">午前8時</option>
+                                            <option value="9">午前9時</option>
+                                            <option value="10">午前10時</option>
+                                            <option value="11">午前11時</option>
+                                            <option value="12">正午</option>
+                                            <option value="13">午後1時</option>
+                                            <option value="14">午後2時</option>
+                                            <option value="15">午後3時</option>
+                                            <option value="16">午後4時</option>
+                                            <option value="17">午後5時</option>
+                                            <option value="18">午後6時</option>
+                                            <option value="19">午後7時</option>
+                                            <option value="20">午後8時</option>
+                                            <option value="21">午後9時</option>
+                                            <option value="22">午後10時</option>
+                                            <option value="23">午後11時</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -133,7 +236,7 @@
                                         <label for="conclusionDate">保険期間満期日</label>
                                     </th>
                                     <td>
-                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD">
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -141,7 +244,33 @@
                                         <label for="conclusionTime">保険期間満期時刻</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="conclusionTime" name="conclusionTime" size="60">
+                                        <select name="conclusionTime" required>
+                                            <option value="">保険期間満期時刻を選択してください</option>
+                                            <option value="0">午前0時</option>
+                                            <option value="1">午前1時</option>
+                                            <option value="2">午前2時</option>
+                                            <option value="3">午前3時</option>
+                                            <option value="4">午前4時</option>
+                                            <option value="5">午前5時</option>
+                                            <option value="6">午前6時</option>
+                                            <option value="7">午前7時</option>
+                                            <option value="8">午前8時</option>
+                                            <option value="9">午前9時</option>
+                                            <option value="10">午前10時</option>
+                                            <option value="11">午前11時</option>
+                                            <option value="12">正午</option>
+                                            <option value="13">午後1時</option>
+                                            <option value="14">午後2時</option>
+                                            <option value="15">午後3時</option>
+                                            <option value="16">午後4時</option>
+                                            <option value="17">午後5時</option>
+                                            <option value="18">午後6時</option>
+                                            <option value="19">午後7時</option>
+                                            <option value="20">午後8時</option>
+                                            <option value="21">午後9時</option>
+                                            <option value="22">午後10時</option>
+                                            <option value="23">午後11時</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -149,10 +278,11 @@
                                         <label for="paymentMethod">払込方法</label>
                                     </th>
                                     <td>
-                                        <select name="paymentMethod">
-                                            <option>直接集金</option>
-                                            <option>口座振替</option>
-                                            <option>クレジットカード</option>
+                                        <select name="paymentMethod" required>
+                                            <option value="">払込方法を選択してください</option>
+                                            <option value="1">直接集金</option>
+                                            <option value="2">口座振替</option>
+                                            <option value="3">クレジットカード</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -162,12 +292,13 @@
                                     </th>
                                     <td>
                                         <select name="installment">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>6</option>
-                                            <option>12</option>
+                                            <option value="">払込回数を選択してください</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="6">6</option>
+                                            <option value="12">12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -289,7 +420,7 @@
                             </tbody>
                             </table>
 
-                            <table id="secondBox" width="2500">
+                            <table id="法人" width="2500">
                             <tbody>
                                 <tr>
                                     <th scope="row">
@@ -312,7 +443,33 @@
                                         <label for="inceptionTime">保険期間始期時刻</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="inceptionTime" name="inceptionTime" size="60">
+                                        <select name="inceptionTime">
+                                            <option value="">保険期間始期時刻を選択してください</option>
+                                            <option value="0">午前0時</option>
+                                            <option value="1">午前1時</option>
+                                            <option value="2">午前2時</option>
+                                            <option value="3">午前3時</option>
+                                            <option value="4">午前4時</option>
+                                            <option value="5">午前5時</option>
+                                            <option value="6">午前6時</option>
+                                            <option value="7">午前7時</option>
+                                            <option value="8">午前8時</option>
+                                            <option value="9">午前9時</option>
+                                            <option value="10">午前10時</option>
+                                            <option value="11">午前11時</option>
+                                            <option value="12">正午</option>
+                                            <option value="13">午後1時</option>
+                                            <option value="14">午後2時</option>
+                                            <option value="15">午後3時</option>
+                                            <option value="16">午後4時</option>
+                                            <option value="17">午後5時</option>
+                                            <option value="18">午後6時</option>
+                                            <option value="19">午後7時</option>
+                                            <option value="20">午後8時</option>
+                                            <option value="21">午後9時</option>
+                                            <option value="22">午後10時</option>
+                                            <option value="23">午後11時</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -328,7 +485,33 @@
                                         <label for="conclusionTime">保険期間満期時刻</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="conclusionTime" name="conclusionTime" size="60">
+                                        <select name="conclusionTime">
+                                            <option value="">保険期間満期時刻を選択してください</option>
+                                            <option value="0">午前0時</option>
+                                            <option value="1">午前1時</option>
+                                            <option value="2">午前2時</option>
+                                            <option value="3">午前3時</option>
+                                            <option value="4">午前4時</option>
+                                            <option value="5">午前5時</option>
+                                            <option value="6">午前6時</option>
+                                            <option value="7">午前7時</option>
+                                            <option value="8">午前8時</option>
+                                            <option value="9">午前9時</option>
+                                            <option value="10">午前10時</option>
+                                            <option value="11">午前11時</option>
+                                            <option value="12">正午</option>
+                                            <option value="13">午後1時</option>
+                                            <option value="14">午後2時</option>
+                                            <option value="15">午後3時</option>
+                                            <option value="16">午後4時</option>
+                                            <option value="17">午後5時</option>
+                                            <option value="18">午後6時</option>
+                                            <option value="19">午後7時</option>
+                                            <option value="20">午後8時</option>
+                                            <option value="21">午後9時</option>
+                                            <option value="22">午後10時</option>
+                                            <option value="23">午後11時</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -337,9 +520,10 @@
                                     </th>
                                     <td>
                                         <select name="paymentMethod">
-                                            <option>直接集金</option>
-                                            <option>口座振替</option>
-                                            <option>クレジットカード</option>
+                                            <option value="">払込方法を選択してください</option>
+                                            <option value="1">直接集金</option>
+                                            <option value="2">口座振替</option>
+                                            <option value="3">クレジットカード</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -349,12 +533,13 @@
                                     </th>
                                     <td>
                                         <select name="installment">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>6</option>
-                                            <option>12</option>
+                                            <option value="">払込回数を選択してください</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="6">6</option>
+                                            <option value="12">12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -456,61 +641,360 @@
                                 </tr>
                             </tbody>
                             </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn">保険料試算</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn">申込書印刷</button>
+                                    </td>
+                                </tr>
+                            </table>
                         </form>
                     </div>
                     <div id="tabpage2">
+                        <form action="" method="post" name="hoshoForm">
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tr>
                                 <td colspan="2">自動車保険料試算結果</td>
                             </tr>
                             <tr>
-                                <td>保険料</td>
+                                <td>総額保険料</td>
+                                <td>○○円</td>
+                            </tr>
+                            <tr>
+                                <td>一回分保険料</td>
                                 <td>○○円</td>
                             </tr>
                         </table>
-                        <table border="0" cellspacing="0" cellpadding="0">
+                        <table id="secondBox" width="2500">
+                            <tbody>
+                                <tr>
+                                    <th>メーカー</th>
+                                    <td>
+                                        <select id="changeSelect" name="maker">
+                                            <option value="">メーカーを選択してください</option>
+                                            <option value="lexus">レクサス</option>
+                                            <option value="matsuda">マツダ</option>
+                                            <option value="honda">ホンダ</option>
+                                            <option value="nissan">ニッサン</option>
+                                            <option value="toyota">トヨタ</option>
+                                            <option value="subaru">スバル</option>
+                                            <option value="suzuki">スズキ</option>
+                                            <option value="mitsubishi">三菱</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>車名</th>
+                                    <td>
+                                        <select name="carName" id="carName">
+                                            <option value="manual">車名を選択してください</option>
+                                            <option value="LS">（レクサス）LS</option>
+                                            <option value="GS">（レクサス）GS</option>
+                                            <option value="IS">（レクサス）IS</option>
+                                            <option value="デミオ">（マツダ）デミオ</option>
+                                            <option value="アクセラ">（マツダ）アクセラ</option>
+                                            <option value="アテンザ">（マツダ）アテンザ</option>
+                                            <option value="インテグラ">（ホンダ）インテグラ</option>
+                                            <option value="ステップワゴン">（ホンダ）ステップワゴン</option>
+                                            <option value="アコードハイブリッド">（ホンダ）アコードハイブリッド</option>
+                                            <option value="フーガ">（ニッサン）フーガ</option>
+                                            <option value="マーチ">（ニッサン）マーチ</option>
+                                            <option value="セレナ">（ニッサン）セレナ</option>
+                                            <option value="スカイライン">（ニッサン）スカイライン</option>
+                                            <option value="カローラアクシオ">（トヨタ）カローラアクシオ</option>
+                                            <option value="アクア">（トヨタ）アクア</option>
+                                            <option value="クラウン">（トヨタ）クラウン</option>
+                                            <option value="レガシィ">（スバル）レガシィ</option>
+                                            <option value="WRX">（スバル）WRX</option>
+                                            <option value="レヴォーグ">（スバル）レヴォーグ</option>
+                                            <option value="スイフト">（スズキ）スイフト</option>
+                                            <option value="キザシ">（スズキ）キザシ</option>
+                                            <option value="エスクード">（スズキ）エスクード</option>
+                                            <option value="アウトラウンダーPHEV">（三菱）アウトラウンダーPHEV</option>
+                                            <option value="デリカD:5">（三菱）デリカD:5</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>車両保険金額</th>
+                                    <td>
+                                        <input type="text" value="" name="vehiclePrice" id="vehiclePrice">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>料率・車両</th>
+                                    <td>
+                                        <input type="text" value="" name="vehicleRates" id="vehicleRates">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>料率・対人</th>
+                                    <td>
+                                        <input type="text" value="" name="bodilyRates" id="bodilyRates">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>料率・対物</th>
+                                    <td>
+                                        <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>料率・車両</th>
+                                    <td>
+                                        <input type="text" value="" name="accidentRates" id="accidentRates">
+                                    </td>
+                                </tr>
+
+                                            <script>
+                                            document.getElementById("carName").onchange = function(){
+                                                var carName= document.getElementById("carName");
+                                                var vehiclePrice = '';
+                                                var vehicleRates = '';
+                                                var bodilyRates = '';
+                                                var propertyDamageRates = '';
+                                                var accidentRates = '';
+
+                                                switch(carName.value){
+                                                    case 'manual':
+                                                        vehiclePrice = '';
+                                                        vehicleRates = '';
+                                                        bodilyRates = '';
+                                                        propertyDamageRates = '';
+                                                        accidentRates = '';
+                                                        break;
+                                                    case 'LS':
+                                                        vehiclePrice = 1090;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 5;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'GS':
+                                                        vehiclePrice = 425;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 5;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'IS':
+                                                        vehiclePrice = 305;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'デミオ':
+                                                        vehiclePrice = 140;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 3;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'アクセラ':
+                                                        vehiclePrice = 210;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'アテンザ':
+                                                        vehiclePrice = 300;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 3;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'インテグラ':
+                                                        vehiclePrice = 125;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 5;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 5;
+                                                        break;
+                                                    case 'ステップワゴン':
+                                                        vehiclePrice = 340;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 3;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'アコードハイブリッド':
+                                                        vehiclePrice = 400;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'フーガ':
+                                                        vehiclePrice = 470;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 5;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'マーチ':
+                                                        vehiclePrice = 70;
+                                                        vehicleRates = 3;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'セレナ':
+                                                        vehiclePrice = 145;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'スカイライン':
+                                                        vehiclePrice = 215;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 5;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'カローラアクシオ':
+                                                        vehiclePrice = 160;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'アクア':
+                                                        vehiclePrice = 195;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'クラウン':
+                                                        vehiclePrice = 350;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'レガシィ':
+                                                        vehiclePrice = 280;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'WRX':
+                                                        vehiclePrice = 265;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'レヴォーグ':
+                                                        vehiclePrice = 250;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'スイフト':
+                                                        vehiclePrice = 145;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'キザシ':
+                                                        vehiclePrice = 170;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'エスクード':
+                                                        vehiclePrice = 155;
+                                                        vehicleRates = 4;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 5;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'アウトラウンダーPHEV':
+                                                        vehiclePrice = 210;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                    case 'デリカD:5':
+                                                        vehiclePrice = 250;
+                                                        vehicleRates = 5;
+                                                        bodilyRates = 4;
+                                                        propertyDamageRates = 4;
+                                                        accidentRates = 4;
+                                                        break;
+                                                }
+
+                                                document.getElementById("vehiclePrice").value = vehiclePrice;
+                                                document.getElementById("vehicleRates").value = vehicleRates;
+                                                document.getElementById("bodilyRates").value = bodilyRates;
+                                                document.getElementById("propertyDamageRates").value = propertyDamageRates;
+                                                document.getElementById("accidentRates").value = accidentRates;
+                                            };
+                                            </script>
+
+                                <tr>
+                                    <th scope="row">
+                                        <label for="licenseNo">車のナンバー</label>
+                                    </th>
+                                    <td>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）多摩 12-34">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="licenseColor">免許証の色</label>
+                                    </th>
+                                    <td>
+                                        <select name="licenseColor">
+                                            <option value="">免許証の色を選択してください</option>
+                                            <option value="1">ブルー</option>
+                                            <option value="2">グリーン</option>
+                                            <option value="3">ゴールド</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <label for="ageLimit">年齢条件</label>
+                                    </th>
+                                    <td>
+                                        <select name="ageLimit">
+                                            <option value="">年齢条件を選択してください</option>
+                                            <option value="1">無条件</option>
+                                            <option value="2">21歳以上</option>
+                                            <option value="3">26歳以上</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table align="center">
                             <tr>
-                                <td align="center">
-                                <h3>
-                                    メーカー
-                                </h3>
-                                <h3>
-                                    車名
-                                </h3>
-                                <h3>
-                                    車のナンバー
-                                </h3>
-                                <h3>
-                                    一回分保険料
-                                </h3>
-                                <h3>
-                                    車両保険金額
-                                </h3>
-                                <h3>
-                                    免許証の色
-                                </h3>
-                                <h3>
-                                    車両料率
-                                </h3>
-                                <h3>
-                                    対人料率
-                                </h3>
-                                <h3>
-                                    対物料率
-                                </h3>
-                                <h3>
-                                    傷害料率
-                                </h3>
-                                <h3>
-                                    年齢条件
-                                </h3>
+                                <td>
+                                    <button type="button" class="btn">保険料試算</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn">申込書印刷</button>
                                 </td>
                             </tr>
                         </table>
+                        </form>
                     </div>
                 </div>
-
             </div>
 
             <script type="text/javascript">
@@ -553,5 +1037,5 @@
 
             </script>
         </main>
-	</body>
+    </body>
 </html>
