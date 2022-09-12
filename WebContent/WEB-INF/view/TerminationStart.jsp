@@ -43,7 +43,7 @@
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">証券番号</th>
-							<td><input name="polNo"　maxlength="10"></td>
+							<td><input name="polNo" maxlength="10"></td>
 						</tr>
 					</table>
 					<!-- エラーメッセージ -->
