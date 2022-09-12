@@ -81,17 +81,19 @@ public class ToRecordCompleteServlet extends HttpServlet {
 
 				/*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
 				if (errmsg != null) {
-					request.setAttribute("message", errmsg);
+					request.setAttribute("message",  ErrorMsgConst.SYSTEM_ERROR);
 					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
 					rd.forward(request, response);
 				} else {
 					/*４．契約情報オブジェクトの解約フラグと状態フラグを更新する。
 					 * （状態フラグが９の場合は解約フラグを１に、状態フラグを計上済み状態の０にする。）
-					 * （申込書DBの契約種類区分の数字を０に書き換える。）*/
+					 * （状態フラグが１または５の時は、状態フラグを０に書き換える。）*/
 
 
 					/*５．DAOの処理を用いて必要な情報をセットする。（取り出したセッションスコープの値をリクエスト領域に設定する。）*/
-						contract = ciDao.getContractInfo(/*必要な情報*/);
+					ciDao. appropriationCompletion(contract.getInsatsuRenban());
+					request.setAttribute("contract", contract);
+					//contract = ciDao.getContractInfo(/*必要な情報*/);
 
 					/*６．計上完了画面JSPへforwardする。*/
 							RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordComplete.jsp");
@@ -121,4 +123,6 @@ public class ToRecordCompleteServlet extends HttpServlet {
 				}
 			}
 
-	}
+
+
+}

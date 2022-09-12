@@ -204,14 +204,14 @@ public class ContractInfoDao {
 		}
 	}
 
-	public void appropriationCompletion(Integer insatsuRenban) throws SQLException {
+	public void appropriationCompletion(String insatsuRenban) throws SQLException {
 
 		String sql = "UPDATE contractinfo_tbl SET status_flg = '0' WHERE insatsu_renban = ?";
 
 		PreparedStatement stmt = null;
 		try {
 			stmt=con.prepareStatement(sql);
-			stmt.setInt(1, insatsuRenban);
+			stmt.setString(1, insatsuRenban);
 			stmt.executeUpdate();
 		}finally {
 

@@ -75,7 +75,7 @@
             </table>
         </header>
         <main>
-            <form action="" id="inquiry_frm" method="post">
+            <form action="" id="recording_frm" method="post">
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->

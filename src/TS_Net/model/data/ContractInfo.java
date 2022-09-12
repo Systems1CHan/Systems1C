@@ -297,7 +297,7 @@ public class ContractInfo implements Serializable {
     /*
      * 以下各メンバ変数のゲッター・セッター
      */
-	public String getInsatsuRenban() {
+	public String  getInsatsuRenban() {
 		return insatsuRenban;
 	}
 
