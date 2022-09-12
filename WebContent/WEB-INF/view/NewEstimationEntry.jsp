@@ -182,7 +182,7 @@
                                 <tr>
                                     <th scope="row">
                                         <label for="insatsuRenban">
-                                            <span class="label label-danger">必須</span>印刷連番
+                                            印刷連番
                                         </label>
                                     </th>
                                     <td>

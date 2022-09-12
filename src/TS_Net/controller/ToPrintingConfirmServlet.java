@@ -1,6 +1,7 @@
 package TS_Net.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
+import TS_Net.model.dao.CompensationDao;
+import TS_Net.model.dao.ContractInfoDao;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.CompensationFormChecker;
@@ -140,6 +143,35 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 			rd.forward(request, response);
 		}else {
 
+			ContractInfoDao contractInfoDao = new ContractInfoDao();
+			CompensationDao compensationDao = new CompensationDao();
+
+			try {
+				contractInfoDao.connect();
+				compensationDao.connect();
+
+
+			}catch(SQLException e){
+				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+				rd.forward(request, response);
+
+			}catch(ClassNotFoundException e) {
+				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+				rd.forward(request, response);
+
+			}finally {
+
+				try {
+					contractInfoDao.close();
+					compensationDao.close();
+				}catch (SQLException e) {
+					request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+					rd.forward(request, response);
+				}
+			}
 		}
 	}
 
