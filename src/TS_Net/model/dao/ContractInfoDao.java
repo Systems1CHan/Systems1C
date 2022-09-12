@@ -113,76 +113,76 @@ public class ContractInfoDao {
 		ResultSet res =  null;
 		ContractInfo contractInfo = new ContractInfo();
 
-//		try {	stmt=con.prepareStatement(sql);
-//				res=stmt.executeQuery();
-//				stmt.setString(1, polNo);
+		try {	stmt=con.prepareStatement(sql);
+				res=stmt.executeQuery();
+				stmt.setString(1, polNo);
 
 
 
 
 
-				contractInfo.setInsatsuRenban("A0000001");
-				contractInfo.setPolNo("B000000001");
-				contractInfo.setStatusFlg("1");
-				contractInfo.setCancelFlg("0");
-				contractInfo.setInceptionDate("20220909");
-				contractInfo.setInceptionTime("16");
-				contractInfo.setConclusionDate("20230909");
-				contractInfo.setConclusionTime("16");
-				contractInfo.setPaymentMethod("1");
-				contractInfo.setInstallment(2);
-				contractInfo.setInsuredKbn("1");
-				contractInfo.setNameKana1("ムナカタ");
-				contractInfo.setNamekana2("レン");
-				contractInfo.setNameKanji1("宗形");
-				contractInfo.setNameKanji2("鎌");
-				contractInfo.setPostcode("1234567");
-				contractInfo.setAddressKana1("トウキョウトタマシ");
-				contractInfo.setAddressKana2("オチアイ");
-				contractInfo.setAddressKanji1("東京都多摩市");
-				contractInfo.setAddressKanji2("落合");
-				contractInfo.setBirthday("11111111");
-				contractInfo.setGender("1");
-				contractInfo.setTelephoneNo("1234567890");
-				contractInfo.setMobilephoneNo("12345678901");
-				contractInfo.setFaxNo("1234567890");
+//				contractInfo.setInsatsuRenban("A0000001");
+//				contractInfo.setPolNo("B000000001");
+//				contractInfo.setStatusFlg("1");
+//				contractInfo.setCancelFlg("0");
+//				contractInfo.setInceptionDate("20220909");
+//				contractInfo.setInceptionTime("16");
+//				contractInfo.setConclusionDate("20230909");
+//				contractInfo.setConclusionTime("16");
+//				contractInfo.setPaymentMethod("1");
+//				contractInfo.setInstallment(2);
+//				contractInfo.setInsuredKbn("1");
+//				contractInfo.setNameKana1("ムナカタ");
+//				contractInfo.setNamekana2("レン");
+//				contractInfo.setNameKanji1("宗形");
+//				contractInfo.setNameKanji2("鎌");
+//				contractInfo.setPostcode("1234567");
+//				contractInfo.setAddressKana1("トウキョウトタマシ");
+//				contractInfo.setAddressKana2("オチアイ");
+//				contractInfo.setAddressKanji1("東京都多摩市");
+//				contractInfo.setAddressKanji2("落合");
+//				contractInfo.setBirthday("11111111");
+//				contractInfo.setGender("1");
+//				contractInfo.setTelephoneNo("1234567890");
+//				contractInfo.setMobilephoneNo("12345678901");
+//				contractInfo.setFaxNo("1234567890");
 
-//			contractInfo.setInsatsuRenban(res.getString("insatsu_renban"));
-//			contractInfo.setPolNo(res.getString("pol_no"));
-//			contractInfo.setStatusFlg(res.getString("status_flg"));
-//			contractInfo.setCancelFlg(res.getString("cancel_flg"));
-//			contractInfo.setInceptionDate(res.getString("inception_date"));
-//			contractInfo.setInceptionTime(res.getString("inception_time"));
-//			contractInfo.setConclusionDate(res.getString("conclusion_date"));
-//			contractInfo.setConclusionTime(res.getString("conclusion_time"));
-//			contractInfo.setPaymentMethod(res.getString("payment_method"));
-//			contractInfo.setInstallment(res.getInt("installment"));
-//			contractInfo.setInsuredKbn(res.getString("insured_kbn"));
-//			contractInfo.setNameKana1(res.getString("name_kana1"));
-//			contractInfo.setNamekana2(res.getString("name_kana2"));
-//			contractInfo.setNameKanji1(res.getString("name_kanji1"));
-//			contractInfo.setNameKanji2(res.getString(" name_kanji2"));
-//			contractInfo.setPostcode(res.getString("postcode"));
-//			contractInfo.setAddressKana1(res.getString("address_kana1"));
-//			contractInfo.setAddressKana2(res.getString("address_kana2"));
-//			contractInfo.setAddressKanji1(res.getString("address_kanji1"));
-//			contractInfo.setAddressKanji2(res.getString("address_kanji2"));
-//			contractInfo.setBirthday(res.getString("birthday"));
-//			contractInfo.setGender(res.getString("gender"));
-//			contractInfo.setTelephoneNo(res.getString("telephone_no"));
-//			contractInfo.setMobilephoneNo(res.getString("mobilephone_no"));
-//			contractInfo.setFaxNo(res.getString("fax_no"));
+			contractInfo.setInsatsuRenban(res.getString("insatsu_renban"));
+			contractInfo.setPolNo(res.getString("pol_no"));
+			contractInfo.setStatusFlg(res.getString("status_flg"));
+			contractInfo.setCancelFlg(res.getString("cancel_flg"));
+			contractInfo.setInceptionDate(res.getString("inception_date"));
+			contractInfo.setInceptionTime(res.getString("inception_time"));
+			contractInfo.setConclusionDate(res.getString("conclusion_date"));
+			contractInfo.setConclusionTime(res.getString("conclusion_time"));
+			contractInfo.setPaymentMethod(res.getString("payment_method"));
+			contractInfo.setInstallment(res.getInt("installment"));
+			contractInfo.setInsuredKbn(res.getString("insured_kbn"));
+			contractInfo.setNameKana1(res.getString("name_kana1"));
+			contractInfo.setNamekana2(res.getString("name_kana2"));
+			contractInfo.setNameKanji1(res.getString("name_kanji1"));
+			contractInfo.setNameKanji2(res.getString(" name_kanji2"));
+			contractInfo.setPostcode(res.getString("postcode"));
+			contractInfo.setAddressKana1(res.getString("address_kana1"));
+			contractInfo.setAddressKana2(res.getString("address_kana2"));
+			contractInfo.setAddressKanji1(res.getString("address_kanji1"));
+			contractInfo.setAddressKanji2(res.getString("address_kanji2"));
+			contractInfo.setBirthday(res.getString("birthday"));
+			contractInfo.setGender(res.getString("gender"));
+			contractInfo.setTelephoneNo(res.getString("telephone_no"));
+			contractInfo.setMobilephoneNo(res.getString("mobilephone_no"));
+			contractInfo.setFaxNo(res.getString("fax_no"));
 
-//		}finally {
-//			if(res != null) {
-//				res.close();
-//			}
-//			if(stmt != null) {
-//				stmt.close();
-//			}
-//		}
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
 		return contractInfo;
-//
+
 	}
 
 	public void terminationAppCompletion(String polNo) throws SQLException {
