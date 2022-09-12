@@ -75,7 +75,7 @@
             </table>
         </header>
         <main>
-            <form action="" id="@@@@@@@@@" method="post">
+            <form action="" id="inquiry_frm" method="post">
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
@@ -200,6 +200,7 @@
 									class="button_design">代理店計上</button></th>
 						</tr>
 			</table>
+			</div>
             <script type="text/javascript">
 
                 // 対象の要素を得る
@@ -241,7 +242,7 @@
             </script>
         </main>
         <footer>
-			<div class="footer_title">Handy</div>
-		</footer>
+		<div class="footer_title">Handy</div>
+	</footer>
     </body>
 </html>
