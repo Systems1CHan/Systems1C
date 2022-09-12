@@ -114,8 +114,8 @@ public class ContractInfoDao {
 		ContractInfo contractInfo = new ContractInfo();
 
 		try {	stmt=con.prepareStatement(sql);
-				res=stmt.executeQuery();
 				stmt.setString(1, polNo);
+				res=stmt.executeQuery();
 
 
 
@@ -147,6 +147,7 @@ public class ContractInfoDao {
 //				contractInfo.setMobilephoneNo("12345678901");
 //				contractInfo.setFaxNo("1234567890");
 
+		if (res.next()) {
 			contractInfo.setInsatsuRenban(res.getString("insatsu_renban"));
 			contractInfo.setPolNo(res.getString("pol_no"));
 			contractInfo.setStatusFlg(res.getString("status_flg"));
@@ -161,7 +162,7 @@ public class ContractInfoDao {
 			contractInfo.setNameKana1(res.getString("name_kana1"));
 			contractInfo.setNamekana2(res.getString("name_kana2"));
 			contractInfo.setNameKanji1(res.getString("name_kanji1"));
-			contractInfo.setNameKanji2(res.getString(" name_kanji2"));
+			contractInfo.setNameKanji2(res.getString("name_kanji2"));
 			contractInfo.setPostcode(res.getString("postcode"));
 			contractInfo.setAddressKana1(res.getString("address_kana1"));
 			contractInfo.setAddressKana2(res.getString("address_kana2"));
@@ -172,6 +173,7 @@ public class ContractInfoDao {
 			contractInfo.setTelephoneNo(res.getString("telephone_no"));
 			contractInfo.setMobilephoneNo(res.getString("mobilephone_no"));
 			contractInfo.setFaxNo(res.getString("fax_no"));
+		}
 
 		}finally {
 			if(res != null) {
@@ -212,6 +214,8 @@ public class ContractInfoDao {
 		/* 返却用スタブデータの生成 */
 		//update文でStatusFlgを0にする。
 	}
+
+
 
 
 
