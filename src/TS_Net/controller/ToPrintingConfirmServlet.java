@@ -150,6 +150,9 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				contractInfoDao.connect();
 				compensationDao.connect();
 
+				contractInfoDao.registContractInfo(contractInfo);
+				compensationDao.registCompensation(compensation);
+
 
 			}catch(SQLException e){
 				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);

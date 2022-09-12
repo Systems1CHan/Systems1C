@@ -146,7 +146,7 @@ public class ContractInfo implements Serializable {
 	 * @return 顧客氏名（敬称つき）
 	 */
 	public String getNameForLabel() {
-		return nameKanji1 + nameKanji2 + "様";
+		return this.nameKanji1 + this.nameKanji2 + "様";
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class ContractInfo implements Serializable {
 	 * @return 顧客カナ氏名（敬称つき）
 	 */
 	public String getkanaNameForLabel() {
-		return nameKana1 + namekana2 + "様";
+		return this.nameKana1 + this.namekana2 + "様";
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class ContractInfo implements Serializable {
 	 * @return 漢字住所
 	 */
 	public String getKanjiAddressForLabel() {
-		return addressKanji1 + addressKanji2;
+		return this.addressKanji1 + this.addressKanji2;
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class ContractInfo implements Serializable {
 	 * @return カナ住所
 	 */
 	public String getKanaAddressForLabel() {
-		return addressKana1 + addressKana2;
+		return this.addressKana1 + this.addressKana2;
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class ContractInfo implements Serializable {
 	 * @return 郵便番号
 	 */
 	public String getPostcodeForLabel() {
-		return "〒" + postcode.substring(0, 3) + "-" + postcode.substring(3, 6);
+		return "〒" + this.postcode.substring(0, 3) + "-" + this.postcode.substring(3, 6);
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class ContractInfo implements Serializable {
 	 * @return 生年月日
 	 */
 	public String getBirthdayForLabel() {
-		return birthday.substring(0, 4) + "年" + birthday.substring(4, 6) + "月" + birthday.substring(6, 8) + "日";
+		return this.birthday.substring(0, 4) + "年" + this.birthday.substring(4, 6) + "月" + this.birthday.substring(6, 8) + "日";
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class ContractInfo implements Serializable {
 		}
 
 
-		return inceptionDate.substring(0, 4) + "年" + inceptionDate.substring(4, 6) + "月" + inceptionDate.substring(6, 8) + "日" + inceptionTime24 + "から" + conclusionDate.substring(0, 4) + "年" + conclusionDate.substring(4, 6) + "月" + conclusionDate.substring(6, 8) + "日" + conclusionTime24 + "まで"   ;
+		return this.inceptionDate.substring(0, 4) + "年" + this.inceptionDate.substring(4, 6) + "月" + this.inceptionDate.substring(6, 8) + "日" + inceptionTime24 + "から" + this.conclusionDate.substring(0, 4) + "年" + this.conclusionDate.substring(4, 6) + "月" + this.conclusionDate.substring(6, 8) + "日" + conclusionTime24 + "まで"   ;
 	}
 
 
@@ -253,7 +253,7 @@ public class ContractInfo implements Serializable {
 		String phoneMask= "###-####-####";
 		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
 		maskFormatter.setValueContainsLiteralCharacters(false);
-		return maskFormatter.valueToString(telephoneNo);
+		return maskFormatter.valueToString(this.telephoneNo);
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class ContractInfo implements Serializable {
 		String phoneMask= "###-####-####";
 		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
 		maskFormatter.setValueContainsLiteralCharacters(false);
-		return maskFormatter.valueToString(faxNo);
+		return maskFormatter.valueToString(this.faxNo);
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class ContractInfo implements Serializable {
 		String phoneMask= "###-####-####";
 		MaskFormatter maskFormatter= new MaskFormatter(phoneMask);
 		maskFormatter.setValueContainsLiteralCharacters(false);
-		return maskFormatter.valueToString(faxNo);
+		return maskFormatter.valueToString(this.mobilephoneNo);
 	}
 
 

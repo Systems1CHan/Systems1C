@@ -76,14 +76,6 @@ public class Compensation implements Serializable {
 		}
 	}
 
-	public String getInsatsuRenban() {
-		return insatsuRenban;
-	}
-
-	public void setInsatsuRenban(String insatsuRenban) {
-		this.insatsuRenban = insatsuRenban;
-	}
-
 	/**
 	 * 対人料率取得メソッド。
 	 * <p>
@@ -188,6 +180,66 @@ public class Compensation implements Serializable {
 	}
 
 	/**
+	 * 各料率変換メソッド。
+	 * <p>
+	 * 入力された料率を保険料算出用に変換する。
+	 * </p>
+	 * @return rates 各料率
+	 */
+	public double rate(String rates) {
+
+		if(rates.equals("0")) {
+			return 0.0;
+		}else if(rates.equals("1")){
+			return 1.0;
+		}else if(rates.equals("2")){
+			return 1.2;
+		}else if(rates.equals("3")) {
+			return 1.4;
+		}else if(rates.equals("4")) {
+			return 1.6;
+		}else {
+			return 1.9;
+		}
+	}
+
+	/**
+	 * 免許証の色変換メソッド。
+	 * <p>
+	 * 入力された免許証の色を保険料算出用に変換する。
+	 * </p>
+	 * @return licenseColor 免許証の色
+	 */
+	public double licenserate(String licenseColor) {
+
+		if(licenseColor.equals("1")) {
+			return 1.3;
+		}else if(licenseColor.equals("2")){
+			return 1.0;
+		}else{
+			return 0.7;
+		}
+	}
+
+	/**
+	 * 年齢条件変換メソッド。
+	 * <p>
+	 * 入力された年齢条件を保険料算出用に変換する。
+	 * </p>
+	 * @return ageLimit 年齢条件
+	 */
+	public double olderRate(String ageLimit) {
+		if(ageLimit.equals("1")) {
+			return 1.5;
+		}else if(ageLimit.equals("2")){
+			return 1.2;
+		}else {
+			return 1.0;
+		}
+	}
+
+
+	/**
 	 * 総額保険料取得メソッド。
 	 * <p>
 	 * 画面に表示させるための総額保険料を取得する。
@@ -196,58 +248,13 @@ public class Compensation implements Serializable {
 	 * @param compensation 補償情報オブジェクト
 	 * @return 総額保険料
 	 */
-
-	public double rate(String string) {
-
-	if(string.equals("0")) {
-		return 0.0;
-	}else if(accidentRates.equals("1")){
-		return 1.0;
-	}else if(accidentRates.equals("2")){
-		return 1.2;
-	}else if(accidentRates.equals("3")) {
-		return 1.4;
-	}else if(accidentRates.equals("4")) {
-		return 1.6;
-	}else {
-		return 1.9;
-	}
-	}
-
-	public double licenserate(String string) {
-
-	if(string.equals("3")) {
-		return 0.7;
-	}else if(accidentRates.equals("2")){
-		return 1.0;
-	}else{
-		return 1.3;
-	}
-	}
-
-	public double olderRate(String string) {
-			if(ageLimit.equals("1")) {
-				return 1.5;
-			}else if(ageLimit.equals("2")){
-				return 1.2;
-			}else {
-				return 1.0;
-			}
-	}
-
-
 	public String getPremiumAmountForLabel() {
 
-
-		double dpremiumAmount = (int) (vehiclePrice * (rate(vehicleRates) + rate(bodilyRates) + rate(propertyDamageRates) + rate(accidentRates))) * 12 * licenserate(licenseColor) * olderRate(ageLimit)  ;
-		premiumAmount = (int) dpremiumAmount;
-		return premiumAmount + "円";
+		Integer ratesSum =  (int) (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
+		Integer dpremiumAmount = (int) ((int) ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit))  ;
+		this.premiumAmount = dpremiumAmount;
+		return this.premiumAmount + "円";
 	}
-
-//	車両保険金額 * （料率・車両 + 料率・対人 + 料率・対物 + 料率・傷害） * 12 * 免許証の色 * 年齢条件
-
-
-
 
 	/**
 	 * 一回分保険料取得メソッド。
@@ -264,8 +271,8 @@ public class Compensation implements Serializable {
 		ContractInfo contractInf = new ContractInfo();
 		Integer installment = contractInf.getInstallment();
 
-		premiumInstallment = this.premiumAmount / installment;
-		return premiumInstallment + "円";
+		this.premiumInstallment = this.premiumAmount / installment;
+		return this.premiumInstallment + "円";
 	}
 
 	/**
@@ -273,10 +280,10 @@ public class Compensation implements Serializable {
 	 * <p>
 	 * 画面に表示させるためのナンバーを取得する。
 	 * </p>
-	 * @return 多摩 た 12-34
+	 * @return 車のナンバー
 	 */
 	public String getCarNameForLabel() {
-		return licenseNo.substring(0, 2) + " " + licenseNo.substring(2, 5) + " " + licenseNo.substring(5, 6) + " " + licenseNo.substring(6, 8) + "-" + licenseNo.substring(8, 10) ;
+		return this.licenseNo.substring(0, 2) + " " + this.licenseNo.substring(2, 5) + " " + this.licenseNo.substring(5, 6) + " " + this.licenseNo.substring(6, 8) + "-" + this.licenseNo.substring(8, 10) ;
 	}
 
 	 /*
@@ -384,5 +391,13 @@ public class Compensation implements Serializable {
 
 	public void setPremiumInstallment(Integer premiumInstallment) {
 		this.premiumInstallment = premiumInstallment;
+	}
+
+	public String getInsatsuRenban() {
+		return insatsuRenban;
+	}
+
+	public void setInsatsuRenban(String insatsuRenban) {
+		this.insatsuRenban = insatsuRenban;
 	}
 }

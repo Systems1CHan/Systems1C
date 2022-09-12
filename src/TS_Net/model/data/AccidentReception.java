@@ -5,6 +5,7 @@
  * 作成者  ：[RyoIsogami/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * 2022/09/12 磯上：支払金額取得メソッドの修正
  *------------------------------------------------------------------------------
  */
 
@@ -58,14 +59,14 @@ public class AccidentReception implements Serializable {
 	/* 支払金額*/
 	private Integer paymentPrice;
 
-	/* 補償ID*/
+	/* 補償情報クラスの補償IDを取得*/
 	Compensation compensation = new Compensation();
 	private Integer coverId = compensation.getCoverId();
 
 	/**
 	 * 事故受付フラグ取得メソッド。
 	 * <p>
-	 * 画面に表示させるための事故受付フラグを取得する
+	 * 画面に表示させるための事故受付フラグを取得する。
 	 * </p>
 	 * @return 事故受付フラグ
 	 */
@@ -77,25 +78,19 @@ public class AccidentReception implements Serializable {
 		}
 	}
 
-	public Integer getCoverId() {
-		return coverId;
-	}
-
-	public void setCoverId(Integer coverId) {
-		this.coverId = coverId;
-	}
-
 	/**
 	 * 支払金額取得メソッド。
 	 * <p>
-	 * 画面に表示させるための支払金額を取得する
+	 * 画面に表示させるための支払金額を取得する。
+	 * 過失割合・被保険者に、損害額の合計をかけることで算出する。
 	 * </p>
+	 * @param accidentReception 事故受付情報オブジェクト
 	 * @return 支払金額
 	 */
 	public String getPaymentPriceForlabel(AccidentReception accidentReception) {
-		Integer damageSumPrice = this.damageCarPrice + this.damageBodilyPrice + this.damagePropertyPrice + this.damageAccidentPrice;
-		paymentPrice = ratingBlameMyself * damageSumPrice;
-		return paymentPrice + "円";
+		Integer damageSumPrice = this.getDamageCarPrice() + this.getDamageBodilyPrice() + this.getDamagePropertyPrice() + this.getDamageAccidentPrice();
+		this.paymentPrice = this.getPaymentPrice() * damageSumPrice;
+		return this.paymentPrice + "円";
 	}
 
 	/**
@@ -291,5 +286,13 @@ public class AccidentReception implements Serializable {
 
 	public void setPaymentPrice(Integer paymentPrice) {
 		this.paymentPrice = paymentPrice;
+	}
+
+	public Integer getCoverId() {
+		return coverId;
+	}
+
+	public void setCoverId(Integer coverId) {
+		this.coverId = coverId;
 	}
 }
