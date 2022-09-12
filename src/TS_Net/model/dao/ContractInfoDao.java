@@ -117,10 +117,6 @@ public class ContractInfoDao {
 				stmt.setString(1, polNo);
 				res=stmt.executeQuery();
 
-
-
-
-
 //				contractInfo.setInsatsuRenban("A0000001");
 //				contractInfo.setPolNo("B000000001");
 //				contractInfo.setStatusFlg("1");
@@ -210,9 +206,19 @@ public class ContractInfoDao {
 
 	public void appropriationCompletion(Integer insatsuRenban) throws SQLException {
 
-		/* 以下はスタブ用変数のため必ず除去すること */
-		/* 返却用スタブデータの生成 */
-		//update文でStatusFlgを0にする。
+		String sql = "UPDATE contractinfo_tbl SET status_flg = '0' WHERE insatsu_renban = ?";
+
+		PreparedStatement stmt = null;
+		try {
+			stmt=con.prepareStatement(sql);
+			stmt.setInt(1, insatsuRenban);
+			stmt.executeUpdate();
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
 	}
 
 
