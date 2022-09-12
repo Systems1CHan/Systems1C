@@ -9,8 +9,13 @@
 	 */
 package TS_Net.model.dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import TS_Net.model.constant.SystemConst;
 import TS_Net.model.data.Compensation;
 
 /**
@@ -22,9 +27,6 @@ import TS_Net.model.data.Compensation;
  */
 public class CompensationDao {
 
-	/* 登録データ : スタブ用変数のため必ず除去すること */
-	Compensation insertData = new Compensation();
-
 	/**
 	 * DB接続メソッド。
 	 * <p>
@@ -33,9 +35,14 @@ public class CompensationDao {
 	 * @throws SQLException SQL実行例外
 	 * @throws ClassNotFoundException クラスロード例外
 	 */
+	/** データベースの接続 */
+	private Connection con;
+
 	public void connect() throws SQLException, ClassNotFoundException {
 
-		/* 空実装 */
+		//DriveManagerクラスのgetConnectionメソッドを用いて、DBに接続する。
+		Class.forName(SystemConst.JDBC_DRIVER_NAME);
+		con = DriverManager.getConnection(SystemConst.JDBC_URL, SystemConst.USER, SystemConst.PASSWORD);
 	}
 
 	/**
@@ -46,8 +53,8 @@ public class CompensationDao {
 	 * @throws SQLException SQL実行例外
 	 */
 	public void close() throws SQLException {
-
-		/* 空実装 */
+		//DB切断
+		con.close();
 	}
 
 	/**
@@ -58,12 +65,39 @@ public class CompensationDao {
 	 * @param entity 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void registCompensation(Compensation compensationInf) throws SQLException {
-
-		/* 登録データ : スタブ用変数のため必ず除去すること */
-		insertData = compensationInf;
-
-	}
+//	public void registCompensation(Compensation conpensation) throws SQLException {
+//
+//		String sql = "INSERT INTO cover_tbl(cover_id, insatsu_renban, premium_amount, premium_installment, maker, car_name, license_no, vehicle_price, vehicle_rates, bodily_rates, property_damage_rates, accident_rates, license_color, age_limit)"
+//				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//
+//		PreparedStatement stmt = null;
+//		try {
+//			stmt=con.prepareStatement(sql);
+//			stmt.setString(1, contractInfo.getInsatsuRenban());
+//			stmt.setString(2, contractInfo.getPolNo());
+//			stmt.setString(3, contractInfo.getStatusFlg());
+//			stmt.setString(4, contractInfo.getCancelFlg());
+//			stmt.setString(5, contractInfo.getInceptionDate());
+//			stmt.setString(6, contractInfo.getInceptionTime());
+//			stmt.setString(7, contractInfo.getConclusionDate());
+//			stmt.setString(8, contractInfo.getConclusionTime());
+//			stmt.setString(9, contractInfo.getPaymentMethod());
+//			stmt.setInt(10, contractInfo.getInstallment());
+//			stmt.setString(11, contractInfo.getInsuredKbn());
+//			stmt.setString(12, contractInfo.getNameKana1());
+//			stmt.setString(13, contractInfo.getNamekana2());
+//			stmt.setString(14, contractInfo.getNameKanji1());
+//
+//
+//			stmt.executeUpdate();
+//		}finally {
+//
+//			if(stmt != null) {
+//				stmt.close();
+//			}
+//		}
+//
+//	}
 
 
 	/**
@@ -80,24 +114,62 @@ public class CompensationDao {
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		Compensation compensationInf = new Compensation();
-		compensationInf.setCoverId(00000001);
-		compensationInf.setInsatsuRenban("A0000001");
-		compensationInf.setMaker("TOYOTA");
-		compensationInf.setCarName("レクサス");
-		compensationInf.setLicenseNo("多摩500さ4649");
-		compensationInf.setVehiclePrice(1000000);
-		compensationInf.setVehicleRates("3");
-		compensationInf.setBodilyRates("3");
-		compensationInf.setPropertyDamageRates("3");
-		compensationInf.setAccidentRates("3");
-		compensationInf.setLicenseColor("2");
-		compensationInf.setAgeLimit("3");
-		compensationInf.setPremiumAmount(1000000);
-		compensationInf.setPremiumInstallment(1000000);
+		String sql = "SELECT * FROM cover_tbl WHERE insatsu_renban = ?";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		Compensation compensation = new Compensation();
+		insatsuRenban = "A0000001";
+
+		try {	stmt=con.prepareStatement(sql);
+				stmt.setString(1, insatsuRenban);
+				res=stmt.executeQuery();
 
 
-		return compensationInf;
+
+		if (res.next()) {
+			compensation.setCoverId(res.getInt("cover_id"));
+			compensation.setInsatsuRenban(res.getString("insatsu_renban"));
+			compensation.setPremiumAmount(res.getInt("premium_amount"));
+			compensation.setPremiumInstallment(res.getInt("premium_installment"));
+			compensation.setMaker(res.getString("maker"));
+			compensation.setCarName(res.getString("car_name"));
+			compensation.setLicenseNo(res.getString("license_no"));
+			compensation.setVehiclePrice(res.getInt("vehicle_price"));
+			compensation.setVehicleRates(res.getString("vehicle_rates"));
+			compensation.setBodilyRates(res.getString("bodily_rates"));
+			compensation.setPropertyDamageRates(res.getString("property_damage_rates"));
+			compensation.setInsatsuRenban(res.getString("accident_rates"));
+			compensation.setLicenseColor(res.getString("license_color"));
+			compensation.setAgeLimit(res.getString("age_limit"));
+		}
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
+//		Compensation compensationInf = new Compensation();
+//		compensationInf.setCoverId(00000001);
+//		compensationInf.setInsatsuRenban("A0000001");
+//		compensationInf.setMaker("TOYOTA");
+//		compensationInf.setCarName("レクサス");
+//		compensationInf.setLicenseNo("多摩500さ4649");
+//		compensationInf.setVehiclePrice(1000000);
+//		compensationInf.setVehicleRates("3");
+//		compensationInf.setBodilyRates("3");
+//		compensationInf.setPropertyDamageRates("3");
+//		compensationInf.setAccidentRates("3");
+//		compensationInf.setLicenseColor("2");
+//		compensationInf.setAgeLimit("3");
+//		compensationInf.setPremiumAmount(1000000);
+//		compensationInf.setPremiumInstallment(1000000);
+
+
+		return compensation;
 
 	}
 
