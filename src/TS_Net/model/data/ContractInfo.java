@@ -184,6 +184,7 @@ public class ContractInfo implements Serializable {
 	}
 
 
+
 	/**
 	 * 郵便番号取得メソッド
 	 * <p>

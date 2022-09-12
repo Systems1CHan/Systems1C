@@ -13,6 +13,7 @@ package TS_Net.model.data;
 
 import java.io.Serializable;
 
+
 /**
  * 事故受付情報クラス。
  * <p>
