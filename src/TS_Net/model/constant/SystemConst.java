@@ -23,7 +23,7 @@ public class SystemConst {
 	public static final String JDBC_DRIVER_NAME = "com.mysql.jdbc.Driver";
 
 	/** JDBC接続文字列 */
-	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/final_exercise_db?useSSL=false";
+	public static final String JDBC_URL = "jdbc:mysql://localhost:3306/final_exercise_db?allowPublicKeyRetrieval=true&useSSL=false";
 
 	/** ユーザー名 */
 	public static final String USER = "user_name";

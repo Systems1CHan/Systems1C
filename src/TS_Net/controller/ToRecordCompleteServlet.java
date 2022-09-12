@@ -11,47 +11,114 @@
 package TS_Net.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import TS_Net.model.constant.ErrorMsgConst;
+import TS_Net.model.constant.SystemConst;
+import TS_Net.model.dao.ContractInfoDao;
+import TS_Net.model.data.Compensation;
+import TS_Net.model.data.ContractInfo;
+import TS_Net.model.datacheck.InsatsuRenbanChecker;
 
 /**
  * Servlet implementation class ToRecordCompleteServlet
  */
-@WebServlet("/ToRecordCompleteServlet")
+@WebServlet("/ToRecordComplete")
 public class ToRecordCompleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	/**
+	 * POST処理。
+	 * <p>
+	 * 受け取った入力内容（印刷連番）に対しての処理を行う。
+	 * </p>
+	 */
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//文字化けを防止する。
+		request.setCharacterEncoding(SystemConst.CHAR_SET);
 	/*
 	 * 「代理店計上」ボタン押下時に以下の処理を行う。
-	１．契約情報クラスのオブジェクトをセッション領域から取得する。
-	２．セッション領域からの取得に失敗した場合、エラーメッセージをrequest領域へ設定した上で、エラーページへ遷移。
-	３．契約情報DAOを用いて、状態フラグと解約フラグをチェックする。
-	４．契約情報オブジェクトの解約フラグと状態フラグを更新する。（状態フラグが９の場合は解約フラグを１に、状態フラグを計上済み状態の０にする。）（申込書DBの契約種類区分の数字を０に書き換える。）
-	５．DAOの処理を用いて必要な情報をセットする。（取り出したセッションスコープの値をリクエスト領域に設定する。）
-	６．計上完了画面JSPへforwardする。
+	１．契約情報クラスのオブジェクトをセッション領域から取得する。*/
 
-	 */
+		/* ContractInfo型のcontractを生成 */
+		ContractInfo contract = new ContractInfo();
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ToRecordCompleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+		/*Compensation型のcompensationを生成 */
+		Compensation compensation = new Compensation();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		HttpSession session = request.getSession();
+		contract = (ContractInfo) session.getAttribute("ci");
+		if (contract == null) {
+			contract = new ContractInfo();
+			session.setAttribute("contract", contract);
+		}
+
+
+	/*２．セッション領域からの取得に失敗した場合、エラーメッセージをrequest領域へ設定した上で、エラーページへ遷移。*/
+		if (contract != null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+		}
+
+	/*３．契約情報DAOを用いて、状態フラグと解約フラグをチェックする。*/
+			ContractInfoDao ciDao = new ContractInfoDao();
+			try {
+				ciDao.connect();
+				InsatsuRenbanChecker irc = new InsatsuRenbanChecker();
+				String errmsg = irc.insatusRenbanExistenceCheck(compensation);
+
+				/*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
+				if (errmsg != null) {
+					request.setAttribute("message", errmsg);
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
+					rd.forward(request, response);
+				} else {
+					/*４．契約情報オブジェクトの解約フラグと状態フラグを更新する。
+					 * （状態フラグが９の場合は解約フラグを１に、状態フラグを計上済み状態の０にする。）
+					 * （申込書DBの契約種類区分の数字を０に書き換える。）*/
+
+
+					/*５．DAOの処理を用いて必要な情報をセットする。（取り出したセッションスコープの値をリクエスト領域に設定する。）*/
+						contract = ciDao.getContractInfo(/*必要な情報*/);
+
+					/*６．計上完了画面JSPへforwardする。*/
+							RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordComplete.jsp");
+							rd.forward(request, response);
+
+						}
+					} catch (ClassNotFoundException | SQLException e) {
+
+					e.printStackTrace();
+					request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+					// システムエラー画面を戻り値に設定する。
+					//システムエラー画面へforwardする。
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+					rd.forward(request, response);
+
+				} finally {
+					try {
+						/* DAOクローズ */
+						ciDao.close();
+
+					} catch (SQLException e) {
+						request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
+						rd.forward(request, response);
+
+					}
+				}
+			}
+
 	}
-
-	
-
-}

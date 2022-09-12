@@ -41,7 +41,7 @@
 				</form>
 			<div class="roundedConer">
 				<div class="subTitle">計上開始</div>
-				<form action="" id="login_process" method="post">
+				<form action="./ToRecordComfirm" id="login_process" method="post">
 					<table class="IDpass_table">
 						<tr>
 							<!-- 入力フォーム（印刷連番） -->
