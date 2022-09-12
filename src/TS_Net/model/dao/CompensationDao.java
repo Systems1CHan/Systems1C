@@ -65,6 +65,7 @@ public class CompensationDao {
 
 	}
 
+
 	/**
 	 * 全件取得メソッド。
 	 * <p>

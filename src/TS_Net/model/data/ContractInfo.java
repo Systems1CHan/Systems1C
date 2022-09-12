@@ -183,6 +183,7 @@ public class ContractInfo implements Serializable {
 		return this.addressKana1 + this.addressKana2;
 	}
 
+
 	/**
 	 * 郵便番号取得メソッド
 	 * <p>

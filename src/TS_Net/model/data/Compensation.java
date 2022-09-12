@@ -12,6 +12,7 @@ package TS_Net.model.data;
 
 import java.io.Serializable;
 
+
 /**
  * 補償情報クラス。
  * <p>
