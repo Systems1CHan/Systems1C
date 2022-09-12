@@ -36,7 +36,7 @@ public class ErrorMsgConst {
 	public static final String FORM_ERROR0015 = "入力された日時は適切ではありません。";
 	public static final String FORM_ERROR0016 = "入力された日時は適切ではありません。";
 	public static final String FORM_ERROR0017 = "入力した日付は保険契約期間外です。";
-	public static final String FORM_ERROR0018 = "未入力の項目があります。入力内容をご確認ください。";
+	public static final String FORM_ERROR0018 = "未入力の項目があります。証券番号または事故受け付け番号を入力してください。";
 
 	/** システムエラーが発生した場合のエラーメッセージ */
 	public static final String SYSTEM_ERROR = "システムエラーが発生しました。管理者に問い合わせてください。";

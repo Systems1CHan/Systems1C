@@ -38,7 +38,8 @@ public class PolNoChecker {
 
 //		if(((polNo != null) || (polNo.length() != 0)) && ((claimNo != null) || (claimNo.length() != 0))){
 
-		if(polNo != null && polNo.length() != 0 && claimNo != null && claimNo.length() != 0){
+//		if(polNo != null && polNo.length() != 0 && claimNo != null && claimNo.length() != 0){
+		if((polNo != null) && (claimNo != null)){
 
 
 			return ErrorMsgConst.FORM_ERROR0001;

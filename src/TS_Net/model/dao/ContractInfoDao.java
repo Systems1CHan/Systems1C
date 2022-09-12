@@ -106,7 +106,7 @@ public class ContractInfoDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public ContractInfo getContractInfo(String polNo) throws SQLException {
+	public ContractInfo getContractInfoByPN(String polNo) throws SQLException {
 
 		String sql = "SELECT * FROM contractinfo_tbl WHERE pol_no = ?";
 		PreparedStatement stmt = null;
@@ -182,6 +182,115 @@ public class ContractInfoDao {
 		return contractInfo;
 
 	}
+
+	public ContractInfo getContractInfoByIR(String insatsuRenban) throws SQLException {
+
+		String sql = "SELECT * FROM contractinfo_tbl WHERE insatsu_renban = ?";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		ContractInfo contractInfo = new ContractInfo();
+
+		try {	stmt=con.prepareStatement(sql);
+				stmt.setString(1, insatsuRenban);
+				res=stmt.executeQuery();
+
+
+		if (res.next()) {
+			contractInfo.setInsatsuRenban(res.getString("insatsu_renban"));
+			contractInfo.setPolNo(res.getString("pol_no"));
+			contractInfo.setStatusFlg(res.getString("status_flg"));
+			contractInfo.setCancelFlg(res.getString("cancel_flg"));
+			contractInfo.setInceptionDate(res.getString("inception_date"));
+			contractInfo.setInceptionTime(res.getString("inception_time"));
+			contractInfo.setConclusionDate(res.getString("conclusion_date"));
+			contractInfo.setConclusionTime(res.getString("conclusion_time"));
+			contractInfo.setPaymentMethod(res.getString("payment_method"));
+			contractInfo.setInstallment(res.getInt("installment"));
+			contractInfo.setInsuredKbn(res.getString("insured_kbn"));
+			contractInfo.setNameKana1(res.getString("name_kana1"));
+			contractInfo.setNamekana2(res.getString("name_kana2"));
+			contractInfo.setNameKanji1(res.getString("name_kanji1"));
+			contractInfo.setNameKanji2(res.getString("name_kanji2"));
+			contractInfo.setPostcode(res.getString("postcode"));
+			contractInfo.setAddressKana1(res.getString("address_kana1"));
+			contractInfo.setAddressKana2(res.getString("address_kana2"));
+			contractInfo.setAddressKanji1(res.getString("address_kanji1"));
+			contractInfo.setAddressKanji2(res.getString("address_kanji2"));
+			contractInfo.setBirthday(res.getString("birthday"));
+			contractInfo.setGender(res.getString("gender"));
+			contractInfo.setTelephoneNo(res.getString("telephone_no"));
+			contractInfo.setMobilephoneNo(res.getString("mobilephone_no"));
+			contractInfo.setFaxNo(res.getString("fax_no"));
+		}
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+		return contractInfo;
+
+	}
+
+
+
+	public String getMaxPolNo() throws SQLException {
+
+		String sql = "SELECT pol_No FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		String polNo = null;
+
+		try {	stmt=con.prepareStatement(sql);
+				res=stmt.executeQuery();
+
+			if (res.next()) {
+				polNo = res.getString("pol_No");
+			}
+
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+		return polNo;
+
+	}
+
+	public String getMaxInsatsuRenban() throws SQLException {
+
+		String sql = "SELECT insatsu_renban FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		String insatsuRenban = null;
+
+		try {	stmt=con.prepareStatement(sql);
+				res=stmt.executeQuery();
+
+			if (res.next()) {
+				insatsuRenban = res.getString("insatsu_renban");
+			}
+
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+		return insatsuRenban;
+
+	}
+
 
 	public void terminationAppCompletion(String polNo) throws SQLException {
 

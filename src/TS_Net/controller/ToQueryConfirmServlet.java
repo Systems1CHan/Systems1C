@@ -55,10 +55,11 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		try {
 			contractInfoDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			contractInfo = contractInfoDao.getContractInfo(polNo);
+			contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
 			if (contractInfo.getPolNo() == null) {
 				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
+//				request.setAttribute("FORM_ERROR", contractInfoDao.getMaxInsatsuRenban());
 
 				page ="/WEB-INF/view/QueryStart.jsp";
 				//契約内容入力画面へforwardする。
@@ -103,7 +104,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		try {
 			compensationDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			compensation = compensationDao.getCompensation(contractInfo.getInsatsuRenban());
+			compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
 
 
 

@@ -67,7 +67,38 @@ public class AccidentDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public AccidentReception getAccidentReception(Integer claimNo) throws SQLException {
+	public AccidentReception getAccidentReceptionByCN(String claimNo) throws SQLException {
+
+		/* 以下はスタブ用変数のため必ず除去すること */
+		/* 返却用スタブデータの生成 */
+
+		AccidentReception accidentReception = new AccidentReception();
+		accidentReception.setClaimNo("C0000001");
+		accidentReception.setCoverId(00000001);
+		accidentReception.setClaimStatus("1");
+		accidentReception.setPaymentPrice(10000);
+		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
+		accidentReception.setAccidentLocationKana2("オチアイ");
+		accidentReception.setAccidentLocationKanji1("東京都多摩市");
+		accidentReception.setAccidentLocationKanji2("落合");
+		accidentReception.setAccidentDate("20220909");
+		accidentReception.setRatingBlameMyself(20);
+		accidentReception.setRatingBlameYourself(80);
+		accidentReception.setDamageCarPrice(100000);
+		accidentReception.setDamageBodilyPrice(100000);
+		accidentReception.setDamagePropertyPrice(100000);
+		accidentReception.setDamageAccidentPrice(100000);
+		accidentReception.setDamageCarState("全損");
+		accidentReception.setDamageBodilyState("２週間入院");
+		accidentReception.setDamagePropertyState("建物損壊");
+		accidentReception.setDamageAccidentState("骨折");
+
+
+		return accidentReception;
+
+	}
+
+	public AccidentReception getAccidentReceptionByCI(Integer coverId) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */

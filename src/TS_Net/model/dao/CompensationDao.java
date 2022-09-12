@@ -109,7 +109,7 @@ public class CompensationDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public Compensation getCompensation(String insatsuRenban) throws SQLException {
+	public Compensation getCompensationByIR(String insatsuRenban) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
@@ -174,6 +174,69 @@ public class CompensationDao {
 	}
 
 
+	public Compensation getCompensationByCI(Integer coverId) throws SQLException {
+
+		/* 以下はスタブ用変数のため必ず除去すること */
+		/* 返却用スタブデータの生成 */
+
+		String sql = "SELECT * FROM cover_tbl WHERE cover_id = ?";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		Compensation compensation = new Compensation();
+//		insatsuRenban = "A0000001";
+
+		try {	stmt=con.prepareStatement(sql);
+				stmt.setInt(1, coverId);
+				res=stmt.executeQuery();
+
+
+
+		if (res.next()) {
+			compensation.setCoverId(res.getInt("cover_id"));
+			compensation.setInsatsuRenban(res.getString("insatsu_renban"));
+			compensation.setPremiumAmount(res.getInt("premium_amount"));
+			compensation.setPremiumInstallment(res.getInt("premium_installment"));
+			compensation.setMaker(res.getString("maker"));
+			compensation.setCarName(res.getString("car_name"));
+			compensation.setLicenseNo(res.getString("license_no"));
+			compensation.setVehiclePrice(res.getInt("vehicle_price"));
+			compensation.setVehicleRates(res.getString("vehicle_rates"));
+			compensation.setBodilyRates(res.getString("bodily_rates"));
+			compensation.setPropertyDamageRates(res.getString("property_damage_rates"));
+			compensation.setAccidentRates(res.getString("accident_rates"));
+			compensation.setLicenseColor(res.getString("license_color"));
+			compensation.setAgeLimit(res.getString("age_limit"));
+		}
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
+//		Compensation compensation = new Compensation();
+//		compensation.setCoverId(00000001);
+//		compensation.setInsatsuRenban("A0000001");
+//		compensation.setMaker("TOYOTA");
+//		compensation.setCarName("レクサス");
+//		compensation.setLicenseNo("多摩500さ4649");
+//		compensation.setVehiclePrice(1000000);
+//		compensation.setVehicleRates("3");
+//		compensation.setBodilyRates("3");
+//		compensation.setPropertyDamageRates("3");
+//		compensation.setAccidentRates("3");
+//		compensation.setLicenseColor("2");
+//		compensation.setAgeLimit("3");
+//		compensation.setPremiumAmount(1000000);
+//		compensation.setPremiumInstallment(1000000);
+
+
+		return compensation;
+
+	}
 
 
 
