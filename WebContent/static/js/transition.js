@@ -32,7 +32,7 @@ function toApplicationConfirmPage() {
  *機能          :新規試算入力画面に遷移する。
  *------------------------------------------------------
 */
-function toApplicationConfirmPage() {
+function toNewEstimationEntryPage() {
 	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("estimation_frm");
 	//２．フォーム要素のaction属性に、
