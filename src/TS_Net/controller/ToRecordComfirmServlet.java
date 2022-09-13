@@ -27,7 +27,6 @@ import TS_Net.model.dao.ContractInfoDao;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.BlankChecker;
-import TS_Net.model.datacheck.InsatsuRenbanChecker;
 
 /**
  * Servlet implementation class ToRecordComfirmServlet
@@ -60,9 +59,9 @@ public class ToRecordComfirmServlet extends HttpServlet {
 		Compensation compensation = new Compensation();
 
 		/* セッションの生成 */
-		HttpSession session = request.getSession();
-		session.setAttribute("contract"/*キー*/, contract);
-		session.setAttribute("compensation", compensation);
+//		HttpSession session = request.getSession();
+//		session.setAttribute("contract"/*キー*/, contract);
+//		session.setAttribute("compensation", compensation);
 
 		/*２．要求パラメータを受け取り、契約情報オブジェクト・補償オブジェクトそれぞれにセットする。*/
 
@@ -76,7 +75,13 @@ public class ToRecordComfirmServlet extends HttpServlet {
 		３．印刷連番データチェッククラスに契約情報オブジェクトを渡し、チェックを依頼する。*/
 		// 空白、nullチェック
 		BlankChecker bc = new BlankChecker();
-		bc.blankCheck(insatsuRenban);
+		if(bc.blankCheck(insatsuRenban) != null) {
+			request.setAttribute("message", bc.blankCheck(insatsuRenban));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
+			rd.forward(request, response);
+
+		}
+
 
 
 		/*４．契約情報テーブルDAOの処理を用いて、印刷連番に合致した契約情報を取得し、契約情報オブジェクトにセットする。
@@ -87,19 +92,19 @@ public class ToRecordComfirmServlet extends HttpServlet {
 		try {
 			/* 契約テーブルDAOの処理を用いて、印刷連番に合致した契約情報を取得し、契約情報オブジェクトにセット。*/
 			ciDao.connect();
+			contract = ciDao.getContractInfoByIR(insatsuRenban);
 
-			// 印刷連番が補償TBLに存在するかチェック
-			InsatsuRenbanChecker irc = new InsatsuRenbanChecker();
-			String errmsg = irc.insatusRenbanExistenceCheck(compensation);
 
 			/*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
-			if (errmsg != null) {
-				request.setAttribute("message", errmsg);
+			if (contract.getPolNo() == null) {
+				request.setAttribute("message", ErrorMsgConst.FORM_ERROR0006);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
 				rd.forward(request, response);
 			} else {
 				// 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
-				contract = ciDao.getContractInfoByIR(insatsuRenban);
+
+				HttpSession session = request.getSession();
+				session.setAttribute("contractInfo", contract);
 
 				/*７．計上確認画面JSPへforwardする。 */
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheck.jsp");

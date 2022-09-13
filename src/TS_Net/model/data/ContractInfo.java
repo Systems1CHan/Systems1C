@@ -83,7 +83,7 @@ public class ContractInfo implements Serializable {
 	 * @return 契約状態
 	 */
 	public String getStatusFlgForLabel() {
-		if(statusFlg.equals("0")) {
+		if(cancelFlg.equals("0")) {
 			return "解約済";
 		}else {
 			return "契約中";

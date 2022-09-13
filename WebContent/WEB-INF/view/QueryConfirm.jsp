@@ -96,7 +96,7 @@
    								 <td>印刷連番</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
   							</tr>
   							 <tr>
-   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo.getStatusFlgForLabel()}"/></td>
+   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo. getCancelFlg()}"/></td>
   							</tr>
   							 <tr>
    								 <td>被保険者の個人法人区分</td><td><c:out value="${requestScope.contractInfo.getInsuredKbnForLabel()}"/></td>
