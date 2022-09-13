@@ -51,8 +51,8 @@ public class Compensation implements Serializable {
 	private Integer premiumInstallment;
 
 	/* 印刷連番*/
-	ContractInfo contractInf = new ContractInfo();
-	private String insatsuRenban = contractInf.getInsatsuRenban();
+
+	private String insatsuRenban;
 
 
 	/**
