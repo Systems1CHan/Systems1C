@@ -10,10 +10,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 
 <style type="text/css">
 
@@ -60,21 +62,12 @@
 #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) {
 	background-color: #ddffdd;
 } /* 2つ目のタブとその中身用の配色 */
-</style>
+#tabcontrol a:nth-child(3), #tabbody div:nth-child(3) {
+background-color: #ddffdd;
+} /* 3つ目のタブとその中身用の配色 */
 
-<script type="text/javascript">
-	function entryChange1() {
-		radio = document.getElementsByName('entryPlan')
-		if (radio[0].checked) {
-			document.getElementById('firstBox').style.display = "";
-			document.getElementById('secondBox').style.display = "none";
-		} else if (radio[1].checked) {
-			document.getElementById('firstBox').style.display = "none";
-			document.getElementById('secondBox').style.display = "";
-		}
-	}
-	window.onload = entryChange1;
-</script>
+</style>
+<script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
 <body>
 	<header>
@@ -87,178 +80,305 @@
 		</table>
 	</header>
 	<main>
+		<form action="" id="@@@@@@@@@" method="post">
+			<table class="button_table">
+				<tr>
+					<!-- 入力フォーム（お名前） -->
+					<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+							class="button_design">トップへ戻る</button></th>
+				</tr>
+			</table>
+		</form>
 		<div class="sample-area">
-			<tr>
-				<th><button type="button" onclick="toTopMenu();">トップへ戻る</button></th>
-			</tr>
 			<p id="tabcontrol">
-				<a href="#tabpage1">契約条件</a> <a href="#tabpage2">補償</a>
+				<a href="#tabpage1">事故受付</a> <a href="#tabpage2">契約条件</a> <a
+					href="#tabpage3">補償</a>
 			</p>
 			<div id="tabbody">
 				<div id="tabpage1">
-					<form id="mailformpro" action="mailformpro/mailformpro.cgi"
-						method="POST">
+					<div class="subTitle">事故受付入力(事故受付タブ)</div>
+					<table border="1" style="border-collapse: collapse">
+						<tr>
+							<td colspan="2">お客様情報</td>
+						</tr>
+						<tr>
+							<td>事故受付番号</td>
+							<td>11111</td>
+						</tr>
+						<tr>
+							<td>証券番号</td>
+							<td>11111</td>
+						</tr>
+						<tr>
+							<td>契約者名</td>
+							<td>東海 太郎</td>
+						</tr>
+					</table>
+					<!-- 表示切り替えfirstBox -->
+					<table border="0">
+						<dl id="firstBox">
+							<dl class="mailform" align="center">
+								<h3>
+									事故日 <input type="date" placeholder="YYYY/MM/DD">
+								</h3>
+								<h3>
+									事故現場住所1-漢字 <input type="text" placeholder="東京都多摩市">
+								</h3>
+								<h3>
+									事故現場住所1-カナ <input type="text" placeholder="トウキョウトタマシ">
+								</h3>
+								<h3>
+									事故現場住所2-漢字 <input type="text" placeholder="○○町○○番地">
+								</h3>
+								<h3>
+									事故現場住所2-カナ <input type="text" placeholder="○○チョウ○○バンチ">
+								</h3>
+								<h3>
+									相手の状況（被害者側） <input type="text" placeholder="相手にケガはなし">
+								</h3>
+								<h3>
+									過失割合（相手方） <input type="text" placeholder="8割">
+								</h3>
+								<h3>
+									損害額・車両 <input type="text" placeholder="A0000001">
+								</h3>
+								<h3>
+									損害状況・車両 <input type="text" placeholder="一部あり">
+								</h3>
+								<h3>
+									損害額・対人 <input type="text" placeholder="A0000001">
+								</h3>
+								<h3>
+									損害状況・対人 <input type="text" placeholder="なし">
+								</h3>
+								<h3>
+									損害額・対物 <input type="text" placeholder="A0000001">
+								</h3>
+								<h3>
+									損害状況・対物 <input type="text" placeholder="あり">
+								</h3>
+								<h3>
+									損害額・傷害 <input type="text" placeholder="A0000001">
+								</h3>
+								<h3>
+									損害状況・傷害 <input type="text" placeholder="なし">
+								</h3>
 
-						<table border="0" cellspacing="0" cellpadding="0">
+							</dl>
+						</dl>
+					</table>
+					</div>
+				</div>
+					<div id="tabpage2">
+					<div class="subTitle">事故受付入力(契約情報タブ)</div>
+					<table border="1" style="border-collapse: collapse">
 							<tr>
-								<td align="center">
-									<h1>事故受付入力（契約条件タブ）</h1>
-									<table border="1" width="80%">
-										<tr>
-											<td colspan="2">お客様情報</td>
-										</tr>
-										<tr>
-											<td>事故受付番号</td>
-											<td>11111</td>
-										</tr>
-										<tr>
-											<td>証券番号</td>
-											<td>11111</td>
-										</tr>
-										<tr>
-											<td>契約者名</td>
-											<td>東海 太郎</td>
-										</tr>
-									</table>
-								</td>
+								<td colspan="2">事故受付入力</td>
+							</tr>
+							<tr>
+								<td>保険期間</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getInsureanceIntervalForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>証券番号</td>
+								<td><c:out value="${requestScope.contractInfo.polNo}" /></td>
+							</tr>
+							<tr>
+								<td>印刷連番</td>
+								<td><c:out
+										value="${requestScope.contractInfo.insatsuRenban}" /></td>
+							</tr>
+							<tr>
+								<td>契約状態</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getStatusFlgForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>被保険者の個人法人区分</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getInsuredKbnForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>払込方法</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getPaymentMethodForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>会社名-カナ</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getkanaNameForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>会社名-漢字</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getNameForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>住所-カナ</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getKanaAddressForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>郵便番号</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getPostcodeForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>住所-漢字</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getKanjiAddressForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>電話番号</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getTelephoneNoForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>携帯電話番号</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getMobilePhoneNoForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>FAX番号</td>
+								<td><c:out
+										value="${requestScope.contractInfo.getFaxNoForLabel()}" /></td>
 							</tr>
 						</table>
-						<!-- 表示切り替えfirstBox -->
-						<table border="0">
-							<dl id="firstBox">
-								<dl class="mailform" align="center">
-									<h3>
-										事故日 <input type="date" placeholder="YYYY/MM/DD">
-									</h3>
-									<h3>
-										事故現場住所1-漢字 <input type="text" placeholder="東京都多摩市">
-									</h3>
-									<h3>
-										事故現場住所1-カナ <input type="text" placeholder="トウキョウトタマシ">
-									</h3>
-									<h3>
-										事故現場住所2-漢字 <input type="text" placeholder="○○町○○番地">
-									</h3>
-									<h3>
-										事故現場住所2-カナ <input type="text" placeholder="○○チョウ○○バンチ">
-									</h3>
-									<h3>
-										相手の状況（被害者側） <input type="text" placeholder="相手にケガはなし">
-									</h3>
-									<h3>
-										過失割合（相手方） <input type="text" placeholder="8割">
-									</h3>
-									<h3>
-										損害額・車両 <input type="text" placeholder="A0000001">
-									</h3>
-									<h3>
-										損害状況・車両 <input type="text" placeholder="一部あり">
-									</h3>
-									<h3>
-										損害額・対人 <input type="text" placeholder="A0000001">
-									</h3>
-									<h3>
-										損害状況・対人 <input type="text" placeholder="なし">
-									</h3>
-									<h3>
-										損害額・対物 <input type="text" placeholder="A0000001">
-									</h3>
-									<h3>
-										損害状況・対物 <input type="text" placeholder="あり">
-									</h3>
-									<h3>
-										損害額・傷害 <input type="text" placeholder="A0000001">
-									</h3>
-									<h3>
-										損害状況・傷害 <input type="text" placeholder="なし">
-									</h3>
-
-								</dl>
-							</dl>
-
-							<td>
-								<th><button type="button" onclick="kansu">状況更新</button></th>
-							</td>
-							<td>
-								<th><button type="button" onclick="kansu">事故受付完了</button></th>
-							</td>
+					</div>
+					<div id="tabpage2">
+					<div class="subTitle">事故受付入力(契約情報タブ)</div>
+					<table border="1" style="border-collapse: collapse">
+							<tr>
+								<td colspan="2">事故受付入力</td>
+							</tr>
+							<tr>
+								<td>保険料</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>メーカー</td>
+								<td><c:out
+										value="${requestScope.compensation.getCarName()}" /></td>
+							</tr>
+							<tr>
+								<td>車名</td>
+								<td><c:out
+										value="${requestScope.compensation.getCarName()}" /></td>
+							</tr>
+							<tr>
+								<td>車のナンバー</td>
+								<td><c:out
+										value="${requestScope.compensation.getCarNameForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>車両保険金額</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>免許証の色</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>車両料率</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>退陣料率</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>対物料率</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>障害料率</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>年齢条件</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
+							<tr>
+								<td>１回分保険料</td>
+								<td><c:out
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+							</tr>
 						</table>
-					</form>
+					</div>
 				</div>
-				<div id="tabpage2">
-					<h1>事故受付入力（補償タブ）</h1>
-					<table border="1" width="80%">
+				<table class="button_table">
 						<tr>
-							<td colspan="2">自動車保険料試算結果</td>
-						</tr>
-						<tr>
-							<td>保険料</td>
-							<td>○○円</td>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">更新完了</button></th>
 						</tr>
 					</table>
-					<table border="0">
+					<table class="button_table">
 						<tr>
-							<td align="center">
-								<h3>メーカー</h3>
-								<h3>車名</h3>
-								<h3>車のナンバー</h3>
-								<h3>一回分保険料</h3>
-								<h3>車両保険金額</h3>
-								<h3>免許証の色</h3>
-								<h3>車両料率</h3>
-								<h3>対人料率</h3>
-								<h3>対物料率</h3>
-								<h3>傷害料率</h3>
-								<h3>年齢条件</h3>
-							</td>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">事故受付完了</button></th>
 						</tr>
 					</table>
-				</div>
+
+				<script type="text/javascript">
+
+                // 対象の要素を得る
+                var tabs = document.getElementById('tabcontrol').getElementsByTagName('a');
+                var pages = document.getElementById('tabbody').getElementsByTagName('div');
+
+                function changeTab() {
+                    // href属性値から対象のid名を抜き出す
+                    var targetid = this.href.substring(this.href.indexOf('#')+1,this.href.length);
+
+                    // 指定のページだけを表示する
+                    for(var i=0; i<pages.length; i++) {
+                        if( pages[i].id != targetid ) {
+                            pages[i].style.display = "none";
+                        }
+                        else {
+                            pages[i].style.display = "block";
+                        }
+                    }
+
+                    // クリックされたタブを前面に表示する
+                    for(var i=0; i<tabs.length; i++) {
+                        tabs[i].style.zIndex = "0";
+                    }
+                    this.style.zIndex = "10";
+
+                    // ページ遷移しないようにfalseを返す
+                    return false;
+                }
+
+                // すべてのタブに対して、クリック時にchangeTab関数が実行されるよう指定する
+                for(var i=0; i<tabs.length; i++) {
+                    tabs[i].onclick = changeTab;
+                }
+
+                // 最初は先頭のタブを選択
+                tabs[0].onclick();
+
+            </script>
+				</table>
 			</div>
-			<tr>
-				<th><button type="button" onclick="kansu">前の画面へ戻る</button></th>
-			</tr>
 		</div>
-
-		<script type="text/javascript">
-			// 対象の要素を得る
-			var tabs = document.getElementById('tabcontrol')
-					.getElementsByTagName('a');
-			var pages = document.getElementById('tabbody')
-					.getElementsByTagName('div');
-
-			function changeTab() {
-				// href属性値から対象のid名を抜き出す
-				var targetid = this.href.substring(this.href.indexOf('#') + 1,
-						this.href.length);
-
-				// 指定のページだけを表示する
-				for (var i = 0; i < pages.length; i++) {
-					if (pages[i].id != targetid) {
-						pages[i].style.display = "none";
-					} else {
-						pages[i].style.display = "block";
-					}
-				}
-
-				// クリックされたタブを前面に表示する
-				for (var i = 0; i < tabs.length; i++) {
-					tabs[i].style.zIndex = "0";
-				}
-				this.style.zIndex = "10";
-
-				// ページ遷移しないようにfalseを返す
-				return false;
-			}
-
-			// すべてのタブに対して、クリック時にchangeTab関数が実行されるよう指定する
-			for (var i = 0; i < tabs.length; i++) {
-				tabs[i].onclick = changeTab;
-			}
-
-			// 最初は先頭のタブを選択
-			tabs[0].onclick();
-		</script>
+		<table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+									class="button_design">前の画面へ戻る</button></th>
+						</tr>
+					</table>
 	</main>
 </body>
 </html>
