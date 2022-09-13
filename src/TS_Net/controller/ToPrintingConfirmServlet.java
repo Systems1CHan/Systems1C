@@ -19,6 +19,7 @@ import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.CompensationFormChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
+import TS_Net.model.datacheck.DateChecker;
 
 
 
@@ -29,7 +30,7 @@ import TS_Net.model.datacheck.ContractFormChecker;
  * </p>
  * @author RyoIsogami/SYS 2022/09/12
  */
-@WebServlet("/ToPrintingConfirmServlet")
+@WebServlet("/ToPrintingConfirm")
 public class ToPrintingConfirmServlet extends HttpServlet {
 
 
@@ -37,16 +38,22 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
 		HttpSession session = request.getSession(false);
+		//契約情報・補償情報オブジェクトの生成
 		ContractInfo contractInfo = null;
 		Compensation compensation = null;
 
+		//セッションがnullの場合
 		if(session == null) {
 			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
+
+		//セッションがある場合
 		}else {
 			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
 			compensation = (Compensation) session.getAttribute("compensation");
+
+			//セッションはあるが、各オブジェクトが存在しない場合
 			if(contractInfo == null || compensation == null) {
 				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
@@ -55,7 +62,6 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		}
 
 		//リクエストパラメータを取得する（契約情報）
-		String insatsuRenban = request.getParameter("insatsuRenban");
 		String inceptionDate = request.getParameter("inceptionDate");
 		String inceptionTime = request.getParameter("inceptionTime");
 		String conclusionDate = request.getParameter("conclusionDate");
@@ -79,7 +85,6 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		String faxNo = request.getParameter("faxNo");
 
 		//契約情報オブジェクトにセット
-		contractInfo.setInsatsuRenban(insatsuRenban);
 		contractInfo.setInceptionDate(inceptionDate);
 		contractInfo.setInceptionTime(inceptionTime);
 		contractInfo.setConclusionDate(conclusionDate);
@@ -130,50 +135,85 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		compensation.setPremiumAmount(premiumAmount);
 		compensation.setPremiumInstallment(premiumInstallment);
 
+		//データチェッククラスの生成
 		ContractFormChecker cfc = new ContractFormChecker();
 		CompensationFormChecker comfc = new CompensationFormChecker();
+		DateChecker dc = new DateChecker();
 
-		if(cfc.check(contractInfo) != null) {
-			request.setAttribute("message", cfc.check(contractInfo));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ContractFormPage.jsp");
-			rd.forward(request, response);
-		}else if(comfc.check(compensation) != null) {
-			request.setAttribute("message", comfc.check(compensation));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ContractFormPage.jsp");
-			rd.forward(request, response);
-		}else {
+		//DAOの生成
+		ContractInfoDao contractInfoDao = new ContractInfoDao();
+		CompensationDao compensationDao = new CompensationDao();
 
-			ContractInfoDao contractInfoDao = new ContractInfoDao();
-			CompensationDao compensationDao = new CompensationDao();
+		try {
 
-			try {
-				contractInfoDao.connect();
-				compensationDao.connect();
+			//DAOに接続
+			contractInfoDao.connect();
+			compensationDao.connect();
 
+			//印刷連番の生成（インクリメント済み）
+			String insatsuRenban = contractInfoDao.getMaxInsatsuRenban();
+
+			//契約情報クラス、補償情報クラスに印刷連番をセット
+			contractInfo.setInsatsuRenban(insatsuRenban);
+			compensation.setInsatsuRenban(insatsuRenban);
+
+			/*
+			 * 各データチェックを行う
+			 * エラーが出た場合はエラーメッセージをrequest領域に格納したうえで、新規試算入力画面へforwardする
+			 * エラーがない場合は、nullが返る
+			 */
+			if(cfc.check(contractInfo) != null) {
+				request.setAttribute("message", cfc.check(contractInfo));
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}else if(comfc.check(compensation) != null) {
+				request.setAttribute("message", comfc.check(compensation));
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}else if(dc.inceptionDateCheck(inceptionDate) != null){
+				request.setAttribute("message", dc.inceptionDateCheck(inceptionDate));
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}else if(dc.conclusionDateCheck(conclusionDate) != null) {
+				request.setAttribute("message", dc.conclusionDateCheck(conclusionDate));
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}else if(dc.birthdayCheck(birthday) != null) {
+				request.setAttribute("message", dc.birthdayCheck(birthday));
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}else {
+
+				//各オブジェクトにセットされた値をテーブルにINSERTする
 				contractInfoDao.registContractInfo(contractInfo);
 				compensationDao.registCompensation(compensation);
 
+				//申込書印刷確認画面へforwardする
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+				rd.forward(request, response);
+			}
 
-			}catch(SQLException e){
+		//例外処理
+		}catch(SQLException e){
+			request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+
+		}catch(ClassNotFoundException e) {
+			request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+
+		}finally {
+
+			//例外の有無にかかわらず、DAOの接続を切る
+			try {
+				contractInfoDao.close();
+				compensationDao.close();
+			}catch (SQLException e) {
 				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 				rd.forward(request, response);
-
-			}catch(ClassNotFoundException e) {
-				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-				rd.forward(request, response);
-
-			}finally {
-
-				try {
-					contractInfoDao.close();
-					compensationDao.close();
-				}catch (SQLException e) {
-					request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-					rd.forward(request, response);
-				}
 			}
 		}
 	}

@@ -65,39 +65,46 @@ public class CompensationDao {
 	 * @param entity 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-//	public void registCompensation(Compensation conpensation) throws SQLException {
-//
-//		String sql = "INSERT INTO cover_tbl(cover_id, insatsu_renban, premium_amount, premium_installment, maker, car_name, license_no, vehicle_price, vehicle_rates, bodily_rates, property_damage_rates, accident_rates, license_color, age_limit)"
-//				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//
-//		PreparedStatement stmt = null;
-//		try {
-//			stmt=con.prepareStatement(sql);
-//			stmt.setString(1, contractInfo.getInsatsuRenban());
-//			stmt.setString(2, contractInfo.getPolNo());
-//			stmt.setString(3, contractInfo.getStatusFlg());
-//			stmt.setString(4, contractInfo.getCancelFlg());
-//			stmt.setString(5, contractInfo.getInceptionDate());
-//			stmt.setString(6, contractInfo.getInceptionTime());
-//			stmt.setString(7, contractInfo.getConclusionDate());
-//			stmt.setString(8, contractInfo.getConclusionTime());
-//			stmt.setString(9, contractInfo.getPaymentMethod());
-//			stmt.setInt(10, contractInfo.getInstallment());
-//			stmt.setString(11, contractInfo.getInsuredKbn());
-//			stmt.setString(12, contractInfo.getNameKana1());
-//			stmt.setString(13, contractInfo.getNamekana2());
-//			stmt.setString(14, contractInfo.getNameKanji1());
-//
-//
-//			stmt.executeUpdate();
-//		}finally {
-//
-//			if(stmt != null) {
-//				stmt.close();
-//			}
-//		}
-//
-//	}
+	public void registCompensation(Compensation compensation) throws SQLException {
+
+		String sql = "INSERT INTO cover_tbl(cover_id, insatsu_renban, premium_amount, premium_installment, maker, car_name, license_no, vehicle_price, vehicle_rates, bodily_rates, property_damage_rates, accident_rates, license_color, age_limit)"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		PreparedStatement stmt = null;
+
+		try {
+
+			stmt=con.prepareStatement(sql);
+			stmt.setInt(1, compensation.getCoverId());
+			stmt.setString(2, compensation.getInsatsuRenban());
+			stmt.setInt(3, compensation.getPremiumAmount());
+			stmt.setInt(4, compensation.getPremiumInstallment());
+			stmt.setString(5, compensation.getMaker());
+			stmt.setString(6, compensation.getCarName());
+			stmt.setString(7, compensation.getLicenseNo());
+			stmt.setInt(8, compensation.getVehiclePrice());
+			stmt.setString(9, compensation.getVehicleRates());
+			stmt.setString(10, compensation.getBodilyRates());
+			stmt.setString(11, compensation.getPropertyDamageRates());
+			stmt.setString(12, compensation.getAccidentRates());
+			stmt.setString(13, compensation.getLicenseColor());
+			stmt.setString(14, compensation.getAgeLimit());
+
+			stmt.executeUpdate();
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(stmt != null) {
+				try {
+					stmt.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
 
 
 	/**
