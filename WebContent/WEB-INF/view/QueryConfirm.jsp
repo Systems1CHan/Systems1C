@@ -73,7 +73,6 @@
 									class="button_design">トップへ戻る</button></th>
 						</tr>
 					</table>
-				</form>
             <div class="sample-area">
                 <p id="tabcontrol">
                     <a href="#tabpage1">契約条件</a>
@@ -96,7 +95,7 @@
    								 <td>印刷連番</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
   							</tr>
   							 <tr>
-   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo. getCancelFlg()}"/></td>
+   								 <td>契約状態</td><td><c:out value="${requestScope.contractInfo. getStatusFlgForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>被保険者の個人法人区分</td><td><c:out value="${requestScope.contractInfo.getInsuredKbnForLabel()}"/></td>
@@ -184,8 +183,8 @@
 						</table>
                     </div>
                 </div>
-
             </div>
+             </form>
 
             <script type="text/javascript">
 
