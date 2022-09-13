@@ -50,6 +50,95 @@
             /* タブの配色 */
             #tabcontrol a:nth-child(1), #tabbody div:nth-child(1) { background-color: #ffffdd; }	/* 1つ目のタブとその中身用の配色 */
             #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) { background-color: #ddffdd; }	/* 2つ目のタブとその中身用の配色 */
+
+            .btn {
+                position: relative;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                max-width: 240px;
+                padding: 10px 25px;
+                color: #FFF;
+                transition: 0.3s ease-in-out;
+                font-weight: 600;
+                background: #6bb6ff;
+                border-radius: 8px;
+                border-bottom: solid 5px #1d7fde;
+                margin-bottom: 15px;
+                margin-top: 25px;
+                display: inline-block;
+            }
+            .btn:hover {
+                border-bottom: solid 2px #1d7fde;
+                transform: translateY(3px);
+            }
+
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table tr{
+                border-bottom: solid 2px white;
+            }
+
+            table tr:last-child{
+                border-bottom: none;
+            }
+
+            table th{
+                position: relative;
+                text-align: left;
+                width: 30%;
+                background-color: #52c2d0;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            table th:after{
+                display: block;
+                content: "";
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                top:calc(50% - 10px);
+                right:-10px;
+                border-left: 10px solid #52c2d0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+            }
+
+            table td{
+                text-align: left;
+                width: 70%;
+                text-align: center;
+                background-color: #eee;
+                padding: 10px 0;
+            }
+
+            input:required{
+                background: #ffcdd2;
+            }
+            input:valid{
+                background: transparent;
+            }
+            input:focus{
+                background: #DCEDC8;
+            }
+
+            .form-require {
+                border-radius: 5px;
+                margin-right: 10px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 45px;
+                display: inline-block;
+                text-align: center;
+                background: red;
+                color: #fff;
+                font-size: 12px;
+            }
         </style>
 
         <script type="text/javascript">
@@ -74,83 +163,6 @@
             <form>
                 <button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
             </form>
-            <style>
-                .btn {
-                    position: relative;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    max-width: 240px;
-                    padding: 10px 25px;
-                    color: #FFF;
-                    transition: 0.3s ease-in-out;
-                    font-weight: 600;
-                    background: #6bb6ff;
-                    border-radius: 8px;
-                    border-bottom: solid 5px #1d7fde;
-                    margin-bottom: 15px;
-                    margin-top: 25px;
-                    display: inline-block;
-                }
-                .btn:hover {
-                    border-bottom: solid 2px #1d7fde;
-                    transform: translateY(3px);
-                }
-
-                table{
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-
-                table tr{
-                    border-bottom: solid 2px white;
-                }
-
-                table tr:last-child{
-                    border-bottom: none;
-                }
-
-                table th{
-                    position: relative;
-                    text-align: left;
-                    width: 30%;
-                    background-color: #52c2d0;
-                    color: white;
-                    text-align: center;
-                    padding: 10px 0;
-                }
-
-                table th:after{
-                    display: block;
-                    content: "";
-                    width: 0px;
-                    height: 0px;
-                    position: absolute;
-                    top:calc(50% - 10px);
-                    right:-10px;
-                    border-left: 10px solid #52c2d0;
-                    border-top: 10px solid transparent;
-                    border-bottom: 10px solid transparent;
-                }
-
-                table td{
-                    text-align: left;
-                    width: 70%;
-                    text-align: center;
-                    background-color: #eee;
-                    padding: 10px 0;
-                }
-
-                input:required{
-                    background: #ffcdd2;
-                }
-                input:valid{
-                    background: transparent;
-                }
-                input:focus{
-                    background: #DCEDC8;
-                }
-            </style>
 
             <div class="sample-area">
 
@@ -161,7 +173,7 @@
                 <div id="tabbody">
                     <div id="tabpage1">
                         <form action="" method="post" class="radiochange">
-                            <table border="0" cellspacing="0" cellpadding="0">
+                            <table>
                                 <tr>
                                     <td align="center">
                                     <h1>新規試算入力（契約条件タブ）</h1>
@@ -186,6 +198,7 @@
                                         </label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001" required>
                                     </td>
                                 </tr>
@@ -194,6 +207,7 @@
                                         <label for="inceptionDate">保険期間始期日</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
@@ -202,6 +216,7 @@
                                         <label for="inceptionTime">保険期間始期時刻</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="inceptionTime" required>
                                             <option value="">保険期間始期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
@@ -236,6 +251,7 @@
                                         <label for="conclusionDate">保険期間満期日</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
@@ -244,6 +260,7 @@
                                         <label for="conclusionTime">保険期間満期時刻</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="conclusionTime" required>
                                             <option value="">保険期間満期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
@@ -278,6 +295,7 @@
                                         <label for="paymentMethod">払込方法</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="paymentMethod" required>
                                             <option value="">払込方法を選択してください</option>
                                             <option value="1">直接集金</option>
@@ -291,6 +309,7 @@
                                         <label for="installment">払込回数</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="installment">
                                             <option value="">払込回数を選択してください</option>
                                             <option value="1">1</option>
@@ -307,7 +326,8 @@
                                         <label for="nameKana1">氏名カナ１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -315,7 +335,8 @@
                                         <label for="nameKana2">氏名カナ２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -323,7 +344,8 @@
                                         <label for="nameKanji1">氏名漢字１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -331,7 +353,8 @@
                                         <label for="nameKanji2">氏名漢字２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -339,7 +362,8 @@
                                         <label for="postcode">郵便番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -347,7 +371,8 @@
                                         <label for="addressKana1">住所カナ１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -355,7 +380,8 @@
                                         <label for="addressKana2">住所カナ２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -363,7 +389,8 @@
                                         <label for="addressKanji1">住所漢字１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -371,7 +398,8 @@
                                         <label for="addressKanji2">住所漢字２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -379,7 +407,8 @@
                                         <label for="birthday">生年月日</label>
                                     </th>
                                     <td>
-                                        <input type="date" id="birthday" name="birthday" size="60" placeholder="YYYY/MM/DD">
+                                        <span class="form-require">必須</span>
+                                        <input type="date" id="birthday" name="birthday" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -387,6 +416,7 @@
                                         <label for="gender">性別</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <label>
                                             <input type="radio" id="gender" name="gender" value="1">男
                                             <input type="radio" id="gender" name="gender" value="2">女
@@ -398,7 +428,8 @@
                                         <label for="telephoneNo">電話番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -406,7 +437,8 @@
                                         <label for="mobliephoneNo">携帯電話番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -414,7 +446,8 @@
                                         <label for="faxNo">FAX番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789" required>
                                     </td>
                                 </tr>
                             </tbody>
@@ -427,7 +460,8 @@
                                         <label for="insatsuRenban">印刷連番</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）A0000001" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -435,7 +469,8 @@
                                         <label for="inceptionDate">保険期間始期日</label>
                                     </th>
                                     <td>
-                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD">
+                                        <span class="form-require">必須</span>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -443,7 +478,8 @@
                                         <label for="inceptionTime">保険期間始期時刻</label>
                                     </th>
                                     <td>
-                                        <select name="inceptionTime">
+                                        <span class="form-require">必須</span>
+                                        <select name="inceptionTime" required>
                                             <option value="">保険期間始期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -477,7 +513,8 @@
                                         <label for="conclusionDate">保険期間満期日</label>
                                     </th>
                                     <td>
-                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD">
+                                        <span class="form-require">必須</span>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -485,7 +522,8 @@
                                         <label for="conclusionTime">保険期間満期時刻</label>
                                     </th>
                                     <td>
-                                        <select name="conclusionTime">
+                                        <span class="form-require">必須</span>
+                                        <select name="conclusionTime" required>
                                             <option value="">保険期間満期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -519,7 +557,8 @@
                                         <label for="paymentMethod">払込方法</label>
                                     </th>
                                     <td>
-                                        <select name="paymentMethod">
+                                        <span class="form-require">必須</span>
+                                        <select name="paymentMethod" required>
                                             <option value="">払込方法を選択してください</option>
                                             <option value="1">直接集金</option>
                                             <option value="2">口座振替</option>
@@ -532,7 +571,8 @@
                                         <label for="installment">払込回数</label>
                                     </th>
                                     <td>
-                                        <select name="installment">
+                                        <span class="form-require">必須</span>
+                                        <select name="installment" required>
                                             <option value="">払込回数を選択してください</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -548,7 +588,8 @@
                                         <label for="nameKana1">会社名カナ１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）タマホケン">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）タマホケン" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -556,7 +597,8 @@
                                         <label for="nameKana2">会社名カナ２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）カブシキガイシャ">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）カブシキガイシャ" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -564,7 +606,8 @@
                                         <label for="nameKanji1">会社名漢字１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）多摩保険">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）多摩保険" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -572,7 +615,8 @@
                                         <label for="nameKanji2">会社名漢字２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）株式会社">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）株式会社" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -580,7 +624,8 @@
                                         <label for="postcode">郵便番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -588,7 +633,8 @@
                                         <label for="addressKana1">住所カナ１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -596,7 +642,8 @@
                                         <label for="addressKana2">住所カナ２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -604,7 +651,8 @@
                                         <label for="addressKanji1">住所漢字１</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -612,7 +660,8 @@
                                         <label for="addressKanji2">住所漢字２</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -620,7 +669,8 @@
                                         <label for="telephoneNo">電話番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -628,7 +678,8 @@
                                         <label for="mobliephoneNo">携帯電話番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -636,7 +687,8 @@
                                         <label for="faxNo">FAX番号</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789" required>
                                     </td>
                                 </tr>
                             </tbody>
@@ -657,23 +709,26 @@
                         <form action="" method="post" name="hoshoForm">
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
-                            <tr>
-                                <td colspan="2">自動車保険料試算結果</td>
-                            </tr>
-                            <tr>
-                                <td>総額保険料</td>
-                                <td>○○円</td>
-                            </tr>
-                            <tr>
-                                <td>一回分保険料</td>
-                                <td>○○円</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">自動車保険料試算結果</td>
+                                </tr>
+                                <tr>
+                                    <td>総額保険料</td>
+                                    <td>○○円</td>
+                                </tr>
+                                <tr>
+                                    <td>一回分保険料</td>
+                                    <td>○○円</td>
+                                </tr>
+                            </tbody>
                         </table>
                         <table id="secondBox" width="2500">
                             <tbody>
                                 <tr>
                                     <th>メーカー</th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select id="changeSelect" name="maker">
                                             <option value="">メーカーを選択してください</option>
                                             <option value="lexus">レクサス</option>
@@ -691,6 +746,7 @@
                                 <tr>
                                     <th>車名</th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="carName" id="carName">
                                             <option value="manual">車名を選択してください</option>
                                             <option value="LS">（レクサス）LS</option>
@@ -723,31 +779,31 @@
                                 <tr>
                                     <th>車両保険金額</th>
                                     <td>
-                                        <input type="text" value="" name="vehiclePrice" id="vehiclePrice">
+                                        <input type="text" value="" name="vehiclePrice" id="vehiclePrice" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
-                                        <input type="text" value="" name="vehicleRates" id="vehicleRates">
+                                        <input type="text" value="" name="vehicleRates" id="vehicleRates" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対人</th>
                                     <td>
-                                        <input type="text" value="" name="bodilyRates" id="bodilyRates">
+                                        <input type="text" value="" name="bodilyRates" id="bodilyRates" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対物</th>
                                     <td>
-                                        <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates">
+                                        <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
-                                        <input type="text" value="" name="accidentRates" id="accidentRates">
+                                        <input type="text" value="" name="accidentRates" id="accidentRates" required>
                                     </td>
                                 </tr>
 
@@ -951,7 +1007,8 @@
                                         <label for="licenseNo">車のナンバー</label>
                                     </th>
                                     <td>
-                                        <input type="text" id="insatsuRenban" name="insatsuRenban" size="60" placeholder="（例）多摩 12-34">
+                                        <span class="form-require">必須</span>
+                                        <input type="text" id="licenseNo" name="licenseNo" size="60" placeholder="（例）多摩 12-34" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -959,6 +1016,7 @@
                                         <label for="licenseColor">免許証の色</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="licenseColor">
                                             <option value="">免許証の色を選択してください</option>
                                             <option value="1">ブルー</option>
@@ -972,6 +1030,7 @@
                                         <label for="ageLimit">年齢条件</label>
                                     </th>
                                     <td>
+                                        <span class="form-require">必須</span>
                                         <select name="ageLimit">
                                             <option value="">年齢条件を選択してください</option>
                                             <option value="1">無条件</option>
