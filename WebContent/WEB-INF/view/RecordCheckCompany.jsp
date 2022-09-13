@@ -7,7 +7,6 @@
   修正履歴 (修正日 ： 担当者 ： 修正内容)
  -----------------------------------------------------------------------------%>
 
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -75,7 +74,7 @@
             </table>
         </header>
         <main>
-            <form action="" id="@@@@@@@@@" method="post">
+            <form action=""  method="post">
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
@@ -91,12 +90,12 @@
                 </p>
                 <div id="tabbody">
                     <div id="tabpage1">
-						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
+						<div class="subTitle">計上確認(契約条件タブ)(法人)</div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
  							 <td colspan="2">計上確認</td>
  							 </tr>
-							 <tr>
+ 							 <tr>
    								 <td>保険期間</td><td><c:out value="${sessionScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
   							</tr>
  							 <tr>
@@ -114,17 +113,11 @@
   							 <tr>
    								 <td>払込方法</td><td><c:out value="${sessionScope.contractInfo.getPaymentMethodForLabel()}"/></td>
   							</tr>
-  							 <tr>
-   								 <td>氏名-カナ</td><td><c:out value="${sessionScope.contractInfo.getkanaNameForLabel()}"/></td>
+  							<tr>
+   								 <td>会社名-カナ</td><td><c:out value="${sessionScope.contractInfo.getkanaNameForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>性別</td><td><c:out value="${sessionScope.contractInfo.getGenderForLabel()}"/></td>
-  							</tr>
-  							 <tr>
-   								 <td>氏名-漢字</td><td><c:out value="${sessionScope.contractInfo.getNameForLabel()}"/></td>
-  							</tr>
-  							 <tr>
-   								 <td>生年月日</td><td><c:out value="${sessionScope.contractInfo.getBirthdayForLabel()}"/></td>
+   								 <td>会社名-漢字</td><td><c:out value="${sessionScope.contractInfo.getNameForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>住所-カナ</td><td><c:out value="${sessionScope.contractInfo.getKanaAddressForLabel()}"/></td>
@@ -133,7 +126,7 @@
    								 <td>郵便番号</td><td><c:out value="${sessionScope.contractInfo.getPostcodeForLabel()}"/></td>
   							</tr>
   							 <tr>
-   								 <td>住所-漢字</td><td><c:out value="${sessionScope.contractInfo.getKanjiAddressForLabel()}"/></td>
+   								 <td>住所-漢字</td><td><c:out value="${sessiontScope.contractInfo.getKanjiAddressForLabel()}"/></td>
   							</tr>
   							 <tr>
    								 <td>電話番号</td><td><c:out value="${sessionScope.contractInfo.getTelephoneNoForLabel()}"/></td>
@@ -147,7 +140,7 @@
 						</table>
                     </div>
                     <div id="tabpage2">
-                    						<div class="subTitle">計上確認(補償タブ)</div>
+                    						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
  							 <td colspan="2">計上確認</td>
@@ -159,34 +152,34 @@
    								 <td>メーカー</td><td><c:out value="${sessionScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車名</td><td><c:out value="${sessionScope.compensation.getMaker()}"/></td>
+   								 <td>車名</td><td><c:out value="${sessionScope.compensation.getCarName()}"/></td>
   							 </tr>
   							 <tr>
    								 <td>車のナンバー</td><td><c:out value="${sessionScope.compensation.getCarNameForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両保険金額</td><td><c:out value="${sessionScope.compensation.getVehiclePrice()}"/></td>
+   								 <td>車両保険金額</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>免許証の色</td><td><c:out value="${sessionScope.compensation.getLicenseColorForLabel()}"/></td>
+   								 <td>免許証の色</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>車両料率</td><td><c:out value="${sessionScope.compensation.getVehicleRatesForLabel()}"/></td>
+   								 <td>車両料率</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>対人料率</td><td><c:out value="${sessionScope.compensation.getBodilyRatesForLabel()}"/></td>
+   								 <td>退陣料率</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>対物料率</td><td><c:out value="${sessionScope.compensation.getPropertyDamageRatesForLabel()}"/></td>
+   								 <td>対物料率</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>障害料率</td><td><c:out value="${sessionScope.compensation.getAccidentRatesForLabel()}"/></td>
+   								 <td>障害料率</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>年齢条件</td><td><c:out value="${sessionScope.compensation.getAgeLimitForLabel()}"/></td>
+   								 <td>年齢条件</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
   							 <tr>
-   								 <td>１回分保険料</td><td><c:out value="${sessionScope.compensation.getPremiumInstallment()}"/></td>
+   								 <td>１回分保険料</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							</tr>
 						</table>
                     </div>
