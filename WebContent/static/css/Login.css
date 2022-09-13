@@ -5,74 +5,43 @@
  * 作成者      ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/09 ： NarimichiHenmi/SYS ：IDとパスワードのフォームを変更)
  *------------------------------------------------------------------------------
  */
 
- /* 入力フォームのテーブル */
-.IDpass_table {
-	/* 文字の大きさ */
-	font-size: 20px;
-	/* テーブルを中央に配置 */
-	margin-left: auto;
-	margin-right: auto;
-	/* 内側の空白範囲 */
-	padding: 20px;
+/*
+ログイン専用のCSS（共通化しづらい部分なので分化）
+*/
+
+/* デフォルトのIDのフォーム（パスワードフォームと大きさを統一するためIDもパスワードフォームに合わせる） */
+.ID_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 290px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
 }
 
-/* IDの文字 */
-.ID_string {
-	/* （今回はテーブル内で）文字を左に寄せる */
-	text-align: left;
-}
-
-/* IDのフォーム */
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
 .ID_form {
-	/* フォームの長さ */
-	width: 300px
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 290px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
 }
 
-/* パスワードの文字 */
-.password_string {
-	/* （今回はテーブル内で）文字を左に寄せる */
-	text-align: left;
+
+/* デフォルトのパスワードのフォーム */
+.password_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 250px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
 }
 
-/* パスワードのフォーム */
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
 .password_form {
-	/* フォームの長さ */
-	width: 300px
-}
-
-/* 未入力とアカウントチェックのエラーメッセージ */
-.error {
-	color:red;
-	text-align: center;
-}
-
-/* ログイン・リセットボタンのテーブル */
-.button_table {
-	/* 文字の大きさ */
-	font-size: 20px;
-	/* テーブルを中央に配置 */
-	margin-left: auto;
-	margin-right: auto;
-	/* 内側の空白範囲 */
-	padding: 20px;
-}
-
-/* ボタンのデザイン */
-.button_design {
-	/* 文字の大きさ */
-	font-size: 20px;
-	/* 文字の色 */
-	color: #FFFFFF;
-	/* ボタンの枠線 */
-	border: 1px solid #FFFFFF;
-	/* ボタンの背景の色 */
-	background: #1f4e79;
-	/* 縦・横の長さ（固定） */
-	height: 50px;
-	width: 200px;
-	/* 外側の空白範囲 */
-	margin: 30px;
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 290px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
 }
