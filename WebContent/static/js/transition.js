@@ -26,6 +26,24 @@ function toApplicationConfirmPage() {
 
 /**
  *------------------------------------------------------
+ *関数名        :戻るボタン押下時の処理
+ *引数          :なし
+ *戻り値        :なし
+ *機能          :新規試算入力画面に遷移する。
+ *------------------------------------------------------
+*/
+function toApplicationConfirmPage() {
+	//１．フォーム要素を取得する。
+	var formElement = document.getElementById("estimation_frm");
+	//２．フォーム要素のaction属性に、
+	//要求『顧客情報入力画面へ』のURLをセットした上で、
+	formElement.action="./ToNewEstimation"
+	//submit関数を呼び出す。
+	formElement.submit();
+}
+
+/**
+ *------------------------------------------------------
  *関数名        :印刷ボタン押下後の処理
  *引数          :なし
  *戻り値        :なし
