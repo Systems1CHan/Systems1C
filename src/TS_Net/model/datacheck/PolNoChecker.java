@@ -45,7 +45,6 @@ public class PolNoChecker {
 		}else {
 			return null;
 		}
-
 	}
 
 
