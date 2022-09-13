@@ -124,9 +124,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 			compensationDao.connect();
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 			compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
-
-
-
+			//リクエスト領域に格納する。
 			request.setAttribute("compensation", compensation);
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -154,7 +152,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		}
 
 
-		/* TOPメニューJSPへforwardする。*/
+		/* セットされたJSPへforwardする。*/
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
 
