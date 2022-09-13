@@ -65,8 +65,20 @@
 #tabcontrol a:nth-child(3), #tabbody div:nth-child(3) {
 background-color: #ddffdd;
 } /* 3つ目のタブとその中身用の配色 */
-
 </style>
+ <script type="text/javascript">
+            function entryChange1(){
+                radio = document.getElementsByName('insuredKbn')
+                if(radio[0].checked) {
+                    document.getElementById('個人').style.display = "";
+                    document.getElementById('法人').style.display = "none";
+                }else if(radio[1].checked) {
+                    document.getElementById('個人').style.display = "none";
+                    document.getElementById('法人').style.display = "";
+                }
+            }
+            window.onload = entryChange1;
+        </script>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
 <body>
@@ -97,7 +109,7 @@ background-color: #ddffdd;
 			<div id="tabbody">
 				<div id="tabpage1">
 					<div class="subTitle">事故受付入力(事故受付タブ)</div>
-					<table border="1" style="border-collapse: collapse">
+					<table border="1" width="80%">
 						<tr>
 							<td colspan="2">お客様情報</td>
 						</tr>
@@ -246,11 +258,11 @@ background-color: #ddffdd;
 							</tr>
 						</table>
 					</div>
-					<div id="tabpage2">
-					<div class="subTitle">事故受付入力(契約情報タブ)</div>
+					<div id="tabpage3">
+					<div class="subTitle">事故受付入力(補償タブ)</div>
 					<table border="1" style="border-collapse: collapse">
 							<tr>
-								<td colspan="2">事故受付入力</td>
+								<td colspan="3">事故受付入力</td>
 							</tr>
 							<tr>
 								<td>保険料</td>
