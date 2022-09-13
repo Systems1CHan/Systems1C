@@ -278,6 +278,17 @@ public class ContractInfoDao {
 				insatsuRenban = res.getString("insatsu_renban");
 			}
 
+			String eigo = insatsuRenban.substring(0);
+			String suuji = insatsuRenban.substring(1, 9);
+
+			try {
+				int incri = Integer.parseInt(suuji);
+				int afterIncri = incri + 1;
+				String insatsu = Integer.valueOf(afterIncri).toString();
+				insatsuRenban = eigo + insatsu;
+			}catch(NumberFormatException e) {
+				e.printStackTrace();
+			}
 
 		}finally {
 			if(res != null) {
