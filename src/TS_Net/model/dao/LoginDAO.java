@@ -5,12 +5,15 @@
  * 作成者  ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/12 ： NarimichiHenmi/SYS ：findEmployeeのsql文を修正)
  *------------------------------------------------------------------------------
  */
 package TS_Net.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import TS_Net.model.constant.SystemConst;
@@ -81,36 +84,33 @@ public class LoginDAO {
 	 * @throws  SQLException  データベースエラーが発生した場合
 	 */
 	public boolean findEmployee(String iD, String password) throws SQLException {
-		//スタブまたはドライバ。今はaccountCheck()がすべて通る状態
-		return true;
+		String sql = "SELECT * FROM login_user WHERE user = ? and pass = ?";
+		PreparedStatement stmt = null;
+		ResultSet res = null;
+		boolean result = true;
 
-//		String sql = "SELECT employee_id FROM login WHERE employee_id = ? and password = ?";
-//		PreparedStatement stmt = null;
-//		ResultSet res = null;
-//		boolean result = false;
-//
-//		try {
-//			// PreparedStatementの作成
-//			stmt = con.prepareStatement(sql);
-//			// パラメータの設定
-//			stmt.setString(1, iD);
-//			stmt.setString(2, password);
-//			// SQL文の実行
-//			res = stmt.executeQuery();
-//			// 結果セットの確認
-//			if (res.next()) {
-//				result = true;
-//			}
-//		} finally {
-//			// クローズ処理
-//			if (res != null) {
-//				res.close();
-//			}
-//			if (stmt != null) {
-//				stmt.close();
-//			}
-//		}
-//
-//		return result;
+		try {
+			// PreparedStatementの作成
+			stmt = con.prepareStatement(sql);
+			// パラメータの設定
+			stmt.setString(1, iD);
+			stmt.setString(2, password);
+			// SQL文の実行
+			res = stmt.executeQuery();
+			// 結果セットの確認
+			if (res.next()) {
+				result = true;
+			}
+		} finally {
+			// クローズ処理
+			if (res != null) {
+				res.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+
+		return result;
 	}
 }

@@ -1,3 +1,11 @@
+<!-----------------------------------------------
+演習番号	：総合演習
+プログラム名：TOPメニュー画面
+作成日		：2022/09/07
+作成者		：NarimichiHenmi/SYS
+-------------------------------------------------
+修正履歴(修正日：担当者；修正内容)
+------------------------------------------------->
 <!DOCTYPE html>
 <html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,9 +15,10 @@
 <meta charset="UTF-8">
 <title>TOPメニュー</title>
 <%-- css用 リンクはheadに格納 --%>
-<!-- <link rel="stylesheet" href="./static/css/Common.css"> -->
-<link rel="stylesheet" href="./static/css/HenmiTopMenu.css">
+<link rel="stylesheet" href="./static/css/Layout.css">
+<link rel="stylesheet" href="./static/css/Button.css">
 <%-- JavaScript用 --%>
+<script type="text/javascript" src="./static/js/check.js"></script>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
 
@@ -19,22 +28,22 @@
 	</header>
 	<main>
 		<article>
-			<div class="body_roundedConer">
-				<div class="body_subTitle">TOPメニュー</div>
+			<div class="main_roundedConer_loginTop">
+				<div class="main_subTitle">TOPメニュー</div>
 				<div class="button_center">
-					<button type="button" onclick="toTopNew();" class="button_design">新規試算</button>
+					<button type="button" onclick="toTopNew();" class="button_design_topMenu">新規試算</button>
 				</div>
 				<div class="button_center">
-					<button type="button" onclick="toTopRecording();" class="button_design">計上</button>
+					<button type="button" onclick="toTopRecording();" class="button_design_topMenu">計上</button>
 				</div>
 				<div class="button_center">
-					<button type="button" onclick="toTopInquiry();" class="button_design">契約内容照会</button>
+					<button type="button" onclick="toTopInquiry();" class="button_design_topMenu">契約内容照会</button>
 				</div>
 				<div class="button_center">
-					<button type="button" onclick="toTopCancel();" class="button_design">解約</button>
+					<button type="button" onclick="toTopCancel();" class="button_design_topMenu">解約</button>
 				</div>
 				<div class="button_center">
-					<button type="button" onclick="toTopAccept();" class="button_design_last">事故受付</button>
+					<button type="button" onclick="toTopAccept();" class="button_design_topMenu_last">事故受付</button>
 				</div>
 			</div>
 		</article>
