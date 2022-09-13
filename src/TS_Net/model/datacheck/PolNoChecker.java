@@ -12,6 +12,8 @@
  */
 package TS_Net.model.datacheck;
 
+import java.util.Objects;
+
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.data.ContractInfo;
 
@@ -34,19 +36,16 @@ public class PolNoChecker {
 	 * </p>
 	 */
 	public String polNoInputCheck(String polNo, String claimNo) {
-
-
-//		if(((polNo != null) || (polNo.length() != 0)) && ((claimNo != null) || (claimNo.length() != 0))){
-
-//		if(polNo != null && polNo.length() != 0 && claimNo != null && claimNo.length() != 0){
-		if((polNo != null) && (claimNo != null)){
-
-
-			return ErrorMsgConst.FORM_ERROR0001;
-
+		if(!(Objects.equals(polNo, null)) && polNo.length() > 0) {
+			if(!(Objects.equals(claimNo, null)) && claimNo.length() > 0) {
+				return ErrorMsgConst.FORM_ERROR0018;
+			}else {
+				return null;
+			}
 		}else {
-		return null;
+			return null;
 		}
+
 	}
 
 
@@ -62,13 +61,16 @@ public class PolNoChecker {
 	 */
 	public String polNoNotInputCheck(String polNo, String claimNo) {
 
-
-		if(((polNo == null) || ("".equals(polNo))) && ((claimNo == null) || ("".equals(claimNo)))){
-
+		if(Objects.equals(polNo, null) && Objects.equals(claimNo, null)) {
 			return ErrorMsgConst.FORM_ERROR0018;
-
+		}else if(Objects.equals(polNo, null) && claimNo.isEmpty()) {
+			return ErrorMsgConst.FORM_ERROR0018;
+		}else if(polNo.isEmpty() && Objects.equals(claimNo, null)) {
+			return ErrorMsgConst.FORM_ERROR0018;
+		}else if(polNo.isEmpty() && claimNo.isEmpty()) {
+			return ErrorMsgConst.FORM_ERROR0018;
 		}else {
-		return null;
+			return null;
 		}
 	}
 
