@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
+import TS_Net.model.dao.CompensationDao;
 import TS_Net.model.dao.ContractInfoDao;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
@@ -101,14 +102,18 @@ public class ToRecordComfirmServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
 				rd.forward(request, response);
 			} else {
-				// 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
 
+				//オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+				if(contract.getInstallment() == 2) {
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
+					rd.forward(request, response);
+
+				// 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
 				HttpSession session = request.getSession();
 				session.setAttribute("contractInfo", contract);
 
-				/*７．計上確認画面JSPへforwardする。 */
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheck.jsp");
-				rd.forward(request, response);
+			}
+
 			}
 
 		 } catch (ClassNotFoundException | SQLException e) {
@@ -119,7 +124,7 @@ public class ToRecordComfirmServlet extends HttpServlet {
 			//システムエラー画面へforwardする。
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
-;
+
 		} finally {
 			try {
 				/* DAOクローズ */
@@ -132,5 +137,45 @@ public class ToRecordComfirmServlet extends HttpServlet {
 
 			}
 		}
+
+		//補償クラスも同じように生成
+		//補償オブジェクトDAO生成
+		CompensationDao cpDao = new CompensationDao();
+
+		try {
+			cpDao.connect();
+			//印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
+			compensation = cpDao.getCompensationByIR(insatsuRenban);
+			//リクエスト領域に格納する。
+			request.setAttribute("compensation", compensation);
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+			// システムエラー画面を戻り値に設定する。
+			//システムエラー画面へforwardする。
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+
+		}
+
+		finally {
+			try {
+				cpDao.close();
+
+			} catch (SQLException e) {
+				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
+				rd.forward(request, response);
+			}
+
+		}
+
+		/*７．計上確認画面JSPへforwardする。 */
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheck.jsp");
+		rd.forward(request, response);
+
+
 	}
 }
