@@ -4,12 +4,7 @@
  *作成日         :2022/09/08
  *作成者         :KouYamada/SYS
  *------------------------------------------------------
- * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
- * (2022/09/13 ： NarimichiHenmi/SYS ：入力フォームのチェック機能を追加。現在はログイン、計上、照会、解約)
- * (2022/09/13 ： NarimichiHenmi/SYS ：ログインからTOPメニューへの遷移の関数をlogin.jsからtransition.jsに移動)
- *------------------------------------------------------
 */
-
 
 /**
  *------------------------------------------------------
@@ -24,7 +19,7 @@ function toApplicationConfirmPage() {
 	var formElement = document.getElementById("application_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action = "./ToPrintingConfirm"
+	formElement.action="./ToPrintingConfirm"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
@@ -43,7 +38,7 @@ function toFinishPrintPage() {
 	var formElement = document.getElementById("finishprint_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action =  "./ToPrintingComplete"
+	formElement.action="./ToPrintingComplete"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
@@ -56,32 +51,12 @@ function toFinishPrintPage() {
  *------------------------------------------------------
 */
 function toNextPage() {
-	//１．メッセージを宣言
-	var message = "";
-
-	//２．証券番号の入力値を格納
-	var polNo = document.getElementById("polNo").value;
-
-	//３．IDまたはパスワードが未入力の場合、メッセージに以下を格納
-	if (polNo.length == 0) {
-		message += "<p>必須項目が未入力です。</p>";
-	}
-
-	//４．メッセージが設定された場合、メッセージを表示し、送信中止
-	if (message != "") {
-		var targetDiv = document.getElementById("FORM_ERROR");
-		targetDiv.innerHTML = message;
-		return false;
-	}
-
-	//５．フォーム要素を取得する。
+	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("cancel_frm");
-
-	//６．フォーム要素のaction属性に、
-	//要求『解約確認画面へ』のURLをセットした上で、
-	formElement.action =  "./ToTerminationConfirm"
-
-	//７．submit関数を呼び出す。
+	//２．フォーム要素のaction属性に、
+	//要求『顧客情報入力画面へ』のURLをセットした上で、
+	formElement.action="./ToTerminationConfirm"
+	//submit関数を呼び出す。
 	formElement.submit();
 }
 /**
@@ -97,7 +72,7 @@ function toFinishPrintCancelPage() {
 	var formElement = document.getElementById("cancelconfirm_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action =  "./ToTerminationApplication"
+	formElement.action="./ToTerminationApplication"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
@@ -110,32 +85,12 @@ function toFinishPrintCancelPage() {
  *------------------------------------------------------
 */
 function toInquiryconfirmPage() {
-	//１．メッセージを宣言する。
-	var message = "";
-
-	//２．証券番号の入力値を格納する。
-	var polNo = document.getElementById("polNo").value;
-
-	//３．IDまたはパスワードが未入力の場合、以下を格納する。
-	if (polNo.length == 0) {
-		message += "<p>必須項目が未入力です。</p>";
-	}
-
-	//４．メッセージが設定された場合、メッセージを表示し、送信中止する。
-	if (message != "") {
-		var targetDiv = document.getElementById("FORM_ERROR");
-		targetDiv.innerHTML = message;
-		return false;
-	}
-
-	//５．フォーム要素を取得する。
+	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("inquiry_frm");
-
-	//６．フォーム要素のaction属性に、
-	//要求『契約内容照会画面へ』のURLをセットした上で、
-	formElement.action = "./ToQueryConfirm"
-
-	//７．submit関数を呼び出す。
+	//２．フォーム要素のaction属性に、
+	//要求『顧客情報入力画面へ』のURLをセットした上で、
+	formElement.action="./ToQueryConfirm"
+	//submit関数を呼び出す。
 	formElement.submit();
 }
 
@@ -148,35 +103,12 @@ function toInquiryconfirmPage() {
  *------------------------------------------------------
 */
 function toTypeAccidentPage() {
-	//１．メッセージを宣言
-	var message = "";
-
-	//２．証券番号の入力値を格納
-	var polNo = document.getElementById("polNo").value;
-
-	//３．証券番号の入力値を格納
-	var claimNo = document.getElementById("claimNo").value;
-
-	//４．IDまたはパスワードが未入力の場合、メッセージに以下を格納
-	if (polNo.length == 0 && claimNo.length == 0) {
-		message += "<p>証券番号または受付番号が未入力です。</p>";
-	}
-
-	//５．メッセージが設定された場合、メッセージを表示し、送信中止
-	if (message != "") {
-		var targetDiv = document.getElementById("FORM_ERROR");
-		targetDiv.innerHTML = message;
-		return false;
-	}
-
-	//６．フォーム要素を取得する。
+	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("accident_frm");
-
-	//７．フォーム要素のaction属性に、
+	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action = "./ToAccidentForm"
-
-	//８．submit関数を呼び出す。
+	formElement.action="./ToAccidentForm"
+	//submit関数を呼び出す。
 	formElement.submit();
 }
 /**
@@ -192,7 +124,7 @@ function toFinishUpdatePage() {
 	var formElement = document.getElementById("update_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action =  "./ToUpdateForm"
+	formElement.action="./ToUpdateForm"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
@@ -209,7 +141,7 @@ function toFinishAcceptPage() {
 	var formElement = document.getElementById("accept_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action  = "./ToReceptionForm"
+	formElement.action="./ToReceptionForm"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
@@ -234,31 +166,12 @@ function toreturnReceptionPage() {
  *------------------------------------------------------
 */
 function toRecordingPage() {
-	//１．メッセージを宣言する。
-	var message = "";
-	//２．証券番号の入力値を格納する。
-	var insatsuRenban = document.getElementById("insatsuRenban").value;
-
-	//３．IDまたはパスワードが未入力の場合、以下を格納する。
-	if (insatsuRenban.length == 0) {
-		message += "<p>必須項目が未入力です。</p>";
-	}
-
-	//４．メッセージが設定された場合、メッセージを表示し、送信中止する。
-	if (message != "") {
-		var targetDiv = document.getElementById("FORM_ERROR");
-		targetDiv.innerHTML = message;
-		return false;
-	}
-
-	//５．フォーム要素を取得する。
+	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("recording_frm");
-
-	//６．フォーム要素のaction属性に、
+	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action = "./ToRecordComfirm"
-
-	//７．submit関数を呼び出す。
+	formElement.action="./ToRecordComfirm"
+	//submit関数を呼び出す。
 	formElement.submit();
 }
 /**
@@ -271,49 +184,7 @@ function toRecordingPage() {
 */
 function toFinishRecordPage() {
 	//TODO
-	location.href = "./ToRecordComplete"
-}
-/**
- *------------------------------------------------------
- *関数名        :ログインボタン押下時の処理
- *引数          :なし
- *戻り値        :なし
- *機能          :TOPメニュー画面に遷移する。
- *------------------------------------------------------
-*/
-
-function loginProcess() {
-	//１．メッセージを宣言する。
-	var message = "";
-	//２．IDの入力値を格納する
-	var iD = document.getElementById("iD").value;
-	//３．パスワードの入力値を格納する。
-	var password = document.getElementById("password").value;
-
-
-	//４．IDまたはパスワードが未入力の場合、メッセージに以下を格納する。
-	if (iD.length == 0 || password.length == 0) {
-		message += "<p>IDまたはパスワードが未入力です。</p>";
-	}
-
-	//５．メッセージが設定された場合、メッセージを表示し、送信中止する。
-	if (message != "") {
-		var targetDiv = document.getElementById("FORM_ERROR");
-		targetDiv.innerHTML = message;
-		return false;
-	}
-
-	/* ６．フォーム要素を取得する。 */
-	var formElement = document.getElementById("login_process");
-
-	/*
-	 * ７．フォーム要素のaction属性に
-	 * 要求「TOPメニューへ」のurlをセットしたうえで
-	 */
-	formElement.action = "./loginProcess"
-
-	/* ８．submit関数を呼び出す。 */
-	formElement.submit();
+ 	location.href = "./ToRecordComplete"
 }
 /**
  *------------------------------------------------------
@@ -323,7 +194,7 @@ function loginProcess() {
  *機能          :新規試算入力画面に遷移
  *------------------------------------------------------
 */
-function toTopNew() {
+function toTopNew(){
 	location.href = "./toTopNew"
 }
 /**
@@ -334,7 +205,7 @@ function toTopNew() {
  *機能          :計上開始画面に遷移
  *------------------------------------------------------
 */
-function toTopRecording() {
+ function toTopRecording(){
 	location.href = "./toTopRecording"
 }
 /**
@@ -345,7 +216,7 @@ function toTopRecording() {
  *機能          :照会画面に遷移
  *------------------------------------------------------
 */
-function toTopInquiry() {
+ function toTopInquiry(){
 	location.href = "./toTopInquiry"
 }
 /**
@@ -356,7 +227,7 @@ function toTopInquiry() {
  *機能          :解約開始画面に遷移
  *------------------------------------------------------
 */
-function toTopCancel() {
+ function toTopCancel(){
 	location.href = "./toTopCancel"
 
 }
@@ -368,7 +239,7 @@ function toTopCancel() {
  *機能          :事故受け付け画面に遷移
  *------------------------------------------------------
 */
-function toTopAccept() {
+ function toTopAccept(){
 	location.href = "./toTopAccept"
 }
 /**
@@ -379,6 +250,6 @@ function toTopAccept() {
  *機能          :TOPメニュー画面に遷移
  *------------------------------------------------------
 */
-function toTopMenu() {
+function toTopMenu(){
 	location.href = "./toTopMenu"
 }

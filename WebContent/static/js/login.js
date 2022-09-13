@@ -1,35 +1,57 @@
-/*------------------------------------------------------
- * 演習番号      :仕様書演習
- *プログラム名   :login
- *作成日         :2022/09/07
- *作成者         :NarimichiHenmi/SYS
- *------------------------------------------------------
- * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
- * (2022/09/09 ： NarimichiHenmi/SYS ：IDとパスワードのフォームを変更)
- * (2022/09/13 ： NarimichiHenmi/SYS ：ログインからTOPメニューへの遷移の関数をlogin.jsからtransition.jsに移動)
- *------------------------------------------------------
-*/
-
 /**
- *------------------------------------------------------
- *関数名        :パスワードフォーム内の目玉ボタン押下時の処理
- *引数          :なし
- *戻り値        :なし
- *機能          :パスワードフォーム内の文字の見える見えないとそれに対応した目玉の画像をセットする。
- *------------------------------------------------------
-*/
-function pushHideButton() {
+ *
+ */
+
+function loginProcess(){
 
 	/* 1.フォーム要素を取得する。 */
-	var txtPass = document.getElementById("password");
-	var btnEye = document.getElementById("buttonEye");
+	var formElement = document.getElementById("login_process");
 
-	/* 2.パスワードのtype属性がtextの場合とそれ以外の場合で、パスワードのtype属性と目玉の画像を切り替える。 */
-	if (txtPass.type === "text") {
-		txtPass.type = "password";
-		btnEye.className = "fa fa-eye-slash";
-	} else {
-		txtPass.type = "text";
-		btnEye.className = "fa fa-eye";
-	}
+	/*
+	 * 2.フォーム要素のaction属性に
+	 * 要求「顧客情報入力画面へ」のurlをセットしたうえで
+	 */
+	formElement.action = "./loginProcess"
+
+	/* submit関数を呼び出す。 */
+	formElement.submit();
+}
+
+function toContractForm(){
+
+	/* 1.フォーム要素を取得する。 */
+	var formElement = document.getElementById("result_frm");
+
+	/*
+	 *	2.フォーム要素のaction属性に
+	 *	要求「契約情報入力画面へ」のurlをセットしたうえで
+	 */
+	formElement.action = "./toContractForm"
+
+	/* submit関数を呼び出す。 */
+	formElement.submit();
+
+}
+
+function reserve(){
+
+	/* 1.フォーム要素を取得する。 */
+	var formElement = document.getElementById("result_frm");
+
+	/*
+	 *	2.フォーム要素のaction属性に
+	 *	要求「予約情報一覧画面へ」のurlをセットしたうえで
+	 */
+	formElement.action = "./resultPage"
+
+	/* submit関数を呼び出す。 */
+	formElement.submit();
+
+}
+
+
+function toStartPage(){
+
+	location.href = "./toStartPage";
+
 }
