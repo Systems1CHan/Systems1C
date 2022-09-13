@@ -44,9 +44,11 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 
 		//セッションがnullの場合
 		if(session == null) {
-			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-			rd.forward(request, response);
+			session = request.getSession(true);
+			contractInfo = new ContractInfo();
+			compensation = new Compensation();
+			session.setAttribute("contractInfo", contractInfo);
+			session.setAttribute("compensation", compensation);
 
 		//セッションがある場合
 		}else {
@@ -55,10 +57,11 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 
 			//セッションはあるが、各オブジェクトが存在しない場合
 			if(contractInfo == null || compensation == null) {
-				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-				rd.forward(request, response);
-			    }
+				contractInfo = new ContractInfo();
+				compensation = new Compensation();
+				session.setAttribute("contractInfo", contractInfo);
+				session.setAttribute("compensation", compensation);
+			}
 		}
 
 		//リクエストパラメータを取得する（契約情報）
