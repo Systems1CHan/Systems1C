@@ -23,7 +23,7 @@ import TS_Net.model.data.ContractInfo;
  * </p>
  * @author RyoIsogami/SYS 2022/09/12
  */
-@WebServlet("/ToNewEstimationServlet")
+@WebServlet("/ToNewEstimation")
 public class ToNewEstimationServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

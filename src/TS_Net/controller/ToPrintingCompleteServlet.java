@@ -26,7 +26,7 @@ import TS_Net.model.datacheck.InsatsuRenbanChecker;
  * </p>
  * @author RyoIsogami/SYS 2022/09/12
  */
-@WebServlet("/ToPrintingCompleteServlet")
+@WebServlet("/ToPrintingComplete")
 public class ToPrintingCompleteServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
