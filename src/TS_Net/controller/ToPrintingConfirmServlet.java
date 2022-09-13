@@ -188,6 +188,9 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				contractInfoDao.registContractInfo(contractInfo);
 				compensationDao.registCompensation(compensation);
 
+				session.setAttribute("contractInfo", contractInfo);
+				session.setAttribute("compensation", compensation);
+
 				//申込書印刷確認画面へforwardする
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
 				rd.forward(request, response);

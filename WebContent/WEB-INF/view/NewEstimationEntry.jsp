@@ -154,6 +154,7 @@
             }
             window.onload = entryChange1;
         </script>
+        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
@@ -172,7 +173,7 @@
                 </p>
                 <div id="tabbody">
                     <div id="tabpage1">
-                        <form action="" method="post" class="radiochange">
+                        <form action="" method="post" class="radiochange" id="application_frm">
                             <table>
                                 <tr>
                                     <td align="center">
@@ -699,14 +700,14 @@
                                         <button type="button" class="btn">保険料試算</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn">申込書印刷</button>
+                                        <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
                                     </td>
                                 </tr>
                             </table>
                         </form>
                     </div>
                     <div id="tabpage2">
-                        <form action="" method="post" name="hoshoForm">
+                        <form action="" method="post" name="hoshoForm" id="application_frm">
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tbody>
@@ -1047,7 +1048,7 @@
                                     <button type="button" class="btn">保険料試算</button>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn">申込書印刷</button>
+                                    <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
                                 </td>
                             </tr>
                         </table>
