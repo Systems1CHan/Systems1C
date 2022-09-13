@@ -1,3 +1,12 @@
+/*------------------------------------------------------------------------------
+ * 演習番号：[総合演習]
+ * クラス名：[ToQueryConfirmServlet]
+ * 作成日  ：[2022/09/07]
+ * 作成者  ：[ToruNakaya/SYS]
+ *------------------------------------------------------------------------------
+ * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ *------------------------------------------------------------------------------
+ */
 package TS_Net.controller;
 
 import java.io.IOException;
@@ -18,6 +27,13 @@ import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.BlankChecker;
 
+/**
+ * 照会確認へコントローラ
+ * <p>
+ * 要求『照会検索』に対する処理を行う。
+ * </p>
+ * @author ToruNakaya/SYS 2022/09/07
+ */
 @WebServlet("/ToQueryConfirm")
 public class ToQueryConfirmServlet extends HttpServlet {
 
@@ -34,7 +50,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 		ContractInfoDao contractInfoDao = new ContractInfoDao();
 		CompensationDao compensationDao = new CompensationDao();
 
-		//contractFormCheckerオブジェクトを生成。
+		//空白チェッククラス生成。
 		BlankChecker blankChecker = new BlankChecker();
 
 		String polNo = request.getParameter("polNo");
@@ -57,6 +73,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 			contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
+			//オブジェクト内の証券番号が存在するかどうかをチェックし、存在しなければエラー文を表示する。
 			if (contractInfo.getPolNo() == null) {
 				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
 //				request.setAttribute("FORM_ERROR", contractInfoDao.getMaxInsatsuRenban());
@@ -68,6 +85,8 @@ public class ToQueryConfirmServlet extends HttpServlet {
 				return;
 
 			}
+
+			//オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
 			if(contractInfo.getInstallment() == 2) {
 				page = "/WEB-INF/view/QueryConfirmCompany.jsp";
 
