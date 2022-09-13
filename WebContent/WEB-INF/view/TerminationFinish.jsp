@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="./static/css/CommonFooter.css">
 <link rel="stylesheet" href="./static/css/HenmiLogin.css">
 <%-- JavaScript用 --%>
-<script type="text/javascript" src="./static/js/login.js"></script>
+<script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 			<table class="button_table">
 				<tr>
 				<!-- 入力フォーム（お名前） -->
-					<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+					<th><button type="button" onclick="toTopMenu();"
 					class="button_design">トップへ戻る</button></th>
 				</tr>
 			</table>

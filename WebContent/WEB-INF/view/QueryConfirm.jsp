@@ -69,7 +69,7 @@
 					<table class="button_table">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+							<th><button type="button" onclick="toTopMenu();"
 									class="button_design">トップへ戻る</button></th>
 						</tr>
 					</table>

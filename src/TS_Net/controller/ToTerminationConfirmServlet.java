@@ -72,15 +72,15 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 				return;
 			}
 
-			if (contractInfo.getCancelFlg().equals("0")) {
-				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
-
-				page ="/WEB-INF/view/TerminationStart.jsp";
-				//契約内容入力画面へforwardする。
-				RequestDispatcher rd = request.getRequestDispatcher(page);
-				rd.forward(request, response);
-				return;
-			}
+//			if (contractInfo.getCancelFlg().equals("0")) {
+//				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
+//
+//				page ="/WEB-INF/view/TerminationStart.jsp";
+//				//契約内容入力画面へforwardする。
+//				RequestDispatcher rd = request.getRequestDispatcher(page);
+//				rd.forward(request, response);
+//				return;
+//			}
 			//リクエスト領域に格納する。
 			session.setAttribute("contractInfo", contractInfo);
 
