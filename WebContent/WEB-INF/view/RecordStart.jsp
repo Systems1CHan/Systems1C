@@ -46,12 +46,12 @@
 						<tr>
 							<!-- 入力フォーム（印刷連番） -->
 							<th class="password_string">印刷連番</th>
-							<td><input type="password" maxlength="8"></td>
+							<td><input name="insatsuRenban" maxlength="8"></td>
 						</tr>
 					</table>
 				<!-- エラーメッセージ -->
 				<div align="center" id="FORM_ERROR">
-  			    	<c:out value="${requestScope.FORM_ERROR }" />
+  			    	<c:out value="${requestScope.message}" />
 				</div>
 					<table class="button_table">
 						<tr>

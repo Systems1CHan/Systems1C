@@ -21,11 +21,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import TS_Net.model.constant.SystemConst;
 import TS_Net.model.constant.ErrorMsgConst;
-import TS_Net.model.data.ContractInfo;
-import TS_Net.model.data.Compensation;
+import TS_Net.model.constant.SystemConst;
 import TS_Net.model.dao.ContractInfoDao;
+import TS_Net.model.data.Compensation;
+import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.BlankChecker;
 import TS_Net.model.datacheck.InsatsuRenbanChecker;
 
@@ -99,7 +99,7 @@ public class ToRecordComfirmServlet extends HttpServlet {
 				rd.forward(request, response);
 			} else {
 				// 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
-				contract = ciDao.getContractInfo(insatsuRenban);
+				contract = ciDao.getContractInfoByIR(insatsuRenban);
 
 				/*７．計上確認画面JSPへforwardする。 */
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheck.jsp");
