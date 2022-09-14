@@ -37,6 +37,8 @@ public class AccidentReception implements Serializable {
 	private String accidentLocationKanji2;
 	/* 事故発生日付*/
 	private String accidentDate;
+	/* 事故状況*/
+	private String accidentSituation;
 	/* 過失割合・被保険者*/
 	private Integer ratingBlameMyself;
 	/* 過失割合・相手方*/
@@ -140,6 +142,22 @@ public class AccidentReception implements Serializable {
 	 */
 	public String getDamageAccidentPriceForLabel() {
 		return this.damageAccidentPrice + "円";
+	}
+
+	/**
+	 * 生年月日メソッド
+	 * <p>
+	 * 画面に表示させるための生年月日を取得する。
+	 * 西暦でリターンする。
+	 * </p>
+	 * @return 生年月日
+	 */
+	public String getAccidentDateForLabel() {
+//		if(accidentDate == null) {
+//			return;
+//		}
+
+		return this.accidentDate.substring(0, 4) + "年" + this.accidentDate.substring(4, 6) + "月" + this.accidentDate.substring(6, 8) + "日";
 	}
 
 	/*
@@ -295,5 +313,13 @@ public class AccidentReception implements Serializable {
 
 	public void setCoverId(Integer coverId) {
 		this.coverId = coverId;
+	}
+
+	public String getAccidentSituation() {
+		return accidentSituation;
+	}
+
+	public void setAccidentSituation(String accidentSituation) {
+		this.accidentSituation = accidentSituation;
 	}
 }
