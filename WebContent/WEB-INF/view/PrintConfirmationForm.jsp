@@ -94,23 +94,23 @@
                 </tr>
                 <tr>
                     <th>契約者名</th>
-                    <td><c:out value="{contractInfo.getkanaNameForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.contractInfo.getkanaNameForLabel()}" /></td>
                 </tr>
                 <tr>
                     <th>払込方法</th>
-                    <td><c:out value="{contractInfo.getPaymentMethodForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.contractInfo.getPaymentMethodForLabel()}" /></td>
                 </tr>
                 <tr>
                     <th>払込回数</th>
-                    <td><c:out value="{contractInfo.installment}" /></td>
+                    <td><c:out value="${sessionScope.contractInfo.installment}" /></td>
                 </tr>
                 <tr>
                     <th>総払込保険料</th>
-                    <td><c:out value="{compensation.getPremiumAmountForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
                 </tr>
                 <tr>
                     <th>一回分保険料</th>
-                    <td><c:out value="{compensation.getPremiumInstallmentForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.compensation.getPremiumInstallmentForLabel()}" /></td>
                 </tr>
                 </tbody>
             </table>
