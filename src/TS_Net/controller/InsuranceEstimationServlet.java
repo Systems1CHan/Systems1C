@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
+import TS_Net.model.datacheck.CompensationFormChecker;
+import TS_Net.model.datacheck.ContractFormChecker;
 
 /**
  * 保険料試算後画面へコントローラ
@@ -28,94 +31,97 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
-		//契約情報・補償情報オブジェクトの生成
-		ContractInfo contractInfo = new ContractInfo();
-		Compensation compensation = new Compensation();
-
 		//セッションの生成
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 
-		//セッション領域の情報を取得
-		Object contractInfo2 = session.getAttribute("contractInfo");
-		Object compensation2 = session.getAttribute("compensation");
-
-		//セッション領域の情報が存在するとき、新たに生成したオブジェクトに格納
-		if(contractInfo2 != null) {
-			contractInfo = (ContractInfo) contractInfo2;
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+			return;
 		}
 
-		if(compensation2 != null) {
-			compensation = (Compensation) compensation2;
+		//契約情報オブジェクトを生成
+		ContractInfo contractInfo;
+
+		//セッションに契約情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("contractInfo") == null) {
+			contractInfo = new ContractInfo();
+			session.setAttribute("contractInfo", contractInfo);
+
+		}else {
+			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
 		}
 
-		String inceptionDate = request.getParameter("inceptionDate");
-		String inceptionTime = request.getParameter("inceptionTime");
-		String conclusionDate = request.getParameter("conclusionDate");
-		String conclusionTime = request.getParameter("conclusionTime");
-		String paymentMethod = request.getParameter("paymentMethod");
-		Integer installment = Integer.parseInt(request.getParameter("insatallment"));
-		String insuredKbn = request.getParameter("insuredKbn");
-		String nameKana1 = request.getParameter("nameKana1");
-		String nameKana2 = request.getParameter("nameKana2");
-		String nameKanji1 = request.getParameter("nameKanji1");
-		String nameKanji2 = request.getParameter("nameKanji2");
-		String postcode = request.getParameter("postcode");
-		String addressKana1 = request.getParameter("addressKana1");
-		String addressKana2 = request.getParameter("addressKana2");
-		String addressKanji1 = request.getParameter("addressKanji1");
-		String addressKanji2 = request.getParameter("addressKanji2");
-		String birthday = request.getParameter("birthday");
-		String gender = request.getParameter("gender");
-		String telephoneNo = request.getParameter("telephoneNo");
-		String mobilephoneNo = request.getParameter("mobilephoneNo");
-		String faxNo = request.getParameter("faxNo");
+		//補償情報オブジェクトを生成
+		Compensation compensation;
 
-		//契約情報オブジェクトにセット
-		contractInfo.setInceptionDate(inceptionDate);
-		contractInfo.setInceptionTime(inceptionTime);
-		contractInfo.setConclusionDate(conclusionDate);
-		contractInfo.setConclusionTime(conclusionTime);
-		contractInfo.setPaymentMethod(paymentMethod);
-		contractInfo.setInstallment(installment);
-		contractInfo.setInsuredKbn(insuredKbn);
-		contractInfo.setNameKana1(nameKana1);
-		contractInfo.setNamekana2(nameKana2);
-		contractInfo.setNameKanji1(nameKanji1);
-		contractInfo.setNameKanji2(nameKanji2);
-		contractInfo.setPostcode(postcode);
-		contractInfo.setAddressKana1(addressKana1);
-		contractInfo.setAddressKana2(addressKana2);
-		contractInfo.setAddressKanji1(addressKanji1);
-		contractInfo.setAddressKanji2(addressKanji2);
-		contractInfo.setBirthday(birthday);
-		contractInfo.setGender(gender);
-		contractInfo.setTelephoneNo(telephoneNo);
-		contractInfo.setMobilephoneNo(mobilephoneNo);
-		contractInfo.setFaxNo(faxNo);
+		//セッションに補償情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("compensation") == null) {
+			compensation = new Compensation();
+			session.setAttribute("compensation", compensation);
 
-		//リクエストパラメータを取得（補償情報）
-		String maker = request.getParameter("maker");
-		String carName = request.getParameter("carName");
-		String licenseNo = request.getParameter("licenseNo");
-		Integer vehiclePrice = Integer.parseInt (request.getParameter("vehiclePrice"));
-		String vehicleRates = request.getParameter("vehicleRates");
-		String bodilyRates = request.getParameter("bodilyRates");
-		String propertyDamageRates = request.getParameter("propertyDamageRates");
-		String accidentRates = request.getParameter("accidentRates");
-		String licenseColor = request.getParameter("licenseColor");
-		String ageLimit = request.getParameter("ageLimit");
+		}else {
+			compensation = (Compensation) session.getAttribute("compensation");
+		}
 
-		//補償情報オブジェクトにセット
-		compensation.setMaker(maker);
-		compensation.setCarName(carName);
-		compensation.setLicenseNo(licenseNo);
-		compensation.setVehiclePrice(vehiclePrice);
-		compensation.setVehicleRates(vehicleRates);
-		compensation.setBodilyRates(bodilyRates);
-		compensation.setPropertyDamageRates(propertyDamageRates);
-		compensation.setAccidentRates(accidentRates);
-		compensation.setLicenseColor(licenseColor);
-		compensation.setAgeLimit(ageLimit);
+		//リクエストパラメータを取得し、契約情報オブジェクトにセット
+		contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
+		contractInfo.setInceptionTime(request.getParameter("inceptionTime"));
+		contractInfo.setConclusionDate(request.getParameter("conclusionDate"));
+		contractInfo.setConclusionTime(request.getParameter("conclusionTime"));
+		contractInfo.setPaymentMethod(request.getParameter("paymentMethod"));
+		contractInfo.setInstallment(check(request.getParameter("installment")));
+		contractInfo.setInsuredKbn(request.getParameter("insuredKbn"));
+		contractInfo.setNameKana1(request.getParameter("nameKana1"));
+		contractInfo.setNamekana2(request.getParameter("nameKana2"));
+		contractInfo.setNameKanji1(request.getParameter("nameKanji1"));
+		contractInfo.setNameKanji2(request.getParameter("nameKanji2"));
+		contractInfo.setPostcode(request.getParameter("postcode"));
+		contractInfo.setAddressKana1(request.getParameter("addressKana1"));
+		contractInfo.setAddressKana2(request.getParameter("addressKana2"));
+		contractInfo.setAddressKanji1(request.getParameter("addressKanji1"));
+		contractInfo.setAddressKanji2(request.getParameter("addressKanji2"));
+		contractInfo.setBirthday(request.getParameter("birthday"));
+		contractInfo.setGender(request.getParameter("gender"));
+		contractInfo.setTelephoneNo(request.getParameter("telephoneNo"));
+		contractInfo.setMobilephoneNo(request.getParameter("mobilephoneNo"));
+		contractInfo.setFaxNo(request.getParameter("faxNo"));
+
+		//リクエストパラメータを取得し、補償情報オブジェクトにセット
+		compensation.setMaker(request.getParameter("maker"));
+		compensation.setCarName(request.getParameter("carName"));
+		compensation.setLicenseNo(request.getParameter("licenseNo"));
+		compensation.setVehiclePrice(check(request.getParameter("vehiclePrice")));
+		compensation.setVehicleRates(request.getParameter("vehicleRates"));
+		compensation.setBodilyRates(request.getParameter("bodilyRates"));
+		compensation.setPropertyDamageRates(request.getParameter("propertyDamageRates"));
+		compensation.setAccidentRates(request.getParameter("accidentRates"));
+		compensation.setLicenseColor(request.getParameter("licenseColor"));
+		compensation.setAgeLimit(request.getParameter("ageLimit"));
+		compensation.setPremiumAmount(check(request.getParameter("premiumAmount")));
+		compensation.setPremiumInstallment(check(request.getParameter("premiumInstallment")));
+
+		//データチェッククラスの生成
+		ContractFormChecker cfc = new ContractFormChecker();
+		CompensationFormChecker comfc = new CompensationFormChecker();
+
+		//契約情報オブジェクトをデータチェッククラスに渡してチェックを実施
+		if(!(cfc.check(contractInfo).isEmpty())) {
+			request.setAttribute("message", cfc.check(contractInfo));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+			return;
+		}
+
+		//補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
+		if(!(comfc.check(compensation).isEmpty())) {
+			request.setAttribute("message", comfc.check(compensation));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+			return;
+		}
 
 		//総額保険料、一回分保険料の算出メソッドの呼び出し
 		Integer premiumAmount = compensation.getPremiumAmount();
@@ -132,6 +138,16 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		//保険料試算後画面にforward
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/AfterInsuranceEstimation.jsp");
 		rd.forward(request, response);
+	}
+
+	public Integer check(String str) {
+		if(str == null) {
+			return null;
+		}else if(str.equals("")) {
+			return null;
+		}else {
+			return Integer.parseInt(str);
+		}
 	}
 
 }
