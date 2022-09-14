@@ -27,6 +27,7 @@ import TS_Net.model.data.AccidentReception;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.AccidentReceptionFormChecker;
+import TS_Net.model.datacheck.ClaimNoChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
 import TS_Net.model.datacheck.InsatsuRenbanChecker;
 import TS_Net.model.dao.AccidentDao;
@@ -96,6 +97,8 @@ import TS_Net.model.dao.AccidentDao;
 						accidentDao.connect();
 						//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 						accidentDao.updateAccidentReception(0/*accidentReception.getClaimNo()*/);
+						ClaimNoChecker cnc = new ClaimNoChecker();
+						String errmsg = cnc.claimNoExistenceCheck(accidentReception);
 
 						request.setAttribute("contractInfo", contractInfo);
 						request.setAttribute("accidentReception", accidentReception);
