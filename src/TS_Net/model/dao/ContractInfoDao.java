@@ -50,7 +50,7 @@ public class ContractInfoDao {
 	 * <p>
 	 * 引数で渡された予約情報を、予約テーブルへINSERTする。
 	 * </p>
-	 * @param entity 予約対象オブジェクト
+	 * @param contractInfo 契約情報オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
 	public void registContractInfo(ContractInfo contractInfo) throws SQLException {
@@ -184,6 +184,16 @@ public class ContractInfoDao {
 
 	}
 
+	/**
+	 * 印刷連番で契約情報取得メソッド。
+	 * <p>
+	 * 契約情報テーブルから、引数の印刷連番に一致する契約
+	 * 情報を取得する。
+	 * </p>
+	 * @return
+	 * @return contractInfo 予約情報リスト
+	 * @throws SQLException SQL実行例外
+	 */
 	public ContractInfo getContractInfoByIR(String insatsuRenban) throws SQLException {
 
 		String sql = "SELECT * FROM contractinfo_tbl WHERE insatsu_renban = ?";
@@ -237,7 +247,15 @@ public class ContractInfoDao {
 	}
 
 
-
+	/**
+	 *最大証券番号取得メソッド。
+	 * <p>
+	 * 契約情報テーブル内の最大証券番号を取得する。
+	 * </p>
+	 * @return
+	 * @return polNo 証券番号
+	 * @throws SQLException SQL実行例外
+	 */
 	public String getMaxPolNo() throws SQLException {
 
 		String sql = "SELECT pol_No FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
@@ -265,6 +283,15 @@ public class ContractInfoDao {
 
 	}
 
+	/**
+	 *最大印刷連番取得メソッド。
+	 * <p>
+	 * 契約情報テーブル内の最大印刷連番を取得する。
+	 * </p>
+	 * @return
+	 * @return polNo 証券番号
+	 * @throws SQLException SQL実行例外
+	 */
 	public String getMaxInsatsuRenban() throws SQLException {
 
 		String sql = "SELECT insatsu_renban FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
@@ -303,7 +330,15 @@ public class ContractInfoDao {
 
 	}
 
-
+	/**
+	 *解約フラグ変更メソッド。
+	 * <p>
+	 * 契約情報テーブル内の解約フラグを解約済み
+	 * </p>
+	 * @return
+	 * @return polNo 証券番号
+	 * @throws SQLException SQL実行例外
+	 */
 	public void terminationAppCompletion(String polNo) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
@@ -324,7 +359,15 @@ public class ContractInfoDao {
 			}
 		}
 	}
-
+	/**
+	 *状態フラグ(計上)変更メソッド。
+	 * <p>
+	 * 契約情報テーブル内の状態フラグを計上済みに変更。
+	 * </p>
+	 * @return
+	 * @return polNo 証券番号
+	 * @throws SQLException SQL実行例外
+	 */
 	public void appropriationCompletion(String insatsuRenban) throws SQLException {
 
 		String sql = "UPDATE contractinfo_tbl SET status_flg = '0' WHERE insatsu_renban = ?";
