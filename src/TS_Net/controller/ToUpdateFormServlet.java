@@ -22,15 +22,12 @@ import javax.servlet.http.HttpSession;
 
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
-import TS_Net.model.dao.ContractInfoDao;
+import TS_Net.model.dao.AccidentDao;
 import TS_Net.model.data.AccidentReception;
-import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.AccidentReceptionFormChecker;
 import TS_Net.model.datacheck.ClaimNoChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
-import TS_Net.model.datacheck.InsatsuRenbanChecker;
-import TS_Net.model.dao.AccidentDao;
 		/**
 		 * 更新完了画面へコントローラ
 		 * <p>
@@ -126,8 +123,8 @@ import TS_Net.model.dao.AccidentDao;
 					}
 
 
-					/* 更新完了JSPへforwardする。*/
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ReceptionUpdate.jsp");
+					/* 事故受付完了JSPへforwardする。*/
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ReceptionComplete.jsp");
 					rd.forward(request, response);
 
 
