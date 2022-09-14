@@ -182,6 +182,13 @@
    								 <td>１回分保険料</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
   							</tr>
 						</table>
+						<table class="button_table">
+						<tr>
+							<!-- 入力フォーム（お名前） -->
+							<th><button type="button" onclick="toFinishRecordPage();"
+									class="button_design">代理店計上</button></th>
+						</tr>
+					</table>
                     </div>
                 </div>
 

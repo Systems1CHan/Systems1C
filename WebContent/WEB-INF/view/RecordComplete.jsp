@@ -8,7 +8,7 @@
  -----------------------------------------------------------------------------%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +28,11 @@
 		<div class="header_title">契約管理・事故受付システム ハンディー</div>
 	</header>
 	<main>
-	<button type="button" onclick="toTopMenu();">トップへ戻る</button>
 		<form action="" id="@@@@@@@@@" method="post">
 			<table class="button_table">
 				<tr>
 				<!-- 入力フォーム（お名前） -->
-					<th><button type="button" onclick="toTopMenu()"
+					<th><button type="button" onclick="toTopMenu();"
 					class="button_design">トップへ戻る</button></th>
 				</tr>
 			</table>
@@ -41,12 +40,9 @@
 		<article>
 			<div class="subTitle">計上完了</div>
 				<table border="1" style="border-collapse: collapse">
- 					<tr>
+					<tr>
  						<td colspan="2">計上完了</td>
  					</tr>
- 					<tr>
-   						<td><c:out value="${sessionScope.contractInfo.getStatusFlgForLabel()}"/></td>
-  					</tr>
 					<tr>
    						<td>印刷連番</td><td><c:out value="${sessionScope.contractInfo.insatsuRenban}"/></td>
   					</tr>
