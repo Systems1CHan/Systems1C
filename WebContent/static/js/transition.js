@@ -26,6 +26,44 @@ function toApplicationConfirmPage() {
 
 /**
  *------------------------------------------------------
+ *関数名        :戻るボタン押下後の処理
+ *引数          :なし
+ *戻り値        :なし
+ *機能          :新規試算入力画面へ遷移する。
+ *------------------------------------------------------
+*/
+
+function toNewEstimationEntryPage() {
+	//１．フォーム要素を取得する。
+	var formElement = document.getElementById("finishprint_frm");
+	//２．フォーム要素のaction属性に、
+	//要求『顧客情報入力画面へ』のURLをセットした上で、
+	formElement.action="./ToPrintingConfirm"
+	//submit関数を呼び出す。
+	formElement.submit();
+}
+
+/**
+ *------------------------------------------------------
+ *関数名        :保険料試算ボタン押下後の処理
+ *引数          :なし
+ *戻り値        :なし
+ *機能          :保険料試算後画面へ遷移する。
+ *------------------------------------------------------
+*/
+
+function toAfterEstimationPage() {
+	//１．フォーム要素を取得する。
+	var formElement = document.getElementById("application_frm");
+	//２．フォーム要素のaction属性に、
+	//要求『顧客情報入力画面へ』のURLをセットした上で、
+	formElement.action="./InsuranceEstimation"
+	//submit関数を呼び出す。
+	formElement.submit();
+}
+
+/**
+ *------------------------------------------------------
  *関数名        :印刷ボタン押下後の処理
  *引数          :なし
  *戻り値        :なし
