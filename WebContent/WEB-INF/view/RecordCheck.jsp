@@ -83,18 +83,17 @@
 									class="button_design">トップへ戻る</button></th>
 						</tr>
 					</table>
-				</form>
             <div class="sample-area">
                 <p id="tabcontrol">
                     <a href="#tabpage1">契約条件</a>
                     <a href="#tabpage2">補償</a>
                 </p>
-                <div id="tabbody">
+                              <div id="tabbody">
                     <div id="tabpage1">
-						<div class="subTitle">計上確認(契約条件タブ)(個人)</div>
+						<div class="subTitle">契約内容照会確認(契約条件タブ)(個人)</div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
- 							 <td colspan="2">計上確認</td>
+ 							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
 							 <tr>
    								 <td>保険期間</td><td><c:out value="${sessionScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
@@ -147,10 +146,10 @@
 						</table>
                     </div>
                     <div id="tabpage2">
-                    						<div class="subTitle">計上確認(補償タブ)</div>
+                    						<div class="subTitle">契約内容照会確認(契約条件タブ)(個人)</div>
 						<table border="1" style="border-collapse: collapse">
  							 <tr>
- 							 <td colspan="2">計上確認</td>
+ 							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
 							 <tr>
    								 <td>保険料</td><td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}"/></td>
@@ -188,12 +187,19 @@
   							 <tr>
    								 <td>１回分保険料</td><td><c:out value="${sessionScope.compensation.getPremiumInstallment()}"/></td>
   							</tr>
-						</table>
+								</table>
                     </div>
                 </div>
 
             </div>
-
+				<table class="button_table">
+					<tr>
+						<!-- 入力フォーム（お名前） -->
+						<th><button type="button" onclick="toFinishRecordPage();"
+								class="button_design">代理店計上</button></th>
+					</tr>
+				</table>
+			</form>
             <script type="text/javascript">
 
                 // 対象の要素を得る

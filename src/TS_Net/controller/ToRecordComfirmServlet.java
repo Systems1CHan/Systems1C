@@ -43,6 +43,8 @@ public class ToRecordComfirmServlet extends HttpServlet {
 	 * <p>
 	 * 受け取った入力内容（印刷連番）に対しての処理を行う。
 	 * </p>
+	 *@throws SQLException SQL実行例外
+	 *@throws ClassNotFoundException クラスロード例外
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

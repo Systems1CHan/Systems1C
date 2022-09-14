@@ -8,6 +8,7 @@
  -----------------------------------------------------------------------------%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 			<table class="button_table">
 				<tr>
 				<!-- 入力フォーム（お名前） -->
-					<th><button type="button" onclick="＠＠＠＠＠＠＠JSの関数名を入れる＠＠＠＠＠;"
+					<th><button type="button" onclick="toTopMenu()"
 					class="button_design">トップへ戻る</button></th>
 				</tr>
 			</table>
@@ -44,16 +45,16 @@
  						<td colspan="2">計上完了</td>
  					</tr>
  					<tr>
-   						<td>新規</td>
+   						<td><c:out value="${sessionScope.contractInfo.getStatusFlgForLabel()}"/></td>
   					</tr>
 					<tr>
-   						<td>印刷連番</td><td>甘い</td>
+   						<td>印刷連番</td><td><c:out value="${sessionScope.contractInfo.insatsuRenban}"/></td>
   					</tr>
  					<tr>
-   						<td>証券番号</td><td>酸っぱい</td>
+   						<td>証券番号</td><td><c:out value="${sessionScope.contractInfo.polNo}"/></td>
   					</tr>
   					<tr>
-   						<td>契約者名</td><td>酸っぱい</td>
+   						<td>契約者名</td><td><c:out value="${sessionScope.contractInfo.getNameForLabel()}"/></td>
   					</tr>
 				</table>
 		</article>
