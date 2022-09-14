@@ -218,7 +218,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="inceptionTime" required>
+                                        <select name="inceptionTime" id="inceptionTime" required>
                                             <option value="">保険期間始期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -262,7 +262,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="conclusionTime" required>
+                                        <select name="conclusionTime" id="conclusionTime" required>
                                             <option value="">保険期間満期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -297,7 +297,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="paymentMethod" required>
+                                        <select name="paymentMethod" id="paymentMethod" required>
                                             <option value="">払込方法を選択してください</option>
                                             <option value="1">直接集金</option>
                                             <option value="2">口座振替</option>
@@ -311,7 +311,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="installment">
+                                        <select name="installment" id="installment" required>
                                             <option value="">払込回数を選択してください</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -480,7 +480,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="inceptionTime" required>
+                                        <select name="inceptionTime" id="inceptionTime" required>
                                             <option value="">保険期間始期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -524,7 +524,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="conclusionTime" required>
+                                        <select name="conclusionTime" id="conclusionTime" required>
                                             <option value="">保険期間満期時刻を選択してください</option>
                                             <option value="0">午前0時</option>
                                             <option value="1">午前1時</option>
@@ -559,7 +559,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="paymentMethod" required>
+                                        <select name="paymentMethod" id="paymentMethod" required>
                                             <option value="">払込方法を選択してください</option>
                                             <option value="1">直接集金</option>
                                             <option value="2">口座振替</option>
@@ -573,7 +573,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="installment" required>
+                                        <select name="installment" id="installment" required>
                                             <option value="">払込回数を選択してください</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -697,7 +697,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn">保険料試算</button>
+                                        <button type="button" class="btn" >保険料試算</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
@@ -1018,7 +1018,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="licenseColor">
+                                        <select name="licenseColor" id="licenseColor">
                                             <option value="">免許証の色を選択してください</option>
                                             <option value="1">ブルー</option>
                                             <option value="2">グリーン</option>
@@ -1032,7 +1032,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="ageLimit">
+                                        <select name="ageLimit" id="ageLimit">
                                             <option value="">年齢条件を選択してください</option>
                                             <option value="1">無条件</option>
                                             <option value="2">21歳以上</option>
@@ -1045,7 +1045,7 @@
                         <table align="center">
                             <tr>
                                 <td>
-                                    <button type="button" class="btn">保険料試算</button>
+                                    <button type="button" class="btn" onclick="toAfterEstimationPage()">保険料試算</button>
                                 </td>
                                 <td>
                                     <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
