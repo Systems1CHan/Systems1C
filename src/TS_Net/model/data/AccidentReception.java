@@ -144,6 +144,19 @@ public class AccidentReception implements Serializable {
 		return this.damageAccidentPrice + "円";
 	}
 
+
+	/**
+	 * 損害額・傷害円表示メソッド
+	 * <p>
+	 * 画面に表示させるための損害額・傷害を取得する。
+	 * また損害額・傷害は「円」をつけてリターンする。
+	 * </p>
+	 * @return 損害額・傷害
+	 */
+	public String getPaymentPriceForLabel() {
+		return this.paymentPrice + "円";
+	}
+
 	/**
 	 * 生年月日メソッド
 	 * <p>

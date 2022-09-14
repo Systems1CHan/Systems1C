@@ -126,7 +126,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				//セッションを生成する。
 				HttpSession session = request.getSession(true);
 
-				session.setAttribute("accidentUpdateReception", accidentReception);
+				session.setAttribute("accidentReception", accidentReception);
 				session.setAttribute("compensation", compensation);
 				session.setAttribute("contractInfo", contractInfo);
 
@@ -154,6 +154,9 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				Integer coverId = compensation.getCoverId();
 				//事故情報オブジェクトに補償IDをセットする。※補償IDのみなので別の名前でセッションにセットする。
 				accidentReception.setCoverId(coverId);
+				//事故受け付け番号を連番でとってくる。
+				String claimno = accidentDao.getMaxClaimNo();
+				accidentReception.setClaimNo(claimno);
 
 				//セッションを生成する。
 				HttpSession session = request.getSession(true);

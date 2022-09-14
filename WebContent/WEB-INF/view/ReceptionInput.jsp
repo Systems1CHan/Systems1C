@@ -111,7 +111,7 @@
                                     </tr>
                                     <tr>
                                         <td>事故受付番号</td>
-                                        <td>11111</td>
+                                        <td><c:out value="${sessionScope.accidentReception.claimNo}"/></td>
                                     </tr>
                                     <tr>
                                         <td>証券番号</td>
@@ -168,7 +168,7 @@
                                             相手の状況（被害者側）
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="相手にケガはなし">
+                                            <input type="text" placeholder="相手にケガはなし" value="${sessionScope.accidentUpdateReception.getAccidentSituation()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -200,7 +200,7 @@
                                             損害状況・車両
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="一部あり">
+                                            <input type="text" placeholder="一部あり" value="${sessionScope.accidentUpdateReception.getDamageCarState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -208,7 +208,7 @@
                                             損害額・対人
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001">
+                                            <input type="text" placeholder="A0000001" value="${sessionScope.accidentUpdateReception.getDamageBodilyPriceForLabel()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,7 +216,7 @@
                                             損害状況・対人
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="なし">
+                                            <input type="text" placeholder="なし" value="${sessionScope.accidentUpdateReception.getDamageBodilyState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -224,7 +224,7 @@
                                             損害額・対物
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001">
+                                            <input type="text" placeholder="A0000001" value="${sessionScope.accidentUpdateReception.getDamagePropertyPriceForLabel()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -232,7 +232,7 @@
                                             損害状況・対物
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="あり">
+                                            <input type="text" placeholder="あり" value="${sessionScope.accidentUpdateReception.getDamagePropertyState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -240,7 +240,7 @@
                                             損害額・傷害
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001">
+                                            <input type="text" placeholder="4000円" value="${sessionScope.accidentUpdateReception.getDamageAccidentPriceForLabel()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -248,7 +248,7 @@
                                             損害状況・傷害
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="なし">
+                                            <input type="text" placeholder="左脚捻挫"value="${sessionScope.accidentUpdateReception.getDamageAccidentState()}">
                                         </td>
                                     </tr>
                                 </table>

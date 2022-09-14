@@ -44,16 +44,16 @@
  						<td colspan="2">更新完了</td>
  					</tr>
 					<tr>
-   						<td>事故受付番号</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
+   						<td>事故受付番号</td><td><c:out value="${requestScope.accidentReception.getClaimNo()}"/></td>
   					</tr>
  					<tr>
-   						<td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+   						<td>証券番号</td><td><c:out value="${requestScope.contractInfo.getPolNo()}"/></td>
   					</tr>
   					<tr>
    						<td>契約者名</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
   					</tr>
   					<tr>
-   						<td>支払金額</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
+   						<td>支払金額</td><td><c:out value="${requestScope.accidentReception.getPaymentPriceForLabel()}"/></td>
   					</tr>
 				</table>
 		</article>

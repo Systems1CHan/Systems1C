@@ -259,47 +259,94 @@ public class AccidentDao {
 	 * @param contractInfo 契約情報オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void registAccidentReception(AccidentReception contractInfo) throws SQLException {
+	public void registAccidentReception(AccidentReception accidentReception) throws SQLException {
 
-//		String sql = "INSERT INTO contractinfo_tbl(insatsu_renban, pol_no, status_flg, cancel_flg, inception_date, inception_time, conclusion_date, conclusion_time, payment_method, installment, insured_kbn, name_kana1, name_kana2, name_kanji1, name_kanji2, postcode, address_kana1, address_kana2, address_kanji1,address_kanji2, birthday, gender, telephone_no, mobilephone_no, fax_no)	"
-//				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//
-//		PreparedStatement stmt = null;
-//		try {
-//			stmt=con.prepareStatement(sql);
-//			stmt.setString(1, contractInfo.getInsatsuRenban());
-//			stmt.setString(2, contractInfo.getPolNo());
-//			stmt.setString(3, contractInfo.getStatusFlg());
-//			stmt.setString(4, contractInfo.getCancelFlg());
-//			stmt.setString(5, contractInfo.getInceptionDate());
-//			stmt.setString(6, contractInfo.getInceptionTime());
-//			stmt.setString(7, contractInfo.getConclusionDate());
-//			stmt.setString(8, contractInfo.getConclusionTime());
-//			stmt.setString(9, contractInfo.getPaymentMethod());
-//			stmt.setInt(10, contractInfo.getInstallment());
-//			stmt.setString(11, contractInfo.getInsuredKbn());
-//			stmt.setString(12, contractInfo.getNameKana1());
-//			stmt.setString(13, contractInfo.getNamekana2());
-//			stmt.setString(14, contractInfo.getNameKanji1());
-//			stmt.setString(15, contractInfo.getNameKanji2());
-//			stmt.setString(16, contractInfo.getPostcode());
-//			stmt.setString(17, contractInfo.getAddressKana1());
-//			stmt.setString(18, contractInfo.getAddressKana2());
-//			stmt.setString(19, contractInfo.getAddressKanji1());
-//			stmt.setString(20, contractInfo.getAddressKanji2());
-//			stmt.setString(21, contractInfo.getBirthday());
-//			stmt.setString(22, contractInfo.getGender());
-//			stmt.setString(23, contractInfo.getTelephoneNo());
-//			stmt.setString(24, contractInfo.getMobilephoneNo());
-//			stmt.setString(25, contractInfo.getFaxNo());
-//
-//			stmt.executeUpdate();
-//		}finally {
-//
-//			if(stmt != null) {
-//				stmt.close();
-//			}
-//		}
+		String sql = "INSERT INTO claim_tbl(claim_no, cover_id, claim_status, payment_price, accident_location_kana1, accident_location_kana2, accident_location_kanji1, accident_location_kanji2, accident_date, accident_situation, rating_blame_myself, rating_blame_yourself, damage_car_price, damage_bodily_price, damage_property_price, damage_accident_price, damage_car_state, damage_bodily_state, damage_property_state,damage_accident_state,)	"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+
+
+		PreparedStatement stmt = null;
+		try {
+			stmt=con.prepareStatement(sql);
+			stmt.setString(1, accidentReception.getClaimNo());
+			stmt.setInt(2, accidentReception.getCoverId());
+			stmt.setString(3, accidentReception.getClaimStatus());
+			stmt.setInt(4, accidentReception.getPaymentPrice());
+			stmt.setString(5, accidentReception.getAccidentLocationKana1());
+			stmt.setString(6, accidentReception.getAccidentLocationKana2());
+			stmt.setString(7, accidentReception.getAccidentLocationKanji1());
+			stmt.setString(8, accidentReception.getAccidentLocationKanji2());
+			stmt.setString(9, accidentReception.getAccidentDate());
+			stmt.setString(10, accidentReception.getAccidentSituation());
+			stmt.setInt(11, accidentReception.getRatingBlameMyself());
+			stmt.setInt(12, accidentReception.getRatingBlameYourself());
+			stmt.setInt(13, accidentReception.getDamageCarPrice());
+			stmt.setInt(14, accidentReception.getDamageBodilyPrice());
+			stmt.setInt(15, accidentReception.getDamagePropertyPrice());
+			stmt.setInt(16, accidentReception.getDamageAccidentPrice());
+			stmt.setString(17, accidentReception.getDamageCarState());
+			stmt.setString(18, accidentReception.getDamageBodilyState());
+			stmt.setString(19, accidentReception.getDamagePropertyState());
+			stmt.setString(20, accidentReception.getDamageAccidentState());
+
+
+			stmt.executeUpdate();
+		}finally {
+
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
+	}
+
+
+	/**
+	 *最大証券番号取得メソッド。
+	 * <p>
+	 * 契約情報テーブル内の最大証券番号を取得する。
+	 * </p>
+	 * @return
+	 * @return polNo 証券番号
+	 * @throws SQLException SQL実行例外
+	 */
+	public String getMaxClaimNo() throws SQLException {
+
+		String sql = "SELECT claim_No FROM claim_tbl ORDER BY claim_No DESC LIMIT 1";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
+		String claimNo = null;
+
+		try {	stmt=con.prepareStatement(sql);
+				res=stmt.executeQuery();
+
+			if (res.next()) {
+				claimNo = res.getString("claim_No");
+			}
+
+			String eigo = claimNo.substring(0);
+			String suuji = claimNo.substring(1, 8);
+
+			try {
+				int incri = Integer.parseInt(suuji);
+				int afterIncri = incri + 1;
+				String insatsu = Integer.valueOf(afterIncri).toString();
+				claimNo = eigo + insatsu;
+			}catch(NumberFormatException e) {
+				e.printStackTrace();
+			}
+
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+		return claimNo;
 
 	}
 
