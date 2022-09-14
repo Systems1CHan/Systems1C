@@ -15,7 +15,11 @@ import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 
 /**
- * Servlet implementation class insuranceEstimationServlet
+ * 保険料試算後画面へコントローラ
+ * <p>
+ * 要求「保険料試算後画面へ」に対する処理を行う。
+ * </p>
+ * @author RyoIsogami/SYS 2022/09/14
  */
 @WebServlet("/InsuranceEstimation")
 public class InsuranceEstimationServlet extends HttpServlet {
