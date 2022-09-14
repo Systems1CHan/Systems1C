@@ -69,7 +69,7 @@
 					<!-- ログイン・リセットボタンのテーブル -->
 					<table class="button_center_parallel">
 						<tr>
-							<th><button onclick="loginProcess();"
+							<th><button type="button" onclick="loginProcess();"
 									class="button_design">ログイン</button></th>
 							<td><input type="reset" value="リセット" class="button_design"></td>
 						</tr>
