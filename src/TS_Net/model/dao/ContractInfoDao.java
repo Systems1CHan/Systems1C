@@ -307,7 +307,7 @@ public class ContractInfoDao {
 			}
 
 			String eigo = insatsuRenban.substring(0);
-			String suuji = insatsuRenban.substring(1, 9);
+			String suuji = insatsuRenban.substring(1, 8);
 
 			try {
 				int incri = Integer.parseInt(suuji);
