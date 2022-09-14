@@ -31,7 +31,7 @@ import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.PolNoChecker;
 
 
-@WebServlet("/ToAccidentForm")
+@WebServlet("/ToStartAccidentForm")
 public class ToStartAccidentFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
