@@ -147,7 +147,8 @@ public class ToRecordComfirmServlet extends HttpServlet {
 			//印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
 			compensation = cpDao.getCompensationByIR(insatsuRenban);
 			//リクエスト領域に格納する。
-			request.setAttribute("compensation", compensation);
+			HttpSession session = request.getSession();
+			session.setAttribute("compensation", compensation);
 
 		} catch (ClassNotFoundException | SQLException e) {
 

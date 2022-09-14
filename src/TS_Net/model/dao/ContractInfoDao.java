@@ -98,12 +98,13 @@ public class ContractInfoDao {
 	}
 
 	/**
-	 * 全件取得メソッド。
+	 * 証券番号で契約情報取得メソッド。
 	 * <p>
-	 * 予約テーブルから、すべての予約情報を取得する。
+	 * 契約情報テーブルから、引数の証券番号に一致する契約
+	 * 情報を取得する。
 	 * </p>
 	 * @return
-	 * @return entityList 予約情報リスト
+	 * @return contractInfo 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
 	public ContractInfo getContractInfoByPN(String polNo) throws SQLException {

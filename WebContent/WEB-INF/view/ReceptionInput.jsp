@@ -89,7 +89,7 @@
                     </table>
                 </header>
                 <main>
-                    <form action="" id="@@@@@@@@@" method="post">
+                    <form action="" id="accept_frm" method="post">
                         <table class="button_table">
                             <tr>
                                 <!-- 入力フォーム（お名前） -->
@@ -97,7 +97,6 @@
                                         class="button_design">トップへ戻る</button></th>
                             </tr>
                         </table>
-                    </form>
                     <div class="sample-area">
                         <p id="tabcontrol">
                             <a href="#tabpage1">事故受付</a>
@@ -395,16 +394,17 @@
                         <tr>
                             <!-- 入力フォーム（お名前） -->
                             <td>
-                                <button type="button" class="button_design">更新完了</button>
+                                <button type="button" onclick="toFinishAcceptPage();" class="button_design">更新完了</button>
                             </td>
                             <td>
-                                <button type="button" class="button_design">事故受付完了</button>
+                                <button type="button" onclick="toFinishAcceptPage();" class="button_design">事故受付完了</button>
                             </td>
                             <td>
                                 <button type="button" class="button_design">前の画面へ戻る</button>
                             </td>
                         </tr>
                     </table>
+                    </form>
                     <script type="text/javascript">
 
                         // 対象の要素を得る

@@ -11,6 +11,7 @@ package TS_Net.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,6 +44,8 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 		String page = "/WEB-INF/view/ReceptionInput.jsp";
 		//dataオブジェクトを生成する。
 		AccidentReception accidentReception = new AccidentReception();
+//		AccidentReception accidentReception = null;
+
 		ContractInfo contractInfo = null;
 		Compensation compensation = null;
 		//DAOを生成する。
@@ -50,12 +53,13 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 		ContractInfoDao contractInfoDao = new ContractInfoDao();
 		CompensationDao compensationDao = new CompensationDao();
 
+
 		//証券番号と事故受け付け番号について空白チェックと両方が記入されていないかチェックを行う。
 		String claimNo = request.getParameter("claimNo");
 		String polNo = request.getParameter("polNo");
 		PolNoChecker polNoChecker = new PolNoChecker();
 
-//		if (polNoChecker.polNoInputCheck(polNo, claimNo) != null) {
+//		if (polNoChecker.polNoInputCheck(polNo, claimNo) != null) {claimNo
 //
 //			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
 //
@@ -77,18 +81,44 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 //			return;
 //		}
 
+		if (polNoChecker.polNoInputCheck(polNo, claimNo) != null) {
+//			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
+			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
+
+			page ="/WEB-INF/view/ReceptionStart.jsp";
+			//契約内容入力画面へforwardする。
+			RequestDispatcher rd = request.getRequestDispatcher(page);
+			rd.forward(request, response);
+			return;
+
+
+		}
+
+		if (polNoChecker.polNoNotInputCheck(polNo, claimNo) != null) {
+//			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
+			request.setAttribute("FORM_ERROR", polNoChecker.polNoNotInputCheck(polNo, claimNo));
+
+			page ="/WEB-INF/view/ReceptionStart.jsp";
+			//契約内容入力画面へforwardする。
+			RequestDispatcher rd = request.getRequestDispatcher(page);
+			rd.forward(request, response);
+			return;
+
+
+		}else {
+
 
 			try {
 				accidentDao.connect();
 				compensationDao.connect();
 				contractInfoDao.connect();
 
-				if(polNo == null && claimNo != null) {
+				if(!(Objects.equals(claimNo, null)) && claimNo.length() > 0) {
 				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 				accidentReception = accidentDao.getAccidentReceptionByCN(claimNo);
 
 				if (accidentReception.getClaimNo() == null) {
-					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
+					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0010);
 
 					page ="/WEB-INF/view/ReceptionStart.jsp";
 					//契約内容入力画面へforwardする。
@@ -105,8 +135,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				String InsatsuRenban = compensation.getInsatsuRenban();
 				contractInfo = contractInfoDao.getContractInfoByIR(InsatsuRenban);
 
-				}
-				else if(polNo != null && claimNo == null){
+				}else {
 				contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
 				if (contractInfo.getPolNo() == null) {
@@ -224,4 +253,5 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 	}
 
 
+}
 }
