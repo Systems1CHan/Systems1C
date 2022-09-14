@@ -22,113 +22,116 @@ import javax.servlet.http.HttpSession;
 
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
-import TS_Net.model.dao.AccidentDao;
-import TS_Net.model.data.AccidentReception;
-import TS_Net.model.data.ContractInfo;
-import TS_Net.model.datacheck.AccidentReceptionFormChecker;
-import TS_Net.model.datacheck.ClaimNoChecker;
-import TS_Net.model.datacheck.ContractFormChecker;
-		/**
+/**
 		 * 更新完了画面へコントローラ
 		 * <p>
 		 * 要求「状況更新完了画面へ」に対する処理を行う。
 		 * </p>
 		 * @author 	KeinaNoguchi/SYS 2022/09/12
 		 */
+import TS_Net.model.dao.AccidentDao;
+import TS_Net.model.data.AccidentReception;
+import TS_Net.model.data.ContractInfo;
 		@WebServlet("/ToUpdateForm")
 		public class ToUpdateFormServlet extends HttpServlet {
 
 			public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				request.setCharacterEncoding(SystemConst.CHAR_SET);
+				String page = "/WEB-INF/view/ReceptionUpdate.jsp";
+				/* 事故受付完了JSPへforwardする。*/
 
-				HttpSession session = request.getSession(false);
-				ContractInfo contractInfo = null;
-				AccidentReception accidentReception = null;
+			//dataオブジェクトを生成する。
+			ContractInfo contractInfo = null;
+			AccidentReception accidentReception = null;
 
-				if(session == null) {
-					request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-					rd.forward(request, response);
-				}else {
-					contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-					accidentReception = (AccidentReception) session.getAttribute("accidentReception");
+			//DAOを生成する。
+			AccidentDao accidentDao = new AccidentDao();
 
-					if(contractInfo == null || accidentReception == null) {
-						request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-						rd.forward(request, response);
-					}
+			//セッションを生成する。
+			HttpSession session = request.getSession(false);
+
+			//セッションがnullの場合はエラーを表示する。
+			if (session == null) {
+
+				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+				// システムエラー画面を戻り値に設定する。
+				page = "/WEB-INF/view/ErrorPage.jsp";
+				//システムエラー画面へforwardする。
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+				return;
+			}
+			//セッションから契約情報オブジェクトを取り出す。
+			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
+			//オブジェクトが空の場合はエラーを表示する。
+			if(contractInfo == null) {
+				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+				// システムエラー画面を戻り値に設定する。
+				page = "/WEB-INF/view/ErrorPage.jsp";
+				//システムエラー画面へforwardする。
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+				return;
+			}
+
+			accidentReception = (AccidentReception) session.getAttribute("accidentReception");
+			//オブジェクトが空の場合はエラーを表示する。
+			if(accidentReception == null) {
+				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+				// システムエラー画面を戻り値に設定する。
+				page = "/WEB-INF/view/ErrorPage.jsp";
+				//システムエラー画面へforwardする。
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+				return;
+			}
+			//事故受け付けフラグを1受付中に設定
+			accidentReception.setClaimStatus("1");
+
+			//契約情報オブジェクトをリクエスト領域に格納する。
+			request.setAttribute("contractInfo", contractInfo);
+
+
+			try {
+				accidentDao.connect();
+
+
+				//事故情報オブジェクトをDBに登録する。
+				accidentDao.registAccidentReception(accidentReception);
+
+				//事故情報オブジェクトをリクエスト領域に格納する。
+				request.setAttribute("accidentReception", accidentReception);
+
+
+			} catch (ClassNotFoundException | SQLException e) {
+
+				e.printStackTrace();
+				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+				// システムエラー画面を戻り値に設定する。
+				page = "/WEB-INF/view/ErrorPage.jsp";
+				//システムエラー画面へforwardする。
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+
+			}
+
+			finally {
+				try {
+					accidentDao.close();
+
+				} catch(SQLException e) {
+					request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
+					// システムエラー画面を戻り値に設定する。
+					page = "/WEB-INF/view/ErrorPage.jsp";
 				}
 
-				String claimNo = request.getParameter("claimNo");
-				String polNo = request.getParameter("polNo");
-				String nameKanji1 = request.getParameter("nameKanji1");
-				String nameKanji2 = request.getParameter("nameKanji2");
-				Integer paymentPrice = Integer.parseInt(request.getParameter("paymentPrice"));
+			}
 
-				accidentReception.setClaimNo(claimNo);
-				contractInfo.setPolNo(polNo);
-				contractInfo.setNameKanji1(nameKanji1);
-				contractInfo.setNameKanji2(nameKanji2);
-				accidentReception.setPaymentPrice(paymentPrice);
-
-				ContractFormChecker cfc = new ContractFormChecker();
-				AccidentReceptionFormChecker arf = new AccidentReceptionFormChecker();
-
-				if(cfc.check(contractInfo) != null) {
-					request.setAttribute("message", cfc.check(contractInfo));
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/CustomerFormPage.jsp");
-					rd.forward(request, response);
-
-				}else if(arf.check(accidentReception) != null) {
-					request.setAttribute("message", arf.check(accidentReception));
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/CustomerFormPage.jsp");
-					rd.forward(request, response);
-
-				}else {
-
-					AccidentDao accidentDao = new AccidentDao();
-
-					try {
-
-						accidentDao.connect();
-						//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-						accidentDao.updateAccidentReception(0/*accidentReception.getClaimNo()*/);
-						ClaimNoChecker cnc = new ClaimNoChecker();
-						String errmsg = cnc.claimNoExistenceCheck(accidentReception);
-
-						request.setAttribute("contractInfo", contractInfo);
-						request.setAttribute("accidentReception", accidentReception);
-
-					} catch (ClassNotFoundException | SQLException e) {
-
-						e.printStackTrace();
-						request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-						// システムエラー画面を戻り値に設定する。
-						RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-						rd.forward(request, response);
-
-					}
-
-					finally {
-						try {
-							accidentDao.close();
-						} catch(SQLException e) {
-							request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-							// システムエラー画面を戻り値に設定する。
-							RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-							rd.forward(request, response);
-						}
-
-					}
-
-
-					/* 事故受付完了JSPへforwardする。*/
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ReceptionComplete.jsp");
-					rd.forward(request, response);
-
-
-				}
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+			}
 }
-		}
+
+
+
 

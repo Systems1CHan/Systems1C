@@ -89,7 +89,7 @@
                     </table>
                 </header>
                 <main>
-                    <form action="" id="accept_frm" method="post">
+                    <form action="" id="update_frm" method="post">
                         <table class="button_table">
                             <tr>
                                 <!-- 入力フォーム（お名前） -->
@@ -354,13 +354,13 @@
                         <tr>
                             <!-- 入力フォーム（お名前） -->
                             <td>
-                                <button type="button" onclick="toFinishUpdatePage();" class="button_design">更新完了</button>
+                                <button type="button" onclick="toFinishUpdatePage()" class="button_design">更新完了</button>
                             </td>
                             <td>
-                                <button type="button" onclick="toFinishAcceptPage();" class="button_design">事故受付完了</button>
+                            	<button type="button" onclick="toFinishAcceptPage()" class="button_design">受付完了</button>
                             </td>
                             <td>
-                                <button type="button" onclick=toreturnReceptionPage() class="button_design">前の画面へ戻る</button>
+                                <button type="button" onclick="toreturnReceptionPage()" class="button_design">前の画面へ戻る</button>
                             </td>
                         </tr>
                     </table>

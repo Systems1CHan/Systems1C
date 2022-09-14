@@ -244,11 +244,63 @@ public class AccidentDao {
 	 * @return entityList 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
-	public void completionAccidentReception(Integer claimNo) throws SQLException {
+	public void completionAccidentReception(String claimNo) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 		//update文でStatusFlgを0にする。
+	}
+
+	/**
+	 * 登録メソッド。
+	 * <p>
+	 * 引数で渡された予約情報を、予約テーブルへINSERTする。
+	 * </p>
+	 * @param contractInfo 契約情報オブジェクト
+	 * @throws SQLException SQL実行例外
+	 */
+	public void registAccidentReception(AccidentReception contractInfo) throws SQLException {
+
+//		String sql = "INSERT INTO contractinfo_tbl(insatsu_renban, pol_no, status_flg, cancel_flg, inception_date, inception_time, conclusion_date, conclusion_time, payment_method, installment, insured_kbn, name_kana1, name_kana2, name_kanji1, name_kanji2, postcode, address_kana1, address_kana2, address_kanji1,address_kanji2, birthday, gender, telephone_no, mobilephone_no, fax_no)	"
+//				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//
+//		PreparedStatement stmt = null;
+//		try {
+//			stmt=con.prepareStatement(sql);
+//			stmt.setString(1, contractInfo.getInsatsuRenban());
+//			stmt.setString(2, contractInfo.getPolNo());
+//			stmt.setString(3, contractInfo.getStatusFlg());
+//			stmt.setString(4, contractInfo.getCancelFlg());
+//			stmt.setString(5, contractInfo.getInceptionDate());
+//			stmt.setString(6, contractInfo.getInceptionTime());
+//			stmt.setString(7, contractInfo.getConclusionDate());
+//			stmt.setString(8, contractInfo.getConclusionTime());
+//			stmt.setString(9, contractInfo.getPaymentMethod());
+//			stmt.setInt(10, contractInfo.getInstallment());
+//			stmt.setString(11, contractInfo.getInsuredKbn());
+//			stmt.setString(12, contractInfo.getNameKana1());
+//			stmt.setString(13, contractInfo.getNamekana2());
+//			stmt.setString(14, contractInfo.getNameKanji1());
+//			stmt.setString(15, contractInfo.getNameKanji2());
+//			stmt.setString(16, contractInfo.getPostcode());
+//			stmt.setString(17, contractInfo.getAddressKana1());
+//			stmt.setString(18, contractInfo.getAddressKana2());
+//			stmt.setString(19, contractInfo.getAddressKanji1());
+//			stmt.setString(20, contractInfo.getAddressKanji2());
+//			stmt.setString(21, contractInfo.getBirthday());
+//			stmt.setString(22, contractInfo.getGender());
+//			stmt.setString(23, contractInfo.getTelephoneNo());
+//			stmt.setString(24, contractInfo.getMobilephoneNo());
+//			stmt.setString(25, contractInfo.getFaxNo());
+//
+//			stmt.executeUpdate();
+//		}finally {
+//
+//			if(stmt != null) {
+//				stmt.close();
+//			}
+//		}
+
 	}
 
 
