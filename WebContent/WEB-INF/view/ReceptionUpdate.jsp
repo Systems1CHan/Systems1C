@@ -1,71 +1,65 @@
-<!-- ---------------------------------------------------------------------------------------
-演習番号		：総合演習
-プログラム名	：状況更新画面
-作成日			：2022/09/07
-作成者			：SYS KEINA NOGUCHI
+ 		<!-- ---------------------------------------------------------------------------------------
+演習番号		：仕様書演習
+プログラム名	：予約情報一覧画面
+作成日			：2022/08/09
+作成者			：SYS TOORU NAKAYA
 --------------------------------------------------------------------------------------------
 修正履歴（修正日：担当者：修正内容）
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>事故更新完了画面</title>
+<%-- css用 リンクはheadに格納 --%>
+<link rel="stylesheet" href="./static/css/CommonHeader.css">
+<link rel="stylesheet" href="./static/css/CommonMain.css">
+<link rel="stylesheet" href="./static/css/CommonFooter.css">
+<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<%-- JavaScript用 --%>
+<script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
+
 <body>
 	<header>
-		<table>
-			<tr>
-				<td>
-					<h1>契約管理・事故受付システム ハンディー</h1>
-				</td>
-			</tr>
-		</table>
+		<div class="header_title">契約管理・事故受付システム ハンディー</div>
 	</header>
 	<main>
-		<div class="sample-area">
-		<tr>
-						<th><button type="button" onclick="toTopMenu();">トップへ戻る</button></th>
-					</tr>
-			<div id="tabbody">
-				<div id="tabpage1">
-					<form id="mailformpro" action="mailformpro/mailformpro.cgi"
-						method="POST">
-						<table border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								 <div id="tabpage2">
-									<h1>状況更新完了</h1>
-									<table border="1" width="80%">
-										<tr>
-											<td colspan="2">更新完了</td>
-										</tr>
-										<tr>
-											<td>事故受付番号</td>
-											<td>11111</td>
-										</tr>
-										<tr>
-											<td>証券番号</td>
-											<td>11111</td>
-										</tr>
-										<tr>
-											<td>契約者名</td>
-											<td>東海 太郎</td>
-										</tr>
-										<tr>
-											<td>支払金額</td>
-											<td>10,000円</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-			</div>
-		</div>
+		<form action="" id="@@@@@@@@@" method="post">
+			<table class="button_table">
+				<tr>
+				<!-- 入力フォーム（お名前） -->
+					<th><button type="button" onclick="toTopMenu();"
+					class="button_design">トップへ戻る</button></th>
+				</tr>
+			</table>
+		</form>
+		<article>
+			<div class="subTitle">更新完了</div>
+				<table border="1" style="border-collapse: collapse">
+ 					<tr>
+ 						<td colspan="2">更新完了</td>
+ 					</tr>
+					<tr>
+   						<td>事故受付番号</td><td><c:out value="${requestScope.contractInfo.insatsuRenban}"/></td>
+  					</tr>
+ 					<tr>
+   						<td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
+  					</tr>
+  					<tr>
+   						<td>契約者名</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
+  					</tr>
+  					<tr>
+   						<td>支払金額</td><td><c:out value="${requestScope.contractInfo.getNameForLabel()}"/></td>
+  					</tr>
+				</table>
+		</article>
 	</main>
+	<footer>
+		<div class="footer_title">Handy</div>
+	</footer>
 </body>
 </html>
