@@ -60,9 +60,9 @@ public class CompensationDao {
 	/**
 	 * 登録メソッド。
 	 * <p>
-	 * 引数で渡された予約情報を、予約テーブルへINSERTする。
+	 * 引数で渡された補償情報を、補償テーブルへINSERTする。
 	 * </p>
-	 * @param entity 予約対象オブジェクト
+	 * @param compensation 予約対象オブジェクト
 	 * @throws SQLException SQL実行例外
 	 */
 	public void registCompensation(Compensation compensation) throws SQLException {
@@ -108,12 +108,12 @@ public class CompensationDao {
 
 
 	/**
-	 * 全件取得メソッド。
+	 * 印刷連番で補償情報取得メソッド。
 	 * <p>
-	 * 予約テーブルから、すべての予約情報を取得する。
+	 * 補償情報テーブルから、印刷連番が一致する補償情報を取得する。
 	 * </p>
 	 * @return
-	 * @return entityList 予約情報リスト
+	 * @return compensation 予約情報リスト
 	 * @throws SQLException SQL実行例外
 	 */
 	public Compensation getCompensationByIR(String insatsuRenban) throws SQLException {
@@ -180,7 +180,16 @@ public class CompensationDao {
 
 	}
 
-
+	/**
+	 *補償IDで補償情報取得メソッド。
+	 * <p>
+	 * 補償テーブルから、補償IDが一致する補償情報を取得する。
+	 *
+	 * </p>
+	 * @return
+	 * @return compensation 予約情報リスト
+	 * @throws SQLException SQL実行例外
+	 */
 	public Compensation getCompensationByCI(Integer coverId) throws SQLException {
 
 		/* 以下はスタブ用変数のため必ず除去すること */

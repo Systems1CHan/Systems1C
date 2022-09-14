@@ -5,7 +5,6 @@
  * 作成者  ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
- * (2022/09/12 ： NarimichiHenmi/SYS ：findEmployeeのsql文を修正)
  *------------------------------------------------------------------------------
  */
 package TS_Net.model.dao;
@@ -83,7 +82,7 @@ public class LoginDAO {
 	 * @return  検索結果
 	 * @throws  SQLException  データベースエラーが発生した場合
 	 */
-	public boolean findEmployee(String iD, String password) throws SQLException {
+	public boolean findAccount(String iD, String password) throws SQLException {
 		String sql = "SELECT * FROM login_user WHERE user = ? and pass = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;

@@ -52,50 +52,360 @@
 	min-height: 5em; /* 最低の高さが必要なら指定(不要なら省略可) */
 }
 
-/* タブの配色 */
-#tabcontrol a:nth-child(1), #tabbody div:nth-child(1) {
-	background-color: #ffffdd;
-} /* 1つ目のタブとその中身用の配色 */
-#tabcontrol a:nth-child(2), #tabbody div:nth-child(2) {
-	background-color: #ddffdd;
-} /* 2つ目のタブとその中身用の配色 */
-#tabcontrol a:nth-child(3), #tabbody div:nth-child(3) {
-	background-color: #ddffdd;
-} /* 3つ目のタブとその中身用の配色 */
-</style>
-<script type="text/javascript">
-	function entryChange1() {
-		radio = document.getElementsByName('insuredKbn')
-		if (radio[0].checked) {
-			document.getElementById('個人').style.display = "";
-			document.getElementById('法人').style.display = "none";
-		} else if (radio[1].checked) {
-			document.getElementById('個人').style.display = "none";
-			document.getElementById('法人').style.display = "";
-		}
-	}
-	window.onload = entryChange1;
-</script>
-<script type="text/javascript" src="./static/js/transition.js"></script>
-</head>
-<body>
-	<header>
-		<table>
-			<tr>
-				<td>
-					<h1>契約管理・事故受付システム ハンディー</h1>
-				</td>
-			</tr>
-		</table>
-	</header>
-	<main>
-		<form action="" id="@@@@@@@@@" method="post">
-			<table class="button_table">
-				<form>
-					<button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
-				</form>
-			</table>
-
+            /* タブの配色 */
+            #tabcontrol a:nth-child(1), #tabbody div:nth-child(1) {
+                background-color: #ffffdd;
+            } /* 1つ目のタブとその中身用の配色 */
+            #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) {
+                background-color: #ddffdd;
+            } /* 2つ目のタブとその中身用の配色 */
+            #tabcontrol a:nth-child(3), #tabbody div:nth-child(3) {
+            background-color: #ddffdd;
+            } /* 3つ目のタブとその中身用の配色 */
+            </style>
+             <script type="text/javascript">
+                        function entryChange1(){
+                            radio = document.getElementsByName('insuredKbn')
+                            if(radio[0].checked) {
+                                document.getElementById('個人').style.display = "";
+                                document.getElementById('法人').style.display = "none";
+                            }else if(radio[1].checked) {
+                                document.getElementById('個人').style.display = "none";
+                                document.getElementById('法人').style.display = "";
+                            }
+                        }
+                        window.onload = entryChange1;
+                    </script>
+            <script type="text/javascript" src="./static/js/transition.js"></script>
+            </head>
+            <body>
+                <header>
+                    <table>
+                        <tr>
+                            <td>
+                                <h1>契約管理・事故受付システム ハンディー</h1>
+                            </td>
+                        </tr>
+                    </table>
+                </header>
+                <main>
+                    <form action="" id="accept_frm" method="post">
+                        <table class="button_table">
+                            <tr>
+                                <!-- 入力フォーム（お名前） -->
+                                <th><button type="button"
+                                        class="button_design">トップへ戻る</button></th>
+                            </tr>
+                        </table>
+                    <div class="sample-area">
+                        <p id="tabcontrol">
+                            <a href="#tabpage1">事故受付</a>
+                            <a href="#tabpage2">契約条件</a>
+                            <a href="#tabpage3">補償</a>
+                        </p>
+                        <div id="tabbody">
+                            <div id="tabpage1">
+                                <table border="1" width="80%">
+                                    <tr>
+                                        <td colspan="2">お客様情報</td>
+                                    </tr>
+                                    <tr>
+                                        <td>事故受付番号</td>
+                                        <td>11111</td>
+                                    </tr>
+                                    <tr>
+                                        <td>証券番号</td>
+                                        <td>11111</td>
+                                    </tr>
+                                    <tr>
+                                        <td>契約者名</td>
+                                        <td>東海 太郎</td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            事故日
+                                        </th>
+                                        <td>
+                                            <input type="date" placeholder="YYYY/MM/DD">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            事故現場住所1-漢字
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="東京都多摩市">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            事故現場住所1-カナ
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="トウキョウトタマシ">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            事故現場住所2-漢字
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="○○町○○番地">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            事故現場住所2-カナ
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="○○チョウ○○バンチ">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            相手の状況（被害者側）
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="相手にケガはなし">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            過失割合（相手方）
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="8割">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害額・車両
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="A0000001">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害状況・車両
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="一部あり">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害額・対人
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="A0000001">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害状況・対人
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="なし">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害額・対物
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="A0000001">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害状況・対物
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="あり">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害額・傷害
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="A0000001">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            損害状況・傷害
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="なし">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="tabpage2">
+                                <table border="1" style="border-collapse: collapse">
+                                    <tr>
+                                        <td colspan="2">事故受付入力</td>
+                                    </tr>
+                                    <tr>
+                                        <td>保険期間</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getInsureanceIntervalForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>証券番号</td>
+                                        <td><c:out value="${requestScope.contractInfo.polNo}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>印刷連番</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.insatsuRenban}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>契約状態</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getStatusFlgForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>被保険者の個人法人区分</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getInsuredKbnForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>払込方法</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getPaymentMethodForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>会社名-カナ</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getkanaNameForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>会社名-漢字</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getNameForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>住所-カナ</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getKanaAddressForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>郵便番号</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getPostcodeForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>住所-漢字</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getKanjiAddressForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>電話番号</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getTelephoneNoForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>携帯電話番号</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getMobilePhoneNoForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>FAX番号</td>
+                                        <td><c:out
+                                                value="${requestScope.contractInfo.getFaxNoForLabel()}" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="tabpage3">
+                                <table border="1" style="border-collapse: collapse">
+                                    <tr>
+                                        <td colspan="3">事故受付入力</td>
+                                    </tr>
+                                    <tr>
+                                        <td>保険料</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>メーカー</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getCarName()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>車名</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getCarName()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>車のナンバー</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getCarNameForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>車両保険金額</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>免許証の色</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>車両料率</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>退陣料率</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>対物料率</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>障害料率</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>年齢条件</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>１回分保険料</td>
+                                        <td><c:out
+                                                value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="button_table">
+                        <tr>
+                            <!-- 入力フォーム（お名前） -->
+                            <td>
+                                <button type="button" onclick="toFinishAcceptPage();" class="button_design">更新完了</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="toFinishAcceptPage();" class="button_design">事故受付完了</button>
+                            </td>
+                            <td>
+                                <button type="button" class="button_design">前の画面へ戻る</button>
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
+                    <script type="text/javascript">
 		<div class="sample-area">
 			<p id="tabcontrol">
 				<a href="#tabpage1">事故受付</a> <a href="#tabpage2">契約条件</a> <a

@@ -29,7 +29,7 @@ import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.AccidentReceptionFormChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
 import TS_Net.model.datacheck.InsatsuRenbanChecker;
-
+import TS_Net.model.dao.AccidentDao;
 		/**
 		 * 更新完了画面へコントローラ
 		 * <p>
@@ -95,7 +95,7 @@ import TS_Net.model.datacheck.InsatsuRenbanChecker;
 
 						accidentDao.connect();
 						//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-						accidentDao. updateAccidentReception(accidentReception.getClaimNo());
+						accidentDao.updateAccidentReception(0/*accidentReception.getClaimNo()*/);
 
 						request.setAttribute("contractInfo", contractInfo);
 						request.setAttribute("accidentReception", accidentReception);
@@ -131,3 +131,4 @@ import TS_Net.model.datacheck.InsatsuRenbanChecker;
 				}
 }
 		}
+

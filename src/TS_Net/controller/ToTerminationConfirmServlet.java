@@ -1,3 +1,12 @@
+/*------------------------------------------------------------------------------
+ * 演習番号：[総合演習]
+ * クラス名：[ToQueryConfirmServlet]
+ * 作成日  ：[2022/09/07]
+ * 作成者  ：[ToruNakaya/SYS]
+ *------------------------------------------------------------------------------
+ * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ *------------------------------------------------------------------------------
+ */
 package TS_Net.controller;
 
 import java.io.IOException;
@@ -38,7 +47,7 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 		//セッションを生成する。
 		HttpSession session = request.getSession(true);
 
-		//contractFormCheckerオブジェクトを生成。
+		//空白チェックオブジェクトを生成。
 		BlankChecker blankChecker = new BlankChecker();
 
 		String polNo = request.getParameter("polNo");
@@ -62,6 +71,7 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
 			contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
+			//取り出したオブジェクトの証券番号がnullの場合は存在しないエラーを表示。
 			if (contractInfo.getPolNo() == null) {
 				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
 
@@ -81,7 +91,7 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 //				rd.forward(request, response);
 //				return;
 //			}
-			//リクエスト領域に格納する。
+			//セッション領域に格納する。
 			session.setAttribute("contractInfo", contractInfo);
 
 
@@ -112,11 +122,11 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 
 		try {
 			compensationDao.connect();
-			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+			//印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
 			compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
 
 
-
+			//リクエスト領域に格納する。
 			request.setAttribute("compensation", compensation);
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -144,7 +154,7 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 		}
 
 
-		/* TOPメニューJSPへforwardする。*/
+		/* 解約確認JSPへforwardする。*/
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
 

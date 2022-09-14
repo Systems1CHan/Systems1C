@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="./static/css/phone.css">
         <title>Document</title>
 
         <style type="text/css">
@@ -81,12 +82,12 @@
                 <div id="tabbody">
                     <div id="tabpage1">
 						<div class="subTitle">契約内容照会確認(契約条件タブ)(個人)</div>
-						<table border="1" style="border-collapse: collapse">
+						<table border="1" style="border-collapse: collapse" class="width_all">
  							 <tr>
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
  							 <tr>
-   								 <td>保険期間</td><td><c:out value="${requestScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
+   								 <td class="a">保険期間</td><td class="b"><c:out value="${requestScope.contractInfo.getInsureanceIntervalForLabel()}"/></td>
   							</tr>
  							 <tr>
    								 <td>証券番号</td><td><c:out value="${requestScope.contractInfo.polNo}"/></td>
@@ -140,12 +141,12 @@
                     </div>
                     <div id="tabpage2">
                     						<div class="subTitle">契約内容照会確認(契約条件タブ)(個人)</div>
-						<table border="1" style="border-collapse: collapse">
+						<table border="1" style="border-collapse: collapse" class="width_all">
  							 <tr>
  							 <td colspan="2">契約内容照会確認</td>
  							 </tr>
 							 <tr>
-   								 <td>保険料</td><td><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
+   								 <td class="a">保険料</td><td class="b"><c:out value="${requestScope.compensation.getPremiumAmountForLabel()}"/></td>
   							 </tr>
  							 <tr>
    								 <td>メーカー</td><td><c:out value="${requestScope.compensation.getCarName()}"/></td>

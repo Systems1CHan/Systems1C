@@ -35,16 +35,16 @@ public class ToTopMenuServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 
-		/* １．セッション領域から予約情報オブジェクトを除去する。 */
+		/* １-１．セッション領域から契約情報オブジェクトを除去する。 */
 		HttpSession session = request.getSession();
 		if (session.getAttribute("ContractInfo") != null) {
 			session.removeAttribute("ContractInfo");
 		}
-
+		/* １-２．セッション領域から補償情報オブジェクトを除去する。 */
 		if (session.getAttribute("Compensation") != null) {
 			session.removeAttribute("Compensation");
 		}
-
+		/* １-３．セッション領域から事故受付情報オブジェクトを除去する。 */
 		if (session.getAttribute("AccidentReception") != null) {
 			session.removeAttribute("AccidentReception");
 		}

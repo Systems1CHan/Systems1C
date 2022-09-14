@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,25 +33,22 @@
 				<table class="button_table">
 					<tr>
 						<!-- 入力フォーム（お名前） -->
-						<th><button type="button" onclick="toTopMenu();">トップへ戻る</button></th>
+						<th><button type="button" onclick="toTopMenu();"
+								class="button_design">トップへ戻る</button></th>
 					</tr>
 				</table>
 			<div class="roundedConer">
 				<div class="subTitle">事故受付開始</div>
 					<table class="IDpass_table">
 						<tr>
-							<p>①新規事故受付の場合</p>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">証券番号</th>
 							<td><input name="polNo" maxlength="10"></td>
 						</tr>
-					</table>
-					<table class="IDpass_table">
 						<tr>
-							<p>②事故状況更新の場合</p>
-							<!-- 入力フォーム（受付番号） -->
+							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">受付番号</th>
-							<td><input name="claimNo" type="number" maxlength="10"></td>
+							<td><input name="claimNo" maxlength="10"></td>
 						</tr>
 					</table>
 					<!-- エラーメッセージ -->
@@ -60,6 +57,7 @@
 				</div>
 					<table class="button_table">
 						<tr>
+							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="toTypeAccidentPage();"
 									class="button_design">受付開始</button></th>
 						</tr>

@@ -1,3 +1,12 @@
+/*------------------------------------------------------------------------------
+ * 演習番号：[総合演習]
+ * クラス名：[ToQueryConfirmServlet]
+ * 作成日  ：[2022/09/07]
+ * 作成者  ：[ToruNakaya/SYS]
+ *------------------------------------------------------------------------------
+ * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ *------------------------------------------------------------------------------
+ */
 package TS_Net.controller;
 
 import java.io.IOException;
@@ -34,6 +43,7 @@ public class ToTerminationApplicationServlet extends  HttpServlet {
 		//セッションを生成する。
 		HttpSession session = request.getSession(false);
 
+		//セッションがnullの場合はエラーを表示する。
 		if (session == null) {
 
 			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
@@ -44,8 +54,9 @@ public class ToTerminationApplicationServlet extends  HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
+		//セッションから契約情報オブジェクトを取り出す。
 		contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-
+		//オブジェクトが空の場合はエラーを表示する。
 		if(contractInfo == null) {
 			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
 			// システムエラー画面を戻り値に設定する。
@@ -59,8 +70,9 @@ public class ToTerminationApplicationServlet extends  HttpServlet {
 
 		try {
 			contractInfoDao.connect();
-			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+			//解約フラグを解約に変更する。
 			contractInfoDao. terminationAppCompletion(contractInfo.getPolNo());
+			//契約情報オブジェクトをリクエスト領域に格納する。
 			request.setAttribute("contractInfo", contractInfo);
 
 

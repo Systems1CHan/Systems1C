@@ -79,7 +79,7 @@ public class LoginProcessServlet extends HttpServlet {
 			/*
 			 * 	５．DB内のログインユーザーテーブルにID・Passwordの組があるか検索し、検索結果をboolean型で返却する。
 			 */
-			loginState = LDAO.findEmployee(iD, password);
+			loginState = LDAO.findAccount(iD, password);
 
 		} catch (SQLException | ClassNotFoundException e) {
 			/* セッションスコープにエラーメッセージをセットする。 */

@@ -38,7 +38,7 @@ public class PolNoChecker {
 	public String polNoInputCheck(String polNo, String claimNo) {
 		if(!(Objects.equals(polNo, null)) && polNo.length() > 0) {
 			if(!(Objects.equals(claimNo, null)) && claimNo.length() > 0) {
-				return ErrorMsgConst.FORM_ERROR0018;
+				return ErrorMsgConst.FORM_ERROR0001;
 			}else {
 				return null;
 			}
