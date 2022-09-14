@@ -42,12 +42,12 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 		//文字化けを防止する。
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 		String page = "/WEB-INF/view/ReceptionInput.jsp";
-		//dataオブジェクトを生成する。
-		AccidentReception accidentReception = new AccidentReception();
-//		AccidentReception accidentReception = null;
 
+		//dataオブジェクトを定義する。
+		AccidentReception accidentReception = new AccidentReception();
 		ContractInfo contractInfo = null;
 		Compensation compensation = null;
+
 		//DAOを生成する。
 		AccidentDao accidentDao = new AccidentDao();
 		ContractInfoDao contractInfoDao = new ContractInfoDao();
@@ -59,28 +59,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 		String polNo = request.getParameter("polNo");
 		PolNoChecker polNoChecker = new PolNoChecker();
 
-//		if (polNoChecker.polNoInputCheck(polNo, claimNo) != null) {claimNo
-//
-//			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
-//
-//			page ="/WEB-INF/view/ReceptionStart.jsp";
-//			//契約内容入力画面へforwardする。
-//			RequestDispatcher rd = request.getRequestDispatcher(page);
-//			rd.forward(request, response);
-//			return;
-//		}
-//
-//		if (polNoChecker.polNoNotInputCheck(polNo, claimNo) != null) {
-//
-//			request.setAttribute("FORM_ERROR", polNoChecker.polNoNotInputCheck(polNo, claimNo));
-//
-//			page ="/WEB-INF/view/ReceptionStart.jsp";
-//			//契約内容入力画面へforwardする。
-//			RequestDispatcher rd = request.getRequestDispatcher(page);
-//			rd.forward(request, response);
-//			return;
-//		}
-
+		//証券番号と事故受け付け番号が両方とも入力されている場合エラーを返す。
 		if (polNoChecker.polNoInputCheck(polNo, claimNo) != null) {
 //			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
 			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
@@ -93,9 +72,9 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 
 
 		}
-
+		//証券番号と事故受け付け番号がともに空白の場合エラーを返す。
 		if (polNoChecker.polNoNotInputCheck(polNo, claimNo) != null) {
-//			request.setAttribute("FORM_ERROR", polNoChecker.polNoInputCheck(polNo, claimNo));
+//			request.setAttribute("FORM_ERROR", polNo, claimNo));
 			request.setAttribute("FORM_ERROR", polNoChecker.polNoNotInputCheck(polNo, claimNo));
 
 			page ="/WEB-INF/view/ReceptionStart.jsp";
@@ -113,11 +92,17 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				compensationDao.connect();
 				contractInfoDao.connect();
 
+				//事故受け付け番号が入力されていた場合
 				if(!(Objects.equals(claimNo, null)) && claimNo.length() > 0) {
-				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-				accidentReception = accidentDao.getAccidentReceptionByCN(claimNo);
 
-				if (accidentReception.getClaimNo() == null) {
+					//更新事故受け付けオブジェクトを生成
+					AccidentReception accidentUpdateReception = new AccidentReception();
+
+				//事故受け付け番号に合致する事故受付情報を取得し、オブジェクトに格納する。
+					accidentUpdateReception = accidentDao.getAccidentReceptionByCN(claimNo);
+
+				//取得した事故受付情報の受付番号が存在しない時、エラーを出す。
+				if (accidentUpdateReception.getClaimNo() == null) {
 					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0010);
 
 					page ="/WEB-INF/view/ReceptionStart.jsp";
@@ -127,15 +112,28 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 					return;
 
 				}
-				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-				Integer coverId = accidentReception.getDamageAccidentPrice();
+				//事故受付情報の中から補償IDを取り出す。
+				Integer coverId = accidentUpdateReception.getCoverId();
+				//補償IDを用いて補償情報を取り出す。
 				compensation = compensationDao.getCompensationByCI(coverId);
 
-				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+				//補償情報の印刷連番を取り出す。
 				String InsatsuRenban = compensation.getInsatsuRenban();
+				//印刷連番を用いて契約情報を取り出す。
 				contractInfo = contractInfoDao.getContractInfoByIR(InsatsuRenban);
 
+
+				//セッションを生成する。
+				HttpSession session = request.getSession(true);
+
+				session.setAttribute("accidentUpdateReception", accidentUpdateReception);
+				session.setAttribute("compensation", compensation);
+				session.setAttribute("contractInfo", contractInfo);
+
+
+				//証券番号が入力された場合
 				}else {
+				//証券番号と一致している契約情報を取り出す。
 				contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
 				if (contractInfo.getPolNo() == null) {
@@ -147,22 +145,42 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 					rd.forward(request, response);
 					return;
 				}
-				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+				//印刷連番を取り出す。
 				String insatsuRenban = contractInfo.getInsatsuRenban();
+				//印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
 				compensation = compensationDao.getCompensationByIR(insatsuRenban);
 
-				//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+				//補償IDを取得する。
 				Integer coverId = compensation.getCoverId();
+				//事故情報オブジェクトに補償IDをセットする。※補償IDのみなので別の名前でセッションにセットする。
 				accidentReception.setCoverId(coverId);
-
-				}
 
 				//セッションを生成する。
 				HttpSession session = request.getSession(true);
 
+				//※補償IDのみなので事故情報は別の名前でセッションにセットする。
 				session.setAttribute("accidentReception", accidentReception);
 				session.setAttribute("compensation", compensation);
 				session.setAttribute("contractInfo", contractInfo);
+
+				}
+
+
+
+
+
+				//sessionに契約情報が格納されているかどうかチェック用
+//				contractInfo = (ContractInfo) session.getAttribute("contractInfo");
+//
+//				if (contractInfo == null) {
+//					request.setAttribute("FORM_ERROR", "sssssss");
+//
+//					page ="/WEB-INF/view/ReceptionStart.jsp";
+//					//契約内容入力画面へforwardする。
+//					RequestDispatcher rd = request.getRequestDispatcher(page);
+//					rd.forward(request, response);
+//					return;
+//				}
 
 			} catch (ClassNotFoundException | SQLException e) {
 
@@ -187,64 +205,6 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				}
 
 			}
-
-
-
-
-
-
-//		//セッションを生成する。
-//		HttpSession session = request.getSession(false);
-//
-//		if (session == null) {
-//			session = request.getSession(true);
-//			accidentReception = new AccidentReception();
-//			session.setAttribute("accidentReception", accidentReception);
-//		}else {
-//			accidentReception = (AccidentReception) session.getAttribute("accidentReception");
-//			if(accidentReception == null) {
-//				accidentReception  = new AccidentReception();
-//				session.setAttribute("accidentReception",accidentReception);
-//			}
-//
-//		}
-
-
-
-//
-//
-//		try {
-//			accidentDao.connect();
-//			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-//			accidentDao. updateAccidentReception(accidentReception.getclaimNo());
-//			request.setAttribute("accidentreception", accidentReception);
-//
-//
-//		} catch (ClassNotFoundException | SQLException e) {
-//
-//			e.printStackTrace();
-//			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-//			// システムエラー画面を戻り値に設定する。
-//			page = "/WEB-INF/view/ErrorPage.jsp";
-//			//システムエラー画面へforwardする。
-//			RequestDispatcher rd = request.getRequestDispatcher(page);
-//			rd.forward(request, response);
-//
-//		}
-//
-//		finally {
-//			try {
-//				accidentDao.close();
-//				contractInfoDao.close();
-//
-//			} catch(SQLException e) {
-//				request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-//				// システムエラー画面を戻り値に設定する。
-//				page = "/WEB-INF/view/ErrorPage.jsp";
-//			}
-//
-//		}
-
 
 		/* TOPメニューJSPへforwardする。*/
 		RequestDispatcher rd = request.getRequestDispatcher(page);

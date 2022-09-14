@@ -48,7 +48,7 @@
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
 							<th class="password_string">受付番号</th>
-							<td><input name="claimNo" maxlength="10"></td>
+							<td><input name="claimNo" maxlength="8"></td>
 						</tr>
 					</table>
 					<!-- エラーメッセージ -->

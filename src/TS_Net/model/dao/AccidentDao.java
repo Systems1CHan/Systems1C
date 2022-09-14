@@ -10,8 +10,13 @@
 package TS_Net.model.dao;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import TS_Net.model.constant.SystemConst;
 import TS_Net.model.data.AccidentReception;
 
 /**
@@ -23,7 +28,8 @@ import TS_Net.model.data.AccidentReception;
  */
 public class AccidentDao {
 
-
+	/** データベースの接続 */
+	private Connection con;
 	/**
 	 * 予約テーブルDAOクラス。（スタブ）
 	 * <p>
@@ -31,8 +37,7 @@ public class AccidentDao {
 	 * </p>
 	 * @author K.Ogawa/SYS 2019/07/03
 	 */
-	/* 登録データ : スタブ用変数のため必ず除去すること */
-	AccidentReception insertData = new AccidentReception();
+
 
 	/**
 	 * DB接続メソッド。
@@ -44,7 +49,9 @@ public class AccidentDao {
 	 */
 	public void connect() throws SQLException, ClassNotFoundException {
 
-		/* 空実装 */
+		//DriveManagerクラスのgetConnectionメソッドを用いて、DBに接続する。
+		Class.forName(SystemConst.JDBC_DRIVER_NAME);
+		con = DriverManager.getConnection(SystemConst.JDBC_URL, SystemConst.USER, SystemConst.PASSWORD);
 	}
 
 	/**
@@ -55,8 +62,8 @@ public class AccidentDao {
 	 * @throws SQLException SQL実行例外
 	 */
 	public void close() throws SQLException {
-
-		/* 空実装 */
+		//DB切断
+		con.close();
 	}
 
 	/**
@@ -69,29 +76,69 @@ public class AccidentDao {
 	 */
 	public AccidentReception getAccidentReceptionByCN(String claimNo) throws SQLException {
 
-		/* 以下はスタブ用変数のため必ず除去すること */
-		/* 返却用スタブデータの生成 */
-
+		String sql = "SELECT * FROM claim_tbl WHERE claim_no = ?";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
 		AccidentReception accidentReception = new AccidentReception();
-		accidentReception.setClaimNo("C0000001");
-		accidentReception.setCoverId(00000001);
-		accidentReception.setClaimStatus("1");
-		accidentReception.setPaymentPrice(10000);
-		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
-		accidentReception.setAccidentLocationKana2("オチアイ");
-		accidentReception.setAccidentLocationKanji1("東京都多摩市");
-		accidentReception.setAccidentLocationKanji2("落合");
-		accidentReception.setAccidentDate("20220909");
-		accidentReception.setRatingBlameMyself(20);
-		accidentReception.setRatingBlameYourself(80);
-		accidentReception.setDamageCarPrice(100000);
-		accidentReception.setDamageBodilyPrice(100000);
-		accidentReception.setDamagePropertyPrice(100000);
-		accidentReception.setDamageAccidentPrice(100000);
-		accidentReception.setDamageCarState("全損");
-		accidentReception.setDamageBodilyState("２週間入院");
-		accidentReception.setDamagePropertyState("建物損壊");
-		accidentReception.setDamageAccidentState("骨折");
+
+		try {	stmt=con.prepareStatement(sql);
+				stmt.setString(1, claimNo);
+				res=stmt.executeQuery();
+
+		if (res.next()) {
+			accidentReception.setClaimNo(res.getString("claim_no"));
+			accidentReception.setCoverId(res.getInt("cover_id"));
+			accidentReception.setClaimStatus(res.getString("claim_status"));
+			accidentReception.setPaymentPrice(res.getInt("payment_price"));
+			accidentReception.setAccidentLocationKana1(res.getString("accident_location_kana1"));
+			accidentReception.setAccidentLocationKana2(res.getString("accident_location_kana2"));
+			accidentReception.setAccidentLocationKanji1(res.getString("accident_location_kanji1"));
+			accidentReception.setAccidentLocationKanji2(res.getString("accident_location_kanji2"));
+			accidentReception.setAccidentDate(res.getString("accident_date"));
+			accidentReception.setAccidentSituation(res.getString("accident_situation"));
+			accidentReception.setRatingBlameMyself(res.getInt("rating_blame_myself"));
+			accidentReception.setRatingBlameYourself(res.getInt("rating_blame_yourself"));
+			accidentReception.setDamageCarPrice(res.getInt("damage_car_price"));
+			accidentReception.setDamageBodilyPrice(res.getInt("damage_bodily_price"));
+			accidentReception.setDamagePropertyPrice(res.getInt("damage_property_price"));
+			accidentReception.setDamageAccidentPrice(res.getInt("damage_accident_price"));
+			accidentReception.setDamageCarState(res.getString("damage_car_state"));
+			accidentReception.setDamageBodilyState(res.getString("damage_bodily_state"));
+			accidentReception.setDamagePropertyState(res.getString("damage_property_state"));
+			accidentReception.setDamageAccidentState(res.getString("damage_accident_state"));
+			accidentReception.setPaymentPrice(res.getInt("payment_price"));
+		}
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
+
+//		AccidentReception accidentReception = new AccidentReception();
+//		accidentReception.setClaimNo("C0000001");
+//		accidentReception.setCoverId(00000001);
+//		accidentReception.setClaimStatus("1");
+//		accidentReception.setPaymentPrice(10000);
+//		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
+//		accidentReception.setAccidentLocationKana2("オチアイ");
+//		accidentReception.setAccidentLocationKanji1("東京都多摩市");
+//		accidentReception.setAccidentLocationKanji2("落合");
+//		accidentReception.setAccidentDate("20220909");
+//		accidentReception.setRatingBlameMyself(20);
+//		accidentReception.setRatingBlameYourself(80);
+//		accidentReception.setDamageCarPrice(100000);
+//		accidentReception.setDamageBodilyPrice(100000);
+//		accidentReception.setDamagePropertyPrice(100000);
+//		accidentReception.setDamageAccidentPrice(100000);
+//		accidentReception.setDamageCarState("全損");
+//		accidentReception.setDamageBodilyState("２週間入院");
+//		accidentReception.setDamagePropertyState("建物損壊");
+//		accidentReception.setDamageAccidentState("骨折");
 
 
 		return accidentReception;
@@ -100,31 +147,76 @@ public class AccidentDao {
 
 	public AccidentReception getAccidentReceptionByCI(Integer coverId) throws SQLException {
 
-		/* 以下はスタブ用変数のため必ず除去すること */
-		/* 返却用スタブデータの生成 */
+//		/* 以下はスタブ用変数のため必ず除去すること */
+//		/* 返却用スタブデータの生成 */
+//
+//		AccidentReception accidentReception = new AccidentReception();
+//		accidentReception.setClaimNo("C0000001");
+//		accidentReception.setCoverId(00000001);
+//		accidentReception.setClaimStatus("1");
+//		accidentReception.setPaymentPrice(10000);
+//		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
+//		accidentReception.setAccidentLocationKana2("オチアイ");
+//		accidentReception.setAccidentLocationKanji1("東京都多摩市");
+//		accidentReception.setAccidentLocationKanji2("落合");
+//		accidentReception.setAccidentDate("20220909");
+//		accidentReception.setRatingBlameMyself(20);
+//		accidentReception.setRatingBlameYourself(80);
+//		accidentReception.setDamageCarPrice(100000);
+//		accidentReception.setDamageBodilyPrice(100000);
+//		accidentReception.setDamagePropertyPrice(100000);
+//		accidentReception.setDamageAccidentPrice(100000);
+//		accidentReception.setDamageCarState("全損");
+//		accidentReception.setDamageBodilyState("２週間入院");
+//		accidentReception.setDamagePropertyState("建物損壊");
+//		accidentReception.setDamageAccidentState("骨折");
 
+
+
+		String sql = "SELECT * FROM claim_tbl WHERE cover_id = ?";
+		PreparedStatement stmt = null;
+		ResultSet res =  null;
 		AccidentReception accidentReception = new AccidentReception();
-		accidentReception.setClaimNo("C0000001");
-		accidentReception.setCoverId(00000001);
-		accidentReception.setClaimStatus("1");
-		accidentReception.setPaymentPrice(10000);
-		accidentReception.setAccidentLocationKana1("トウキョウトタマシ");
-		accidentReception.setAccidentLocationKana2("オチアイ");
-		accidentReception.setAccidentLocationKanji1("東京都多摩市");
-		accidentReception.setAccidentLocationKanji2("落合");
-		accidentReception.setAccidentDate("20220909");
-		accidentReception.setRatingBlameMyself(20);
-		accidentReception.setRatingBlameYourself(80);
-		accidentReception.setDamageCarPrice(100000);
-		accidentReception.setDamageBodilyPrice(100000);
-		accidentReception.setDamagePropertyPrice(100000);
-		accidentReception.setDamageAccidentPrice(100000);
-		accidentReception.setDamageCarState("全損");
-		accidentReception.setDamageBodilyState("２週間入院");
-		accidentReception.setDamagePropertyState("建物損壊");
-		accidentReception.setDamageAccidentState("骨折");
+
+		try {	stmt=con.prepareStatement(sql);
+				stmt.setInt(1, coverId);
+				res=stmt.executeQuery();
+
+		if (res.next()) {
+			accidentReception.setClaimNo(res.getString("claim_no"));
+			accidentReception.setCoverId(res.getInt("cover_id"));
+			accidentReception.setClaimStatus(res.getString("claim_status"));
+			accidentReception.setPaymentPrice(res.getInt("payment_price"));
+			accidentReception.setAccidentLocationKana1(res.getString("accident_location_kana1"));
+			accidentReception.setAccidentLocationKana2(res.getString("accident_location_kana2"));
+			accidentReception.setAccidentLocationKanji1(res.getString("accident_location_kanji1"));
+			accidentReception.setAccidentLocationKanji2(res.getString("accident_location_kanji2"));
+			accidentReception.setAccidentDate(res.getString("accident_date"));
+			accidentReception.setRatingBlameMyself(res.getInt("accident_situation"));
+			accidentReception.setRatingBlameYourself(res.getInt("rating_blame_myself"));
+			accidentReception.setDamageCarPrice(res.getInt("rating_blame_yourself"));
+			accidentReception.setDamageBodilyPrice(res.getInt("damage_car_price"));
+			accidentReception.setDamagePropertyPrice(res.getInt("damage_bodily_price"));
+			accidentReception.setDamageAccidentPrice(res.getInt("damage_property_price"));
+			accidentReception.setDamageCarState(res.getString("damage_accident_price"));
+			accidentReception.setDamageBodilyState(res.getString("damage_car_state"));
+			accidentReception.setDamagePropertyState(res.getString("damage_bodily_state"));
+			accidentReception.setDamageAccidentState(res.getString("damage_property_state"));
+			accidentReception.setPaymentPrice(res.getInt("damage_accident_state"));
+		}
 
 
+
+
+
+		}finally {
+			if(res != null) {
+				res.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
 		return accidentReception;
 
 	}
