@@ -27,7 +27,7 @@ import TS_Net.model.data.AccidentReception;
 
 			if((accidentReception.getClaimNo() == null) || ("".equals(accidentReception.getClaimNo()))){
 
-				return ErrorMsgConst.FORM_ERROR0006;
+				return ErrorMsgConst.FORM_ERROR0010;
 
 			}else {
 			return null;
@@ -49,7 +49,7 @@ import TS_Net.model.data.AccidentReception;
 
 			if(accidentReception.getClaimStatus() == "1"){
 
-				return ErrorMsgConst.FORM_ERROR0007;
+				return ErrorMsgConst.FORM_ERROR0011;
 
 			}else {
 			return null;
