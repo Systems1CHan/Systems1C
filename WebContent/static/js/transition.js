@@ -176,7 +176,7 @@ function toFinishUpdatePage() {
 */
 function toFinishAcceptPage() {
 	//１．フォーム要素を取得する。
-	var formElement = document.getElementById("accept_frm");
+	var formElement = document.getElementById("update_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
 	formElement.action="./ToReceptionForm"

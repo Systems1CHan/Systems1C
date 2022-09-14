@@ -166,22 +166,6 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				}
 
 
-
-
-
-				//sessionに契約情報が格納されているかどうかチェック用
-//				contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-//
-//				if (contractInfo == null) {
-//					request.setAttribute("FORM_ERROR", "sssssss");
-//
-//					page ="/WEB-INF/view/ReceptionStart.jsp";
-//					//契約内容入力画面へforwardする。
-//					RequestDispatcher rd = request.getRequestDispatcher(page);
-//					rd.forward(request, response);
-//					return;
-//				}
-
 			} catch (ClassNotFoundException | SQLException e) {
 
 				e.printStackTrace();
