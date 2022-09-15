@@ -245,17 +245,16 @@ public class Compensation implements Serializable {
 	 * 総額保険料取得メソッド。
 	 * <p>
 	 * 画面に表示させるための総額保険料を取得する。
-	 * 表示させる際は、総額保険料の後ろに「円」をつける。
 	 * </p>
 	 * @param compensation 補償情報オブジェクト
 	 * @return 総額保険料
 	 */
-	public String getPremiumAmountForLabel() {
+	public Integer getPremiumAmountForLabel() {
 
 		Integer ratesSum =  (int) (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
 		Integer dpremiumAmount = (int) ((int) ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit))  ;
 		this.premiumAmount = dpremiumAmount;
-		return this.premiumAmount + "円";
+		return this.premiumAmount;
 	}
 
 	/**
@@ -268,13 +267,13 @@ public class Compensation implements Serializable {
 	 * @param installment 払込回数
 	 * @return 一回分保険料
 	 */
-	public String getPremiumInstallmentForLabel() {
+	public Integer getPremiumInstallmentForLabel() {
 
 		ContractInfo contractInf = new ContractInfo();
 		Integer installment = contractInf.getInstallment();
 
 		this.premiumInstallment = this.premiumAmount / installment;
-		return this.premiumInstallment + "円";
+		return this.premiumInstallment;
 	}
 
 	/**
