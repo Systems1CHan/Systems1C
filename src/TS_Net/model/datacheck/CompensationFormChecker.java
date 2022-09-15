@@ -40,7 +40,7 @@ public class CompensationFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(com.getLicenseNo(), null) || com.getLicenseNo().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getVehiclePrice(), null)) {
+		}else if(com.getVehiclePrice() == null || String.valueOf(com.getVehiclePrice()).isEmpty()){
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(com.getVehicleRates(), null) || com.getVehicleRates().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
@@ -54,9 +54,9 @@ public class CompensationFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(com.getAgeLimit(), null) || com.getAgeLimit().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getPremiumAmount(), null)) {
+		}else if(com.getPremiumAmount() == null || String.valueOf(com.getPremiumAmount()).isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getPremiumInstallment(), null)) {
+		}else if(com.getPremiumInstallment() == null || String.valueOf(com.getPremiumInstallment()).isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
 
 		}else {

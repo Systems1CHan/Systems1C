@@ -47,7 +47,7 @@ public class ContractFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(ci.getPaymentMethod(), null) || ci.getPaymentMethod().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(ci.getInstallment(), null)){
+		}else if(ci.getInstallment() == null || String.valueOf(ci.getInstallment()).isEmpty()){
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(ci.getInsuredKbn(), null) || ci.getInsuredKbn().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;

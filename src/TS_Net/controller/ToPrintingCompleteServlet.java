@@ -16,8 +16,6 @@ import TS_Net.model.constant.SystemConst;
 import TS_Net.model.dao.ContractInfoDao;
 import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
-import TS_Net.model.datacheck.ContractFormChecker;
-import TS_Net.model.datacheck.InsatsuRenbanChecker;
 
 /**
  * 申込書印刷完了画面へコントローラ
@@ -32,72 +30,82 @@ public class ToPrintingCompleteServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
+		//セッションの生成
 		HttpSession session = request.getSession(false);
-		ContractInfo contractInfo = null;
-		Compensation compensation = null;
 
+		//セッションがない場合、エラーページに遷移
 		if(session == null) {
 			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
+			return;
+		}
+
+		//契約情報オブジェクトを生成
+		ContractInfo contractInfo;
+
+		//セッションに契約情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("contractInfo") == null) {
+			contractInfo = new ContractInfo();
+			session.setAttribute("contractInfo", contractInfo);
+
 		}else {
 			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-			compensation = (Compensation) session.getAttribute("compensation");
+		}
 
-			if(contractInfo == null || compensation == null) {
+		//補償情報オブジェクトを生成
+		Compensation compensation;
+
+		//セッションに補償情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("compensation") == null) {
+			compensation = new Compensation();
+			session.setAttribute("compensation", compensation);
+
+		}else {
+			compensation = (Compensation) session.getAttribute("compensation");
+		}
+
+		//印刷連番の生成
+		String insatsuRenban = null;
+
+		//契約情報DAOの生成
+		ContractInfoDao contractInfoDao = new ContractInfoDao();
+
+		try {
+			//DAOの接続
+			contractInfoDao.connect();
+
+			//DAOの印刷連番オートインクリメント処理を実施
+			insatsuRenban = contractInfoDao.getMaxInsatsuRenban();
+
+			//印刷連番を契約情報オブジェクトにセット
+			contractInfo.setInsatsuRenban(insatsuRenban);
+
+			//状態フラグ、解約フラグの更新
+			contractInfo.setStatusFlg("1");
+			contractInfo.setCancelFlg("0");
+
+			//セッション領域に格納
+			session.setAttribute("contractInfo", contractInfo);
+
+			//DAOの処理を用いて、DBにINSERT
+			contractInfoDao.registContractInfo(contractInfo);
+
+		} catch(ClassNotFoundException e) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			rd.forward(request, response);
+		} finally {
+			try {
+				contractInfoDao.close();
+			} catch(SQLException e) {
 				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 				rd.forward(request, response);
-			}
-		}
-
-		String insatsuRenban = request.getParameter("insatsuRenban");
-		String nameKanji1 = request.getParameter("nameKanji1");
-		String nameKanji2 = request.getParameter("nameKanji2");
-
-		contractInfo.setInsatsuRenban(insatsuRenban);
-		contractInfo.setNameKanji1(nameKanji1);
-		contractInfo.setNameKanji2(nameKanji2);
-
-		ContractFormChecker cfc = new ContractFormChecker();
-		InsatsuRenbanChecker irc = new InsatsuRenbanChecker();
-
-		if(cfc.check(contractInfo) != null) {
-			request.setAttribute("message", cfc.check(contractInfo));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/CustomerFormPage.jsp");
-			rd.forward(request, response);
-
-		}else if(irc.insatusRenbanExistenceCheck(compensation) != null) {
-			request.setAttribute("message", irc.insatusRenbanExistenceCheck(compensation));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/CustomerFormPage.jsp");
-			rd.forward(request, response);
-
-		}else {
-
-			ContractInfoDao contractInfoDao = new ContractInfoDao();
-
-			try {
-				contractInfoDao.connect();
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintCompleteForm.jsp");
-				rd.forward(request, response);
-			}catch(SQLException e){
-				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-				rd.forward(request, response);
-
-			}catch(ClassNotFoundException e) {
-				request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-				rd.forward(request, response);
-
-			}finally {
-				try {
-					contractInfoDao.close();
-				}catch(SQLException e) {
-					request.setAttribute("message", ErrorMsgConst.SYSTEM_ERROR);
-					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-					rd.forward(request, response);
-				}
 			}
 		}
 	}
