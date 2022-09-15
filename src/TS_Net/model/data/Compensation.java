@@ -11,6 +11,7 @@
 package TS_Net.model.data;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 
@@ -63,15 +64,15 @@ public class Compensation implements Serializable {
 	 * @return 車両料率
 	 */
 	public String getVehicleRatesForLabel() {
-		if(vehicleRates.equals("0")) {
+		if(Objects.equals(vehicleRates, "0")) {
 			return "0.0倍";
-		}else if(vehicleRates.equals("1")){
+		}else if(Objects.equals(vehicleRates, "1")){
 			return "1.0倍";
-		}else if(vehicleRates.equals("2")){
+		}else if(Objects.equals(vehicleRates, "2")){
 			return "1.2倍";
-		}else if(vehicleRates.equals("3")) {
+		}else if(Objects.equals(vehicleRates, "3")) {
 			return "1.4倍";
-		}else if(vehicleRates.equals("4")) {
+		}else if(Objects.equals(vehicleRates, "4")) {
 			return "1.6倍";
 		}else {
 			return "1.9倍";
@@ -86,15 +87,15 @@ public class Compensation implements Serializable {
 	 * @return 対人料率
 	 */
 	public String getBodilyRatesForLabel() {
-		if(bodilyRates.equals("0")) {
+		if(Objects.equals(bodilyRates, "0")) {
 			return "0.0倍";
-		}else if(bodilyRates.equals("1")){
+		}else if(Objects.equals(bodilyRates, "1")){
 			return "1.0倍";
-		}else if(bodilyRates.equals("2")){
+		}else if(Objects.equals(bodilyRates, "2")){
 			return "1.2倍";
-		}else if(bodilyRates.equals("3")) {
+		}else if(Objects.equals(bodilyRates, "3")) {
 			return "1.4倍";
-		}else if(bodilyRates.equals("4")) {
+		}else if(Objects.equals(bodilyRates, "4")) {
 			return "1.6倍";
 		}else {
 			return "1.9倍";
@@ -109,15 +110,15 @@ public class Compensation implements Serializable {
 	 * @return 対物料率
 	 */
 	public String getPropertyDamageRatesForLabel() {
-		if(propertyDamageRates.equals("0")) {
+		if(Objects.equals(propertyDamageRates, "0")) {
 			return "0.0倍";
-		}else if(propertyDamageRates.equals("1")){
+		}else if(Objects.equals(propertyDamageRates, "1")){
 			return "1.0倍";
-		}else if(propertyDamageRates.equals("2")){
+		}else if(Objects.equals(propertyDamageRates, "2")){
 			return "1.2倍";
-		}else if(propertyDamageRates.equals("3")) {
+		}else if(Objects.equals(propertyDamageRates, "3")) {
 			return "1.4倍";
-		}else if(propertyDamageRates.equals("4")) {
+		}else if(Objects.equals(propertyDamageRates, "4")) {
 			return "1.6倍";
 		}else {
 			return "1.9倍";
@@ -132,15 +133,15 @@ public class Compensation implements Serializable {
 	 * @return 傷害料率
 	 */
 	public String getAccidentRatesForLabel() {
-		if(accidentRates.equals("0")) {
+		if(Objects.equals(accidentRates, "0")) {
 			return "0.0倍";
-		}else if(accidentRates.equals("1")){
+		}else if(Objects.equals(accidentRates, "1")){
 			return "1.0倍";
-		}else if(accidentRates.equals("2")){
+		}else if(Objects.equals(accidentRates, "2")){
 			return "1.2倍";
-		}else if(accidentRates.equals("3")) {
+		}else if(Objects.equals(accidentRates, "3")) {
 			return "1.4倍";
-		}else if(accidentRates.equals("4")) {
+		}else if(Objects.equals(accidentRates, "4")) {
 			return "1.6倍";
 		}else {
 			return "1.9倍";
@@ -155,9 +156,9 @@ public class Compensation implements Serializable {
 	 * @return 免許証の色
 	 */
 	public String getLicenseColorForLabel() {
-		if(licenseColor.equals("1")) {
+		if(Objects.equals(licenseColor, "1")) {
 			return "ブルー";
-		}else if(vehicleRates.equals("2")){
+		}else if(Objects.equals(licenseColor, "2")){
 			return "グリーン";
 		}else {
 			return "ゴールド";
@@ -172,9 +173,9 @@ public class Compensation implements Serializable {
 	 * @return 年齢条件
 	 */
 	public String getAgeLimitForLabel() {
-		if(ageLimit.equals("1")) {
+		if(Objects.equals(ageLimit, "1")) {
 			return "無制限";
-		}else if(ageLimit.equals("2")){
+		}else if(Objects.equals(ageLimit, "2")){
 			return "21歳以上";
 		}else {
 			return "26歳以上";
@@ -190,15 +191,15 @@ public class Compensation implements Serializable {
 	 */
 	public double rate(String rates) {
 
-		if(rates.equals("0")) {
+		if(Objects.equals(rates, "0")) {
 			return 0.0;
-		}else if(rates.equals("1")){
+		}else if(Objects.equals(rates, "1")){
 			return 1.0;
-		}else if(rates.equals("2")){
+		}else if(Objects.equals(rates, "2")){
 			return 1.2;
-		}else if(rates.equals("3")) {
+		}else if(Objects.equals(rates, "3")) {
 			return 1.4;
-		}else if(rates.equals("4")) {
+		}else if(Objects.equals(rates, "4")) {
 			return 1.6;
 		}else {
 			return 1.9;
@@ -214,9 +215,9 @@ public class Compensation implements Serializable {
 	 */
 	public double licenserate(String licenseColor) {
 
-		if(licenseColor.equals("1")) {
+		if(Objects.equals(licenseColor, "1")) {
 			return 1.3;
-		}else if(licenseColor.equals("2")){
+		}else if(Objects.equals(licenseColor, "2")){
 			return 1.0;
 		}else{
 			return 0.7;
@@ -231,9 +232,9 @@ public class Compensation implements Serializable {
 	 * @return ageLimit 年齢条件
 	 */
 	public double olderRate(String ageLimit) {
-		if(ageLimit.equals("1")) {
+		if(Objects.equals(ageLimit, "1")) {
 			return 1.5;
-		}else if(ageLimit.equals("2")){
+		}else if(Objects.equals(ageLimit, "2")){
 			return 1.2;
 		}else {
 			return 1.0;
@@ -257,24 +258,24 @@ public class Compensation implements Serializable {
 		return this.premiumAmount;
 	}
 
-	/**
-	 * 一回分保険料取得メソッド。
-	 * <p>
-	 * 画面に表示させるための一回分保険料を取得する。
-	 * 表示させる際は、一回分保険料の後ろに「円」をつける。
-	 * </p>
-	 * @param premiumAmount 総額保険料
-	 * @param installment 払込回数
-	 * @return 一回分保険料
-	 */
-	public Integer getPremiumInstallmentForLabel() {
-
-		ContractInfo contractInf = new ContractInfo();
-		Integer installment = contractInf.getInstallment();
-
-		this.premiumInstallment = this.premiumAmount / installment;
-		return this.premiumInstallment;
-	}
+//	/**
+//	 * 一回分保険料取得メソッド。
+//	 * <p>
+//	 * 画面に表示させるための一回分保険料を取得する。
+//	 * 表示させる際は、一回分保険料の後ろに「円」をつける。
+//	 * </p>
+//	 * @param premiumAmount 総額保険料
+//	 * @param installment 払込回数
+//	 * @return 一回分保険料
+//	 */
+//	public Integer getPremiumInstallmentForLabel() {
+//
+//		ContractInfo contractInf = new ContractInfo();
+//		Integer installment = contractInf.getInstallment();
+//
+//		this.premiumInstallment = this.premiumAmount / installment;
+//		return this.premiumInstallment;
+//	}
 
 	/**
 	 * 車ナンバーメソッド

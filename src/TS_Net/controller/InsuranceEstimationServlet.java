@@ -103,29 +103,32 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		compensation.setPremiumAmount(check(request.getParameter("premiumAmount")));
 		compensation.setPremiumInstallment(check(request.getParameter("premiumInstallment")));
 
-		//データチェッククラスの生成
-		ContractFormChecker cfc = new ContractFormChecker();
-		CompensationFormChecker comfc = new CompensationFormChecker();
-
-		//契約情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(!(cfc.check(contractInfo).isEmpty())) {
-			request.setAttribute("message", cfc.check(contractInfo));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
-			return;
-		}
-
-		//補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(!(comfc.check(compensation).isEmpty())) {
-			request.setAttribute("message", comfc.check(compensation));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
-			return;
-		}
+//		//データチェッククラスの生成
+//		ContractFormChecker cfc = new ContractFormChecker();
+//		CompensationFormChecker comfc = new CompensationFormChecker();
+//
+//		//契約情報オブジェクトをデータチェッククラスに渡してチェックを実施
+//		if(!(cfc.check(contractInfo).isEmpty())) {
+//			request.setAttribute("message", cfc.check(contractInfo));
+//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//			rd.forward(request, response);
+//			return;
+//		}
+//
+//		//補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
+//		if(!(comfc.check(compensation).isEmpty())) {
+//			request.setAttribute("message", comfc.check(compensation));
+//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//			rd.forward(request, response);
+//			return;
+//		}
 
 		//総額保険料、一回分保険料の算出メソッドの呼び出し
-		Integer premiumAmount = compensation.getPremiumAmount();
-		Integer premiumInstallment = compensation.getPremiumInstallment();
+		Integer premiumAmount = compensation.getPremiumAmountForLabel();
+		Integer premiumInstallment = premiumAmount/contractInfo.getInstallment();
+
+		System.out.println(premiumAmount);
+		System.out.println(premiumInstallment);
 
 		//算出した総額保険料と一回分保険料を補償情報オブジェクトにセット
 		compensation.setPremiumAmount(premiumAmount);
@@ -142,9 +145,9 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 	public Integer check(String str) {
 		if(str == null) {
-			return null;
+			return 0;
 		}else if(str.equals("")) {
-			return null;
+			return 0;
 		}else {
 			return Integer.parseInt(str);
 		}
