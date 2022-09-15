@@ -8,6 +8,7 @@
  *2022/08/09:仲矢透:個別でチェックする方式に変更。
  *2022/08/09:仲矢透:ブランクチェックはisEmpty()を用いて実行。
  *2022/08/09:仲矢透:エラー文は定数クラスを利用。
+ *(2022/09/15 ： NarimichiHenmi/SYS ：polNoNotInputCheckメソッド内のif文を&&のif-elseから||の入れ子に変更。機能は変更なし。)
  * ----------------------------------------------------------------------
  */
 package TS_Net.model.datacheck;
@@ -60,18 +61,12 @@ public class PolNoChecker {
 	 * </p>
 	 */
 	public String polNoNotInputCheck(String polNo, String claimNo) {
-
-		if(Objects.equals(polNo, null) && Objects.equals(claimNo, null)) {
-			return ErrorMsgConst.FORM_ERROR0018;
-		}else if(Objects.equals(polNo, null) && claimNo.isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0018;
-		}else if(polNo.isEmpty() && Objects.equals(claimNo, null)) {
-			return ErrorMsgConst.FORM_ERROR0018;
-		}else if(polNo.isEmpty() && claimNo.isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0018;
-		}else {
-			return null;
+		if(polNo == null || polNo.isEmpty()) {
+			if(claimNo == null || claimNo.isEmpty()) {
+				return ErrorMsgConst.FORM_ERROR0018;
+			}
 		}
+			return null;
 	}
 
 	/**
