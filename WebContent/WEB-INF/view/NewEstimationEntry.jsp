@@ -210,29 +210,29 @@
                                         <span class="form-require">必須</span>
                                         <select name="inceptionTime" id="inceptionTime" required>
                                             <option value="0"<c:if test="${contractInfo.inceptionTime == '0'}">selected</c:if>>午前0時</option>
-                                            <option value="1"<c:if test="${contractInfo.inceptionTime == '1'}">selected</c:if>>午前1時</option>
-                                            <option value="2"<c:if test="${contractInfo.inceptionTime == '2'}">selected</c:if>>午前2時</option>
-                                            <option value="3"<c:if test="${contractInfo.inceptionTime == '3'}">selected</c:if>>午前3時</option>
-                                            <option value="4"<c:if test="${contractInfo.inceptionTime == '4'}">selected</c:if>>午前4時</option>
-                                            <option value="5"<c:if test="${contractInfo.inceptionTime == '5'}">selected</c:if>>午前5時</option>
-                                            <option value="6"<c:if test="${contractInfo.inceptionTime == '6'}">selected</c:if>>午前6時</option>
-                                            <option value="7"<c:if test="${contractInfo.inceptionTime == '7'}">selected</c:if>>午前7時</option>
-                                            <option value="8"<c:if test="${contractInfo.inceptionTime == '8'}">selected</c:if>>午前8時</option>
-                                            <option value="9"<c:if test="${contractInfo.inceptionTime == '9'}">selected</c:if>>午前9時</option>
-                                            <option value="10"<c:if test="${contractInfo.inceptionTime == '10'}">selected</c:if>>午前10時</option>
-                                            <option value="11"<c:if test="${contractInfo.inceptionTime == '11'}">selected</c:if>>午前11時</option>
-                                            <option value="12"<c:if test="${contractInfo.inceptionTime == '12'}">selected</c:if>>正午</option>
-                                            <option value="13"<c:if test="${contractInfo.inceptionTime == '13'}">selected</c:if>>午後1時</option>
-                                            <option value="14"<c:if test="${contractInfo.inceptionTime == '14'}">selected</c:if>>午後2時</option>
-                                            <option value="15"<c:if test="${contractInfo.inceptionTime == '15'}">selected</c:if>>午後3時</option>
-                                            <option value="16"<c:if test="${contractInfo.inceptionTime == '16'}">selected</c:if>>午後4時</option>
-                                            <option value="17"<c:if test="${contractInfo.inceptionTime == '17'}">selected</c:if>>午後5時</option>
-                                            <option value="18"<c:if test="${contractInfo.inceptionTime == '18'}">selected</c:if>>午後6時</option>
-                                            <option value="19"<c:if test="${contractInfo.inceptionTime == '19'}">selected</c:if>>午後7時</option>
-                                            <option value="20"<c:if test="${contractInfo.inceptionTime == '20'}">selected</c:if>>午後8時</option>
-                                            <option value="21"<c:if test="${contractInfo.inceptionTime == '21'}">selected</c:if>>午後9時</option>
-                                            <option value="22"<c:if test="${contractInfo.inceptionTime == '22'}">selected</c:if>>午後10時</option>
-                                            <option value="23"<c:if test="${contractInfo.inceptionTime == '23'}">selected</c:if>>午後11時</option>
+                                            <option value="1"<c:if test="${contractInfo.inceptionTime == '1'}"></c:if>>午前1時</option>
+                                            <option value="2"<c:if test="${contractInfo.inceptionTime == '2'}"></c:if>>午前2時</option>
+                                            <option value="3"<c:if test="${contractInfo.inceptionTime == '3'}"></c:if>>午前3時</option>
+                                            <option value="4"<c:if test="${contractInfo.inceptionTime == '4'}"></c:if>>午前4時</option>
+                                            <option value="5"<c:if test="${contractInfo.inceptionTime == '5'}"></c:if>>午前5時</option>
+                                            <option value="6"<c:if test="${contractInfo.inceptionTime == '6'}"></c:if>>午前6時</option>
+                                            <option value="7"<c:if test="${contractInfo.inceptionTime == '7'}"></c:if>>午前7時</option>
+                                            <option value="8"<c:if test="${contractInfo.inceptionTime == '8'}"></c:if>>午前8時</option>
+                                            <option value="9"<c:if test="${contractInfo.inceptionTime == '9'}"></c:if>>午前9時</option>
+                                            <option value="10"<c:if test="${contractInfo.inceptionTime == '10'}"></c:if>>午前10時</option>
+                                            <option value="11"<c:if test="${contractInfo.inceptionTime == '11'}"></c:if>>午前11時</option>
+                                            <option value="12"<c:if test="${contractInfo.inceptionTime == '12'}"></c:if>>正午</option>
+                                            <option value="13"<c:if test="${contractInfo.inceptionTime == '13'}"></c:if>>午後1時</option>
+                                            <option value="14"<c:if test="${contractInfo.inceptionTime == '14'}"></c:if>>午後2時</option>
+                                            <option value="15"<c:if test="${contractInfo.inceptionTime == '15'}"></c:if>>午後3時</option>
+                                            <option value="16"<c:if test="${contractInfo.inceptionTime == '16'}"></c:if>>午後4時</option>
+                                            <option value="17"<c:if test="${contractInfo.inceptionTime == '17'}"></c:if>>午後5時</option>
+                                            <option value="18"<c:if test="${contractInfo.inceptionTime == '18'}"></c:if>>午後6時</option>
+                                            <option value="19"<c:if test="${contractInfo.inceptionTime == '19'}"></c:if>>午後7時</option>
+                                            <option value="20"<c:if test="${contractInfo.inceptionTime == '20'}"></c:if>>午後8時</option>
+                                            <option value="21"<c:if test="${contractInfo.inceptionTime == '21'}"></c:if>>午後9時</option>
+                                            <option value="22"<c:if test="${contractInfo.inceptionTime == '22'}"></c:if>>午後10時</option>
+                                            <option value="23"<c:if test="${contractInfo.inceptionTime == '23'}"></c:if>>午後11時</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -253,29 +253,29 @@
                                         <span class="form-require">必須</span>
                                         <select name="conclusionTime" id="conclusionTime" required>
                                             <option value="0"<c:if test="${contractInfo.conclusionTime == '0'}">selected</c:if>>午前0時</option>
-                                            <option value="1"<c:if test="${contractInfo.conclusionTime == '1'}">selected</c:if>>午前1時</option>
-                                            <option value="2"<c:if test="${contractInfo.conclusionTime == '2'}">selected</c:if>>午前2時</option>
-                                            <option value="3"<c:if test="${contractInfo.conclusionTime == '3'}">selected</c:if>>午前3時</option>
-                                            <option value="4"<c:if test="${contractInfo.conclusionTime == '4'}">selected</c:if>>午前4時</option>
-                                            <option value="5"<c:if test="${contractInfo.conclusionTime == '5'}">selected</c:if>>午前5時</option>
-                                            <option value="6"<c:if test="${contractInfo.conclusionTime == '6'}">selected</c:if>>午前6時</option>
-                                            <option value="7"<c:if test="${contractInfo.conclusionTime == '7'}">selected</c:if>>午前7時</option>
-                                            <option value="8"<c:if test="${contractInfo.conclusionTime == '8'}">selected</c:if>>午前8時</option>
-                                            <option value="9"<c:if test="${contractInfo.conclusionTime == '9'}">selected</c:if>>午前9時</option>
-                                            <option value="10"<c:if test="${contractInfo.conclusionTime == '10'}">selected</c:if>>午前10時</option>
-                                            <option value="11"<c:if test="${contractInfo.conclusionTime == '11'}">selected</c:if>>午前11時</option>
-                                            <option value="12"<c:if test="${contractInfo.conclusionTime == '12'}">selected</c:if>>正午</option>
-                                            <option value="13"<c:if test="${contractInfo.conclusionTime == '13'}">selected</c:if>>午後1時</option>
-                                            <option value="14"<c:if test="${contractInfo.conclusionTime == '14'}">selected</c:if>>午後2時</option>
-                                            <option value="15"<c:if test="${contractInfo.conclusionTime == '15'}">selected</c:if>>午後3時</option>
-                                            <option value="16"<c:if test="${contractInfo.conclusionTime == '16'}">selected</c:if>>午後4時</option>
-                                            <option value="17"<c:if test="${contractInfo.conclusionTime == '17'}">selected</c:if>>午後5時</option>
-                                            <option value="18"<c:if test="${contractInfo.conclusionTime == '18'}">selected</c:if>>午後6時</option>
-                                            <option value="19"<c:if test="${contractInfo.conclusionTime == '19'}">selected</c:if>>午後7時</option>
-                                            <option value="20"<c:if test="${contractInfo.conclusionTime == '20'}">selected</c:if>>午後8時</option>
-                                            <option value="21"<c:if test="${contractInfo.conclusionTime == '21'}">selected</c:if>>午後9時</option>
-                                            <option value="22"<c:if test="${contractInfo.conclusionTime == '22'}">selected</c:if>>午後10時</option>
-                                            <option value="23"<c:if test="${contractInfo.conclusionTime == '23'}">selected</c:if>>午後11時</option>
+                                            <option value="1"<c:if test="${contractInfo.conclusionTime == '1'}"></c:if>>午前1時</option>
+                                            <option value="2"<c:if test="${contractInfo.conclusionTime == '2'}"></c:if>>午前2時</option>
+                                            <option value="3"<c:if test="${contractInfo.conclusionTime == '3'}"></c:if>>午前3時</option>
+                                            <option value="4"<c:if test="${contractInfo.conclusionTime == '4'}"></c:if>>午前4時</option>
+                                            <option value="5"<c:if test="${contractInfo.conclusionTime == '5'}"></c:if>>午前5時</option>
+                                            <option value="6"<c:if test="${contractInfo.conclusionTime == '6'}"></c:if>>午前6時</option>
+                                            <option value="7"<c:if test="${contractInfo.conclusionTime == '7'}"></c:if>>午前7時</option>
+                                            <option value="8"<c:if test="${contractInfo.conclusionTime == '8'}"></c:if>>午前8時</option>
+                                            <option value="9"<c:if test="${contractInfo.conclusionTime == '9'}"></c:if>>午前9時</option>
+                                            <option value="10"<c:if test="${contractInfo.conclusionTime == '10'}"></c:if>>午前10時</option>
+                                            <option value="11"<c:if test="${contractInfo.conclusionTime == '11'}"></c:if>>午前11時</option>
+                                            <option value="12"<c:if test="${contractInfo.conclusionTime == '12'}"></c:if>>正午</option>
+                                            <option value="13"<c:if test="${contractInfo.conclusionTime == '13'}"></c:if>>午後1時</option>
+                                            <option value="14"<c:if test="${contractInfo.conclusionTime == '14'}"></c:if>>午後2時</option>
+                                            <option value="15"<c:if test="${contractInfo.conclusionTime == '15'}"></c:if>>午後3時</option>
+                                            <option value="16"<c:if test="${contractInfo.conclusionTime == '16'}"></c:if>>午後4時</option>
+                                            <option value="17"<c:if test="${contractInfo.conclusionTime == '17'}"></c:if>>午後5時</option>
+                                            <option value="18"<c:if test="${contractInfo.conclusionTime == '18'}"></c:if>>午後6時</option>
+                                            <option value="19"<c:if test="${contractInfo.conclusionTime == '19'}"></c:if>>午後7時</option>
+                                            <option value="20"<c:if test="${contractInfo.conclusionTime == '20'}"></c:if>>午後8時</option>
+                                            <option value="21"<c:if test="${contractInfo.conclusionTime == '21'}"></c:if>>午後9時</option>
+                                            <option value="22"<c:if test="${contractInfo.conclusionTime == '22'}"></c:if>>午後10時</option>
+                                            <option value="23"<c:if test="${contractInfo.conclusionTime == '23'}"></c:if>>午後11時</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -287,8 +287,8 @@
                                         <span class="form-require">必須</span>
                                         <select name="paymentMethod" id="paymentMethod" required>
                                             <option value="1"<c:if test="${contractInfo.paymentMethod == '1'}">selected</c:if>>直接集金</option>
-                                            <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}">selected</c:if>>口座振替</option>
-                                            <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}">selected</c:if>>クレジットカード</option>
+                                            <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}"></c:if>>口座振替</option>
+                                            <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}"></c:if>>クレジットカード</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -300,11 +300,11 @@
                                         <span class="form-require">必須</span>
                                         <select name="installment" id="installment" required>
                                             <option value="1"<c:if test="${contractInfo.installment == '1'}">selected</c:if>>1</option>
-                                            <option value="2"<c:if test="${contractInfo.installment == '2'}">selected</c:if>>2</option>
-                                            <option value="3"<c:if test="${contractInfo.installment == '3'}">selected</c:if>>3</option>
-                                            <option value="4"<c:if test="${contractInfo.installment == '4'}">selected</c:if>>4</option>
-                                            <option value="6"<c:if test="${contractInfo.installment == '6'}">selected</c:if>>6</option>
-                                            <option value="12"<c:if test="${contractInfo.installment == '12'}">selected</c:if>>12</option>
+                                            <option value="2"<c:if test="${contractInfo.installment == '2'}"></c:if>>2</option>
+                                            <option value="3"<c:if test="${contractInfo.installment == '3'}"></c:if>>3</option>
+                                            <option value="4"<c:if test="${contractInfo.installment == '4'}"></c:if>>4</option>
+                                            <option value="6"<c:if test="${contractInfo.installment == '6'}"></c:if>>6</option>
+                                            <option value="12"<c:if test="${contractInfo.installment == '12'}"></c:if>>12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -406,7 +406,7 @@
                                         <span class="form-require">必須</span>
                                         <label>
                                             <input type="radio" id="gender" name="gender" value="1"<c:if test="${contractInfo.gender == '1'}">checked</c:if>>男
-                                            <input type="radio" id="gender" name="gender" value="2"<c:if test="${contractInfo.gender == '2'}">checked</c:if>>女
+                                            <input type="radio" id="gender" name="gender" value="2"<c:if test="${contractInfo.gender == '2'}"></c:if>>女
                                         </label>
                                     </td>
                                 </tr>
@@ -425,7 +425,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678" maxlength="11" value="${contractInfo.mobilephoneNo }" required>
+                                        <input type="text" id="mobilephoneNo" name="mobilephoneNo" size="60" placeholder="（例）08012345678" maxlength="11" value="${contractInfo.mobilephoneNo }" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -460,29 +460,29 @@
                                         <span class="form-require">必須</span>
                                         <select name="inceptionTime" id="inceptionTime" required>
                                         	<option value="0"<c:if test="${contractInfo.inceptionTime == '0'}">selected</c:if>>午前0時</option>
-                                            <option value="1"<c:if test="${contractInfo.inceptionTime == '1'}">selected</c:if>>午前1時</option>
-                                            <option value="2"<c:if test="${contractInfo.inceptionTime == '2'}">selected</c:if>>午前2時</option>
-                                            <option value="3"<c:if test="${contractInfo.inceptionTime == '3'}">selected</c:if>>午前3時</option>
-                                            <option value="4"<c:if test="${contractInfo.inceptionTime == '4'}">selected</c:if>>午前4時</option>
-                                            <option value="5"<c:if test="${contractInfo.inceptionTime == '5'}">selected</c:if>>午前5時</option>
-                                            <option value="6"<c:if test="${contractInfo.inceptionTime == '6'}">selected</c:if>>午前6時</option>
-                                            <option value="7"<c:if test="${contractInfo.inceptionTime == '7'}">selected</c:if>>午前7時</option>
-                                            <option value="8"<c:if test="${contractInfo.inceptionTime == '8'}">selected</c:if>>午前8時</option>
-                                            <option value="9"<c:if test="${contractInfo.inceptionTime == '9'}">selected</c:if>>午前9時</option>
-                                            <option value="10"<c:if test="${contractInfo.inceptionTime == '10'}">selected</c:if>>午前10時</option>
-                                            <option value="11"<c:if test="${contractInfo.inceptionTime == '11'}">selected</c:if>>午前11時</option>
-                                            <option value="12"<c:if test="${contractInfo.inceptionTime == '12'}">selected</c:if>>正午</option>
-                                            <option value="13"<c:if test="${contractInfo.inceptionTime == '13'}">selected</c:if>>午後1時</option>
-                                            <option value="14"<c:if test="${contractInfo.inceptionTime == '14'}">selected</c:if>>午後2時</option>
-                                            <option value="15"<c:if test="${contractInfo.inceptionTime == '15'}">selected</c:if>>午後3時</option>
-                                            <option value="16"<c:if test="${contractInfo.inceptionTime == '16'}">selected</c:if>>午後4時</option>
-                                            <option value="17"<c:if test="${contractInfo.inceptionTime == '17'}">selected</c:if>>午後5時</option>
-                                            <option value="18"<c:if test="${contractInfo.inceptionTime == '18'}">selected</c:if>>午後6時</option>
-                                            <option value="19"<c:if test="${contractInfo.inceptionTime == '19'}">selected</c:if>>午後7時</option>
-                                            <option value="20"<c:if test="${contractInfo.inceptionTime == '20'}">selected</c:if>>午後8時</option>
-                                            <option value="21"<c:if test="${contractInfo.inceptionTime == '21'}">selected</c:if>>午後9時</option>
-                                            <option value="22"<c:if test="${contractInfo.inceptionTime == '22'}">selected</c:if>>午後10時</option>
-                                            <option value="23"<c:if test="${contractInfo.inceptionTime == '23'}">selected</c:if>>午後11時</option>
+                                            <option value="1"<c:if test="${contractInfo.inceptionTime == '1'}"></c:if>>午前1時</option>
+                                            <option value="2"<c:if test="${contractInfo.inceptionTime == '2'}"></c:if>>午前2時</option>
+                                            <option value="3"<c:if test="${contractInfo.inceptionTime == '3'}"></c:if>>午前3時</option>
+                                            <option value="4"<c:if test="${contractInfo.inceptionTime == '4'}"></c:if>>午前4時</option>
+                                            <option value="5"<c:if test="${contractInfo.inceptionTime == '5'}"></c:if>>午前5時</option>
+                                            <option value="6"<c:if test="${contractInfo.inceptionTime == '6'}"></c:if>>午前6時</option>
+                                            <option value="7"<c:if test="${contractInfo.inceptionTime == '7'}"></c:if>>午前7時</option>
+                                            <option value="8"<c:if test="${contractInfo.inceptionTime == '8'}"></c:if>>午前8時</option>
+                                            <option value="9"<c:if test="${contractInfo.inceptionTime == '9'}"></c:if>>午前9時</option>
+                                            <option value="10"<c:if test="${contractInfo.inceptionTime == '10'}"></c:if>>午前10時</option>
+                                            <option value="11"<c:if test="${contractInfo.inceptionTime == '11'}"></c:if>>午前11時</option>
+                                            <option value="12"<c:if test="${contractInfo.inceptionTime == '12'}"></c:if>>正午</option>
+                                            <option value="13"<c:if test="${contractInfo.inceptionTime == '13'}"></c:if>>午後1時</option>
+                                            <option value="14"<c:if test="${contractInfo.inceptionTime == '14'}"></c:if>>午後2時</option>
+                                            <option value="15"<c:if test="${contractInfo.inceptionTime == '15'}"></c:if>>午後3時</option>
+                                            <option value="16"<c:if test="${contractInfo.inceptionTime == '16'}"></c:if>>午後4時</option>
+                                            <option value="17"<c:if test="${contractInfo.inceptionTime == '17'}"></c:if>>午後5時</option>
+                                            <option value="18"<c:if test="${contractInfo.inceptionTime == '18'}"></c:if>>午後6時</option>
+                                            <option value="19"<c:if test="${contractInfo.inceptionTime == '19'}"></c:if>>午後7時</option>
+                                            <option value="20"<c:if test="${contractInfo.inceptionTime == '20'}"></c:if>>午後8時</option>
+                                            <option value="21"<c:if test="${contractInfo.inceptionTime == '21'}"></c:if>>午後9時</option>
+                                            <option value="22"<c:if test="${contractInfo.inceptionTime == '22'}"></c:if>>午後10時</option>
+                                            <option value="23"<c:if test="${contractInfo.inceptionTime == '23'}"></c:if>>午後11時</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -503,29 +503,29 @@
                                         <span class="form-require">必須</span>
                                         <select name="conclusionTime" id="conclusionTime" required>
                                             <option value="0"<c:if test="${contractInfo.conclusionTime == '0'}">selected</c:if>>午前0時</option>
-                                            <option value="1"<c:if test="${contractInfo.conclusionTime == '1'}">selected</c:if>>午前1時</option>
-                                            <option value="2"<c:if test="${contractInfo.conclusionTime == '2'}">selected</c:if>>午前2時</option>
-                                            <option value="3"<c:if test="${contractInfo.conclusionTime == '3'}">selected</c:if>>午前3時</option>
-                                            <option value="4"<c:if test="${contractInfo.conclusionTime == '4'}">selected</c:if>>午前4時</option>
-                                            <option value="5"<c:if test="${contractInfo.conclusionTime == '5'}">selected</c:if>>午前5時</option>
-                                            <option value="6"<c:if test="${contractInfo.conclusionTime == '6'}">selected</c:if>>午前6時</option>
-                                            <option value="7"<c:if test="${contractInfo.conclusionTime == '7'}">selected</c:if>>午前7時</option>
-                                            <option value="8"<c:if test="${contractInfo.conclusionTime == '8'}">selected</c:if>>午前8時</option>
-                                            <option value="9"<c:if test="${contractInfo.conclusionTime == '9'}">selected</c:if>>午前9時</option>
-                                            <option value="10"<c:if test="${contractInfo.conclusionTime == '10'}">selected</c:if>>午前10時</option>
-                                            <option value="11"<c:if test="${contractInfo.conclusionTime == '11'}">selected</c:if>>午前11時</option>
-                                            <option value="12"<c:if test="${contractInfo.conclusionTime == '12'}">selected</c:if>>正午</option>
-                                            <option value="13"<c:if test="${contractInfo.conclusionTime == '13'}">selected</c:if>>午後1時</option>
-                                            <option value="14"<c:if test="${contractInfo.conclusionTime == '14'}">selected</c:if>>午後2時</option>
-                                            <option value="15"<c:if test="${contractInfo.conclusionTime == '15'}">selected</c:if>>午後3時</option>
-                                            <option value="16"<c:if test="${contractInfo.conclusionTime == '16'}">selected</c:if>>午後4時</option>
-                                            <option value="17"<c:if test="${contractInfo.conclusionTime == '17'}">selected</c:if>>午後5時</option>
-                                            <option value="18"<c:if test="${contractInfo.conclusionTime == '18'}">selected</c:if>>午後6時</option>
-                                            <option value="19"<c:if test="${contractInfo.conclusionTime == '19'}">selected</c:if>>午後7時</option>
-                                            <option value="20"<c:if test="${contractInfo.conclusionTime == '20'}">selected</c:if>>午後8時</option>
-                                            <option value="21"<c:if test="${contractInfo.conclusionTime == '21'}">selected</c:if>>午後9時</option>
-                                            <option value="22"<c:if test="${contractInfo.conclusionTime == '22'}">selected</c:if>>午後10時</option>
-                                            <option value="23"<c:if test="${contractInfo.conclusionTime == '23'}">selected</c:if>>午後11時</option>
+                                            <option value="1"<c:if test="${contractInfo.conclusionTime == '1'}"></c:if>>午前1時</option>
+                                            <option value="2"<c:if test="${contractInfo.conclusionTime == '2'}"></c:if>>午前2時</option>
+                                            <option value="3"<c:if test="${contractInfo.conclusionTime == '3'}"></c:if>>午前3時</option>
+                                            <option value="4"<c:if test="${contractInfo.conclusionTime == '4'}"></c:if>>午前4時</option>
+                                            <option value="5"<c:if test="${contractInfo.conclusionTime == '5'}"></c:if>>午前5時</option>
+                                            <option value="6"<c:if test="${contractInfo.conclusionTime == '6'}"></c:if>>午前6時</option>
+                                            <option value="7"<c:if test="${contractInfo.conclusionTime == '7'}"></c:if>>午前7時</option>
+                                            <option value="8"<c:if test="${contractInfo.conclusionTime == '8'}"></c:if>>午前8時</option>
+                                            <option value="9"<c:if test="${contractInfo.conclusionTime == '9'}"></c:if>>午前9時</option>
+                                            <option value="10"<c:if test="${contractInfo.conclusionTime == '10'}"></c:if>>午前10時</option>
+                                            <option value="11"<c:if test="${contractInfo.conclusionTime == '11'}"></c:if>>午前11時</option>
+                                            <option value="12"<c:if test="${contractInfo.conclusionTime == '12'}"></c:if>>正午</option>
+                                            <option value="13"<c:if test="${contractInfo.conclusionTime == '13'}"></c:if>>午後1時</option>
+                                            <option value="14"<c:if test="${contractInfo.conclusionTime == '14'}"></c:if>>午後2時</option>
+                                            <option value="15"<c:if test="${contractInfo.conclusionTime == '15'}"></c:if>>午後3時</option>
+                                            <option value="16"<c:if test="${contractInfo.conclusionTime == '16'}"></c:if>>午後4時</option>
+                                            <option value="17"<c:if test="${contractInfo.conclusionTime == '17'}"></c:if>>午後5時</option>
+                                            <option value="18"<c:if test="${contractInfo.conclusionTime == '18'}"></c:if>>午後6時</option>
+                                            <option value="19"<c:if test="${contractInfo.conclusionTime == '19'}"></c:if>>午後7時</option>
+                                            <option value="20"<c:if test="${contractInfo.conclusionTime == '20'}"></c:if>>午後8時</option>
+                                            <option value="21"<c:if test="${contractInfo.conclusionTime == '21'}"></c:if>>午後9時</option>
+                                            <option value="22"<c:if test="${contractInfo.conclusionTime == '22'}"></c:if>>午後10時</option>
+                                            <option value="23"<c:if test="${contractInfo.conclusionTime == '23'}"></c:if>>午後11時</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -537,8 +537,8 @@
                                         <span class="form-require">必須</span>
                                         <select name="paymentMethod" id="paymentMethod" required>
                                             <option value="1"<c:if test="${contractInfo.paymentMethod == '1'}">selected</c:if>>直接集金</option>
-                                            <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}">selected</c:if>>口座振替</option>
-                                            <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}">selected</c:if>>クレジットカード</option>
+                                            <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}"></c:if>>口座振替</option>
+                                            <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}"></c:if>>クレジットカード</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -550,11 +550,11 @@
                                         <span class="form-require">必須</span>
                                         <select name="installment" id="installment" required>
                                             <option value="1"<c:if test="${contractInfo.installment == '1'}">selected</c:if>>1</option>
-                                            <option value="2"<c:if test="${contractInfo.installment == '2'}">selected</c:if>>2</option>
-                                            <option value="3"<c:if test="${contractInfo.installment == '3'}">selected</c:if>>3</option>
-                                            <option value="4"<c:if test="${contractInfo.installment == '4'}">selected</c:if>>4</option>
-                                            <option value="6"<c:if test="${contractInfo.installment == '6'}">selected</c:if>>6</option>
-                                            <option value="12"<c:if test="${contractInfo.installment == '12'}">selected</c:if>>12</option>
+                                            <option value="2"<c:if test="${contractInfo.installment == '2'}"></c:if>>2</option>
+                                            <option value="3"<c:if test="${contractInfo.installment == '3'}"></c:if>>3</option>
+                                            <option value="4"<c:if test="${contractInfo.installment == '4'}"></c:if>>4</option>
+                                            <option value="6"<c:if test="${contractInfo.installment == '6'}"></c:if>>6</option>
+                                            <option value="12"<c:if test="${contractInfo.installment == '12'}"></c:if>>12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -704,15 +704,15 @@
                                     <th>メーカー</th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select id="changeSelect" name="maker">
+                                        <select name="maker" id="changeSelect" required>
                                             <option value="lexus"<c:if test="${compensation.maker == 'lexus'}">selected</c:if>>レクサス</option>
-                                            <option value="matsuda"<c:if test="${compensation.maker == 'matsuda'}">selected</c:if>>マツダ</option>
-                                            <option value="honda"<c:if test="${compensation.maker == 'honda'}">selected</c:if>>ホンダ</option>
-                                            <option value="nissan"<c:if test="${compensation.maker == 'nissan'}">selected</c:if>>ニッサン</option>
-                                            <option value="toyota"<c:if test="${compensation.maker == 'toyota'}">selected</c:if>>トヨタ</option>
-                                            <option value="subaru"<c:if test="${compensation.maker == 'subaru'}">selected</c:if>>スバル</option>
-                                            <option value="suzuki"<c:if test="${compensation.maker == 'suzuki'}">selected</c:if>>スズキ</option>
-                                            <option value="mitsubishi"<c:if test="${compensation.maker == 'mitsubishi'}">selected</c:if>>三菱</option>
+                                            <option value="matsuda"<c:if test="${compensation.maker == 'matsuda'}"></c:if>>マツダ</option>
+                                            <option value="honda"<c:if test="${compensation.maker == 'honda'}"></c:if>>ホンダ</option>
+                                            <option value="nissan"<c:if test="${compensation.maker == 'nissan'}"></c:if>>ニッサン</option>
+                                            <option value="toyota"<c:if test="${compensation.maker == 'toyota'}"></c:if>>トヨタ</option>
+                                            <option value="subaru"<c:if test="${compensation.maker == 'subaru'}"></c:if>>スバル</option>
+                                            <option value="suzuki"<c:if test="${compensation.maker == 'suzuki'}"></c:if>>スズキ</option>
+                                            <option value="mitsubishi"<c:if test="${compensation.maker == 'mitsubishi'}"></c:if>>三菱</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -722,30 +722,30 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="carName" id="carName">
-                                            <option value="LS"<c:if test="${compensation.carName == 'LS'}">selected</c:if>>（レクサス）LS</option>
-                                            <option value="GS"<c:if test="${compensation.carName == 'GS'}">selected</c:if>>（レクサス）GS</option>
-                                            <option value="IS"<c:if test="${compensation.carName == 'IS'}">selected</c:if>>（レクサス）IS</option>
-                                            <option value="デミオ"<c:if test="${compensation.carName == 'デミオ'}">selected</c:if>>（マツダ）デミオ</option>
-                                            <option value="アクセラ"<c:if test="${compensation.carName == 'アクセラ'}">selected</c:if>>（マツダ）アクセラ</option>
-                                            <option value="アテンザ"<c:if test="${compensation.carName == 'アテンザ'}">selected</c:if>>（マツダ）アテンザ</option>
-                                            <option value="インテグラ"<c:if test="${compensation.carName == 'インテグラ'}">selected</c:if>>（ホンダ）インテグラ</option>
-                                            <option value="ステップワゴン"<c:if test="${compensation.carName == 'ステップワゴン'}">selected</c:if>>（ホンダ）ステップワゴン</option>
-                                            <option value="アコードハイブリッド"<c:if test="${compensation.carName == 'アコードハイブリッド'}">selected</c:if>>（ホンダ）アコードハイブリッド</option>
-                                            <option value="フーガ"<c:if test="${compensation.carName == 'フーガ'}">selected</c:if>>（ニッサン）フーガ</option>
-                                            <option value="マーチ"<c:if test="${compensation.carName == 'マーチ'}">selected</c:if>>（ニッサン）マーチ</option>
-                                            <option value="セレナ"<c:if test="${compensation.carName == 'セレナ'}">selected</c:if>>（ニッサン）セレナ</option>
-                                            <option value="スカイライン"<c:if test="${compensation.carName == 'スカイライン'}">selected</c:if>>（ニッサン）スカイライン</option>
-                                            <option value="カローラアクシオ"<c:if test="${compensation.carName == 'カローラアクシオ'}">selected</c:if>>（トヨタ）カローラアクシオ</option>
-                                            <option value="アクア"<c:if test="${compensation.carName == 'アクア'}">selected</c:if>>（トヨタ）アクア</option>
-                                            <option value="クラウン"<c:if test="${compensation.carName == 'クラウン'}">selected</c:if>>（トヨタ）クラウン</option>
-                                            <option value="レガシィ"<c:if test="${compensation.carName == 'レガシィ'}">selected</c:if>>（スバル）レガシィ</option>
-                                            <option value="WRX"<c:if test="${compensation.carName == 'WRX'}">selected</c:if>>（スバル）WRX</option>
-                                            <option value="レヴォーグ"<c:if test="${compensation.carName == 'レヴォーグ'}">selected</c:if>>（スバル）レヴォーグ</option>
-                                            <option value="スイフト"<c:if test="${compensation.carName == 'スイフト'}">selected</c:if>>（スズキ）スイフト</option>
-                                            <option value="キザシ"<c:if test="${compensation.carName == 'キザシ'}">selected</c:if>>（スズキ）キザシ</option>
-                                            <option value="エスクード"<c:if test="${compensation.carName == 'エスクード'}">selected</c:if>>（スズキ）エスクード</option>
-                                            <option value="アウトラウンダーPHEV"<c:if test="${compensation.carName == 'アウトラウンダーPHEV'}">selected</c:if>>（三菱）アウトラウンダーPHEV</option>
-                                            <option value="デリカD:5"<c:if test="${compensation.carName == 'デリカD:5'}">selected</c:if>>（三菱）デリカD:5</option>
+                                            <option value="LS"<c:if test="${compensation.carName == 'LS'}"></c:if>>（レクサス）LS</option>
+                                            <option value="GS"<c:if test="${compensation.carName == 'GS'}"></c:if>>（レクサス）GS</option>
+                                            <option value="IS"<c:if test="${compensation.carName == 'IS'}"></c:if>>（レクサス）IS</option>
+                                            <option value="デミオ"<c:if test="${compensation.carName == 'デミオ'}"></c:if>>（マツダ）デミオ</option>
+                                            <option value="アクセラ"<c:if test="${compensation.carName == 'アクセラ'}"></c:if>>（マツダ）アクセラ</option>
+                                            <option value="アテンザ"<c:if test="${compensation.carName == 'アテンザ'}"></c:if>>（マツダ）アテンザ</option>
+                                            <option value="インテグラ"<c:if test="${compensation.carName == 'インテグラ'}"></c:if>>（ホンダ）インテグラ</option>
+                                            <option value="ステップワゴン"<c:if test="${compensation.carName == 'ステップワゴン'}"></c:if>>（ホンダ）ステップワゴン</option>
+                                            <option value="アコードハイブリッド"<c:if test="${compensation.carName == 'アコードハイブリッド'}"></c:if>>（ホンダ）アコードハイブリッド</option>
+                                            <option value="フーガ"<c:if test="${compensation.carName == 'フーガ'}"></c:if>>（ニッサン）フーガ</option>
+                                            <option value="マーチ"<c:if test="${compensation.carName == 'マーチ'}"></c:if>>（ニッサン）マーチ</option>
+                                            <option value="セレナ"<c:if test="${compensation.carName == 'セレナ'}"></c:if>>（ニッサン）セレナ</option>
+                                            <option value="スカイライン"<c:if test="${compensation.carName == 'スカイライン'}"></c:if>>（ニッサン）スカイライン</option>
+                                            <option value="カローラアクシオ"<c:if test="${compensation.carName == 'カローラアクシオ'}"></c:if>>（トヨタ）カローラアクシオ</option>
+                                            <option value="アクア"<c:if test="${compensation.carName == 'アクア'}"></c:if>>（トヨタ）アクア</option>
+                                            <option value="クラウン"<c:if test="${compensation.carName == 'クラウン'}"></c:if>>（トヨタ）クラウン</option>
+                                            <option value="レガシィ"<c:if test="${compensation.carName == 'レガシィ'}"></c:if>>（スバル）レガシィ</option>
+                                            <option value="WRX"<c:if test="${compensation.carName == 'WRX'}"></c:if>>（スバル）WRX</option>
+                                            <option value="レヴォーグ"<c:if test="${compensation.carName == 'レヴォーグ'}"></c:if>>（スバル）レヴォーグ</option>
+                                            <option value="スイフト"<c:if test="${compensation.carName == 'スイフト'}"></c:if>>（スズキ）スイフト</option>
+                                            <option value="キザシ"<c:if test="${compensation.carName == 'キザシ'}"></c:if>>（スズキ）キザシ</option>
+                                            <option value="エスクード"<c:if test="${compensation.carName == 'エスクード'}"></c:if>>（スズキ）エスクード</option>
+                                            <option value="アウトラウンダーPHEV"<c:if test="${compensation.carName == 'アウトラウンダーPHEV'}"></c:if>>（三菱）アウトラウンダーPHEV</option>
+                                            <option value="デリカD:5"<c:if test="${compensation.carName == 'デリカD:5'}"></c:if>>（三菱）デリカD:5</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -992,8 +992,8 @@
                                         <span class="form-require">必須</span>
                                         <select name="licenseColor" id="licenseColor">
                                             <option value="1"<c:if test="${compensation.licenseColor == '1'}">selected</c:if>>ブルー</option>
-                                            <option value="2"<c:if test="${compensation.licenseColor == '2'}">selected</c:if>>グリーン</option>
-                                            <option value="3"<c:if test="${compensation.licenseColor == '3'}">selected</c:if>>ゴールド</option>
+                                            <option value="2"<c:if test="${compensation.licenseColor == '2'}"></c:if>>グリーン</option>
+                                            <option value="3"<c:if test="${compensation.licenseColor == '3'}"></c:if>>ゴールド</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -1005,8 +1005,8 @@
                                         <span class="form-require">必須</span>
                                         <select name="ageLimit" id="ageLimit">
                                             <option value="1"<c:if test="${compensation.ageLimit == '1'}">selected</c:if>>無条件</option>
-                                            <option value="2"<c:if test="${compensation.ageLimit == '2'}">selected</c:if>>21歳以上</option>
-                                            <option value="3"<c:if test="${compensation.ageLimit == '3'}">selected</c:if>>26歳以上</option>
+                                            <option value="2"<c:if test="${compensation.ageLimit == '2'}"></c:if>>21歳以上</option>
+                                            <option value="3"<c:if test="${compensation.ageLimit == '3'}"></c:if>>26歳以上</option>
                                         </select>
                                     </td>
                                 </tr>
