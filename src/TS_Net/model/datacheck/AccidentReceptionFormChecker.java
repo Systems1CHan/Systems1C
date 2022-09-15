@@ -5,6 +5,7 @@
  * 作成者	：TooruNakaya/SYS
  * ----------------------------------------------------------------------
  *修正履歴（修正日：担当者：修正内容）
+ *(2022/09/15 ： NarimichiHenmi/SYS ：AccidentReceptionFormChecker内のcheckメソッド。AccidentSituationに関するブランク＆nullチェックを実装)
  * ----------------------------------------------------------------------
  */
 package TS_Net.model.datacheck;
@@ -45,7 +46,7 @@ public class AccidentReceptionFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(rp.getAccidentDate(), null) || rp.getAccidentDate().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getRatingBlameMyself(), null)){
+		}else if(Objects.equals(rp.getAccidentSituation(), null)){
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(rp.getRatingBlameMyself(), null)) {
 			return ErrorMsgConst.FORM_ERROR0002;
