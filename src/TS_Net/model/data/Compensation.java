@@ -68,6 +68,7 @@ public class Compensation implements Serializable {
 		ageLimit = "2";
 		premiumAmount = 0;
 		premiumInstallment = 0;
+		insatsuRenban = "";
 	}
 
 
