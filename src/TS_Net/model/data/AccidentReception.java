@@ -79,7 +79,7 @@ public AccidentReception() {
 	/* 事故発生現場漢字２*/
 	accidentLocationKanji2 = "";
 	/* 事故発生日付*/
-	accidentDate = "";
+	accidentDate = "00000000";
 	/* 事故状況*/
 	accidentSituation = "";
 	/* 過失割合・被保険者*/

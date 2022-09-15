@@ -102,7 +102,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 					accidentReception = accidentDao.getAccidentReceptionByCN(claimNo);
 
 				//取得した事故受付情報の受付番号が存在しない時、エラーを出す。
-				if (accidentReception.getClaimNo() == null) {
+				if ("".equals(accidentReception.getClaimNo())) {
 					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0010);
 
 					page ="/WEB-INF/view/ReceptionStart.jsp";
