@@ -62,6 +62,60 @@ public class AccidentReception implements Serializable {
 	/* 支払金額*/
 	private Integer paymentPrice;
 
+
+
+
+public AccidentReception() {
+
+	claimNo = "";
+	/* 事故受付フラグ*/
+	claimStatus = "";
+	/* 事故発生現場カナ１*/
+	accidentLocationKana1 = "";
+	/* 事故発生現場カナ２*/
+	accidentLocationKana2 = "";
+	/* 事故発生現場漢字１*/
+	accidentLocationKanji1 = "";
+	/* 事故発生現場漢字２*/
+	accidentLocationKanji2 = "";
+	/* 事故発生日付*/
+	accidentDate = "";
+	/* 事故状況*/
+	accidentSituation = "";
+	/* 過失割合・被保険者*/
+	ratingBlameMyself = 0;
+	/* 過失割合・相手方*/
+	ratingBlameYourself = 0;
+	/* 損害額・車両*/
+	damageCarPrice = 0;
+	/* 損害額・対人*/
+	damageBodilyPrice = 0;
+	/* 損害額・対物*/
+	damagePropertyPrice = 0;
+	/* 損害額・傷害*/
+	damageAccidentPrice = 0;
+	/* 損害状況・車両*/
+	damageCarState = "";
+	/* 損害状況・対人*/
+	damageBodilyState = "";
+	/* 損害状況・対物*/
+	damagePropertyState = "";
+	/* 損害状況・傷害*/
+	damageAccidentState = "";
+	/* 支払金額*/
+	paymentPrice = 0;
+
+}
+
+
+
+
+
+
+
+
+
+
 	/* 補償情報クラスの補償IDを取得*/
 	Compensation compensation = new Compensation();
 	private Integer coverId = compensation.getCoverId();
