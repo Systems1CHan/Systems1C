@@ -704,7 +704,7 @@
                                     <th>メーカー</th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <select name="maker" id="changeSelect" required>
+                                        <select name="maker" id="maker" required>
                                             <option value="lexus"<c:if test="${compensation.maker == 'lexus'}">selected</c:if>>レクサス</option>
                                             <option value="matsuda"<c:if test="${compensation.maker == 'matsuda'}"></c:if>>マツダ</option>
                                             <option value="honda"<c:if test="${compensation.maker == 'honda'}"></c:if>>ホンダ</option>
