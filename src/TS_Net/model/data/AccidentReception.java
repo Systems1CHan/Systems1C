@@ -91,9 +91,9 @@ public class AccidentReception implements Serializable {
 	 * @return 支払金額
 	 */
 	public String getPaymentPriceForlabel(AccidentReception accidentReception) {
-		Integer damageSumPrice = this.getDamageCarPrice() + this.getDamageBodilyPrice() + this.getDamagePropertyPrice() + this.getDamageAccidentPrice();
-		this.paymentPrice = this.getPaymentPrice() * damageSumPrice;
-		return this.paymentPrice + "円";
+		Integer damageSumPrice = accidentReception.getDamageCarPrice() + accidentReception.getDamageBodilyPrice() + accidentReception.getDamagePropertyPrice() + accidentReception.getDamageAccidentPrice();
+		paymentPrice = accidentReception.getPaymentPrice() * damageSumPrice;
+		return paymentPrice + "円";
 	}
 
 	/**

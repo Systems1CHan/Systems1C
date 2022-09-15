@@ -80,6 +80,7 @@ import TS_Net.model.data.ContractInfo;
 				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
 				// システムエラー画面を戻り値に設定する。
 				page = "/WEB-INF/view/ErrorPage.jsp";
+				page = "/WEB-INF/view/ReceptionUpdate.jsp";
 				//システムエラー画面へforwardする。
 				RequestDispatcher rd = request.getRequestDispatcher(page);
 				rd.forward(request, response);
@@ -109,6 +110,7 @@ import TS_Net.model.data.ContractInfo;
 				request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
 				// システムエラー画面を戻り値に設定する。
 				page = "/WEB-INF/view/ErrorPage.jsp";
+
 				//システムエラー画面へforwardする。
 				RequestDispatcher rd = request.getRequestDispatcher(page);
 				rd.forward(request, response);
@@ -123,6 +125,7 @@ import TS_Net.model.data.ContractInfo;
 					request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
 					// システムエラー画面を戻り値に設定する。
 					page = "/WEB-INF/view/ErrorPage.jsp";
+
 				}
 
 			}
