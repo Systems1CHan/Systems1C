@@ -96,13 +96,13 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				if(!(Objects.equals(claimNo, null)) && claimNo.length() > 0) {
 
 					//更新事故受け付けオブジェクトを生成
-//					AccidentReception accidentUpdateReception = new AccidentReception();
+					AccidentReception accidentUpdateReception = new AccidentReception();
 
 				//事故受け付け番号に合致する事故受付情報を取得し、オブジェクトに格納する。
-					accidentReception = accidentDao.getAccidentReceptionByCN(claimNo);
+					accidentUpdateReception = accidentDao.getAccidentReceptionByCN(claimNo);
 
 				//取得した事故受付情報の受付番号が存在しない時、エラーを出す。
-				if (accidentReception.getClaimNo() == null) {
+				if (accidentUpdateReception.getClaimNo() == null) {
 					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0010);
 
 					page ="/WEB-INF/view/ReceptionStart.jsp";
@@ -113,7 +113,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 
 				}
 				//事故受付情報の中から補償IDを取り出す。
-				Integer coverId = accidentReception.getCoverId();
+				Integer coverId = accidentUpdateReception.getCoverId();
 				//補償IDを用いて補償情報を取り出す。
 				compensation = compensationDao.getCompensationByCI(coverId);
 
@@ -126,7 +126,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 				//セッションを生成する。
 				HttpSession session = request.getSession(true);
 
-				session.setAttribute("accidentReception", accidentReception);
+				session.setAttribute("accidentUpdateReception", accidentUpdateReception);
 				session.setAttribute("compensation", compensation);
 				session.setAttribute("contractInfo", contractInfo);
 
