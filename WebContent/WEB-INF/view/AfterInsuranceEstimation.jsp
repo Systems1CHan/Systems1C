@@ -6,6 +6,73 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>保険料試算後画面</title>
+		<style type="text/css">
+            .btn {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    max-width: 240px;
+                    padding: 10px 25px;
+                    color: #FFF;
+                    transition: 0.3s ease-in-out;
+                    font-weight: 600;
+                    background: #6bb6ff;
+                    border-radius: 8px;
+                    border-bottom: solid 5px #1d7fde;
+                    margin-bottom: 15px;
+                    margin-top: 25px;
+                    display: inline-block;
+                }
+                .btn:hover {
+                    border-bottom: solid 2px #1d7fde;
+                    transform: translateY(3px);
+                }
+
+                table{
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                table tr{
+                    border-bottom: solid 2px white;
+                }
+
+                table tr:last-child{
+                    border-bottom: none;
+                }
+
+                table th{
+                    position: relative;
+                    text-align: left;
+                    width: 30%;
+                    background-color: #52c2d0;
+                    color: white;
+                    text-align: center;
+                    padding: 10px 0;
+                }
+
+                table th:after{
+                    display: block;
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    position: absolute;
+                    top:calc(50% - 10px);
+                    right:-10px;
+                    border-left: 10px solid #52c2d0;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }
+
+                table td{
+                    text-align: left;
+                    width: 70%;
+                    text-align: center;
+                    background-color: #eee;
+                    padding: 10px 0;
+                }
+        </style>
         <script type="text/javascript" src="./static/js/transition.js"></script>
 	</head>
 	<body>
@@ -13,7 +80,7 @@
             <h1>契約管理・事故受付システム　ハンディー</h1>
         </header>
         <main>
-        	<form action="" method="get" name="hoshoForm" id="application_frm">
+        	<form action="" method="get" id="application_frm">
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tbody>
@@ -23,13 +90,13 @@
                                 <tr>
                                     <td>総額保険料</td>
                                     <td>
-                                    	<c:out value="${compensation.getPremiumAmountForLabel()}" />
+                                    	<c:out value="${compensation.getPremiumAmountForLabel()}"/>（万円）
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>一回分保険料</td>
                                     <td>
-                                    	<c:out value="${compensation.premiumInstallment}" />
+                                    	<c:out value="${compensation.premiumInstallment}" />（万円）
                                     </td>
                                 </tr>
                             </tbody>
@@ -104,6 +171,16 @@
                                     </td>
                                 </tr>
                             </tbody>
+                        </table>
+                        <table align="center">
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn">保険料試算</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
+                                </td>
+                            </tr>
                         </table>
         	</form>
         </main>
