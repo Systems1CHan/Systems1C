@@ -38,7 +38,7 @@ function toNewEstimationEntryPage() {
 	var formElement = document.getElementById("finishprint_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
-	formElement.action="./ToPrintingConfirm"
+	formElement.action="./ToNewEstimation"
 	//submit関数を呼び出す。
 	formElement.submit();
 }
