@@ -46,7 +46,7 @@ public class AccidentReceptionFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(rp.getAccidentDate(), null) || rp.getAccidentDate().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentSituation(), null)){
+		}else if(Objects.equals(rp.getAccidentSituation(), null)|| rp.getAccidentSituation().isEmpty()){
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(rp.getRatingBlameMyself(), null)) {
 			return ErrorMsgConst.FORM_ERROR0002;
