@@ -103,26 +103,6 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		compensation.setPremiumAmount(check(request.getParameter("premiumAmount")));
 		compensation.setPremiumInstallment(check(request.getParameter("premiumInstallment")));
 
-//		//データチェッククラスの生成
-//		ContractFormChecker cfc = new ContractFormChecker();
-//		CompensationFormChecker comfc = new CompensationFormChecker();
-//
-//		//契約情報オブジェクトをデータチェッククラスに渡してチェックを実施
-//		if(!(cfc.check(contractInfo).isEmpty())) {
-//			request.setAttribute("message", cfc.check(contractInfo));
-//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-//			rd.forward(request, response);
-//			return;
-//		}
-//
-//		//補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-//		if(!(comfc.check(compensation).isEmpty())) {
-//			request.setAttribute("message", comfc.check(compensation));
-//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-//			rd.forward(request, response);
-//			return;
-//		}
-
 		//総額保険料、一回分保険料の算出メソッドの呼び出し
 		Integer premiumAmount = compensation.getPremiumAmountForLabel();
 		Integer premiumInstallment = premiumAmount/contractInfo.getInstallment();
@@ -138,9 +118,25 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		session.setAttribute("contractInfo", contractInfo);
 		session.setAttribute("compensation", compensation);
 
-		//保険料試算後画面にforward
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/AfterInsuranceEstimation.jsp");
-		rd.forward(request, response);
+
+		//データチェッククラスの生成
+		ContractFormChecker cfc = new ContractFormChecker();
+		CompensationFormChecker comfc = new CompensationFormChecker();
+
+		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
+		if(!(cfc.check(contractInfo) != null)) {
+			request.setAttribute("message", cfc.check(contractInfo));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+		}else if(!(comfc.check(compensation) != null)) {
+			request.setAttribute("message", comfc.check(compensation));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+		}else {
+			//申込書印刷確認画面に遷移する
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 	public Integer check(String str) {

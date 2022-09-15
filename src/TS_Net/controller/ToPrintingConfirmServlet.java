@@ -29,7 +29,7 @@ import TS_Net.model.datacheck.ContractFormChecker;
 @WebServlet("/ToPrintingConfirm")
 public class ToPrintingConfirmServlet extends HttpServlet {
 
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
@@ -116,25 +116,21 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		ContractFormChecker cfc = new ContractFormChecker();
 		CompensationFormChecker comfc = new CompensationFormChecker();
 
-		//契約情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(!(cfc.check(contractInfo).isEmpty())) {
+		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
+		if(!(cfc.check(contractInfo) != null)) {
 			request.setAttribute("message", cfc.check(contractInfo));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
-			return;
-		}
-
-		//補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(!(comfc.check(compensation).isEmpty())) {
+		}else if(!(comfc.check(compensation) != null)) {
 			request.setAttribute("message", comfc.check(compensation));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
-			return;
+		}else {
+			//申込書印刷確認画面に遷移する
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+			rd.forward(request, response);
 		}
 
-		//申込書印刷確認画面に遷移する
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
-		rd.forward(request, response);
 	}
 
 	public Integer check(String str) {
