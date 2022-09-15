@@ -52,8 +52,23 @@ public class Compensation implements Serializable {
 	private Integer premiumInstallment;
 
 	/* 印刷連番*/
-
 	private String insatsuRenban;
+
+	public Compensation() {
+		coverId = 0;
+		maker = "";
+		carName = "";
+		licenseNo = "";
+		vehiclePrice = 100;
+		vehicleRates = "3";
+		bodilyRates = "3";
+		propertyDamageRates = "3";
+		accidentRates = "3";
+		licenseColor = "2";
+		ageLimit = "2";
+		premiumAmount = 0;
+		premiumInstallment = 0;
+	}
 
 
 	/**

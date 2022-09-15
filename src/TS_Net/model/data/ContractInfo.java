@@ -49,7 +49,7 @@ public class ContractInfo implements Serializable {
     /* 氏名カナ１*/
     private String nameKana1;
     /* 氏名カナ２*/
-    private String namekana2;
+    private String nameKana2;
     /* 氏名漢字１*/
     private String nameKanji1;
     /* 氏名漢字２*/
@@ -74,6 +74,35 @@ public class ContractInfo implements Serializable {
     private String mobilephoneNo;
     /* FAX番号*/
     private String faxNo;
+
+    /* 引数なしコンストラクタ*/
+    public ContractInfo(){
+    	insatsuRenban = "";
+    	polNo = "";
+    	statusFlg = "";
+    	cancelFlg = "";
+    	inceptionDate = "";
+    	inceptionTime = "";
+    	conclusionDate = "";
+    	conclusionTime = "";
+    	paymentMethod = "";
+    	installment = 0;
+    	insuredKbn = "1";
+    	nameKana1 = "";
+    	nameKana2 = "";
+    	nameKanji1 = "";
+    	nameKanji2 = "";
+    	postcode = "";
+    	addressKana1 = "";
+    	addressKana2 = "";
+    	addressKanji1 = "";
+    	addressKanji2 = "";
+    	birthday = "";
+    	gender = "";
+    	telephoneNo = "";
+    	mobilephoneNo = "";
+    	faxNo = "";
+    }
 
     /**
 	 * 契約状態取得メソッド。
@@ -158,7 +187,7 @@ public class ContractInfo implements Serializable {
 	 * @return 顧客カナ氏名（敬称つき）
 	 */
 	public String getkanaNameForLabel() {
-		return this.nameKana1 + this.namekana2 + "様";
+		return this.nameKana1 + this.nameKana2 + "様";
 	}
 
 	/**
@@ -394,11 +423,11 @@ public class ContractInfo implements Serializable {
 	}
 
 	public String getNamekana2() {
-		return namekana2;
+		return nameKana2;
 	}
 
 	public void setNamekana2(String namekana2) {
-		this.namekana2 = namekana2;
+		this.nameKana2 = namekana2;
 	}
 
 	public String getNameKanji1() {
