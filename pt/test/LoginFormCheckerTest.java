@@ -1,4 +1,5 @@
 /*------------------------------------------------------------------------------
+ /*------------------------------------------------------------------------------
  * 演習番号：[総合演習]
  * クラス名：[LoginFormCheckerTest]
  * 作成日  ：[2022/09/14]
@@ -17,6 +18,8 @@ import org.junit.Test;
 
 import TS_Net.model.datacheck.LoginFormChecker;
 
+
+
 public class LoginFormCheckerTest {
 
 		/** テスト対象のオブジェクト */
@@ -30,7 +33,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * emptyCheck()メソッドテスト01
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：iDが空文字の場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -57,7 +60,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * emptyCheck()メソッドテスト02
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：passwordが空文字の場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -84,7 +87,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * emptyCheck()メソッドテスト03
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：iDが空文字の場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -111,7 +114,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * emptyCheck()メソッドテスト04
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：iDが空文字の場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -138,7 +141,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * emptyCheck()メソッドテスト05
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：iDが空文字の場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -165,7 +168,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * accountCheck()メソッドテスト01
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：loginStateがfalseの場合<br>
 		 * 想定結果：以下の文字列が返却される。<br>
 		 * IDまたはパスワードが未入力です。<br>
@@ -193,7 +196,7 @@ public class LoginFormCheckerTest {
 		/**
 		 * accountCheck()メソッドテスト02
 		 * <p>
-		 * 正常系。（仮置き）<br>
+		 * 正常系<br>
 		 * 検証条件：iDが空文字の場合<br>
 		 * 想定結果：null値が返却される。<br>
 		 * </p>
