@@ -261,43 +261,43 @@ public class AccidentDao {
 	 */
 	public void registAccidentReception(AccidentReception accidentReception) throws SQLException {
 
-		String sql = "INSERT INTO claim_tbl(claim_no, cover_id, claim_status, payment_price, accident_location_kana1, accident_location_kana2, accident_location_kanji1, accident_location_kanji2, accident_date, accident_situation, rating_blame_myself, rating_blame_yourself, damage_car_price, damage_bodily_price, damage_property_price, damage_accident_price, damage_car_state, damage_bodily_state, damage_property_state,damage_accident_state,)	"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-
-
-		PreparedStatement stmt = null;
-		try {
-			stmt=con.prepareStatement(sql);
-			stmt.setString(1, accidentReception.getClaimNo());
-			stmt.setInt(2, accidentReception.getCoverId());
-			stmt.setString(3, accidentReception.getClaimStatus());
-			stmt.setInt(4, accidentReception.getPaymentPrice());
-			stmt.setString(5, accidentReception.getAccidentLocationKana1());
-			stmt.setString(6, accidentReception.getAccidentLocationKana2());
-			stmt.setString(7, accidentReception.getAccidentLocationKanji1());
-			stmt.setString(8, accidentReception.getAccidentLocationKanji2());
-			stmt.setString(9, accidentReception.getAccidentDate());
-			stmt.setString(10, accidentReception.getAccidentSituation());
-			stmt.setInt(11, accidentReception.getRatingBlameMyself());
-			stmt.setInt(12, accidentReception.getRatingBlameYourself());
-			stmt.setInt(13, accidentReception.getDamageCarPrice());
-			stmt.setInt(14, accidentReception.getDamageBodilyPrice());
-			stmt.setInt(15, accidentReception.getDamagePropertyPrice());
-			stmt.setInt(16, accidentReception.getDamageAccidentPrice());
-			stmt.setString(17, accidentReception.getDamageCarState());
-			stmt.setString(18, accidentReception.getDamageBodilyState());
-			stmt.setString(19, accidentReception.getDamagePropertyState());
-			stmt.setString(20, accidentReception.getDamageAccidentState());
-
-
-			stmt.executeUpdate();
-		}finally {
-
-			if(stmt != null) {
-				stmt.close();
-			}
-		}
+//		String sql = "INSERT INTO claim_tbl(claim_no, cover_id, claim_status, payment_price, accident_location_kana1, accident_location_kana2, accident_location_kanji1, accident_location_kanji2, accident_date, accident_situation, rating_blame_myself, rating_blame_yourself, damage_car_price, damage_bodily_price, damage_property_price, damage_accident_price, damage_car_state, damage_bodily_state, damage_property_state,damage_accident_state,)	"
+//				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//
+//
+//
+//		PreparedStatement stmt = null;
+//		try {
+//			stmt=con.prepareStatement(sql);
+//			stmt.setString(1, accidentReception.getClaimNo());
+//			stmt.setInt(2, accidentReception.getCoverId());
+//			stmt.setString(3, accidentReception.getClaimStatus());
+//			stmt.setInt(4, accidentReception.getPaymentPrice());
+//			stmt.setString(5, accidentReception.getAccidentLocationKana1());
+//			stmt.setString(6, accidentReception.getAccidentLocationKana2());
+//			stmt.setString(7, accidentReception.getAccidentLocationKanji1());
+//			stmt.setString(8, accidentReception.getAccidentLocationKanji2());
+//			stmt.setString(9, accidentReception.getAccidentDate());
+//			stmt.setString(10, accidentReception.getAccidentSituation());
+//			stmt.setInt(11, accidentReception.getRatingBlameMyself());
+//			stmt.setInt(12, accidentReception.getRatingBlameYourself());
+//			stmt.setInt(13, accidentReception.getDamageCarPrice());
+//			stmt.setInt(14, accidentReception.getDamageBodilyPrice());
+//			stmt.setInt(15, accidentReception.getDamagePropertyPrice());
+//			stmt.setInt(16, accidentReception.getDamageAccidentPrice());
+//			stmt.setString(17, accidentReception.getDamageCarState());
+//			stmt.setString(18, accidentReception.getDamageBodilyState());
+//			stmt.setString(19, accidentReception.getDamagePropertyState());
+//			stmt.setString(20, accidentReception.getDamageAccidentState());
+//
+//
+//			stmt.executeUpdate();
+//		}finally {
+//
+//			if(stmt != null) {
+//				stmt.close();
+//			}
+//		}
 
 	}
 
