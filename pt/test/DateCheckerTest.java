@@ -47,7 +47,7 @@ package test;
 			String expected = ErrorMsgConst.FORM_ERROR0014;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.inceptionDateCheck("null");
+			String actual = DC.inceptionDateCheck("20210815");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -70,7 +70,7 @@ package test;
 			String expected = null;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.inceptionDateCheck("test");
+			String actual = DC.inceptionDateCheck("20230505");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -94,7 +94,7 @@ package test;
 			String expected = ErrorMsgConst.FORM_ERROR0014;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.conclusionDateCheck("null");
+			String actual = DC.conclusionDateCheck("20210909");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -117,7 +117,7 @@ package test;
 			String expected = null;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.conclusionDateCheck("test");
+			String actual = DC.conclusionDateCheck("20230606");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -141,7 +141,7 @@ package test;
 			String expected = ErrorMsgConst.FORM_ERROR0014;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.birthdayCheck("null");
+			String actual = DC.birthdayCheck("20230505");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -163,7 +163,7 @@ package test;
 			String expected = null;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.birthdayCheck("test");
+			String actual = DC.birthdayCheck("19990909");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -187,7 +187,7 @@ package test;
 			String expected = ErrorMsgConst.FORM_ERROR0014;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.accidentDateCheck("null", null, null);
+			String actual = DC.accidentDateCheck("19990808", "20220909", "20230909");
 
 			/* 検証 */
 			assertEquals(expected, actual);
@@ -210,7 +210,7 @@ package test;
 			String expected = null;
 
 			/* テスト対象メソッドの呼び出し */
-			String actual = DC.accidentDateCheck("test", null, null);
+			String actual = DC.accidentDateCheck("20220901", "19990606","20230909" );
 
 			/* 検証 */
 			assertEquals(expected, actual);
