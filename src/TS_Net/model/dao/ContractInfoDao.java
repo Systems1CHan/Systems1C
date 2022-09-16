@@ -109,7 +109,7 @@ public class ContractInfoDao {
 	 */
 	public ContractInfo getContractInfoByPN(String polNo) throws SQLException {
 
-		String sql = "SELECT * FROM contractinfo_tbl WHERE pol_no = ?";
+		String sql = "SELECT * FROM CONTRACTINFO_TBL WHERE pol_no = ?";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		ContractInfo contractInfo = new ContractInfo();

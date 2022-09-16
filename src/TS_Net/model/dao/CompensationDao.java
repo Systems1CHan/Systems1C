@@ -121,7 +121,7 @@ public class CompensationDao {
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		String sql = "SELECT * FROM cover_tbl WHERE insatsu_renban = ?";
+		String sql = "SELECT * FROM COVER_TBL WHERE insatsu_renban = ?";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		Compensation compensation = new Compensation();
