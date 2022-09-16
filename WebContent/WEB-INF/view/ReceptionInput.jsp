@@ -136,7 +136,7 @@
                                             事故現場住所1-漢字
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="東京都多摩市"value="${sessionScope.accidentReception.getAccidentLocationKanji1()}" >
+                                            <input type="text" name = "accidentlocationkanji1" placeholder="東京都多摩市"value="${sessionScope.accidentReception.getAccidentLocationKanji1()}" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -144,7 +144,7 @@
                                             事故現場住所1-カナ
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="トウキョウトタマシ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}" >
+                                            <input type="text" name = "accidentlocationkana1" placeholder="トウキョウトタマシ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}" >
                                         </td>
                                     </tr>
                                     <tr>
@@ -152,7 +152,7 @@
                                             事故現場住所2-漢字
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="○○町○○番地" value="${sessionScope.accidentReception.getAccidentLocationKanji2()}">
+                                            <input type="text" name = "accidentlocationkanji2" placeholder="○○町○○番地" value="${sessionScope.accidentReception.getAccidentLocationKanji2()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -160,7 +160,7 @@
                                             事故現場住所2-カナ
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="○○チョウ○○バンチ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
+                                            <input type="text" name = "accidentlocationkana2" placeholder="○○チョウ○○バンチ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -168,7 +168,7 @@
                                             相手の状況（被害者側）
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="相手にケガはなし" value="${sessionScope.accidentReception.getAccidentSituation()}">
+                                            <input type="text" placeholder="相手にケガはなし" name = "accidentsituation" value="${sessionScope.accidentReception.getAccidentSituation()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -176,7 +176,7 @@
                                             過失割合（非保険者方）
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="20" value="${sessionScope.accidentReception.getRatingBlameMyself()}">
+                                            <input type="text" placeholder="20" name = "ratingblamemyself" value="${sessionScope.accidentReception.getRatingBlameMyself()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,7 +184,7 @@
                                             過失割合（相手方）
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="80" value="${sessionScope.accidentReception.getRatingBlameYourself()}">
+                                            <input type="text" placeholder="80" name = "ratingblameyourself" value="${sessionScope.accidentReception.getRatingBlameYourself()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -192,7 +192,7 @@
                                             損害額・車両
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001" value="${sessionScope.accidentReception.getDamageCarPriceForLabel()}">
+                                            <input type="text" placeholder="A0000001" name = "damagecarprice" value="${sessionScope.accidentReception.getDamageCarPrice()}">(円)
                                         </td>
                                     </tr>
                                     <tr>
@@ -200,7 +200,7 @@
                                             損害状況・車両
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="一部あり" value="${sessionScope.accidentReception.getDamageCarState()}">
+                                            <input type="text" placeholder="一部あり" name = "damagecarstate" value="${sessionScope.accidentReception.getDamageCarState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -208,7 +208,7 @@
                                             損害額・対人
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001" value="${sessionScope.accidentReception.getDamageBodilyPriceForLabel()}">
+                                            <input type="text" placeholder="A0000001" name = "damagebodilyprice" value="${sessionScope.accidentReception.getDamageBodilyPrice()}">(円)
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,7 +216,7 @@
                                             損害状況・対人
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="なし" value="${sessionScope.accidentReception.getDamageBodilyState()}">
+                                            <input type="text" placeholder="なし" name = "damagebodilystate" value="${sessionScope.accidentReception.getDamageBodilyState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -224,7 +224,7 @@
                                             損害額・対物
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="A0000001" value="${sessionScope.accidentReception.getDamagePropertyPriceForLabel()}">
+                                            <input type="text" placeholder="A0000001" name = "damagepropertyprice" value="${sessionScope.accidentReception.getDamagePropertyPrice()}">(円)
                                         </td>
                                     </tr>
                                     <tr>
@@ -232,7 +232,7 @@
                                             損害状況・対物
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="あり" value="${sessionScope.accidentReception.getDamagePropertyState()}">
+                                            <input type="text" placeholder="あり" name = "damagepropertystate" value="${sessionScope.accidentReception.getDamagePropertyState()}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -240,7 +240,7 @@
                                             損害額・傷害
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="4000円" value="${sessionScope.accidentReception.getDamageAccidentPriceForLabel()}">
+                                            <input type="text" placeholder="4000円" name = "damageaccidentprice" value="${sessionScope.accidentReception.getDamageAccidentPrice()}">(円)
                                         </td>
                                     </tr>
                                     <tr>
@@ -248,7 +248,7 @@
                                             損害状況・傷害
                                         </th>
                                         <td>
-                                            <input type="text" placeholder="左脚捻挫"value="${sessionScope.accidentReception.getDamageAccidentState()}">
+                                            <input type="text" placeholder="左脚捻挫" name = "damageaccidentstate" value="${sessionScope.accidentReception.getDamageAccidentState()}">
                                         </td>
                                     </tr>
                                 </table>

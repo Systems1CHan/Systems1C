@@ -112,6 +112,19 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 					return;
 
 				}
+
+				//取得した事故受付情報の事故受け付けフラグが受付済になっていたら、エラーを出す。
+				if ("9".equals(accidentReception.getClaimStatus())) {
+					request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0010);
+
+					page ="/WEB-INF/view/ReceptionStart.jsp";
+					//契約内容入力画面へforwardする。
+					RequestDispatcher rd = request.getRequestDispatcher(page);
+					rd.forward(request, response);
+					return;
+
+				}
+
 				//事故受付情報の中から補償IDを取り出す。
 				Integer coverId = accidentReception.getCoverId();
 				//補償IDを用いて補償情報を取り出す。
