@@ -87,6 +87,26 @@ import TS_Net.model.data.ContractInfo;
 					return;
 				}
 
+
+				// 要求パラメータを受け取り、事故情報オブジェクトにセットする。
+				accidentReception.setAccidentLocationKana1(request.getParameter("accidentlocationkana1"));
+				accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
+				accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
+				accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
+				accidentReception.setAccidentDate(request.getParameter("accidentdate"));
+				accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
+				accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
+				accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
+				accidentReception.setDamageCarPrice(check(request.getParameter("damagecarprice")));
+				accidentReception.setDamageBodilyPrice(check(request.getParameter("damagebodilyprice")));
+				accidentReception.setDamagePropertyPrice(check(request.getParameter("damagepropertyprice")));
+				accidentReception.setDamageAccidentPrice(check(request.getParameter("damageaccidentprice")));
+				accidentReception.setDamageCarState(request.getParameter("damagecarstate"));
+				accidentReception.setDamageBodilyState(request.getParameter("damagebodilystate"));
+				accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
+				accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
+				accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+
 				//事故受け付けフラグを9完了済みに設定
 				accidentReception.setClaimStatus("9");
 
@@ -98,8 +118,14 @@ import TS_Net.model.data.ContractInfo;
 					accidentDao.connect();
 
 
-					//事故情報オブジェクトをDBに登録する。
+					if ("".equals(accidentDao.getAccidentReceptionByCN(accidentReception.getClaimNo()).getClaimNo())) {
+
+					//INSERT文によって事故受け付け番号・補償ID・事故受け付けフラグをDBに登録する。
 					accidentDao.registAccidentReception(accidentReception);
+
+					}
+					//入力された事故受け付け情報を更新する。
+					accidentDao.updateAccidentReception(accidentReception);
 
 					//事故情報オブジェクトをリクエスト領域に格納する。
 					request.setAttribute("accidentReception", accidentReception);
@@ -132,4 +158,15 @@ import TS_Net.model.data.ContractInfo;
 					RequestDispatcher rd = request.getRequestDispatcher(page);
 					rd.forward(request, response);
 				}
+			public Integer check(String str) {
+				if(str == null) {
+					return 0;
+				}else if(str.equals("")) {
+					return 0;
+				}else {
+					return Integer.parseInt(str);
+				}
+			}
+
+
 }
