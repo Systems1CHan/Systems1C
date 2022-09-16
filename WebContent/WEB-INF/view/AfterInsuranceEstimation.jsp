@@ -7,6 +7,47 @@
 		<meta charset="UTF-8">
 		<title>保険料試算後画面</title>
 		<style type="text/css">
+			/* タブ領域全体 */
+            #tabcontrol {
+                margin: 0;
+                width: 300;
+            }
+
+            /* タブ */
+            #tabcontrol a {
+                display: inline-block;                /* インラインブロック化 */
+                border-width: 1px 1px 0px 1px;        /* 下以外の枠線を引く */
+                border-style: solid;                  /* 枠線の種類：実線 */
+                border-color: black;                  /* 枠線の色：黒色 */
+                border-radius: 0.75em 0.75em 0px 0px; /* 枠線の左上角と右上角だけを丸く */
+                padding: 0.75em 1em;                  /* 内側の余白 */
+                text-decoration: none;                /* リンクの下線を消す */
+                color: black;                         /* 文字色：黒色 */
+                background-color: white;              /* 背景色：白色 */
+                font-weight: bold;                    /* 太字 */
+                position: relative;                   /* JavaScriptでz-indexを調整するために必要 */
+            }
+
+            /* タブにマウスポインタが載った際（任意） */
+            #tabcontrol a:hover {
+                text-decoration: underline;   /* リンクの下線を引く */
+            }
+
+            /* タブの中身 */
+            #tabbody div {
+                border: 1px solid black; /* 黒色の実線を1pxの太さで引く */
+                margin-top: -1px;        /* 上側にあるタブと1pxだけ重ねるために「-1px」を指定 */
+                padding: 1em;            /* 内側の余白 */
+                background-color: white; /* 背景色：白色 */
+                position: relative;      /* z-indexを調整するために必要 */
+                z-index: 0;              /* 重なり順序を「最も背面」にするため */
+                min-height: 5em;         /* 最低の高さが必要なら指定(不要なら省略可) */
+            }
+
+            /* タブの配色 */
+            #tabcontrol a:nth-child(1), #tabbody div:nth-child(1) { background-color: #ffffdd; }	/* 1つ目のタブとその中身用の配色 */
+            #tabcontrol a:nth-child(2), #tabbody div:nth-child(2) { background-color: #ddffdd; }	/* 2つ目のタブとその中身用の配色 */
+
             .btn {
                     position: relative;
                     display: flex;
@@ -73,6 +114,7 @@
                     padding: 10px 0;
                 }
         </style>
+        
         <script type="text/javascript" src="./static/js/transition.js"></script>
 	</head>
 	<body>
@@ -80,7 +122,10 @@
             <h1>契約管理・事故受付システム　ハンディー</h1>
         </header>
         <main>
-        	<form action="" method="get" id="application_frm">
+        	<form action="" method="post" id="application_frm2">
+                <button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
+
+            		<div>
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tbody>
@@ -178,10 +223,11 @@
                                     <button type="button" class="btn">保険料試算</button>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
+                                    <button type="button" class="btn" onclick="toApplicationConfirmPage();">申込書印刷</button>
                                 </td>
                             </tr>
                         </table>
+                    </div>
         	</form>
         </main>
 	</body>
