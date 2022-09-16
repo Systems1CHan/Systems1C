@@ -146,7 +146,7 @@ public AccidentReception() {
 	 */
 	public String getPaymentPriceForlabel(AccidentReception accidentReception) {
 		Integer damageSumPrice = accidentReception.getDamageCarPrice() + accidentReception.getDamageBodilyPrice() + accidentReception.getDamagePropertyPrice() + accidentReception.getDamageAccidentPrice();
-		paymentPrice = accidentReception.getRatingBlameMyself() * damageSumPrice;
+		paymentPrice = accidentReception.getPaymentPrice() * damageSumPrice;
 		return paymentPrice + "円";
 	}
 

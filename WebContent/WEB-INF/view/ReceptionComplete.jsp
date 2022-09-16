@@ -44,7 +44,7 @@
  						<td colspan="2">受付完了</td>
  					</tr>
 					<tr>
-   						<td>事故受付番号</td><td><c:out value="${requestScope.accidentReception.getClaimStatus()}"/></td>
+   						<td>事故受付番号</td><td><c:out value="${requestScope.accidentReception.getClaimNo()}"/></td>
   					</tr>
  					<tr>
    						<td>証券番号</td><td><c:out value="${requestScope.contractInfo.getPolNo()}"/></td>
