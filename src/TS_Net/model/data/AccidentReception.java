@@ -61,6 +61,8 @@ public class AccidentReception implements Serializable {
 	private String damageAccidentState;
 	/* 支払金額*/
 	private Integer paymentPrice;
+	/* 印刷連番*/
+	private String insatsuRenban;
 
 
 
@@ -389,4 +391,14 @@ public AccidentReception() {
 	public void setAccidentSituation(String accidentSituation) {
 		this.accidentSituation = accidentSituation;
 	}
+
+	public String getInsatsuRenban() {
+		return insatsuRenban;
+	}
+
+	public void setInsatsuRenban(String insatsuRenban) {
+		this.insatsuRenban = insatsuRenban;
+	}
+
+
 }

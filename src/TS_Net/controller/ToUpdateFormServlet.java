@@ -107,6 +107,11 @@ import TS_Net.model.data.ContractInfo;
             accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
             accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
             accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+//            accidentReception.setInsatsuRenban(request.getParameter("damageaccidentstate")));
+//            accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+
+
+//            Integer.parseInt(request.getParameter("insatallment"));
 
 
             //事故受け付けフラグを1受付中に設定

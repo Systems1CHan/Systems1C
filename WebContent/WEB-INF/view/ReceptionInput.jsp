@@ -130,6 +130,9 @@
                                         <td>
                                             <input type="date" name = "accidentdate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.accidentReception.getAccidentDate()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(0) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -138,6 +141,9 @@
                                         <td>
                                             <input type="text" name = "accidentlocationkanji1" placeholder="東京都多摩市"value="${sessionScope.accidentReception.getAccidentLocationKanji1()}" >
                                         </td>
+                                        <c:if test="${requestScope.check.get(1) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -146,6 +152,9 @@
                                         <td>
                                             <input type="text" name = "accidentlocationkana1" placeholder="トウキョウトタマシ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}" >
                                         </td>
+                                        <c:if test="${requestScope.check.get(2) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -154,6 +163,9 @@
                                         <td>
                                             <input type="text" name = "accidentlocationkanji2" placeholder="○○町○○番地" value="${sessionScope.accidentReception.getAccidentLocationKanji2()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(3) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -162,6 +174,9 @@
                                         <td>
                                             <input type="text" name = "accidentlocationkana2" placeholder="○○チョウ○○バンチ" value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(4) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -170,6 +185,9 @@
                                         <td>
                                             <input type="text" placeholder="相手にケガはなし" name = "accidentsituation" value="${sessionScope.accidentReception.getAccidentSituation()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(5) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -178,6 +196,9 @@
                                         <td>
                                             <input type="text" placeholder="20" name = "ratingblamemyself" value="${sessionScope.accidentReception.getRatingBlameMyself()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(6) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -186,6 +207,9 @@
                                         <td>
                                             <input type="text" placeholder="80" name = "ratingblameyourself" value="${sessionScope.accidentReception.getRatingBlameYourself()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(7) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -194,6 +218,9 @@
                                         <td>
                                             <input type="text" placeholder="A0000001" name = "damagecarprice" value="${sessionScope.accidentReception.getDamageCarPrice()}">(円)
                                         </td>
+                                        <c:if test="${requestScope.check.get(8) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -202,6 +229,9 @@
                                         <td>
                                             <input type="text" placeholder="一部あり" name = "damagecarstate" value="${sessionScope.accidentReception.getDamageCarState()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(9) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -210,6 +240,9 @@
                                         <td>
                                             <input type="text" placeholder="A0000001" name = "damagebodilyprice" value="${sessionScope.accidentReception.getDamageBodilyPrice()}">(円)
                                         </td>
+                                        <c:if test="${requestScope.check.get(10) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -218,6 +251,9 @@
                                         <td>
                                             <input type="text" placeholder="なし" name = "damagebodilystate" value="${sessionScope.accidentReception.getDamageBodilyState()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(11) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -226,6 +262,9 @@
                                         <td>
                                             <input type="text" placeholder="A0000001" name = "damagepropertyprice" value="${sessionScope.accidentReception.getDamagePropertyPrice()}">(円)
                                         </td>
+                                        <c:if test="${requestScope.check.get(12) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -234,6 +273,9 @@
                                         <td>
                                             <input type="text" placeholder="あり" name = "damagepropertystate" value="${sessionScope.accidentReception.getDamagePropertyState()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(13) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -242,6 +284,9 @@
                                         <td>
                                             <input type="text" placeholder="4000円" name = "damageaccidentprice" value="${sessionScope.accidentReception.getDamageAccidentPrice()}">(円)
                                         </td>
+                                        <c:if test="${requestScope.check.get(14) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                     <tr>
                                         <th>
@@ -250,6 +295,9 @@
                                         <td>
                                             <input type="text" placeholder="左脚捻挫" name = "damageaccidentstate" value="${sessionScope.accidentReception.getDamageAccidentState()}">
                                         </td>
+                                        <c:if test="${requestScope.check.get(15) == 1}">
+                                        	<td><c:out value="未入力です。" /><td/>
+                                        </c:if>
                                     </tr>
                                 </table>
                             </div>
