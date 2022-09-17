@@ -106,7 +106,7 @@ public class ToRecordComfirmServlet extends HttpServlet {
             } else {
 
                 //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
-                if(contract.getInstallment() == 2) {
+                if(contract.getInsuredKbn() == "2") {
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
                     rd.forward(request, response);
 
