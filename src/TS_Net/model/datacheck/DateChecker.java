@@ -22,7 +22,6 @@ import TS_Net.model.constant.ErrorMsgConst;
  * @author RyoIsogami/SYS 2022/09/12
  */
 public class DateChecker {
-
 	/**
 	 * 保険期間始期日チェックメソッド。
 	 * <p>

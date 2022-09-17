@@ -124,17 +124,17 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		CompensationFormChecker comfc = new CompensationFormChecker();
 
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(cfc.check(contractInfo) != null) {
+		if(!(cfc.check(contractInfo) != null)) {
 			request.setAttribute("message", cfc.check(contractInfo));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
-		}else if(comfc.check(compensation) != null) {
+		}else if(!(comfc.check(compensation) != null)) {
 			request.setAttribute("message", comfc.check(compensation));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
 		}else {
 			//申込書印刷確認画面に遷移する
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
 			rd.forward(request, response);
 		}
 	}

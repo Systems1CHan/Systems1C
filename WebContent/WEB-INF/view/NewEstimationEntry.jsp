@@ -164,9 +164,6 @@
             <form action="" method="post" class="radiochange" id="application_frm">
                 <button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
 
-
-            <div class="sample-area">
-
                 <p id="tabcontrol">
                     <a href="#tabpage1">契約条件</a>
                     <a href="#tabpage2">補償</a>
@@ -180,7 +177,7 @@
                                     <h2>
                                       被保険者の個人・法人区分&emsp;&emsp;
                                         <label>
-                                            <input type="radio" name="insuredKbn" value="1" onclick="entryChange1();" checked="checked" <c:if test="${contractInfo.insuredKbn == '1'}"></c:if>>個人
+                                            <input type="radio" name="insuredKbn" value="1" onclick="entryChange1();"checked="checked" <c:if test="${contractInfo.insuredKbn == '1'}"></c:if>>個人
                                         </label>
                                         <label>
                                             <input type="radio" name="insuredKbn" value="2" onclick="entryChange1();" <c:if test="${contractInfo.insuredKbn == '2'}"></c:if>>法人
@@ -189,7 +186,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table id="個人" width="2500">
+                            <table id="個人" >
                             <tbody>
 
                                 <tr>
@@ -198,7 +195,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate }" required>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -207,7 +204,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="inceptiontime" name="inceptionTime" size="60" placeholder="16" value="${sessionScope.contractInfo.inceptionTime }" required>
+                                        <input type="text" id="inceptiontime" name="inceptionTime" size="60" placeholder="16" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -216,7 +213,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate }" required>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -225,7 +222,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="conclusiontime" name="conclusionTime" size="60" placeholder="16" value="${sessionScope.contractInfo.conclusionTime }" required>
+                                        <input type="text" id="conclusiontime" name="conclusionTime" size="60" placeholder="16" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -235,8 +232,8 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="paymentMethod" id="paymentMethod" required>
-                                            <option value="1"<c:if test="${sessionScope.contractInfo.paymentMethod == '1'}"></c:if>>直接集金</option>
-                                            <option value="2" selected="selected" <c:if test="${sessionScope.contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
+                                            <option value="1" selected="selected"<c:if test="${sessionScope.contractInfo.paymentMethod == '1'}"></c:if>>直接集金</option>
+                                            <option value="2"<c:if test="${sessionScope.contractInfo.paymentMethod == '2'}"></c:if>>口座振替</option>
                                             <option value="3"<c:if test="${sessionScope.contractInfo.paymentMethod == '3'}"></c:if>>クレジットカード</option>
                                         </select>
                                     </td>
@@ -248,12 +245,12 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="installment" id="installment" required>
-                                            <option value="1"<c:if test="${sessionScope.contractInfo.installment == '1'}"></c:if>>1</option>
-                                            <option value="2"<c:if test="${sessionScope.contractInfo.installment == '2'}"></c:if>>2</option>
+                                            <option value="1" selected="selected"<c:if test="${sessionScope.contractInfo.installment == '1'}"></c:if>>1</option>
+                                            <option value="2"<c:if test="${sessionScope.contractInfo.installment == '2'}">"</c:if>>2</option>
                                             <option value="3"<c:if test="${sessionScope.contractInfo.installment == '3'}"></c:if>>3</option>
                                             <option value="4"<c:if test="${sessionScope.contractInfo.installment == '4'}"></c:if>>4</option>
                                             <option value="6"<c:if test="${sessionScope.contractInfo.installment == '6'}"></c:if>>6</option>
-                                            <option value="12" selected="selected" <c:if test="${sessionScope.contractInfo.installment == '12'}"></c:if>>12</option>
+                                            <option value="12"<c:if test="${sessionScope.contractInfo.installment == '12'}"></c:if>>12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -263,7 +260,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ" maxlength="48" value="${sessionScope.contractInfo.nameKana1 }" required>
+                                        <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ" maxlength="48" value="${sessionScope.contractInfo.nameKana1}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -272,7 +269,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ" maxlength="48" value="${sessionScope.contractInfo.nameKana2 }" required>
+                                        <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ" maxlength="48" value="${sessionScope.contractInfo.Kana2}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -281,7 +278,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海" maxlength="48" value="${sessionScope.contractInfo.nameKanji1 }" required>
+                                        <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海" maxlength="48" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -290,7 +287,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎" maxlength="48" value="${sessionScope.contractInfo.nameKanji2 }" required>
+                                        <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎" maxlength="48" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -299,7 +296,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" maxlength="7" value="${sessionScope.contractInfo.postcode }" required>
+                                        <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" maxlength="7" value="${sessionScope.contractInfo.inceptionDate}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -308,7 +305,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${sessionScope.contractInfo.addressKana1 }" required>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${sessionScope.contractInfo.addressKanji1}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -317,7 +314,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${sessionScope.contractInfo.addressKana2 }" required>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${sessionScope.contractInfo.addressKanji1}" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -401,6 +398,7 @@
                                         <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }" required>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">
                                         <label for="inceptionTime">保険期間始期時刻</label>
@@ -437,9 +435,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="paymentMethod" id="paymentMethod" required>
-                                            <option value="1"<c:if test="${sessionScope.contractInfo.paymentMethod == '1'}"></c:if>>直接集金</option>
-                                            <option value="2" selected="selected" <c:if test="${sessionScope.contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
-                                            <option value="3"<c:if test="${sessionScope.contractInfo.paymentMethod == '3'}"></c:if>>クレジットカード</option>
+                                            <option value="1"<c:if test="${contractInfo.paymentMethod == '1'}">selected="selected"</c:if>>直接集金</option>
+                                            <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
+                                            <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}">selected="selected"</c:if>>クレジットカード</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -450,12 +448,12 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="installment" id="installment" required>
-                                            <option value="1"<c:if test="${sessionScope.contractInfo.installment == '1'}"></c:if>>1</option>
-                                            <option value="2"<c:if test="${sessionScope.contractInfo.installment == '2'}"></c:if>>2</option>
-                                            <option value="3"<c:if test="${sessionScope.contractInfo.installment == '3'}"></c:if>>3</option>
-                                            <option value="4"<c:if test="${sessionScope.contractInfo.installment == '4'}"></c:if>>4</option>
-                                            <option value="6"<c:if test="${sessionScope.contractInfo.installment == '6'}"></c:if>>6</option>
-                                            <option value="12" selected="selected" <c:if test="${sessionScope.contractInfo.installment == '12'}"></c:if>>12</option>
+                                            <option value="1"<c:if test="${contractInfo.installment == '1'}">selected="selected"</c:if>>1</option>
+                                            <option value="2"<c:if test="${contractInfo.installment == '2'}">selected="selected"</c:if>>2</option>
+                                            <option value="3"<c:if test="${contractInfo.installment == '3'}">selected="selected"</c:if>>3</option>
+                                            <option value="4"<c:if test="${contractInfo.installment == '4'}">selected="selected"</c:if>>4</option>
+                                            <option value="6"<c:if test="${contractInfo.installment == '6'}">selected="selected"</c:if>>6</option>
+                                            <option value="12"<c:if test="${contractInfo.installment == '12'}">selected="selected"</c:if>>12</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -610,14 +608,14 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="maker" id="maker" required>
-                                            <option value="lexus"<c:if test="${compensation.maker == 'lexus'}"></c:if>>レクサス</option>
-                                            <option value="matsuda"<c:if test="${compensation.maker == 'matsuda'}"></c:if>>マツダ</option>
-                                            <option value="honda"<c:if test="${compensation.maker == 'honda'}"></c:if>>ホンダ</option>
-                                            <option value="nissan" selected="selected" <c:if test="${compensation.maker == 'nissan'}"></c:if>>ニッサン</option>
-                                            <option value="toyota"<c:if test="${compensation.maker == 'toyota'}"></c:if>>トヨタ</option>
-                                            <option value="subaru"<c:if test="${compensation.maker == 'subaru'}"></c:if>>スバル</option>
-                                            <option value="suzuki"<c:if test="${compensation.maker == 'suzuki'}"></c:if>>スズキ</option>
-                                            <option value="mitsubishi"<c:if test="${compensation.maker == 'mitsubishi'}"></c:if>>三菱</option>
+                                            <option value="lexus"<c:if test="${compensation.maker == 'lexus'}">selected="selected"</c:if>>レクサス</option>
+                                            <option value="matsuda"<c:if test="${compensation.maker == 'matsuda'}">selected="selected"</c:if>>マツダ</option>
+                                            <option value="honda"<c:if test="${compensation.maker == 'honda'}">selected="selected"</c:if>>ホンダ</option>
+                                            <option value="nissan"<c:if test="${compensation.maker == 'nissan'}">selected="selected"</c:if>>ニッサン</option>
+                                            <option value="toyota"<c:if test="${compensation.maker == 'toyota'}">selected="selected"</c:if>>トヨタ</option>
+                                            <option value="subaru"<c:if test="${compensation.maker == 'subaru'}">selected="selected"</c:if>>スバル</option>
+                                            <option value="suzuki"<c:if test="${compensation.maker == 'suzuki'}">selected="selected"</c:if>>スズキ</option>
+                                            <option value="mitsubishi"<c:if test="${compensation.maker == 'mitsubishi'}">selected="selected"</c:if>>三菱</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -627,30 +625,30 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="carName" id="carName">
-                                            <option value="LS"<c:if test="${compensation.carName == 'LS'}"></c:if>>（レクサス）LS</option>
-                                            <option value="GS"<c:if test="${compensation.carName == 'GS'}"></c:if>>（レクサス）GS</option>
-                                            <option value="IS"<c:if test="${compensation.carName == 'IS'}"></c:if>>（レクサス）IS</option>
-                                            <option value="デミオ"<c:if test="${compensation.carName == 'デミオ'}"></c:if>>（マツダ）デミオ</option>
-                                            <option value="アクセラ"<c:if test="${compensation.carName == 'アクセラ'}"></c:if>>（マツダ）アクセラ</option>
-                                            <option value="アテンザ"<c:if test="${compensation.carName == 'アテンザ'}"></c:if>>（マツダ）アテンザ</option>
-                                            <option value="インテグラ"<c:if test="${compensation.carName == 'インテグラ'}"></c:if>>（ホンダ）インテグラ</option>
-                                            <option value="ステップワゴン"<c:if test="${compensation.carName == 'ステップワゴン'}"></c:if>>（ホンダ）ステップワゴン</option>
+                                            <option value="LS"<c:if test="${compensation.carName == 'LS'}">selected="selected"</c:if>>（レクサス）LS</option>
+                                            <option value="GS"<c:if test="${compensation.carName == 'GS'}">selected="selected"</c:if>>（レクサス）GS</option>
+                                            <option value="IS"<c:if test="${compensation.carName == 'IS'}">selected="selected"</c:if>>（レクサス）IS</option>
+                                            <option value="デミオ"<c:if test="${compensation.carName == 'デミオ'}">selected="selected"</c:if>>（マツダ）デミオ</option>
+                                            <option value="アクセラ"<c:if test="${compensation.carName == 'アクセラ'}">selected="selected"</c:if>>（マツダ）アクセラ</option>
+                                            <option value="アテンザ"<c:if test="${compensation.carName == 'アテンザ'}">selected="selected"</c:if>>（マツダ）アテンザ</option>
+                                            <option value="インテグラ"<c:if test="${compensation.carName == 'インテグラ'}">selected="selected"</c:if>>（ホンダ）インテグラ</option>
+                                            <option value="ステップワゴン"<c:if test="${compensation.carName == 'ステップワゴン'}">selected="selected"</c:if>>（ホンダ）ステップワゴン</option>
                                             <option value="アコードハイブリッド"<c:if test="${compensation.carName == 'アコードハイブリッド'}"></c:if>>（ホンダ）アコードハイブリッド</option>
-                                            <option value="フーガ"<c:if test="${compensation.carName == 'フーガ'}"></c:if>>（ニッサン）フーガ</option>
-                                            <option value="マーチ" selected="selected" <c:if test="${compensation.carName == 'マーチ'}"></c:if>>（ニッサン）マーチ</option>
-                                            <option value="セレナ"<c:if test="${compensation.carName == 'セレナ'}"></c:if>>（ニッサン）セレナ</option>
-                                            <option value="スカイライン"<c:if test="${compensation.carName == 'スカイライン'}"></c:if>>（ニッサン）スカイライン</option>
-                                            <option value="カローラアクシオ"<c:if test="${compensation.carName == 'カローラアクシオ'}"></c:if>>（トヨタ）カローラアクシオ</option>
-                                            <option value="アクア"<c:if test="${compensation.carName == 'アクア'}"></c:if>>（トヨタ）アクア</option>
-                                            <option value="クラウン"<c:if test="${compensation.carName == 'クラウン'}"></c:if>>（トヨタ）クラウン</option>
-                                            <option value="レガシィ"<c:if test="${compensation.carName == 'レガシィ'}"></c:if>>（スバル）レガシィ</option>
-                                            <option value="WRX"<c:if test="${compensation.carName == 'WRX'}"></c:if>>（スバル）WRX</option>
-                                            <option value="レヴォーグ"<c:if test="${compensation.carName == 'レヴォーグ'}"></c:if>>（スバル）レヴォーグ</option>
-                                            <option value="スイフト"<c:if test="${compensation.carName == 'スイフト'}"></c:if>>（スズキ）スイフト</option>
-                                            <option value="キザシ"<c:if test="${compensation.carName == 'キザシ'}"></c:if>>（スズキ）キザシ</option>
-                                            <option value="エスクード"<c:if test="${compensation.carName == 'エスクード'}"></c:if>>（スズキ）エスクード</option>
-                                            <option value="アウトラウンダーPHEV"<c:if test="${compensation.carName == 'アウトラウンダーPHEV'}"></c:if>>（三菱）アウトラウンダーPHEV</option>
-                                            <option value="デリカD:5"<c:if test="${compensation.carName == 'デリカD:5'}"></c:if>>（三菱）デリカD:5</option>
+                                            <option value="フーガ"<c:if test="${compensation.carName == 'フーガ'}">selected="selected"</c:if>>（ニッサン）フーガ</option>
+                                            <option value="マーチ"<c:if test="${compensation.carName == 'マーチ'}">selected="selected"</c:if>>（ニッサン）マーチ</option>
+                                            <option value="セレナ"<c:if test="${compensation.carName == 'セレナ'}">selected="selected"</c:if>>（ニッサン）セレナ</option>
+                                            <option value="スカイライン"<c:if test="${compensation.carName == 'スカイライン'}">selected="selected"</c:if>>（ニッサン）スカイライン</option>
+                                            <option value="カローラアクシオ"<c:if test="${compensation.carName == 'カローラアクシオ'}">selected="selected"</c:if>>（トヨタ）カローラアクシオ</option>
+                                            <option value="アクア"<c:if test="${compensation.carName == 'アクア'}">selected="selected"</c:if>>（トヨタ）アクア</option>
+                                            <option value="クラウン"<c:if test="${compensation.carName == 'クラウン'}">selected="selected"</c:if>>（トヨタ）クラウン</option>
+                                            <option value="レガシィ"<c:if test="${compensation.carName == 'レガシィ'}">selected="selected"</c:if>>（スバル）レガシィ</option>
+                                            <option value="WRX"<c:if test="${compensation.carName == 'WRX'}">selected="selected"</c:if>>（スバル）WRX</option>
+                                            <option value="レヴォーグ"<c:if test="${compensation.carName == 'レヴォーグ'}">selected="selected"</c:if>>（スバル）レヴォーグ</option>
+                                            <option value="スイフト"<c:if test="${compensation.carName == 'スイフト'}">selected="selected"</c:if>>（スズキ）スイフト</option>
+                                            <option value="キザシ"<c:if test="${compensation.carName == 'キザシ'}">selected="selected"</c:if>>（スズキ）キザシ</option>
+                                            <option value="エスクード"<c:if test="${compensation.carName == 'エスクード'}">selected="selected"</c:if>>（スズキ）エスクード</option>
+                                            <option value="アウトラウンダーPHEV"<c:if test="${compensation.carName == 'アウトラウンダーPHEV'}">selected="selected"</c:if>>（三菱）アウトラウンダーPHEV</option>
+                                            <option value="デリカD:5"<c:if test="${compensation.carName == 'デリカD:5'}">selected="selected"</c:if>>（三菱）デリカD:5</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -896,9 +894,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="licenseColor" id="licenseColor">
-                                            <option value="1"<c:if test="${compensation.licenseColor == '1'}"></c:if>>ブルー</option>
-                                            <option value="2"<c:if test="${compensation.licenseColor == '2'}"></c:if>>グリーン</option>
-                                            <option value="3" selected="selected"<c:if test="${compensation.licenseColor == '3'}"></c:if>>ゴールド</option>
+                                            <option value="1"<c:if test="${compensation.licenseColor == '1'}">selected="selected"</c:if>>ブルー</option>
+                                            <option value="2"<c:if test="${compensation.licenseColor == '2'}">selected="selected"</c:if>>グリーン</option>
+                                            <option value="3"<c:if test="${compensation.licenseColor == '3'}">selected="selected"</c:if>>ゴールド</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -909,9 +907,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <select name="ageLimit" id="ageLimit">
-                                            <option value="1"<c:if test="${compensation.ageLimit == '1'}"></c:if>>無条件</option>
-                                            <option value="2" selected="selected" <c:if test="${compensation.ageLimit == '2'}"></c:if>>21歳以上</option>
-                                            <option value="3"<c:if test="${compensation.ageLimit == '3'}"></c:if>>26歳以上</option>
+                                            <option value="1"<c:if test="${compensation.ageLimit == '1'}">selected="selected"</c:if>>無条件</option>
+                                            <option value="2"<c:if test="${compensation.ageLimit == '2'}">selected="selected"</c:if>>21歳以上</option>
+                                            <option value="3"<c:if test="${compensation.ageLimit == '3'}">selected="selected"</c:if>>26歳以上</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -929,7 +927,6 @@
                         </table>
                         </div>
                 	</div>
-            	</div>
             </form>
 
 

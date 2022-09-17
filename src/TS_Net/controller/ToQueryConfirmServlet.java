@@ -37,126 +37,127 @@ import TS_Net.model.datacheck.BlankChecker;
 @WebServlet("/ToQueryConfirm")
 public class ToQueryConfirmServlet extends HttpServlet {
 
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//文字化けを防止する。
-		request.setCharacterEncoding(SystemConst.CHAR_SET);
-		String page = "/WEB-INF/view/QueryConfirm.jsp";
-		//dataオブジェクトを生成する。
-		ContractInfo contractInfo = null;
-		Compensation compensation = null;
-		//DAOを生成する。
-		ContractInfoDao contractInfoDao = new ContractInfoDao();
-		CompensationDao compensationDao = new CompensationDao();
+        //文字化けを防止する。
+        request.setCharacterEncoding(SystemConst.CHAR_SET);
+        String page = "/WEB-INF/view/QueryConfirm.jsp";
+        //dataオブジェクトを生成する。
+        ContractInfo contractInfo = null;
+        Compensation compensation = null;
+        //DAOを生成する。
+        ContractInfoDao contractInfoDao = new ContractInfoDao();
+        CompensationDao compensationDao = new CompensationDao();
 
-		//空白チェッククラス生成。
-		BlankChecker blankChecker = new BlankChecker();
+        //空白チェッククラス生成。
+        BlankChecker blankChecker = new BlankChecker();
 
-		String polNo = request.getParameter("polNo");
+        String polNo = request.getParameter("polNo");
 
-		//チェック結果がnull出ない場合はリクエストスコープのエラーメッセージをセットし、契約内容入力画面を返す。
-		if (blankChecker.blankCheck(polNo) != null) {
 
-			request.setAttribute("FORM_ERROR", blankChecker.blankCheck(polNo));
+        //チェック結果がnull出ない場合はリクエストスコープのエラーメッセージをセットし、契約内容入力画面を返す。
+        if (blankChecker.blankCheck(polNo) != null) {
 
-			page ="/WEB-INF/view/QueryStart.jsp";
-			//契約内容入力画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
-			return;
+            request.setAttribute("FORM_ERROR", blankChecker.blankCheck(polNo));
 
-		}
+            page ="/WEB-INF/view/QueryStart.jsp";
+            //契約内容入力画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
+            return;
 
-		try {
-			contractInfoDao.connect();
-			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			contractInfo = contractInfoDao.getContractInfoByPN(polNo);
+        }
 
-			//オブジェクト内の証券番号が存在するかどうかをチェックし、存在しなければエラー文を表示する。
-			if (contractInfo.getPolNo() == null) {
-				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
+        try {
+            contractInfoDao.connect();
+            //証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+            contractInfo = contractInfoDao.getContractInfoByPN(polNo);
+
+            //オブジェクト内の証券番号が存在するかどうかをチェックし、存在しなければエラー文を表示する。
+            if ("".equals(contractInfo.getPolNo())) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
 //				request.setAttribute("FORM_ERROR", contractInfoDao.getMaxInsatsuRenban());
 
-				page ="/WEB-INF/view/QueryStart.jsp";
-				//契約内容入力画面へforwardする。
-				RequestDispatcher rd = request.getRequestDispatcher(page);
-				rd.forward(request, response);
-				return;
+                page ="/WEB-INF/view/QueryStart.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
 
-			}
+            }
 
-			//オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
-			if(contractInfo.getInstallment() == 2) {
-				page = "/WEB-INF/view/QueryConfirmCompany.jsp";
+            //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+            if(contractInfo.getInstallment() == 2) {
+                page = "/WEB-INF/view/QueryConfirmCompany.jsp";
 
-			}
-			//リクエスト領域に格納する。
-			request.setAttribute("contractInfo", contractInfo);
-
-
-		} catch (ClassNotFoundException | SQLException e) {
-
-			e.printStackTrace();
-			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-			// システムエラー画面を戻り値に設定する。
-			page = "/WEB-INF/view/ErrorPage.jsp";
-			//システムエラー画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
-
-		}
-
-		finally {
-			try {
-				contractInfoDao.close();
-
-			} catch(SQLException e) {
-				request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-				// システムエラー画面を戻り値に設定する。
-				page = "/WEB-INF/view/ErrorPage.jsp";
-			}
-
-		}
+            }
+            //リクエスト領域に格納する。
+            request.setAttribute("contractInfo", contractInfo);
 
 
-		try {
-			compensationDao.connect();
-			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
-			//リクエスト領域に格納する。
-			request.setAttribute("compensation", compensation);
+        } catch (ClassNotFoundException | SQLException e) {
 
-		} catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+            // システムエラー画面を戻り値に設定する。
+            page = "/WEB-INF/view/ErrorPage.jsp";
+            //システムエラー画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
 
-			e.printStackTrace();
-			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-			// システムエラー画面を戻り値に設定する。
-			page = "/WEB-INF/view/ErrorPage.jsp";
-			//システムエラー画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
+        }
 
-		}
+        finally {
+            try {
+                contractInfoDao.close();
 
-		finally {
-			try {
-				contractInfoDao.close();
+            } catch(SQLException e) {
+                request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+            }
 
-			} catch(SQLException e) {
-				request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-				// システムエラー画面を戻り値に設定する。
-				page = "/WEB-INF/view/ErrorPage.jsp";
-			}
-
-		}
+        }
 
 
-		/* セットされたJSPへforwardする。*/
-		RequestDispatcher rd = request.getRequestDispatcher(page);
-		rd.forward(request, response);
+        try {
+            compensationDao.connect();
+            //証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+            compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
+            //リクエスト領域に格納する。
+            request.setAttribute("compensation", compensation);
 
-	}
+        } catch (ClassNotFoundException | SQLException e) {
+
+            e.printStackTrace();
+            request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+            // システムエラー画面を戻り値に設定する。
+            page = "/WEB-INF/view/ErrorPage.jsp";
+            //システムエラー画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
+
+        }
+
+        finally {
+            try {
+                contractInfoDao.close();
+
+            } catch(SQLException e) {
+                request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+            }
+
+        }
+
+
+        /* セットされたJSPへforwardする。*/
+        RequestDispatcher rd = request.getRequestDispatcher(page);
+        rd.forward(request, response);
+
+    }
 
 }
 

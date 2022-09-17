@@ -72,8 +72,30 @@
                     background-color: #eee;
                     padding: 10px 0;
                 }
+
+                input:required{
+                    background: #ffcdd2;
+                }
+                input:valid{
+                    background: transparent;
+                }
+                input:focus{
+                    background: #DCEDC8;
+                }
+
+                .form-require {
+                    border-radius: 5px;
+                    margin-right: 10px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    width: 45px;
+                    display: inline-block;
+                    text-align: center;
+                    background: red;
+                    color: #fff;
+                    font-size: 12px;
+                }
         </style>
-        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
@@ -86,8 +108,7 @@
             </table>
         </header>
         <main>
-
-        	<form action="" id="finishprint_frm" method="post">
+        	<form action="" id="finishprint_frm" method="get">
             <table border="1" width="80%">
                 <tbody>
                 <tr>
@@ -95,11 +116,11 @@
                 </tr>
                 <tr>
                     <td>印刷連番</td>
-                    <td><c:out value="${contractInfo.insatsuRenban }" /></td>
+                    <td>A000001</td>
                 </tr>
                 <tr>
                     <td>契約者名</td>
-                    <td><c:out value="${contractInfo.getkanaNameForLabel()}" /></td>
+                    <td><c:out value="{contractInfo.getkanaNameForLabel()}" /></td>
                 </tr>
                 </tbody>
             </table>

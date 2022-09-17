@@ -31,56 +31,56 @@ import TS_Net.model.datacheck.BlankChecker;
 @WebServlet("/ToTerminationConfirm")
 public class ToTerminationConfirmServlet extends HttpServlet {
 
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//文字化けを防止する。
-		request.setCharacterEncoding(SystemConst.CHAR_SET);
-		String page = "/WEB-INF/view/TerminationConfirm.jsp";
-		//dataオブジェクトを生成する。
-		ContractInfo contractInfo = null;
-		Compensation compensation = null;
-		//DAOを生成する。
-		ContractInfoDao contractInfoDao = new ContractInfoDao();
-		CompensationDao compensationDao = new CompensationDao();
+        //文字化けを防止する。
+        request.setCharacterEncoding(SystemConst.CHAR_SET);
+        String page = "/WEB-INF/view/TerminationConfirm.jsp";
+        //dataオブジェクトを生成する。
+        ContractInfo contractInfo = null;
+        Compensation compensation = null;
+        //DAOを生成する。
+        ContractInfoDao contractInfoDao = new ContractInfoDao();
+        CompensationDao compensationDao = new CompensationDao();
 
-		//セッションを生成する。
-		HttpSession session = request.getSession(true);
+        //セッションを生成する。
+        HttpSession session = request.getSession(true);
 
-		//空白チェックオブジェクトを生成。
-		BlankChecker blankChecker = new BlankChecker();
+        //空白チェックオブジェクトを生成。
+        BlankChecker blankChecker = new BlankChecker();
 
-		String polNo = request.getParameter("polNo");
+        String polNo = request.getParameter("polNo");
 
-		//チェック結果がnull出ない場合はリクエストスコープのエラーメッセージをセットし、契約内容入力画面を返す。
-		if (blankChecker.blankCheck(polNo) != null) {
+        //チェック結果がnull出ない場合はリクエストスコープのエラーメッセージをセットし、契約内容入力画面を返す。
+        if (blankChecker.blankCheck(polNo) != null) {
 
-			request.setAttribute("FORM_ERROR", blankChecker.blankCheck(polNo));
+            request.setAttribute("FORM_ERROR", blankChecker.blankCheck(polNo));
 
-			page ="/WEB-INF/view/TerminationStart.jsp";
-			//契約内容入力画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
-			return;
+            page ="/WEB-INF/view/TerminationStart.jsp";
+            //契約内容入力画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
+            return;
 
-		}
+        }
 
 
-		try {
-			contractInfoDao.connect();
-			//証券番号に合致する契約情報を取得し、オブジェクトに格納する。
-			contractInfo = contractInfoDao.getContractInfoByPN(polNo);
+        try {
+            contractInfoDao.connect();
+            //証券番号に合致する契約情報を取得し、オブジェクトに格納する。
+            contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
-			//取り出したオブジェクトの証券番号がnullの場合は存在しないエラーを表示。
-			if (contractInfo.getPolNo() == null) {
-				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
+            //取り出したオブジェクトの証券番号がnullの場合は存在しないエラーを表示。
+            if ("".equals(contractInfo.getPolNo())) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
 
-				page ="/WEB-INF/view/TerminationStart.jsp";
-				//契約内容入力画面へforwardする。
-				RequestDispatcher rd = request.getRequestDispatcher(page);
-				rd.forward(request, response);
-				return;
-			}
+                page ="/WEB-INF/view/TerminationStart.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+            }
 
 //			if (contractInfo.getCancelFlg().equals("0")) {
 //				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
@@ -91,74 +91,74 @@ public class ToTerminationConfirmServlet extends HttpServlet {
 //				rd.forward(request, response);
 //				return;
 //			}
-			//セッション領域に格納する。
-			session.setAttribute("contractInfo", contractInfo);
+            //セッション領域に格納する。
+            session.setAttribute("contractInfo", contractInfo);
 
 
-		} catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
 
-			e.printStackTrace();
-			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-			// システムエラー画面を戻り値に設定する。
-			page = "/WEB-INF/view/ErrorPage.jsp";
-			//システムエラー画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
+            e.printStackTrace();
+            request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+            // システムエラー画面を戻り値に設定する。
+            page = "/WEB-INF/view/ErrorPage.jsp";
+            //システムエラー画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
 
-		}
+        }
 
-		finally {
-			try {
-				contractInfoDao.close();
+        finally {
+            try {
+                contractInfoDao.close();
 
-			} catch(SQLException e) {
-				request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-				// システムエラー画面を戻り値に設定する。
-				page = "/WEB-INF/view/ErrorPage.jsp";
-			}
+            } catch(SQLException e) {
+                request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+            }
 
-		}
-
-
-		try {
-			compensationDao.connect();
-			//印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
-			compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
+        }
 
 
-			//リクエスト領域に格納する。
-			request.setAttribute("compensation", compensation);
-
-		} catch (ClassNotFoundException | SQLException e) {
-
-			e.printStackTrace();
-			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-			// システムエラー画面を戻り値に設定する。
-			page = "/WEB-INF/view/ErrorPage.jsp";
-			//システムエラー画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
-
-		}
-
-		finally {
-			try {
-				contractInfoDao.close();
-
-			} catch(SQLException e) {
-				request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
-				// システムエラー画面を戻り値に設定する。
-				page = "/WEB-INF/view/ErrorPage.jsp";
-			}
-
-		}
+        try {
+            compensationDao.connect();
+            //印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
+            compensation = compensationDao.getCompensationByIR(contractInfo.getInsatsuRenban());
 
 
-		/* 解約確認JSPへforwardする。*/
-		RequestDispatcher rd = request.getRequestDispatcher(page);
-		rd.forward(request, response);
+            //リクエスト領域に格納する。
+            request.setAttribute("compensation", compensation);
 
-	}
+        } catch (ClassNotFoundException | SQLException e) {
+
+            e.printStackTrace();
+            request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+            // システムエラー画面を戻り値に設定する。
+            page = "/WEB-INF/view/ErrorPage.jsp";
+            //システムエラー画面へforwardする。
+            RequestDispatcher rd = request.getRequestDispatcher(page);
+            rd.forward(request, response);
+
+        }
+
+        finally {
+            try {
+                contractInfoDao.close();
+
+            } catch(SQLException e) {
+                request.setAttribute("ERROR", ErrorMsgConst.SYSTEM_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+            }
+
+        }
+
+
+        /* 解約確認JSPへforwardする。*/
+        RequestDispatcher rd = request.getRequestDispatcher(page);
+        rd.forward(request, response);
+
+    }
 
 
 }
