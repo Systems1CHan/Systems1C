@@ -10,9 +10,10 @@
  */
 package TS_Net.model.datacheck;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.data.AccidentReception;
 
 /**
@@ -33,47 +34,77 @@ public class AccidentReceptionFormChecker {
 	 * @param rp 事故情報
 	 * @return null null値
 	 */
-	public String check(AccidentReception rp) {
-		if(Objects.equals(rp.getClaimNo(), null) || rp.getClaimNo().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentLocationKana1(), null) || rp.getAccidentLocationKana1().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentLocationKana2(), null) || rp.getAccidentLocationKana2().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentLocationKanji1(), null) || rp.getAccidentLocationKanji1().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentLocationKanji2(), null) || rp.getAccidentLocationKanji2().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentDate(), null) || rp.getAccidentDate().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getAccidentSituation(), null)|| rp.getAccidentSituation().isEmpty()){
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getRatingBlameMyself(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getRatingBlameYourself(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageCarPrice(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageBodilyPrice(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamagePropertyPrice(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageAccidentPrice(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageCarState(), null) || rp.getDamageCarState().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageBodilyState(), null) || rp.getDamageBodilyState().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamagePropertyState(), null) || rp.getDamagePropertyState().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getDamageAccidentState(), null) || rp.getDamageAccidentState().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(rp.getPaymentPrice(), null)) {
-			return ErrorMsgConst.FORM_ERROR0002;
+	public List<Integer> check(AccidentReception rp) {
+		List<Integer> num = new ArrayList<Integer>();
+
+		if(Objects.equals(rp.getAccidentDate(), null) || rp.getAccidentDate().isEmpty()) {
+			num.add(1);
 		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getAccidentLocationKanji1(), null) || rp.getAccidentLocationKanji1().isEmpty()) {
+			num.add(1);
+			}else {
+				num.add(0);
+		}if(Objects.equals(rp.getAccidentLocationKana1(), null) || rp.getAccidentLocationKana1().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getAccidentLocationKanji2(), null) || rp.getAccidentLocationKanji2().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getAccidentLocationKana2(), null) || rp.getAccidentLocationKana2().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getAccidentSituation(), null)|| rp.getAccidentSituation().isEmpty()){
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getRatingBlameMyself(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getRatingBlameYourself(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageCarPrice(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageCarState(), null) || rp.getDamageCarState().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageBodilyPrice(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageBodilyState(), null) || rp.getDamageBodilyState().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamagePropertyPrice(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamagePropertyState(), null) || rp.getDamagePropertyState().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageAccidentPrice(), null)) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(rp.getDamageAccidentState(), null) || rp.getDamageAccidentState().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}
 
 			//チェックがOKの場合、nullを戻り値として返す
-			return null;
-		}
+			return num;
+
 	}
 }

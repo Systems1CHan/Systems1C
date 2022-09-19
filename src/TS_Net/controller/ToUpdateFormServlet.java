@@ -32,6 +32,7 @@ import TS_Net.model.constant.SystemConst;
 import TS_Net.model.dao.AccidentDao;
 import TS_Net.model.data.AccidentReception;
 import TS_Net.model.data.ContractInfo;
+import TS_Net.model.datacheck.DateChecker;
         @WebServlet("/ToUpdateForm")
         public class ToUpdateFormServlet extends HttpServlet {
 
@@ -80,7 +81,6 @@ import TS_Net.model.data.ContractInfo;
                 request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
                 // システムエラー画面を戻り値に設定する。
                 page = "/WEB-INF/view/ErrorPage.jsp";
-                page = "/WEB-INF/view/ReceptionUpdate.jsp";
                 //システムエラー画面へforwardする。
                 RequestDispatcher rd = request.getRequestDispatcher(page);
                 rd.forward(request, response);
@@ -94,7 +94,7 @@ import TS_Net.model.data.ContractInfo;
             accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
             accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
             accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
-            accidentReception.setAccidentDate(request.getParameter("accidentdate"));
+            accidentReception.setAccidentDate(request.getParameter("accidentdate").replace("-",""));
             accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
             accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
             accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
@@ -107,6 +107,31 @@ import TS_Net.model.data.ContractInfo;
             accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
             accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
             accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+//            accidentReception.setInsatsuRenban(request.getParameter("damageaccidentstate")));
+//            accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+
+
+//            Integer.parseInt(request.getParameter("insatallment"));
+
+
+            DateChecker datecheck = new DateChecker();
+
+
+            String accidentDate = accidentReception.getAccidentDate();
+            String inceptionDate = contractInfo.getInceptionDate();
+            String conclusionDate = contractInfo.getConclusionDate();
+
+            if(datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate) != null) {
+
+            	request.setAttribute("FORM_ERROR", "入力された日時は適切ではありません。");
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
 
 
             //事故受け付けフラグを1受付中に設定

@@ -8,19 +8,19 @@
  -----------------------------------------------------------------------------%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>計上完了完了画面</title>
+<title>計上完了画面</title>
 <%-- css用 リンクはheadに格納 --%>
 <link rel="stylesheet" href="./static/css/CommonHeader.css">
 <link rel="stylesheet" href="./static/css/CommonMain.css">
 <link rel="stylesheet" href="./static/css/CommonFooter.css">
 <link rel="stylesheet" href="./static/css/HenmiLogin.css">
 <%-- JavaScript用 --%>
-<script type="text/javascript" src="./static/js/login.js"></script>
+<script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
 
 <body>

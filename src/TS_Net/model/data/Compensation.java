@@ -271,7 +271,7 @@ public class Compensation implements Serializable {
 		Integer ratesSum =  (int) (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
 		Integer dpremiumAmount = (int) ((int) ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit))  ;
 		this.premiumAmount = dpremiumAmount;
-		return this.premiumAmount;
+		return premiumAmount;
 	}
 
 //	/**

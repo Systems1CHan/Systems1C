@@ -11,6 +11,7 @@ package TS_Net.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,6 +26,8 @@ import TS_Net.model.constant.SystemConst;
 import TS_Net.model.dao.AccidentDao;
 import TS_Net.model.data.AccidentReception;
 import TS_Net.model.data.ContractInfo;
+import TS_Net.model.datacheck.AccidentReceptionFormChecker;
+import TS_Net.model.datacheck.DateChecker;
 		/**
 		 * 事故受付完了画面へコントローラ
 		 * <p>
@@ -90,22 +93,56 @@ import TS_Net.model.data.ContractInfo;
 
 				// 要求パラメータを受け取り、事故情報オブジェクトにセットする。
 				accidentReception.setAccidentLocationKana1(request.getParameter("accidentlocationkana1"));
-				accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
-				accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
-				accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
-				accidentReception.setAccidentDate(request.getParameter("accidentdate"));
-				accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
-				accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
-				accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
-				accidentReception.setDamageCarPrice(check(request.getParameter("damagecarprice")));
-				accidentReception.setDamageBodilyPrice(check(request.getParameter("damagebodilyprice")));
-				accidentReception.setDamagePropertyPrice(check(request.getParameter("damagepropertyprice")));
-				accidentReception.setDamageAccidentPrice(check(request.getParameter("damageaccidentprice")));
-				accidentReception.setDamageCarState(request.getParameter("damagecarstate"));
-				accidentReception.setDamageBodilyState(request.getParameter("damagebodilystate"));
-				accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
-				accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
-				accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+	            accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
+	            accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
+	            accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
+	            accidentReception.setAccidentDate(request.getParameter("accidentdate").replace("-",""));
+	            accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
+	            accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
+	            accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
+	            accidentReception.setDamageCarPrice(check(request.getParameter("damagecarprice")));
+	            accidentReception.setDamageBodilyPrice(check(request.getParameter("damagebodilyprice")));
+	            accidentReception.setDamagePropertyPrice(check(request.getParameter("damagepropertyprice")));
+	            accidentReception.setDamageAccidentPrice(check(request.getParameter("damageaccidentprice")));
+	            accidentReception.setDamageCarState(request.getParameter("damagecarstate"));
+	            accidentReception.setDamageBodilyState(request.getParameter("damagebodilystate"));
+	            accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
+	            accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
+	            accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+
+	            AccidentReceptionFormChecker checker = new AccidentReceptionFormChecker();
+	            List<Integer> check = checker.check(accidentReception);
+
+	            if(check.contains(1)) {
+
+	            	request.setAttribute("check", check);
+
+	                page ="/WEB-INF/view/ReceptionInput.jsp";
+	                //契約内容入力画面へforwardする。
+	                RequestDispatcher rd = request.getRequestDispatcher(page);
+	                rd.forward(request, response);
+	                return;
+	            }
+
+	            DateChecker datecheck = new DateChecker();
+
+
+	            String accidentDate = accidentReception.getAccidentDate();
+	            String inceptionDate = contractInfo.getInceptionDate();
+	            String conclusionDate = contractInfo.getConclusionDate();
+
+	            if(datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate) != null) {
+
+	            	request.setAttribute("FORM_ERROR", datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate));
+
+	                page ="/WEB-INF/view/ReceptionInput.jsp";
+	                //契約内容入力画面へforwardする。
+	                RequestDispatcher rd = request.getRequestDispatcher(page);
+	                rd.forward(request, response);
+	                return;
+
+	            }
+
 
 				//事故受け付けフラグを9完了済みに設定
 				accidentReception.setClaimStatus("9");

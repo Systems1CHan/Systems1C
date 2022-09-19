@@ -97,6 +97,8 @@ public class ToRecordComfirmServlet extends HttpServlet {
             ciDao.connect();
             contract = ciDao.getContractInfoByIR(insatsuRenban);
 
+            System.out.println(contract.getAddressKana1());
+
 
             /*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
             if ("".equals(contract.getPolNo())) {
@@ -109,12 +111,13 @@ public class ToRecordComfirmServlet extends HttpServlet {
                 if(contract.getInsuredKbn() == "2") {
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
                     rd.forward(request, response);
+                }
 
                 // 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
                 HttpSession session = request.getSession();
                 session.setAttribute("contractInfo", contract);
 
-            }
+
 
             }
 
@@ -126,7 +129,6 @@ public class ToRecordComfirmServlet extends HttpServlet {
             //システムエラー画面へforwardする。
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
             rd.forward(request, response);
-
         } finally {
             try {
                 /* DAOクローズ */
