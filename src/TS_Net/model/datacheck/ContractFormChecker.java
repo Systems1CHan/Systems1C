@@ -35,9 +35,7 @@ public class ContractFormChecker {
 	 * @return null null値
 	 */
 	public String check(ContractInfo ci) {
-		if(Objects.equals(ci.getInsatsuRenban(), null) || ci.getInsatsuRenban().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(ci.getInceptionDate(), null) || ci.getInceptionDate().isEmpty()) {
+		if(Objects.equals(ci.getInceptionDate(), null) || ci.getInceptionDate().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(ci.getInceptionTime(), null) || ci.getInceptionTime().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
@@ -53,7 +51,7 @@ public class ContractFormChecker {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(ci.getNameKana1(), null) || ci.getNameKana1().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(ci.getNamekana2(), null) || ci.getNamekana2().isEmpty()) {
+		}else if(Objects.equals(ci.getNameKana2(), null) || ci.getNameKana2().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;
 		}else if(Objects.equals(ci.getNameKanji1(), null) || ci.getNameKanji1().isEmpty()) {
 			return ErrorMsgConst.FORM_ERROR0002;

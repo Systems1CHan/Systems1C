@@ -422,12 +422,12 @@ public class ContractInfo implements Serializable {
 		this.nameKana1 = nameKana1;
 	}
 
-	public String getNamekana2() {
+	public String getNameKana2() {
 		return nameKana2;
 	}
 
-	public void setNamekana2(String namekana2) {
-		this.nameKana2 = namekana2;
+	public void setNameKana2(String nameKana2) {
+		this.nameKana2 = nameKana2;
 	}
 
 	public String getNameKanji1() {

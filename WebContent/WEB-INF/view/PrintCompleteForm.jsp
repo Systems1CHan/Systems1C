@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>申込書印刷完了画面</title>
 		<style type="text/css">
             .btn {
                     position: relative;
@@ -96,6 +96,7 @@
                     font-size: 12px;
                 }
         </style>
+        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
@@ -108,7 +109,8 @@
             </table>
         </header>
         <main>
-        	<form action="" id="finishprint_frm" method="get">
+        	<form action="" method="post">
+        	<button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
             <table border="1" width="80%">
                 <tbody>
                 <tr>
@@ -116,11 +118,11 @@
                 </tr>
                 <tr>
                     <td>印刷連番</td>
-                    <td>A000001</td>
+                    <td><c:out value="${sessionScope.contractInfo.insatsuRenban }" /></td>
                 </tr>
                 <tr>
                     <td>契約者名</td>
-                    <td><c:out value="{contractInfo.getkanaNameForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
                 </tr>
                 </tbody>
             </table>

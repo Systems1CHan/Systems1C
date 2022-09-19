@@ -29,105 +29,53 @@ public class ToNewEstimationServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
+		//セッションの生成
 		HttpSession session = request.getSession(false);
-		ContractInfo contractInfo = null;
-		Compensation compensation = null;
 
+		//セッションがない場合、エラーページに遷移
 		if(session == null) {
 			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
 			rd.forward(request, response);
-		}else {
-			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-			compensation = (Compensation) session.getAttribute("compensation");
-			if(contractInfo == null || compensation == null) {
-				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
-				rd.forward(request, response);
-			    }
+			return;
 		}
 
-		//リクエストパラメータを取得する（契約情報）
-		String insatsuRenban = request.getParameter("insatsuRenban");
-		String inceptionDate = request.getParameter("inceptionDate");
-		String inceptionTime = request.getParameter("inceptionTime");
-		String conclusionDate = request.getParameter("conclusionDate");
-		String conclusionTime = request.getParameter("conclusionTime");
-		String paymentMethod = request.getParameter("paymentMethod");
-		Integer installment = Integer.parseInt(request.getParameter("insatallment"));
-		String insuredKbn = request.getParameter("insuredKbn");
-		String nameKana1 = request.getParameter("nameKana1");
-		String nameKana2 = request.getParameter("nameKana2");
-		String nameKanji1 = request.getParameter("nameKanji1");
-		String nameKanji2 = request.getParameter("nameKanji2");
-		String postcode = request.getParameter("postcode");
-		String addressKana1 = request.getParameter("addressKana1");
-		String addressKana2 = request.getParameter("addressKana2");
-		String addressKanji1 = request.getParameter("addressKanji1");
-		String addressKanji2 = request.getParameter("addressKanji2");
-		String birthday = request.getParameter("birthday");
-		String gender = request.getParameter("gender");
-		String telephoneNo = request.getParameter("telephoneNo");
-		String mobilephoneNo = request.getParameter("mobilephoneNo");
-		String faxNo = request.getParameter("faxNo");
+		//契約情報オブジェクトを生成
+		ContractInfo contractInfo;
 
-		//契約情報オブジェクトにセット
-		contractInfo.setInsatsuRenban(insatsuRenban);
-		contractInfo.setInceptionDate(inceptionDate);
-		contractInfo.setInceptionTime(inceptionTime);
-		contractInfo.setConclusionDate(conclusionDate);
-		contractInfo.setConclusionTime(conclusionTime);
-		contractInfo.setPaymentMethod(paymentMethod);
-		contractInfo.setInstallment(installment);
-		contractInfo.setInsuredKbn(insuredKbn);
-		contractInfo.setNameKana1(nameKana1);
-		contractInfo.setNamekana2(nameKana2);
-		contractInfo.setNameKanji1(nameKanji1);
-		contractInfo.setNameKanji2(nameKanji2);
-		contractInfo.setPostcode(postcode);
-		contractInfo.setAddressKana1(addressKana1);
-		contractInfo.setAddressKana2(addressKana2);
-		contractInfo.setAddressKanji1(addressKanji1);
-		contractInfo.setAddressKanji2(addressKanji2);
-		contractInfo.setBirthday(birthday);
-		contractInfo.setGender(gender);
-		contractInfo.setTelephoneNo(telephoneNo);
-		contractInfo.setMobilephoneNo(mobilephoneNo);
-		contractInfo.setFaxNo(faxNo);
+		//セッションに契約情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("contractInfo") == null) {
+			contractInfo = new ContractInfo();
+			session.setAttribute("contractInfo", contractInfo);
 
-		//リクエストパラメータを取得（補償情報）
-		String maker = request.getParameter("maker");
-		String carName = request.getParameter("carName");
-		String licenseNo = request.getParameter("licenseNo");
-		Integer vehiclePrice = Integer.parseInt (request.getParameter("vehiclePrice"));
-		String vehicleRates = request.getParameter("vehicleRates");
-		String bodilyRates = request.getParameter("bodilyRates");
-		String propertyDamageRates = request.getParameter("propertyDamageRates");
-		String accidentRates = request.getParameter("accidentRates");
-		String licenseColor = request.getParameter("licenseColor");
-		String ageLimit = request.getParameter("ageLimit");
-		Integer premiumAmount = Integer.parseInt(request.getParameter("premiumAmount"));
-		Integer premiumInstallment = Integer.parseInt(request.getParameter("premiumInstallment"));
+		}else {
+			contractInfo = (ContractInfo) session.getAttribute("contractInfo");
+		}
 
-		//補償情報オブジェクトにセット
-		compensation.setMaker(maker);
-		compensation.setCarName(carName);
-		compensation.setLicenseNo(licenseNo);
-		compensation.setVehiclePrice(vehiclePrice);
-		compensation.setVehicleRates(vehicleRates);
-		compensation.setBodilyRates(bodilyRates);
-		compensation.setPropertyDamageRates(propertyDamageRates);
-		compensation.setAccidentRates(accidentRates);
-		compensation.setLicenseColor(licenseColor);
-		compensation.setAgeLimit(ageLimit);
-		compensation.setPremiumAmount(premiumAmount);
-		compensation.setPremiumInstallment(premiumInstallment);
+		//補償情報オブジェクトを生成
+		Compensation compensation;
 
-		session.setAttribute("contractInfo", contractInfo);
-		session.setAttribute("compensation", compensation);
+		//セッションに補償情報がない場合、新規生成し、セッションにセット
+		if(session.getAttribute("compensation") == null) {
+			compensation = new Compensation();
+			session.setAttribute("compensation", compensation);
+
+		}else {
+			compensation = (Compensation) session.getAttribute("compensation");
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 		rd.forward(request, response);
 
+	}
+
+	public Integer check(String str) {
+		if(str == null) {
+			return 0;
+		}else if(str.equals("")) {
+			return 0;
+		}else {
+			return Integer.parseInt(str);
+		}
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>申込書印刷確認画面</title>
 		<style type="text/css">
             .btn {
                     position: relative;
@@ -74,6 +74,7 @@
                 }
 
         </style>
+        <script type="text/javascript" src="./static/js/transition.js"></script>
     </head>
     <body>
         <header>
@@ -86,7 +87,8 @@
             </table>
         </header>
         <main>
-        	<form action="" id="finishprint_frm" method="get">
+        	<form action="" id="finishprint_frm" method="post">
+        	<button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
             <table border="1" width="80%">
                 <tbody>
                 <tr>
@@ -94,7 +96,7 @@
                 </tr>
                 <tr>
                     <th>契約者名</th>
-                    <td><c:out value="${sessionScope.contractInfo.getkanaNameForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
                 </tr>
                 <tr>
                     <th>払込方法</th>
@@ -106,21 +108,21 @@
                 </tr>
                 <tr>
                     <th>総払込保険料</th>
-                    <td><c:out value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.compensation.premiumAmount}" /></td>
                 </tr>
                 <tr>
                     <th>一回分保険料</th>
-                    <td><c:out value="${sessionScope.compensation.getPremiumInstallmentForLabel()}" /></td>
+                    <td><c:out value="${sessionScope.compensation.premiumInstallment}" /></td>
                 </tr>
                 </tbody>
             </table>
             <table align="center">
             	<tr>
                     <td>
-                    	<button type="button" class="btn" onclick="toNewEstimationEntryPage()">戻る</button>
+                    	<button type="button" class="btn" onclick="toNewEstimationEntryPage();">戻る</button>
                     </td>
                     <td>
-                        <button type="button" class="btn" onclick="toFinishPrintPage()">印刷</button>
+                        <button type="button" class="btn" onclick="toFinishPrintPage();">印刷</button>
                     </td>
                 </tr>
             </table>

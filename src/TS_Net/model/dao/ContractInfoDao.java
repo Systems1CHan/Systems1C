@@ -73,7 +73,7 @@ public class ContractInfoDao {
 			stmt.setInt(10, contractInfo.getInstallment());
 			stmt.setString(11, contractInfo.getInsuredKbn());
 			stmt.setString(12, contractInfo.getNameKana1());
-			stmt.setString(13, contractInfo.getNamekana2());
+			stmt.setString(13, contractInfo.getNameKana2());
 			stmt.setString(14, contractInfo.getNameKanji1());
 			stmt.setString(15, contractInfo.getNameKanji2());
 			stmt.setString(16, contractInfo.getPostcode());
@@ -157,7 +157,7 @@ public class ContractInfoDao {
 			contractInfo.setInstallment(res.getInt("installment"));
 			contractInfo.setInsuredKbn(res.getString("insured_kbn"));
 			contractInfo.setNameKana1(res.getString("name_kana1"));
-			contractInfo.setNamekana2(res.getString("name_kana2"));
+			contractInfo.setNameKana2(res.getString("name_kana2"));
 			contractInfo.setNameKanji1(res.getString("name_kanji1"));
 			contractInfo.setNameKanji2(res.getString("name_kanji2"));
 			contractInfo.setPostcode(res.getString("postcode"));
@@ -219,7 +219,7 @@ public class ContractInfoDao {
 			contractInfo.setInstallment(res.getInt("installment"));
 			contractInfo.setInsuredKbn(res.getString("insured_kbn"));
 			contractInfo.setNameKana1(res.getString("name_kana1"));
-			contractInfo.setNamekana2(res.getString("name_kana2"));
+			contractInfo.setNameKana2(res.getString("name_kana2"));
 			contractInfo.setNameKanji1(res.getString("name_kanji1"));
 			contractInfo.setNameKanji2(res.getString("name_kanji2"));
 			contractInfo.setPostcode(res.getString("postcode"));
@@ -306,17 +306,15 @@ public class ContractInfoDao {
 				insatsuRenban = res.getString("insatsu_renban");
 			}
 
-			String eigo = insatsuRenban.substring(0);
-			String suuji = insatsuRenban.substring(1, 8);
-
-			try {
-				int incri = Integer.parseInt(suuji);
-				int afterIncri = incri + 1;
-				String insatsu = Integer.valueOf(afterIncri).toString();
-				insatsuRenban = eigo + insatsu;
-			}catch(NumberFormatException e) {
-				e.printStackTrace();
+			String alpha = insatsuRenban.substring(0, 1);
+			String number = insatsuRenban.substring(1, insatsuRenban.length());
+			Integer num = Integer.parseInt(number);
+			num++;
+			number=num.toString();
+			while(number.length()<7) {
+				number = "0"+number;
 			}
+			insatsuRenban = alpha + number;
 
 		}finally {
 			if(res != null) {

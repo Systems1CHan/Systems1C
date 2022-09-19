@@ -80,7 +80,7 @@
             <h1>契約管理・事故受付システム　ハンディー</h1>
         </header>
         <main>
-        	<form action="" method="get" id="application_frm">
+        	<form action="" method="post" id="application_frm2">
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tbody>
@@ -90,7 +90,7 @@
                                 <tr>
                                     <td>総額保険料</td>
                                     <td>
-                                    	<c:out value="${compensation.getPremiumAmountForLabel()}"/>（万円）
+                                    	<c:out value="${compensation.premiumAmount}"/>（万円）
                                     </td>
                                 </tr>
                                 <tr>
@@ -178,7 +178,7 @@
                                     <button type="button" class="btn">保険料試算</button>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn" onclick="toApplicationConfirmPage()">申込書印刷</button>
+                                    <button type="button" class="btn" onclick="toApplicationConfirmPage();">申込書印刷</button>
                                 </td>
                             </tr>
                         </table>
