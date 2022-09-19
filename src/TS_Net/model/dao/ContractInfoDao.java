@@ -270,6 +270,15 @@ public class ContractInfoDao {
 				polNo = res.getString("pol_No");
 			}
 
+			String alpha = polNo.substring(0, 1);
+			String number = polNo.substring(1, polNo.length());
+			Integer num = Integer.parseInt(number);
+			num++;
+			number=num.toString();
+			while(number.length()<7) {
+				number = "0"+number;
+			}
+			polNo = alpha + number;
 
 		}finally {
 			if(res != null) {

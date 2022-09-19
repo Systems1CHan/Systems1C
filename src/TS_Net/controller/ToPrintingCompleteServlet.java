@@ -67,8 +67,9 @@ public class ToPrintingCompleteServlet extends HttpServlet {
 			compensation = (Compensation) session.getAttribute("compensation");
 		}
 
-		//印刷連番の生成
+		//印刷連番、証券番号の生成
 		String insatsuRenban = null;
+		String polNo = null;
 
 		//契約情報DAOの生成
 		ContractInfoDao contractInfoDao = new ContractInfoDao();
@@ -77,12 +78,15 @@ public class ToPrintingCompleteServlet extends HttpServlet {
 			//DAOの接続
 			contractInfoDao.connect();
 
-			//DAOの印刷連番オートインクリメント処理を実施
+			//DAOの印刷連番、証券番号オートインクリメント処理を実施
 			insatsuRenban = contractInfoDao.getMaxInsatsuRenban();
+			polNo = contractInfoDao.getMaxPolNo();
 
-			//印刷連番を契約情報オブジェクトにセット
+			//印刷連番、証券番号を契約情報オブジェクトにセット
 			contractInfo.setInsatsuRenban(insatsuRenban);
+			contractInfo.setPolNo(polNo);
 			System.out.println(insatsuRenban);
+			System.out.println(polNo);
 
 			//状態フラグ、解約フラグの更新
 			contractInfo.setStatusFlg("1");
