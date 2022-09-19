@@ -294,7 +294,7 @@ public class ContractInfoDao {
 	 */
 	public String getMaxInsatsuRenban() throws SQLException {
 
-		String sql = "SELECT insatsu_renban FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
+		String sql = "SELECT insatsu_renban FROM contractinfo_tbl ORDER BY insatsu_renban DESC LIMIT 1";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		String insatsuRenban = null;
