@@ -266,12 +266,12 @@ public class Compensation implements Serializable {
 	 * @param compensation 補償情報オブジェクト
 	 * @return 総額保険料
 	 */
-	public String getPremiumAmountForLabel() {
+	public Integer getPremiumAmountForLabel() {
 
 		Integer ratesSum =  (int) (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
 		Integer dpremiumAmount = (int) ((int) ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit))  ;
 		this.premiumAmount = dpremiumAmount;
-		return this.premiumAmount + "円";
+		return premiumAmount;
 	}
 
 //	/**
