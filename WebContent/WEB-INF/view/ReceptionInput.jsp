@@ -131,8 +131,12 @@
                                             <input type="date" name = "accidentdate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.accidentReception.getAccidentDate()}">
                                         </td>
                                         <c:if test="${requestScope.check.get(0) == 1}">
-                                        	<td><c:out value="未入力です。" /><td/>
+                                        	<td><c:out value="未入力です。"/><td/>
                                         </c:if>
+                                        <!-- エラーメッセージ -->
+										<td>
+						  			    	<c:out value="${requestScope.FORM_ERROR}" />
+										<td/>
                                     </tr>
                                     <tr>
                                         <th>
