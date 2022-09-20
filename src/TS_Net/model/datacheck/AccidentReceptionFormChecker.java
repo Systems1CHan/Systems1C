@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.data.AccidentReception;
 
 /**
@@ -107,4 +108,25 @@ public class AccidentReceptionFormChecker {
 			return num;
 
 	}
+
+	public String digitCheck(String price){
+
+		if(Objects.equals(price, "0")) {
+
+			return null;
+
+
+
+		}else if((price.length() < 4)) {
+			return ErrorMsgConst.FORM_ERROR0020;
+
+		}else if(!("000".equals(price.substring(price.length() - 3, price.length())))) {
+			return ErrorMsgConst.FORM_ERROR0020;
+
+		}
+
+		return null;
+	}
+
+
 }
