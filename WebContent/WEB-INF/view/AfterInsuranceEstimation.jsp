@@ -81,6 +81,7 @@
         </header>
         <main>
         	<form action="" method="post" id="application_frm2">
+        	<button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
                         <h1>新規試算入力（補償タブ）</h1>
                         <table border="1" width="80%">
                             <tbody>
