@@ -817,16 +817,10 @@ public class compensationTest {
 	public void testCheck44() {
 
 		/* 期待値の定義 */
-		Integer expected =109;
-		comp.setVehiclePrice(1);
-		comp.setVehicleRates("2");
-        comp.setBodilyRates("3");
-		comp.setPropertyDamageRates("4");
-		comp.setAccidentRates("5");
-		comp.setLicenseColor("1");
-		comp.setAgeLimit("1");
+		comp.setLicenseNo("東京111あ3030");
+         String  expected = "東京 111 あ 30-30";
 		/* 入力値の設定 */
-		Integer actual = comp.getPremiumAmountForLabel();
+         String actual = comp.getCarNameForLabel();
 
 		/* 検証 */
 		assertEquals(expected, actual);
