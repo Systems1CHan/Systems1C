@@ -126,56 +126,56 @@
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
 								<td><c:out
-										value="${requestScope.compensation.getCarName()}" /></td>
+										value="${sessionScope.compensation.getCarName()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車名</td>
-								<td><c:out value="${requestScope.compensation.getMaker()}" /></td>
+								<td><c:out value="${sessionScope.compensation.getMaker()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車のナンバー</td>
 								<td><c:out
-										value="${requestScope.compensation.getCarNameForLabel()}" /></td>
+										value="${sessionScope.compensation.getCarNameForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
 								<td><c:out
-										value="${requestScope.compensation.getVehiclePrice()}" /></td>
+										value="${sessionScope.compensation.getVehiclePrice()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">免許証の色</td>
 								<td><c:out
-										value="${requestScope.compensation.getLicenseColorForLabel()}" /></td>
+										value="${sessionScope.compensation.getLicenseColorForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両料率</td>
 								<td><c:out
-										value="${requestScope.compensation.getVehicleRatesForLabel()}" /></td>
+										value="${sessionScope.compensation.getVehicleRatesForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">対人料率</td>
 								<td><c:out
-										value="${requestScope.compensation.getBodilyRatesForLabel()}" /></td>
+										value="${sessionScope.compensation.getBodilyRatesForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">対物料率</td>
 								<td><c:out
-										value="${requestScope.compensation.getPropertyDamageRatesForLabel()}" /></td>
+										value="${sessionScope.compensation.getPropertyDamageRatesForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">障害料率</td>
 								<td><c:out
-										value="${requestScope.compensation.getAccidentRatesForLabel()}" /></td>
+										value="${sessionScope.compensation.getAccidentRatesForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">年齢条件</td>
 								<td><c:out
-										value="${requestScope.compensation.getAgeLimitForLabel()}" /></td>
+										value="${sessionScope.compensation.getAgeLimitForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">１回分保険料</td>
 								<td><c:out
-										value="${requestScope.compensation.getPremiumInstallment()}" /></td>
+										value="${sessionScope.compensation.getPremiumInstallment()}" /></td>
 							</tr>
 						</table>
 					</div>
