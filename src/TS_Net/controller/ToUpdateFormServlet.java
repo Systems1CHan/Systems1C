@@ -39,7 +39,7 @@ import TS_Net.model.datacheck.DateChecker;
 
             public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 request.setCharacterEncoding(SystemConst.CHAR_SET);
-        		//セッションの生成
+            	//セッションの生成
         		HttpSession session = request.getSession(false);
 
         		//セッションがない場合、エラーページに遷移

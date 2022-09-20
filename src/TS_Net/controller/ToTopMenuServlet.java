@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import TS_Net.model.constant.ErrorMsgConst;
+
 /**
  * TOPメニューへコントローラ
  * <p>
@@ -34,9 +36,17 @@ public class ToTopMenuServlet extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
+		//セッションの生成
+		HttpSession session = request.getSession(false);
 
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
 		/* １-１．セッション領域から契約情報オブジェクトを除去する。 */
-		HttpSession session = request.getSession();
 		if (session.getAttribute("ContractInfo") != null) {
 			session.removeAttribute("ContractInfo");
 		}
