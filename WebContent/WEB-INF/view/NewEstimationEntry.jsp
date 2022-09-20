@@ -10,6 +10,11 @@
 
 		<style type="text/css">
 
+			p{
+				margin-bottom: 0px;
+				margin-top: 0px;
+			}
+
             /* タブ領域全体 */
             #tabcontrol {
                 margin: 0;
@@ -208,7 +213,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
                                         <c:if test="${requestScope.check.get(0) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
@@ -258,7 +263,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate}" required>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate}" required>
                                         <c:if test="${requestScope.check.get(2) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
@@ -535,7 +540,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }" required>
+                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }" required>
                                         <c:if test="${requestScope.check.get(0) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
@@ -586,7 +591,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.conclusionDate }" required>
+                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.conclusionDate }" required>
                                         <c:if test="${requestScope.check.get(2) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
@@ -920,46 +925,35 @@
                                     <th>車両保険金額</th>
                                     <td>
                                         <input type="text" value="" name="vehiclePrice" id="vehiclePrice" value="${sessionScope.compensation.vehiclePrice }" required>
-                                        <c:if test="${requestScope.check.get(2) == 1 }">
-                                        	<p>入力必須項目です。</p>
-                                        </c:if>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
                                         <input type="text" value="" name="vehicleRates" id="vehicleRates" value="${sessionScope.compensation.vehicleRates }" required>
-                                        <c:if test="${requestScope.check.get(3) == 1 }">
-                                        	<p>入力必須項目です。</p>
-                                        </c:if>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対人</th>
                                     <td>
                                         <input type="text" value="" name="bodilyRates" id="bodilyRates" value="${sessionScope.compensation.bodilyRates }" required>
-                                        <c:if test="${requestScope.check.get(4) == 1 }">
-                                        	<p>入力必須項目です。</p>
-                                        </c:if>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対物</th>
                                     <td>
                                         <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates" value="${sessionScope.compensation.propertyDamageRates }" required>
-                                        <c:if test="${requestScope.check.get(5) == 1 }">
-                                        	<p>入力必須項目です。</p>
-                                        </c:if>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
                                         <input type="text" value="" name="accidentRates" id="accidentRates" value="${sessionScope.compensation.accidentRates }" required>
-                                        <c:if test="${requestScope.check.get(6) == 1 }">
-                                        	<p>入力必須項目です。</p>
-                                        </c:if>
-                                    </td>
+                                     </td>
                                 </tr>
 
                                             <script>
@@ -1261,9 +1255,6 @@
                 tabs[0].onclick();
 
             </script>
-            <div align="center" id="MESSAGE">
-			    <c:out value="${requestScope.message }" />
-			</div>
         </main>
     </body>
 </html>
