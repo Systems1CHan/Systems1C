@@ -9,9 +9,10 @@
  */
 package TS_Net.model.datacheck;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.data.Compensation;
 
 /**
@@ -33,36 +34,61 @@ public class CompensationFormChecker {
 	 * @return ErrorMagConst.FORM_ERROR0002 フォームに未入力項目がある場合のエラーメッセージ
 	 * @return null null値
 	 */
-	public String check(Compensation com) {
+	public List<Integer> check(Compensation com) {
+
+		List<Integer> num = new ArrayList<Integer>();
+
 		if(Objects.equals(com.getMaker(), null) || com.getMaker().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getCarName(), null) || com.getCarName().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getLicenseNo(), null) || com.getLicenseNo().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(com.getVehiclePrice() == null || String.valueOf(com.getVehiclePrice()).isEmpty()){
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getVehicleRates(), null) || com.getVehicleRates().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getBodilyRates(), null) || com.getBodilyRates().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getPropertyDamageRates(), null) || com.getPropertyDamageRates().isEmpty()){
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getAccidentRates(), null) || com.getAccidentRates().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getLicenseColor(), null) || com.getLicenseColor().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(Objects.equals(com.getAgeLimit(), null) || com.getAgeLimit().isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(com.getPremiumAmount() == null || String.valueOf(com.getPremiumAmount()).isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-		}else if(com.getPremiumInstallment() == null || String.valueOf(com.getPremiumInstallment()).isEmpty()) {
-			return ErrorMsgConst.FORM_ERROR0002;
-
+			num.add(1);
 		}else {
-
-			//チェックがOKの場合、nullを戻り値として返す
-			return null;
+			num.add(0);
+		}if(Objects.equals(com.getCarName(), null) || com.getCarName().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getLicenseNo(), null) || com.getLicenseNo().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(com.getVehiclePrice() == null || String.valueOf(com.getVehiclePrice()).isEmpty()){
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getVehicleRates(), null) || com.getVehicleRates().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getBodilyRates(), null) || com.getBodilyRates().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getPropertyDamageRates(), null) || com.getPropertyDamageRates().isEmpty()){
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getAccidentRates(), null) || com.getAccidentRates().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getLicenseColor(), null) || com.getLicenseColor().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(Objects.equals(com.getAgeLimit(), null) || com.getAgeLimit().isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(com.getPremiumAmount() == null || String.valueOf(com.getPremiumAmount()).isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
+		}if(com.getPremiumInstallment() == null || String.valueOf(com.getPremiumInstallment()).isEmpty()) {
+			num.add(1);
+		}else {
+			num.add(0);
 		}
+			//チェックがOKの場合、nullを戻り値として返す
+			return num;
+
 	}
 }

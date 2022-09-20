@@ -209,8 +209,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
-                                        <p><font size="1">契約を開始したい日時を選択してください。</font></p>
-                                    	<p><font size="1">現在よりも過去の日時は選択できません。</font></p>
+                                        <c:if test="${requestScope.check.get(0) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -246,6 +247,9 @@
                                             <option value="22" <c:if test="${contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
                                             <option value="23" <c:if test="${contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(1) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -255,9 +259,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate}" required>
-                                        <p><font size="2">契約を終了したい日時を選択してください。</font></p>
-                                    	<p><font size="2">現在よりも過去の日時は選択できません。</font></p>
-                                    	<p><font size="2">保険期間始期日よりも過去の日時は選択できません。</font></p>
+                                        <c:if test="${requestScope.check.get(2) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -293,6 +297,9 @@
                                             <option value="22" <c:if test="${contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
                                             <option value="23" <c:if test="${contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(3) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -307,6 +314,9 @@
                                             <option value="2"<c:if test="${sessionScope.contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
                                             <option value="3"<c:if test="${sessionScope.contractInfo.paymentMethod == '3'}">selected="selected"</c:if>>クレジットカード</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(4) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -324,6 +334,9 @@
                                             <option value="6"<c:if test="${sessionScope.contractInfo.installment == '6'}">selected="selected"</c:if>>6</option>
                                             <option value="12"<c:if test="${sessionScope.contractInfo.installment == '12'}">selected="selected"</c:if>>12</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(5) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -333,6 +346,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ" maxlength="48" value="${sessionScope.contractInfo.nameKana1}" required>
+                                        <c:if test="${requestScope.check.get(6) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -342,6 +358,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ" maxlength="48" value="${sessionScope.contractInfo.nameKana2}" required>
+                                        <c:if test="${requestScope.check.get(7) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -351,6 +370,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海" maxlength="48" value="${sessionScope.contractInfo.nameKanji1}" required>
+                                        <c:if test="${requestScope.check.get(8) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -360,6 +382,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎" maxlength="48" value="${sessionScope.contractInfo.nameKanji2}" required>
+                                        <c:if test="${requestScope.check.get(9) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -369,6 +394,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" maxlength="7" value="${sessionScope.contractInfo.postcode}" required>
+                                        <c:if test="${requestScope.check.get(10) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -378,6 +406,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${sessionScope.contractInfo.addressKana1}" required>
+                                        <c:if test="${requestScope.check.get(11) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -387,6 +418,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${sessionScope.contractInfo.addressKana2}" required>
+                                        <c:if test="${requestScope.check.get(12) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -396,6 +430,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" maxlength="48" value="${sessionScope.contractInfo.addressKanji1 }" required>
+                                        <c:if test="${requestScope.check.get(13) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -405,6 +442,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" maxlength="48" value="${sessionScope.contractInfo.addressKanji2 }" required>
+                                        <c:if test="${requestScope.check.get(14) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -414,6 +454,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="birthday" name="birthday" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.birthday }" required>
+                                        <c:if test="${requestScope.check.get(15) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -426,6 +469,9 @@
                                             <input type="radio" id="gender" name="gender" value="1"<c:if test="${sessionScope.contractInfo.gender == '1'}">checked="checked"</c:if>>男
                                             <input type="radio" id="gender" name="gender" value="2"<c:if test="${sessionScope.contractInfo.gender == '2'}">checked="checked"</c:if>>女
                                         </label>
+                                        <c:if test="${requestScope.check.get(16) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -435,6 +481,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789" maxlength="10" value="${sessionScope.contractInfo.telephoneNo }"required>
+                                        <c:if test="${requestScope.check.get(17) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -444,6 +493,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="mobilephoneNo" name="mobilephoneNo" size="60" placeholder="（例）08012345678" maxlength="11" value="${sessionScope.contractInfo.mobilephoneNo }" required>
+                                        <c:if test="${requestScope.check.get(18) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -453,6 +505,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789" maxlength="10" value="${sessionScope.contractInfo.faxNo }" required>
+                                        <c:if test="${requestScope.check.get(19) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </tbody>
@@ -468,6 +523,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }" required>
+                                        <c:if test="${requestScope.check.get(0) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
 
@@ -504,6 +562,9 @@
                                             <option value="22" <c:if test="${contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
                                             <option value="23" <c:if test="${contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(1) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -513,6 +574,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.conclusionDate }" required>
+                                        <c:if test="${requestScope.check.get(2) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -548,6 +612,9 @@
                                             <option value="22" <c:if test="${contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
                                             <option value="23" <c:if test="${contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(3) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -562,6 +629,9 @@
                                             <option value="2"<c:if test="${contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
                                             <option value="3"<c:if test="${contractInfo.paymentMethod == '3'}">selected="selected"</c:if>>クレジットカード</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(4) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -579,6 +649,9 @@
                                             <option value="6"<c:if test="${contractInfo.installment == '6'}">selected="selected"</c:if>>6</option>
                                             <option value="12"<c:if test="${contractInfo.installment == '12'}">selected="selected"</c:if>>12</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(5) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -588,6 +661,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKana1" name="nameKana1" size="60" placeholder="（例）タマホケン" maxlength="48" value="${contractInfo.nameKana1 }" required>
+                                        <c:if test="${requestScope.check.get(6) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -597,6 +673,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKana2" name="nameKana2" size="60" placeholder="（例）カブシキガイシャ" maxlength="48" value="${contractInfo.nameKana2 }" required>
+                                        <c:if test="${requestScope.check.get(7) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -606,6 +685,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）多摩保険" maxlength="48" value="${contractInfo.nameKanji1 }" required>
+                                        <c:if test="${requestScope.check.get(8) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -615,6 +697,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）株式会社" maxlength="48" value="${contractInfo.nameKanji2 }" required>
+                                        <c:if test="${requestScope.check.get(9) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -624,6 +709,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="postcode" name="postcode" size="60" placeholder="（例）1111111" maxlength="7" value="${contractInfo.postcode }" required>
+                                        <c:if test="${requestScope.check.get(10) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -633,6 +721,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${contractInfo.addressKana1 }" required>
+                                        <c:if test="${requestScope.check.get(11) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -642,6 +733,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${contractInfo.addressKana2 }" required>
+                                        <c:if test="${requestScope.check.get(12) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -651,6 +745,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" maxlength="48" value="${contractInfo.addressKanji1 }" required>
+                                        <c:if test="${requestScope.check.get(13) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -660,6 +757,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" maxlength="48" value="${contractInfo.addressKanji2 }" required>
+                                        <c:if test="${requestScope.check.get(14) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -669,6 +769,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="telephoneNo" name="telephoneNo" size="60" placeholder="（例）0123456789" maxlength="10" value="${contractInfo.telephoneNo }" required>
+                                        <c:if test="${requestScope.check.get(15) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -678,6 +781,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="mobliephoneNo" name="mobliephoneNo" size="60" placeholder="（例）08012345678" maxlength="11" value="${contractInfo.mobilephoneNo }" required>
+                                        <c:if test="${requestScope.check.get(16) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -687,6 +793,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="faxNo" name="faxNo" size="60" placeholder="（例）123456789" maxlength="10" value="${contractInfo.faxNo }" required>
+                                        <c:if test="${requestScope.check.get(17) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </tbody>
@@ -742,6 +851,9 @@
                                             <option value="suzuki"<c:if test="${compensation.maker == 'suzuki'}">selected="selected"</c:if>>スズキ</option>
                                             <option value="mitsubishi"<c:if test="${compensation.maker == 'mitsubishi'}">selected="selected"</c:if>>三菱</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(0) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
 
@@ -776,36 +888,54 @@
                                             <option value="アウトラウンダーPHEV"<c:if test="${compensation.carName == 'アウトラウンダーPHEV'}">selected="selected"</c:if>>（三菱）アウトラウンダーPHEV</option>
                                             <option value="デリカD:5"<c:if test="${compensation.carName == 'デリカD:5'}">selected="selected"</c:if>>（三菱）デリカD:5</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(1) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>車両保険金額</th>
                                     <td>
                                         <input type="text" value="" name="vehiclePrice" id="vehiclePrice" value="${sessionScope.compensation.vehiclePrice }" required>
+                                        <c:if test="${requestScope.check.get(2) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
                                         <input type="text" value="" name="vehicleRates" id="vehicleRates" value="${sessionScope.compensation.vehicleRates }" required>
+                                        <c:if test="${requestScope.check.get(3) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対人</th>
                                     <td>
                                         <input type="text" value="" name="bodilyRates" id="bodilyRates" value="${sessionScope.compensation.bodilyRates }" required>
+                                        <c:if test="${requestScope.check.get(4) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対物</th>
                                     <td>
                                         <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates" value="${sessionScope.compensation.propertyDamageRates }" required>
+                                        <c:if test="${requestScope.check.get(5) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
                                         <input type="text" value="" name="accidentRates" id="accidentRates" value="${sessionScope.compensation.accidentRates }" required>
+                                        <c:if test="${requestScope.check.get(6) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
 
@@ -1011,6 +1141,9 @@
                                     <td>
                                         <span class="form-require">必須</span>
                                         <input type="text" id="licenseNo" name="licenseNo" size="60" placeholder="（例）多摩 12-34" maxlength="24" value="${compensation.licenseNo }" required>
+                                        <c:if test="${requestScope.check.get(7) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1025,6 +1158,9 @@
                                             <option value="2"<c:if test="${compensation.licenseColor == '2'}">selected="selected"</c:if>>グリーン</option>
                                             <option value="3"<c:if test="${compensation.licenseColor == '3'}">selected="selected"</c:if>>ゴールド</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(8) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1039,6 +1175,9 @@
                                             <option value="2"<c:if test="${compensation.ageLimit == '2'}">selected="selected"</c:if>>21歳以上</option>
                                             <option value="3"<c:if test="${compensation.ageLimit == '3'}">selected="selected"</c:if>>26歳以上</option>
                                         </select>
+                                        <c:if test="${requestScope.check.get(9) == 1 }">
+                                        	<p>入力必須項目です。</p>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </tbody>
