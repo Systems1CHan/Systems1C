@@ -33,7 +33,6 @@ import TS_Net.model.dao.AccidentDao;
 import TS_Net.model.data.AccidentReception;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.AccidentReceptionFormChecker;
-import TS_Net.model.datacheck.DateChecker;
         @WebServlet("/ToUpdateForm")
         public class ToUpdateFormServlet extends HttpServlet {
 
@@ -108,26 +107,6 @@ import TS_Net.model.datacheck.DateChecker;
 
 
 //            Integer.parseInt(request.getParameter("insatallment"));
-
-
-            DateChecker datecheck = new DateChecker();
-
-
-            String accidentDate = accidentReception.getAccidentDate();
-            String inceptionDate = contractInfo.getInceptionDate();
-            String conclusionDate = contractInfo.getConclusionDate();
-
-            if(datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate) != null) {
-
-            	request.setAttribute("FORM_ERROR", "入力された日時は適切ではありません。");
-
-                page ="/WEB-INF/view/ReceptionInput.jsp";
-                //契約内容入力画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-
-            }
 
 
 

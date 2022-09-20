@@ -123,6 +123,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 
                 }
 
+
                 //取得した事故受付情報の事故受け付けフラグが受付済になっていたら、エラーを出す。
                 if ("9".equals(accidentReception.getClaimStatus())) {
                     request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0011);
@@ -140,11 +141,17 @@ public class ToStartAccidentFormServlet extends HttpServlet {
                 //補償IDを用いて補償情報を取り出す。
                 compensation = compensationDao.getCompensationByCI(coverId);
 
+
                 //補償情報の印刷連番を取り出す。
                 String InsatsuRenban = compensation.getInsatsuRenban();
 
                 //印刷連番を用いて契約情報を取り出す。
                 contractInfo = contractInfoDao.getContractInfoByIR(InsatsuRenban);
+
+                //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+                if("2".equals(contractInfo.getInsuredKbn())) {
+                    page = "/WEB-INF/view/ReceptionInputCompany.jsp";
+                }
 
 
                 //セッションを生成する。
@@ -169,6 +176,12 @@ public class ToStartAccidentFormServlet extends HttpServlet {
                     return;
 
                 }
+
+                //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+                if("2".equals(contractInfo.getInsuredKbn())) {
+                    page = "/WEB-INF/view/ReceptionInputCompany.jsp";
+                }
+
                 //印刷連番を取り出す。
                 String insatsuRenban = contractInfo.getInsatsuRenban();
                 //印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
