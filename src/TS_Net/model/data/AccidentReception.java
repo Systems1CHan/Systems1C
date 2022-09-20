@@ -146,9 +146,9 @@ public AccidentReception() {
 	 * @param accidentReception 事故受付情報オブジェクト
 	 * @return 支払金額
 	 */
-	public String getPaymentPriceForlabel(AccidentReception accidentReception) {
-		Integer damageSumPrice = accidentReception.getDamageCarPrice() + accidentReception.getDamageBodilyPrice() + accidentReception.getDamagePropertyPrice() + accidentReception.getDamageAccidentPrice();
-		paymentPrice = accidentReception.getRatingBlameMyself() * damageSumPrice;
+	public String getPaymentPriceForlabel() {
+		Integer damageSumPrice = this.getDamageCarPrice() + this.getDamageBodilyPrice() + this.getDamagePropertyPrice() + this.getDamageAccidentPrice();
+		paymentPrice = this.getRatingBlameMyself() * damageSumPrice;
 		return paymentPrice + "円";
 	}
 
@@ -201,25 +201,14 @@ public AccidentReception() {
 	}
 
 
-	/**
-	 * 損害額・傷害円表示メソッド
-	 * <p>
-	 * 画面に表示させるための損害額・傷害を取得する。
-	 * また損害額・傷害は「円」をつけてリターンする。
-	 * </p>
-	 * @return 損害額・傷害
-	 */
-	public String getPaymentPriceForLabel() {
-		return this.paymentPrice + "円";
-	}
 
 	/**
-	 * 生年月日メソッド
+	 * 事故発生日メソッド
 	 * <p>
-	 * 画面に表示させるための生年月日を取得する。
+	 * 画面に表示させるための事故発生日を取得する。
 	 * 西暦でリターンする。
 	 * </p>
-	 * @return 生年月日
+	 * @return 事故発生日
 	 */
 	public String getAccidentDateForLabel() {
 //		if(accidentDate == null) {
