@@ -301,6 +301,27 @@ function toTopMenu(){
  *------------------------------------------------------
 */
 function loginProcess() {
+
+	//１．messageを宣言する。
+	var message = "";
+
+	//２．IDとパスワードの入力値を格納する。
+	var iD = document.getElementById("iD").value;
+	var password = document.getElementById("password").value;
+
+
+	//３．IDまたはパスワードが未入力の場合、messageに以下を格納する。
+	if (iD.length == 0 || password.length == 0) {
+		message += "<p>IDまたはパスワードが未入力です。</p>";
+	}
+
+	//４．messageが設定された場合、messageを表示し、送信中止する。
+	if (message != "") {
+		var targetDiv = document.getElementById("FORM_ERROR");
+		targetDiv.innerHTML = message;
+		return false;
+	}
+
 	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("login_process");
 
@@ -310,4 +331,5 @@ function loginProcess() {
 
 	//submit関数を呼び出す。
 	formElement.submit();
+
 }
