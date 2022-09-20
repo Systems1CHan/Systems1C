@@ -12,6 +12,7 @@ package TS_Net.model.data;
 
 import java.io.Serializable;
 import java.text.ParseException;
+import java.util.Objects;
 
 import javax.swing.text.MaskFormatter;
 
@@ -112,7 +113,7 @@ public class ContractInfo implements Serializable {
 	 * @return 契約状態
 	 */
 	public String getStatusFlgForLabel() {
-		if(cancelFlg.equals("0")) {
+		if(Objects.equals(cancelFlg, "0")) {
 			return "解約済";
 		}else {
 			return "契約中";
@@ -127,9 +128,9 @@ public class ContractInfo implements Serializable {
 	 * @return 契約状態
 	 */
 	public String getPaymentMethodForLabel() {
-		if(paymentMethod.equals("1")) {
+		if(Objects.equals(paymentMethod, "1")) {
 			return "直接集金";
-		}else if(paymentMethod.equals("2")){
+		}else if(Objects.equals(paymentMethod, "2")){
 			return "口座振替";
 		}else {
 			return "クレジットカード";
@@ -144,7 +145,7 @@ public class ContractInfo implements Serializable {
 	 * @return 性別
 	 */
 	public String getGenderForLabel() {
-		if(gender.equals("1")) {
+		if(Objects.equals(gender, "1")) {
 			return "男";
 		}else {
 			return "女";
@@ -159,7 +160,7 @@ public class ContractInfo implements Serializable {
 	 * @return 被保険者区分
 	 */
 	public String getInsuredKbnForLabel() {
-		if(insuredKbn.equals("1")) {
+		if(Objects.equals(insuredKbn, "1")) {
 			return "個人";
 		}else {
 			return "法人";
