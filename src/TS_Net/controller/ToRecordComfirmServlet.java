@@ -97,29 +97,28 @@ public class ToRecordComfirmServlet extends HttpServlet {
             ciDao.connect();
             contract = ciDao.getContractInfoByIR(insatsuRenban);
 
-            System.out.println(contract.getAddressKana1());
-
+            // 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
+            HttpSession session = request.getSession();
+            session.setAttribute("contractInfo", contract);
 
             /*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
             if ("".equals(contract.getPolNo())) {
                 request.setAttribute("message", ErrorMsgConst.FORM_ERROR0006);
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
                 rd.forward(request, response);
-            } else {
+            }
 
                 //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
-                if(contract.getInsuredKbn() == "2") {
+                if("2".equals(contract.getInsuredKbn())) {
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
                     rd.forward(request, response);
                 }
 
-                // 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
-                HttpSession session = request.getSession();
-                session.setAttribute("contractInfo", contract);
 
 
 
-            }
+
+
 
          } catch (ClassNotFoundException | SQLException e) {
 

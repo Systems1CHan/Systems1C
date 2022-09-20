@@ -306,24 +306,14 @@
 										value="${sessionScope.contractInfo.getPaymentMethodForLabel()}" /></td>
 							</tr>
 							<tr>
-								<td class="confirm_table_left">氏名-カナ</td>
+								<td class="confirm_table_left">会社名-カナ</td>
 								<td><c:out
 										value="${sessionScope.contractInfo.getkanaNameForLabel()}" /></td>
 							</tr>
 							<tr>
-								<td class="confirm_table_left">性別</td>
-								<td><c:out
-										value="${sessionScope.contractInfo.getGenderForLabel()}" /></td>
-							</tr>
-							<tr>
-								<td class="confirm_table_left">氏名-漢字</td>
+								<td class="confirm_table_left">会社名-漢字</td>
 								<td><c:out
 										value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
-							</tr>
-							<tr>
-								<td class="confirm_table_left">生年月日</td>
-								<td><c:out
-										value="${sessionScope.contractInfo.getBirthdayForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">住所-カナ</td>
