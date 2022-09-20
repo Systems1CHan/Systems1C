@@ -42,7 +42,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 
         //文字化けを防止する。
         request.setCharacterEncoding(SystemConst.CHAR_SET);
-        String page = "/WEB-INF/view/QueryConfirm.jsp";
+        String page = "/WEB-INF/view/QueryConfirmCompany.jsp";
         //dataオブジェクトを生成する。
         ContractInfo contractInfo = null;
         Compensation compensation = null;
@@ -92,12 +92,6 @@ public class ToQueryConfirmServlet extends HttpServlet {
             //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
             if("2".equals(contractInfo.getInsuredKbn())) {
                 page = "/WEB-INF/view/QueryConfirmCompany.jsp";
-                //契約内容入力画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-
-
             }
 
 

@@ -82,17 +82,22 @@ public class ToTerminationConfirmServlet extends HttpServlet {
                 return;
             }
 
-//			if (contractInfo.getCancelFlg().equals("0")) {
-//				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
-//
-//				page ="/WEB-INF/view/TerminationStart.jsp";
-//				//契約内容入力画面へforwardする。
-//				RequestDispatcher rd = request.getRequestDispatcher(page);
-//				rd.forward(request, response);
-//				return;
-//			}
+			if (contractInfo.getCancelFlg().equals("0")) {
+				request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
+
+				page ="/WEB-INF/view/TerminationStart.jsp";
+				//契約内容入力画面へforwardする。
+				RequestDispatcher rd = request.getRequestDispatcher(page);
+				rd.forward(request, response);
+				return;
+			}
             //セッション領域に格納する。
             session.setAttribute("contractInfo", contractInfo);
+
+          //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+            if("2".equals(contractInfo.getInsuredKbn())) {
+                page = "/WEB-INF/view/TerminationConfirmCompany.jsp";
+            }
 
 
         } catch (ClassNotFoundException | SQLException e) {
