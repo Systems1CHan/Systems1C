@@ -8,17 +8,17 @@
  -----------------------------------------------------------------------------%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>計上完了画面</title>
-<%-- css用 リンクはheadに格納 --%>
-<link rel="stylesheet" href="./static/css/CommonHeader.css">
-<link rel="stylesheet" href="./static/css/CommonMain.css">
-<link rel="stylesheet" href="./static/css/CommonFooter.css">
-<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<title>計上完了完了画面</title>
+<%-- css(共通) --%>
+<link rel="stylesheet" href="./static/css/Button.css">
+<link rel="stylesheet" href="./static/css/Layout.css">
+<link rel="stylesheet" href="./static/css/Parts.css">
+<link rel="stylesheet" href="./static/css/Tab.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
@@ -31,28 +31,34 @@
 		<form action="" id="@@@@@@@@@" method="post">
 			<table class="button_table">
 				<tr>
-				<!-- 入力フォーム（お名前） -->
+					<!-- 入力フォーム（お名前） -->
 					<th><button type="button" onclick="toTopMenu();"
-					class="button_design">トップへ戻る</button></th>
+							class="button_design">トップへ戻る</button></th>
 				</tr>
 			</table>
 		</form>
 		<article>
-			<div class="subTitle">計上完了</div>
-				<table border="1" style="border-collapse: collapse">
+			<div class="main_roundedConer">
+				<div class="main_subTitle">計上完了</div>
+				<table class="confirm_table" border="1" style="border-collapse: collapse">
 					<tr>
- 						<td colspan="2">計上完了</td>
- 					</tr>
+						<td class="confirm_table_headline" colspan="2">計上完了</td>
+					</tr>
 					<tr>
-   						<td>印刷連番</td><td><c:out value="${sessionScope.contractInfo.insatsuRenban}"/></td>
-  					</tr>
- 					<tr>
-   						<td>証券番号</td><td><c:out value="${sessionScope.contractInfo.polNo}"/></td>
-  					</tr>
-  					<tr>
-   						<td>契約者名</td><td><c:out value="${sessionScope.contractInfo.getNameForLabel()}"/></td>
-  					</tr>
+						<td class="confirm_table_left">印刷連番</td>
+						<td><c:out value="${sessionScope.contractInfo.insatsuRenban}" /></td>
+					</tr>
+					<tr>
+						<td class="confirm_table_left">証券番号</td>
+						<td><c:out value="${sessionScope.contractInfo.polNo}" /></td>
+					</tr>
+					<tr>
+						<td class="confirm_table_left">契約者名</td>
+						<td><c:out
+								value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
+					</tr>
 				</table>
+			</div>
 		</article>
 	</main>
 	<footer>
