@@ -591,7 +591,7 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.conclusionDate }" required>
+                                        <input type="" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${contractInfo.conclusionDate }" required>
                                         <c:if test="${requestScope.check.get(2) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
