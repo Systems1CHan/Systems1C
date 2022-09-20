@@ -5,6 +5,7 @@
  * 作成者      ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/20 ： NarimichiHenmi/SYS ：form_table_newEstimateを追加)
  *------------------------------------------------------------------------------
  */
 
@@ -43,6 +44,7 @@
 
 /* 結果表示の表の左側 */
 .form_table_left {
+	text-align:left;
 	padding:0px 30px;					/* 表の中身同士の間隔（上下・左右） */
 }
 
@@ -69,4 +71,13 @@
 /* 結果表示の表の左側 */
 .confirm_table_left {
 	background-color: #fff2cc; 		/* 表左側の背景の色 */
+}
+
+
+/* 以下、専用CSS */
+/* 入力フォームのテーブル（新規試算のラジオボタン用） */
+.form_table_newEstimate {
+	font-size: 20px;					/* 文字の大きさ */
+	margin-left: auto;					/* テーブルを中央に配置 */
+	margin-right: auto;					/* テーブルを中央に配置 */
 }

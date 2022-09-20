@@ -5,13 +5,13 @@
  * 作成者      ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/16 ： NarimichiHenmi/SYS ：button_designのmarginの上下を変更)
  *------------------------------------------------------------------------------
  */
 
 /*
 ボタンのCSS
 */
-
 @charset "UTF-8";
 
 /*
@@ -20,32 +20,30 @@
 
 /* ボタン中央（ボタンタグをdivで囲うことを想定） */
 .button_center {
-	text-align: center;
+	text-align: center;						/* 文字を中央に配置 */
 }
 
 /* ボタン中央並列（テーブル使用を想定） */
 .button_center_parallel {
-	margin-left: auto;					/* テーブルを中央に配置 */
-	margin-right: auto;					/* テーブルを中央に配置 */
-	padding: 20px;						/* 内側の空白範囲 */
+	margin-left: auto; 						/* テーブルを中央に配置 */
+	margin-right: auto; 					/* テーブルを中央に配置 */
+	padding: 20px; 							/* 内側の空白範囲 */
 }
-
 
 /*
 ボタンのデザイン
 */
 
-/* 普通のボタン。各機能スタートの画面に使用。 */
+/* 普通のボタン。 */
 .button_design {
-	font-size: 20px;				/* 文字の大きさ */
-	color: #FFFFFF;				/* 文字の色 */
-	border: 1px solid #FFFFFF;	/* ボタンの枠線 */
-	background: #1f4e79;			/* ボタンの背景の色 */
-	margin: 0px 30px 10px;			/* ボタンとボタンの間隔（上・左右・下） */
-	height: 40px;					/* 縦の長さ（固定） */
-	width: 180px;					/* 横の長さ（固定） */
+	font-size: 20px; 						/* 文字の大きさ */
+	color: #FFFFFF; 						/* 文字の色 */
+	border: 1px solid #FFFFFF;			 	/* ボタンの枠線 */
+	background: #1f4e79; 					/* ボタンの背景の色 */
+	margin: 25px 30px; 						/* ボタンとボタンの間隔（上下・左右） */
+	height: 40px; 							/* 縦の長さ（固定） */
+	width: 180px; 							/* 横の長さ（固定） */
 }
-
 
 /*
 以下、専用ボタン
@@ -53,33 +51,33 @@
 
 /* トップへ戻るボタン */
 .button_design_top {
-	font-size: 20px;				/* 文字の大きさ */
-	color: #FFFFFF;					/* 文字の色 */
-	background: #1f4e79;			/* ボタンの背景の色 */
-	border: 1px solid #FFFFFF;		/* ボタンの枠 */
-	margin: 20px 20px 20px 40px;	/* 外側の空白範囲（上・右・下・左） */
-	height: 40px;					/* 縦・横の長さ（固定） */
-	width: 150px;					/* 縦・横の長さ（固定） */
+	font-size: 20px; 						/* 文字の大きさ */
+	color: #FFFFFF; 						/* 文字の色 */
+	background: #1f4e79;			 		/* ボタンの背景の色 */
+	border: 1px solid #FFFFFF; 				/* ボタンの枠 */
+	margin: 20px 20px 20px 40px; 			/* 外側の空白範囲（上・右・下・左） */
+	height: 40px; 							/* 縦・横の長さ（固定） */
+	width: 150px; 							/* 縦・横の長さ（固定） */
 }
 
 /* 大きなボタン。TOPメニュー用（marginを抜けば共通化可能） */
 .button_design_topMenu {
-	font-size: 20px;				/* 文字の大きさ */
-	color: #FFFFFF;					/* 文字の色 */
-	border: 1px solid #FFFFFF;		/* ボタンの枠線 */
-	background: #1f4e79;			/* ボタンの背景の色 */
-	margin: 30px;					/* ボタンとボタンの間隔 */
-	height: 60px;					/* ボタンの縦 */
-	width:260px;					/* ボタンの横 */
+	font-size: 20px; 						/* 文字の大きさ */
+	color: #FFFFFF; 						/* 文字の色 */
+	border: 1px solid #FFFFFF; 				/* ボタンの枠線 */
+	background: #1f4e79; 					/* ボタンの背景の色 */
+	margin: 30px; 							/* ボタンとボタンの間隔 */
+	height: 60px; 							/* ボタンの縦 */
+	width: 260px; 							/* ボタンの横 */
 }
 
 /* 大きなボタン。TOPメニュー用、一番最後のボタンの後に余白が欲しいため */
 .button_design_topMenu_last {
-	font-size: 20px;				/* 文字の大きさ */
-	color: #FFFFFF;					/* 文字の色 */
-	border: 1px solid #FFFFFF;		/* ボタンの枠線 */
-	background: #1f4e79;			/* ボタンの背景の色 */
-	margin: 30px 30px 150px;		/* ボタンとボタンの間隔（上・左右・下） */
-	height: 60px;					/* ボタンの縦 */
-	width:260px;					/* ボタンの横 */
+	font-size: 20px; 						/* 文字の大きさ */
+	color: #FFFFFF; 						/* 文字の色 */
+	border: 1px solid #FFFFFF; 				/* ボタンの枠線 */
+	background: #1f4e79; 					/* ボタンの背景の色 */
+	margin: 30px 30px 90px;		 			/* ボタンとボタンの間隔（上・左右・下） */
+	height: 60px; 							/* ボタンの縦 */
+	width: 260px; 							/* ボタンの横 */
 }

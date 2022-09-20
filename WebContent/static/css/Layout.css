@@ -5,8 +5,7 @@
  * 作成者      ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
- * (2022/09/12 ： NarimichiHenmi/SYS ：CommonからLayoutに名前変更。プロパティもLoginTop用と五機能用に分離)
- * (2022/09/15 ： NarimichiHenmi/SYS ：LoginTop用のmain_roundedConerのmarginを微調整)
+ * (2022/09/20 ： NarimichiHenmi/SYS ：Login.cssを削除し、内容をこちらに移動。footer_title_buttonを追加。)
  *------------------------------------------------------------------------------
  */
 
@@ -55,12 +54,22 @@
 	text-align: right;						/* 文字が右寄り */
 	color: #a9d18e;							/* 文字の色 */
 	width: 95%;								/* 文字とボーダーの横の長さ */
-	margin-top:60px;						/* 外側の空白範囲（上） */
+	margin-top:86px;						/* 外側の空白範囲（上） */
 	margin-left: auto;						/* 文字とボーダーを中央に配置（外側の空白範囲（左）） */
 	margin-right: auto;						/* 文字とボーダーを中央に配置（外側の空白範囲（右）） */
 	padding: 10px;							/* 内側の空白範囲 */
 }
 
+/* footerタグ（下にボタンがある場合） */
+.footer_title_button {
+	border-top: solid 2px #a9d18e;			/* 文字の上にボーダーライン */
+	text-align: right;						/* 文字が右寄り */
+	color: #a9d18e;							/* 文字の色 */
+	width: 95%;								/* 文字とボーダーの横の長さ */
+	margin-left: auto;						/* 文字とボーダーを中央に配置（外側の空白範囲（左）） */
+	margin-right: auto;						/* 文字とボーダーを中央に配置（外側の空白範囲（右）） */
+	padding: 10px;							/* 内側の空白範囲 */
+}
 
 
 /*
@@ -73,4 +82,42 @@
 	border: 1px solid #FFFFFF;				/* 白ボーダー */
 	margin: 86px 35px 0px;					/* 外側の空白範囲（上・左右・下） */
 	border-radius: 30px;					/* （背景の）角の丸め具合 */
+}
+
+
+/*
+ログイン専用のCSS
+*/
+
+/* デフォルトのIDのフォーム（パスワードフォームと大きさを統一するためIDもパスワードフォームに合わせる） */
+.ID_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 290px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
+.ID_form {
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 290px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
+}
+
+
+/* デフォルトのパスワードのフォーム */
+.password_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 250px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
+.password_form {
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 290px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
 }
