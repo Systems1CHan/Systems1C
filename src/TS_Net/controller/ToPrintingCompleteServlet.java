@@ -37,9 +37,8 @@ public class ToPrintingCompleteServlet extends HttpServlet {
 		//セッションがない場合、エラーページに遷移
 		if(session == null) {
 			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
 			rd.forward(request, response);
-			System.out.println("セッションがないエラー");
 			return;
 		}
 
