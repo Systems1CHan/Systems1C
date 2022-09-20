@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="./static/css/Layout.css">
 <link rel="stylesheet" href="./static/css/Parts.css">
 <%-- css(個別) --%>
-<link rel="stylesheet" href="./static/css/Login.css">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
 	rel="stylesheet">
 <%-- JavaScript用 --%>

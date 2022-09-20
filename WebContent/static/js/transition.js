@@ -291,3 +291,23 @@ function toTopNew(){
 function toTopMenu(){
 	location.href = "./toTopMenu"
 }
+
+/**
+ *------------------------------------------------------
+ *関数名        :ログインボタン押下時の処理
+ *引数          :なし
+ *戻り値        :なし
+ *機能          :TOPメニュー画面に遷移する。
+ *------------------------------------------------------
+*/
+function loginProcess() {
+	//５．フォーム要素を取得する。
+	var formElement = document.getElementById("login_process");
+
+	//６．フォーム要素のaction属性に、
+	//要求『TOPメニュー画面へ』のURLをセットした上で、
+	formElement.action = "./loginProcess"
+
+	//submit関数を呼び出す。
+	formElement.submit();
+}
