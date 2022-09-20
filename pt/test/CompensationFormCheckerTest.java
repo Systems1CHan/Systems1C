@@ -12,6 +12,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,7 +62,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -97,7 +99,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -134,7 +136,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -171,7 +173,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -208,7 +210,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -245,7 +247,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -282,7 +284,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -319,7 +321,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -356,7 +358,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -393,7 +395,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -430,7 +432,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -467,7 +469,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -504,7 +506,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -541,7 +543,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -578,7 +580,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -615,7 +617,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -652,7 +654,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -689,7 +691,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -726,7 +728,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -763,7 +765,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -800,7 +802,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -837,7 +839,7 @@ public class CompensationFormCheckerTest {
 		Com.setPremiumInstallment(null);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(Com);
+		List<Integer> actual = CFC.check(Com);
 
 		/* 検証 */
 		assertEquals(expected, actual);
