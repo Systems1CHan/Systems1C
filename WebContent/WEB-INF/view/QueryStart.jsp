@@ -14,11 +14,10 @@
 <head>
 <meta charset="UTF-8">
 <title>照会開始画面</title>
-<%-- css用 リンクはheadに格納 --%>
-<link rel="stylesheet" href="./static/css/CommonHeader.css">
-<link rel="stylesheet" href="./static/css/CommonMain.css">
-<link rel="stylesheet" href="./static/css/CommonFooter.css">
-<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<%-- css(共通) --%>
+<link rel="stylesheet" href="./static/css/Button.css">
+<link rel="stylesheet" href="./static/css/Layout.css">
+<link rel="stylesheet" href="./static/css/Parts.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
@@ -34,24 +33,24 @@
 					<tr>
 						<!-- 入力フォーム（お名前） -->
 						<th><button type="button" onclick="toTopMenu();"
-								class="button_design">トップへ戻る</button></th>
+								class="button_design_top">トップへ戻る</button></th>
 					</tr>
 				</table>
-			<div class="roundedConer">
-				<div class="subTitle">契約内容照会開始</div>
-					<table class="IDpass_table">
+			<div class="main_roundedConer">
+				<div class="main_subTitle">契約内容照会開始</div>
+					<table class="form_table">
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
-							<th class="password_string">証券番号</th>
-							<td><input name="polNo" maxlength="10"></td>
+							<th class="form_table_left">証券番号</th>
+							<td><input class="form_table_right" id="polNo" name="polNo" maxlength="10"></td>
 
 						</tr>
 					</table>
 				<!-- エラーメッセージ -->
-				<div align="center" id="FORM_ERROR">
+				<div class="error" id="FORM_ERROR">
   			    	<c:out value="${requestScope.FORM_ERROR }" />
 				</div>
-					<table class="button_table">
+					<table class="button_center_parallel">
 						<tr>
 							<!-- 入力フォーム（お名前） -->
 							<th><button type="button" onclick="toInquiryconfirmPage();"

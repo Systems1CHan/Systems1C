@@ -8,17 +8,16 @@
 -------------------------------------------------------------------------------------------->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>解約開始画面</title>
-<%-- css用 リンクはheadに格納 --%>
-<link rel="stylesheet" href="./static/css/CommonHeader.css">
-<link rel="stylesheet" href="./static/css/CommonMain.css">
-<link rel="stylesheet" href="./static/css/CommonFooter.css">
-<link rel="stylesheet" href="./static/css/HenmiLogin.css">
+<%-- css(共通) --%>
+<link rel="stylesheet" href="./static/css/Button.css">
+<link rel="stylesheet" href="./static/css/Layout.css">
+<link rel="stylesheet" href="./static/css/Parts.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
@@ -34,29 +33,28 @@
 					<tr>
 						<!-- 入力フォーム（お名前） -->
 						<th><button type="button" onclick="toTopMenu();"
-								class="button_design">トップへ戻る</button></th>
+								class="button_design_top">トップへ戻る</button></th>
 					</tr>
 				</table>
-			<div class="roundedConer">
-				<div class="subTitle">解約開始</div>
-					<table class="IDpass_table">
+				<div class="main_roundedConer">
+					<div class="main_subTitle">解約開始</div>
+					<table class="form_table">
 						<tr>
 							<!-- 入力フォーム（証券番号） -->
-							<th class="password_string">証券番号</th>
-							<td><input name="polNo" maxlength="10"></td>
+							<th class="form_table_left">証券番号</th>
+							<td><input class="form_table_right" id="polNo" name="polNo"
+								maxlength="10"></td>
 						</tr>
 					</table>
 					<!-- エラーメッセージ -->
-				<div align="center" id="FORM_ERROR">
-  			    	<c:out value="${requestScope.FORM_ERROR }" />
-				</div>
-					<table class="button_table">
-						<tr>
-							<!-- 入力フォーム（お名前） -->
-							<th><button type="button" onclick="toNextPage();"
-									class="button_design">次へ</button></th>
-						</tr>
-					</table>
+					<div class="error" id="FORM_ERROR">
+						<c:out value="${requestScope.FORM_ERROR }" />
+					</div>
+					<div class="button_center">
+						<!-- 入力フォーム（お名前） -->
+						<button type="button" onclick="toNextPage();"
+							class="button_design">次へ</button>
+					</div>
 				</div>
 			</form>
 		</article>
