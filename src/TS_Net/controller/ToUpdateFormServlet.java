@@ -32,6 +32,7 @@ import TS_Net.model.constant.SystemConst;
 import TS_Net.model.dao.AccidentDao;
 import TS_Net.model.data.AccidentReception;
 import TS_Net.model.data.ContractInfo;
+import TS_Net.model.datacheck.AccidentReceptionFormChecker;
 import TS_Net.model.datacheck.DateChecker;
         @WebServlet("/ToUpdateForm")
         public class ToUpdateFormServlet extends HttpServlet {
@@ -132,6 +133,73 @@ import TS_Net.model.datacheck.DateChecker;
                 return;
 
             }
+
+            //過失割合が合計100になっているかどうか調べる機能。
+            Integer ratingblamemyself =Integer.parseInt(request.getParameter("ratingblamemyself"));
+            Integer ratingblameyourself =Integer.parseInt(request.getParameter("ratingblameyourself"));
+
+            if(ratingblamemyself + ratingblameyourself != 100) {
+
+            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0019);
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+
+            //損害額が1000円単位で入力されているか調べる機能。
+            String damageCarPrice =request.getParameter("damagecarprice");
+            String damageBodilyPrice =request.getParameter("damagebodilyprice");
+            String damagePropertyPrice =request.getParameter("damagepropertyprice");
+            String damageAccidentPrice =request.getParameter("damageaccidentprice");
+
+
+            AccidentReceptionFormChecker checker = new AccidentReceptionFormChecker();
+
+            if(checker.digitCheck( damageCarPrice) != null) {
+            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+            		                page ="/WEB-INF/view/ReceptionInput.jsp";
+            		                //契約内容入力画面へforwardする。
+            		                RequestDispatcher rd = request.getRequestDispatcher(page);
+            		                rd.forward(request, response);
+            		                return;
+            }
+
+            if(checker.digitCheck(damageBodilyPrice) != null) {
+            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+            		                page ="/WEB-INF/view/ReceptionInput.jsp";
+            		                //契約内容入力画面へforwardする。
+            		                RequestDispatcher rd = request.getRequestDispatcher(page);
+            		                rd.forward(request, response);
+            		                return;
+            }
+
+            if(checker.digitCheck(damagePropertyPrice) != null) {
+            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+            		                page ="/WEB-INF/view/ReceptionInput.jsp";
+            		                //契約内容入力画面へforwardする。
+            		                RequestDispatcher rd = request.getRequestDispatcher(page);
+            		                rd.forward(request, response);
+            		                return;
+            }
+
+            if(checker.digitCheck(damageAccidentPrice) != null) {
+            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+            		                page ="/WEB-INF/view/ReceptionInput.jsp";
+            		                //契約内容入力画面へforwardする。
+            		                RequestDispatcher rd = request.getRequestDispatcher(page);
+            		                rd.forward(request, response);
+            		                return;
+            }
+
 
 
             //事故受け付けフラグを1受付中に設定

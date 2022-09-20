@@ -54,7 +54,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -101,7 +101,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -148,7 +148,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -195,7 +195,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -242,7 +242,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -289,7 +289,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -336,7 +336,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -383,7 +383,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -430,7 +430,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -477,7 +477,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -524,7 +524,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -571,7 +571,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -618,7 +618,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -665,7 +665,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(null);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -712,7 +712,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -759,7 +759,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn(null);
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -806,7 +806,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -853,7 +853,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1(null);
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -900,7 +900,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("");
+		CI.setNameKana2("");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -947,7 +947,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2(null);
+		CI.setNameKana2(null);
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -994,7 +994,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1041,7 +1041,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1(null);
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1088,7 +1088,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("");
 		CI.setPostcode("test");
@@ -1135,7 +1135,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2(null);
 		CI.setPostcode("test");
@@ -1182,7 +1182,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("");
@@ -1229,7 +1229,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode(null);
@@ -1276,7 +1276,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1323,7 +1323,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1370,7 +1370,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1417,7 +1417,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1464,7 +1464,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1511,7 +1511,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1558,7 +1558,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1605,7 +1605,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1652,7 +1652,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1699,7 +1699,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1746,7 +1746,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1793,7 +1793,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1840,7 +1840,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1887,7 +1887,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1934,7 +1934,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -1981,7 +1981,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -2028,7 +2028,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");
@@ -2075,7 +2075,7 @@ public class ContractFormCheckerTest {
 		CI.setInstallment(0);
 		CI.setInsuredKbn("test");
 		CI.setNameKana1("test");
-		CI.setNamekana2("test");
+		CI.setNameKana2("test");
 		CI.setNameKanji1("test");
 		CI.setNameKanji2("test");
 		CI.setPostcode("test");

@@ -133,10 +133,6 @@
                                         <c:if test="${requestScope.check.get(0) == 1}">
                                         	<td><c:out value="未入力です。"/><td/>
                                         </c:if>
-                                        <!-- エラーメッセージ -->
-										<td>
-						  			    	<c:out value="${requestScope.FORM_ERROR}" />
-										<td/>
                                     </tr>
                                     <tr>
                                         <th>
@@ -303,6 +299,12 @@
                                         	<td><c:out value="未入力です。" /><td/>
                                         </c:if>
                                     </tr>
+                                    <!-- エラーメッセージ -->
+									<tr>
+										<td>
+						  			    	<c:out value="${requestScope.FORM_ERROR}" />
+										<td/>
+									<tr/>
                                 </table>
                             </div>
                             <div id="tabpage2">
