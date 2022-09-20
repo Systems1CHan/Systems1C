@@ -86,14 +86,20 @@ public class ToQueryConfirmServlet extends HttpServlet {
                 return;
 
             }
-
-            //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
-            if(contractInfo.getInstallment() == 2) {
-                page = "/WEB-INF/view/QueryConfirmCompany.jsp";
-
-            }
             //リクエスト領域に格納する。
             request.setAttribute("contractInfo", contractInfo);
+
+            //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+            if("2".equals(contractInfo.getInsuredKbn())) {
+                page = "/WEB-INF/view/QueryConfirmCompany.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+
+            }
+
 
 
         } catch (ClassNotFoundException | SQLException e) {

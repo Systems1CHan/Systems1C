@@ -12,6 +12,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -69,7 +71,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -116,7 +118,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -163,7 +165,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -210,7 +212,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -257,7 +259,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -304,7 +306,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -351,7 +353,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -398,7 +400,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -445,7 +447,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -492,7 +494,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -539,7 +541,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -586,7 +588,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -633,7 +635,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -680,7 +682,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -727,7 +729,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -774,7 +776,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -821,7 +823,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -868,7 +870,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -915,7 +917,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -962,7 +964,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1009,7 +1011,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1056,7 +1058,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1103,7 +1105,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1150,7 +1152,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1197,7 +1199,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1244,7 +1246,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1291,7 +1293,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1338,7 +1340,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1385,7 +1387,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1432,7 +1434,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1479,7 +1481,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1526,7 +1528,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1573,7 +1575,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1620,7 +1622,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1667,7 +1669,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1714,7 +1716,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1761,7 +1763,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1808,7 +1810,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1855,7 +1857,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1902,7 +1904,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1949,7 +1951,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1996,7 +1998,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("test");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -2043,7 +2045,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo("");
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -2090,7 +2092,7 @@ public class ContractFormCheckerTest {
 		CI.setFaxNo(null);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = CFC.check(CI);
+		List<Integer> actual = CFC.check(CI);
 
 		/* 検証 */
 		assertEquals(expected, actual);
