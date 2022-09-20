@@ -349,6 +349,7 @@
                                         <c:if test="${requestScope.check.get(6) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">苗字を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -361,6 +362,7 @@
                                         <c:if test="${requestScope.check.get(7) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">名前を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -373,6 +375,7 @@
                                         <c:if test="${requestScope.check.get(8) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">苗字を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -385,6 +388,7 @@
                                         <c:if test="${requestScope.check.get(9) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">名前を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -397,6 +401,7 @@
                                         <c:if test="${requestScope.check.get(10) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -405,10 +410,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${sessionScope.contractInfo.addressKana1}" required>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシオチアイ" maxlength="48" value="${sessionScope.contractInfo.addressKana1}" required>
                                         <c:if test="${requestScope.check.get(11) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">都道府県、市区町村まで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -417,10 +423,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${sessionScope.contractInfo.addressKana2}" required>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）12-34" maxlength="48" value="${sessionScope.contractInfo.addressKana2}" required>
                                         <c:if test="${requestScope.check.get(12) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">番地、建物名、部屋番号を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -429,10 +436,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" maxlength="48" value="${sessionScope.contractInfo.addressKanji1 }" required>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市落合" maxlength="48" value="${sessionScope.contractInfo.addressKanji1 }" required>
                                         <c:if test="${requestScope.check.get(13) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">都道府県、市区町村まで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -441,10 +449,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" maxlength="48" value="${sessionScope.contractInfo.addressKanji2 }" required>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）12-34" maxlength="48" value="${sessionScope.contractInfo.addressKanji2 }" required>
                                         <c:if test="${requestScope.check.get(14) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">番地、建物名、部屋名を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -457,6 +466,7 @@
                                         <c:if test="${requestScope.check.get(15) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">18歳以下の方は契約できません。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -484,6 +494,7 @@
                                         <c:if test="${requestScope.check.get(17) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -496,6 +507,7 @@
                                         <c:if test="${requestScope.check.get(18) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -508,6 +520,7 @@
                                         <c:if test="${requestScope.check.get(19) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -712,6 +725,7 @@
                                         <c:if test="${requestScope.check.get(10) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -720,11 +734,13 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシ" maxlength="48" value="${contractInfo.addressKana1 }" required>
+                                        <input type="text" id="addressKana1" name="addressKana1" size="60" placeholder="（例）トウキョウトタマシオチアイ" maxlength="48" value="${contractInfo.addressKana1 }" required>
                                         <c:if test="${requestScope.check.get(11) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">都道府県、市区町村まで入力してください。</font></p>
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th scope="row">
@@ -732,10 +748,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）オチアイ12-34" maxlength="48" value="${contractInfo.addressKana2 }" required>
+                                        <input type="text" id="addressKana2" name="addressKana2" size="60" placeholder="（例）12-34" maxlength="48" value="${contractInfo.addressKana2 }" required>
                                         <c:if test="${requestScope.check.get(12) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">番地、建物名、部屋名を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -744,10 +761,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市" maxlength="48" value="${contractInfo.addressKanji1 }" required>
+                                        <input type="text" id="addressKanji1" name="addressKanji1" size="60" placeholder="（例）東京都多摩市落合" maxlength="48" value="${contractInfo.addressKanji1 }" required>
                                         <c:if test="${requestScope.check.get(13) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">都道府県、市区町村まで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -756,10 +774,11 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）落合12-34" maxlength="48" value="${contractInfo.addressKanji2 }" required>
+                                        <input type="text" id="addressKanji2" name="addressKanji2" size="60" placeholder="（例）12-34" maxlength="48" value="${contractInfo.addressKanji2 }" required>
                                         <c:if test="${requestScope.check.get(14) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">番地、建物名、部屋名を入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -772,6 +791,7 @@
                                         <c:if test="${requestScope.check.get(15) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -784,6 +804,7 @@
                                         <c:if test="${requestScope.check.get(16) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -796,6 +817,7 @@
                                         <c:if test="${requestScope.check.get(17) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -891,6 +913,7 @@
                                         <c:if test="${requestScope.check.get(1) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">メーカーに対応した車種を選択してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1144,6 +1167,7 @@
                                         <c:if test="${requestScope.check.get(7) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">地域名・分類番号・判別文字・一連指定番号の順に入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1161,6 +1185,7 @@
                                         <c:if test="${requestScope.check.get(8) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">今現在の免許証の区分を選択してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
