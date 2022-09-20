@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
 
 	/**
@@ -36,6 +37,13 @@ import TS_Net.model.constant.SystemConst;
 
 			/* １-１．セッション領域から契約情報オブジェクトを除去する。 */
 			HttpSession session = request.getSession();
+			//セッションがない場合、エラーページに遷移
+			if(session == null) {
+				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+				rd.forward(request, response);
+				return;
+			}
 			if (session.getAttribute("ContractInfo") != null) {
 				session.removeAttribute("ContractInfo");
 			}

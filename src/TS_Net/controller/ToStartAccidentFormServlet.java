@@ -41,6 +41,16 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 
         //文字化けを防止する。
         request.setCharacterEncoding(SystemConst.CHAR_SET);
+		//セッションの生成
+		HttpSession session = request.getSession(false);
+
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
         String page = "/WEB-INF/view/ReceptionInput.jsp";
 
         //dataオブジェクトを定義する。
@@ -138,7 +148,6 @@ public class ToStartAccidentFormServlet extends HttpServlet {
 
 
                 //セッションを生成する。
-                HttpSession session = request.getSession(true);
 
                 session.setAttribute("accidentReception", accidentReception);
                 session.setAttribute("compensation", compensation);
@@ -173,8 +182,6 @@ public class ToStartAccidentFormServlet extends HttpServlet {
                 String claimno = accidentDao.getMaxClaimNo();
                 accidentReception.setClaimNo(claimno);
 
-                //セッションを生成する。
-                HttpSession session = request.getSession(true);
 
                 //※補償IDのみなので事故情報は別の名前でセッションにセットする。
                 session.setAttribute("accidentReception", accidentReception);
