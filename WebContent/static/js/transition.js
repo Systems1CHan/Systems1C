@@ -57,9 +57,12 @@ function toNewEstimationEntryPage() {
  *------------------------------------------------------
 */
 
-function toAfterEstimationPage() {
+function toAfterEstimationPage(param1) {
 	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("application_frm");
+
+	var names = document.getElementByName("buttonValue");
+	names[0].value = param1;
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
 	formElement.action="./InsuranceEstimation"
