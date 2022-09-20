@@ -68,9 +68,9 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		}
 
 		//リクエストパラメータを取得し、契約情報オブジェクトにセット
-		String inceptionDate = request.getParameter("inceptionDate");
-		String conclusionDate = request.getParameter("conclusionDate");
-		String birthday = request.getParameter("birthday");
+		String inceptionDate = request.getParameter("inceptionDate").replace("-", "");
+		String conclusionDate = request.getParameter("conclusionDate").replace("-", "");
+		String birthday = request.getParameter("birthday").replace("-", "");
 		contractInfo.setInceptionDate(inceptionDate);
 		contractInfo.setConclusionDate(conclusionDate);
 		contractInfo.setBirthday(birthday);
