@@ -232,9 +232,9 @@ public class Compensation implements Serializable {
 	public double licenserate(String licenseColor) {
 
 		if(Objects.equals(licenseColor, "1")) {
-			return 1.3;
+			return 1;
 		}else if(Objects.equals(licenseColor, "2")){
-			return 1.0;
+			return 1.5;
 		}else{
 			return 0.7;
 		}
@@ -268,10 +268,11 @@ public class Compensation implements Serializable {
 	 */
 	public Integer getPremiumAmountForLabel() {
 
-		Integer ratesSum =  (int) (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
-		Integer dpremiumAmount = (int) ((int) ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit))  ;
-		this.premiumAmount = dpremiumAmount;
+		Double ratesSum =  (this.vehiclePrice * (rate(this.vehicleRates) + rate(this.bodilyRates) + rate(this.propertyDamageRates) + rate(this.accidentRates)));
+		Double dpremiumAmount = (ratesSum * 12 * licenserate(this.licenseColor) * olderRate(this.ageLimit));
+		this.premiumAmount = dpremiumAmount.intValue();
 		return premiumAmount;
+
 	}
 
 //	/**
