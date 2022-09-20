@@ -16,6 +16,7 @@ import TS_Net.model.data.Compensation;
 import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.CompensationFormChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
+import TS_Net.model.datacheck.DateChecker;
 
 /**
  * 保険料試算後画面へコントローラ
@@ -67,9 +68,15 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		}
 
 		//リクエストパラメータを取得し、契約情報オブジェクトにセット
-		contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
+		String inceptionDate = request.getParameter("inceptionDate");
+		String conclusionDate = request.getParameter("conclusionDate");
+		String birthday = request.getParameter("birthday");
+		contractInfo.setInceptionDate(inceptionDate);
+		contractInfo.setConclusionDate(conclusionDate);
+		contractInfo.setBirthday(birthday);
+		//contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
 		contractInfo.setInceptionTime(request.getParameter("inceptionTime"));
-		contractInfo.setConclusionDate(request.getParameter("conclusionDate"));
+		//contractInfo.setConclusionDate(request.getParameter("conclusionDate"));
 		contractInfo.setConclusionTime(request.getParameter("conclusionTime"));
 		contractInfo.setPaymentMethod(request.getParameter("paymentMethod"));
 		contractInfo.setInstallment(check(request.getParameter("installment")));
@@ -83,7 +90,7 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		contractInfo.setAddressKana2(request.getParameter("addressKana2"));
 		contractInfo.setAddressKanji1(request.getParameter("addressKanji1"));
 		contractInfo.setAddressKanji2(request.getParameter("addressKanji2"));
-		contractInfo.setBirthday(request.getParameter("birthday"));
+		//contractInfo.setBirthday(request.getParameter("birthday"));
 		contractInfo.setGender(request.getParameter("gender"));
 		contractInfo.setTelephoneNo(request.getParameter("telephoneNo"));
 		contractInfo.setMobilephoneNo(request.getParameter("mobilephoneNo"));
@@ -122,6 +129,7 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		//データチェッククラスの生成
 		ContractFormChecker cfc = new ContractFormChecker();
 		CompensationFormChecker comfc = new CompensationFormChecker();
+		DateChecker dc = new DateChecker();
 
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
 		if(cfc.check(contractInfo) != null) {
@@ -130,6 +138,18 @@ public class InsuranceEstimationServlet extends HttpServlet {
 			rd.forward(request, response);
 		}else if(comfc.check(compensation) != null) {
 			request.setAttribute("message", comfc.check(compensation));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+		}else if(dc.inceptionDateCheck(inceptionDate) != null) {
+			request.setAttribute("message", dc.inceptionDateCheck(inceptionDate));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+		}else if(dc.conclusionDateCheck(conclusionDate) != null) {
+			request.setAttribute("message", dc.conclusionDateCheck(conclusionDate));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+			rd.forward(request, response);
+		}else if(dc.birthdayCheck(birthday) != null) {
+			request.setAttribute("message", dc.birthdayCheck(birthday));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
 		}else {
