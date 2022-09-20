@@ -50,7 +50,16 @@ public class ToRecordComfirmServlet extends HttpServlet {
 
         //文字化けを防止する。
         request.setCharacterEncoding(SystemConst.CHAR_SET);
+    	//セッションの生成
+		HttpSession session = request.getSession(false);
 
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
         /*「計上開始」ボタン押下時に以下の処理を行う。*/
         /*１-1．契約情報クラスのオブジェクトを生成する。（既にセッションに存在する場合は、それを利用する。存在しない場合、セッション領域に格納する。）
          */
@@ -98,7 +107,6 @@ public class ToRecordComfirmServlet extends HttpServlet {
             contract = ciDao.getContractInfoByIR(insatsuRenban);
 
             // 印刷連番が補償TBLに存在したら、印刷連番に合致した契約情報をオブジェクトに格納する。
-            HttpSession session = request.getSession();
             session.setAttribute("contractInfo", contract);
 
             /*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
@@ -150,7 +158,6 @@ public class ToRecordComfirmServlet extends HttpServlet {
             //印刷連番に合致する補償情報を取得し、オブジェクトに格納する。
             compensation = cpDao.getCompensationByIR(insatsuRenban);
             //リクエスト領域に格納する。
-            HttpSession session = request.getSession();
             session.setAttribute("compensation", compensation);
 
         } catch (ClassNotFoundException | SQLException e) {

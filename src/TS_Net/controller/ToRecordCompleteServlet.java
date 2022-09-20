@@ -46,6 +46,16 @@ public class ToRecordCompleteServlet extends HttpServlet {
 
 		//文字化けを防止する。
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
+		//セッションの生成
+		HttpSession session = request.getSession(false);
+
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
 		String page = "/WEB-INF/view/RecordComplete.jsp";
 		//dataオブジェクトを生成する。
 		ContractInfo contractInfo = null;
@@ -53,20 +63,7 @@ public class ToRecordCompleteServlet extends HttpServlet {
 		//DAOを生成する。
 		ContractInfoDao contractInfoDao = new ContractInfoDao();
 
-		//セッションを生成する。
-		HttpSession session = request.getSession(false);
 
-		//セッションがnullの場合はエラーを表示する。
-		if (session == null) {
-
-			request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-			// システムエラー画面を戻り値に設定する。
-			page = "/WEB-INF/view/ErrorPage.jsp";
-			//システムエラー画面へforwardする。
-			RequestDispatcher rd = request.getRequestDispatcher(page);
-			rd.forward(request, response);
-			return;
-		}
 		//セッションから契約情報オブジェクトを取り出す。
 		contractInfo = (ContractInfo) session.getAttribute("contractInfo");
 		//オブジェクトが空の場合はエラーを表示する。

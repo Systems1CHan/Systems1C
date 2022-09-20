@@ -211,7 +211,7 @@ function toTypeAccidentPage() {
 
 	//７．フォーム要素のaction属性に、
 	//要求『事故受付入力画面へ』のURLをセットした上で、
-	formElement.action = "./ToStartAccidentForm"
+	formElement.action = "./ToReceptionInput"
 
 	//submit関数を呼び出す。
 	formElement.submit();

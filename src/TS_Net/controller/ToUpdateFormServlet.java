@@ -39,6 +39,16 @@ import TS_Net.model.datacheck.DateChecker;
 
             public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 request.setCharacterEncoding(SystemConst.CHAR_SET);
+            	//セッションの生成
+        		HttpSession session = request.getSession(false);
+
+        		//セッションがない場合、エラーページに遷移
+        		if(session == null) {
+        			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+        			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+        			rd.forward(request, response);
+        			return;
+        		}
                 String page = "/WEB-INF/view/ReceptionUpdate.jsp";
                 /* 事故受付完了JSPへforwardする。*/
 
@@ -48,21 +58,6 @@ import TS_Net.model.datacheck.DateChecker;
 
             //DAOを生成する。
             AccidentDao accidentDao = new AccidentDao();
-
-            //セッションを生成する。
-            HttpSession session = request.getSession(false);
-
-            //セッションがnullの場合はエラーを表示する。
-            if (session == null) {
-
-                request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-                // システムエラー画面を戻り値に設定する。
-                page = "/WEB-INF/view/ErrorPage.jsp";
-                //システムエラー画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-            }
             //セッションから契約情報オブジェクトを取り出す。
             contractInfo = (ContractInfo) session.getAttribute("contractInfo");
             //オブジェクトが空の場合はエラーを表示する。
@@ -134,21 +129,7 @@ import TS_Net.model.datacheck.DateChecker;
 
             }
 
-            //過失割合が合計100になっているかどうか調べる機能。
-            Integer ratingblamemyself =Integer.parseInt(request.getParameter("ratingblamemyself"));
-            Integer ratingblameyourself =Integer.parseInt(request.getParameter("ratingblameyourself"));
 
-            if(ratingblamemyself + ratingblameyourself != 100) {
-
-            	request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0019);
-
-                page ="/WEB-INF/view/ReceptionInput.jsp";
-                //契約内容入力画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-
-            }
 
 
             //損害額が1000円単位で入力されているか調べる機能。

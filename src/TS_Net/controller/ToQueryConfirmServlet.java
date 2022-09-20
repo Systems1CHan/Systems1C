@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import TS_Net.model.constant.ErrorMsgConst;
 import TS_Net.model.constant.SystemConst;
@@ -42,6 +43,16 @@ public class ToQueryConfirmServlet extends HttpServlet {
 
         //文字化けを防止する。
         request.setCharacterEncoding(SystemConst.CHAR_SET);
+		//セッションの生成
+		HttpSession session = request.getSession(false);
+
+		//セッションがない場合、エラーページに遷移
+		if(session == null) {
+			request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
         String page = "/WEB-INF/view/QueryConfirmCompany.jsp";
         //dataオブジェクトを生成する。
         ContractInfo contractInfo = null;
