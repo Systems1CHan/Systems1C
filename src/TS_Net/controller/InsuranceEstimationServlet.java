@@ -32,6 +32,9 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
+		String insuredKbn2 = request.getParameter("insuredKbn");
+		request.setAttribute("radioButtonValue", insuredKbn2);
+
 		//セッションの生成
 		HttpSession session = request.getSession(false);
 
@@ -67,34 +70,61 @@ public class InsuranceEstimationServlet extends HttpServlet {
 			compensation = (Compensation) session.getAttribute("compensation");
 		}
 
-		//リクエストパラメータを取得し、契約情報オブジェクトにセット
-		String inceptionDate = request.getParameter("inceptionDate").replace("-", "");
-		String conclusionDate = request.getParameter("conclusionDate").replace("-", "");
-		String birthday = request.getParameter("birthday").replace("-", "");
-		contractInfo.setInceptionDate(inceptionDate);
-		contractInfo.setConclusionDate(conclusionDate);
+		String[] inceptionDate = request.getParameterValues("inceptionDate");
+		String[] inceptionTime = request.getParameterValues("inceptionTime");
+		String[] conclusionDate = request.getParameterValues("conclusionDate");
+		String[] conclusionTime = request.getParameterValues("conclusionTime");
+		String[] paymentMethod = request.getParameterValues("paymentMethod");
+		String[] installment = request.getParameterValues("installment");
+		String insuredKbn = request.getParameter("insuredKbn");
+		String[] nameKana1 = request.getParameterValues("nameKana1");
+		String[] nameKana2 = request.getParameterValues("nameKana2");
+		String[] nameKanji1 = request.getParameterValues("nameKanji1");
+		String[] nameKanji2= request.getParameterValues("nameKanji2");
+		String[] postcode = request.getParameterValues("postcode");
+		String[] addressKana1 = request.getParameterValues("addressKana1");
+		String[] addressKana2 = request.getParameterValues("addressKana2");
+		String[] addressKanji1 = request.getParameterValues("addressKanji1");
+		String[] addressKanji2 = request.getParameterValues("addressKanji2");
+		String birthday = request.getParameter("birthday");
+		String gender = request.getParameter("gender");
+		String[] telephoneNo= request.getParameterValues("telephoneNo");
+		String[] mobilephoneNo = request.getParameterValues("mobilephoneNo");
+		String[] faxNo = request.getParameterValues("faxNo");
+
+		int index = 0;
+		if(insuredKbn2.equals("1")) {
+			index = 0;
+		}else if(insuredKbn2.equals("2")) {
+			index = 1;
+			if(birthday.equals(null) || birthday.isEmpty()) {
+				birthday = "19990330";
+			}else if(gender.equals(null) || gender.isEmpty()) {
+				gender = "0";
+			}
+		}
+
+		contractInfo.setInceptionDate(inceptionDate[index]);
+		contractInfo.setInceptionTime(inceptionTime[index]);
+		contractInfo.setConclusionDate(conclusionDate[index]);
+		contractInfo.setConclusionTime(conclusionTime[index]);
+		contractInfo.setPaymentMethod(paymentMethod[index]);
+		contractInfo.setInstallment(check(installment[index]));
+		contractInfo.setInsuredKbn(insuredKbn);
+		contractInfo.setNameKana1(nameKana1[index]);
+		contractInfo.setNameKana2(nameKana2[index]);
+		contractInfo.setNameKanji1(nameKanji1[index]);
+		contractInfo.setNameKanji2(nameKanji2[index]);
+		contractInfo.setPostcode(postcode[index]);
+		contractInfo.setAddressKana1(addressKana1[index]);
+		contractInfo.setAddressKana2(addressKana2[index]);
+		contractInfo.setAddressKanji1(addressKanji1[index]);
+		contractInfo.setAddressKanji2(addressKanji2[index]);
 		contractInfo.setBirthday(birthday);
-		//contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
-		contractInfo.setInceptionTime(request.getParameter("inceptionTime"));
-		//contractInfo.setConclusionDate(request.getParameter("conclusionDate"));
-		contractInfo.setConclusionTime(request.getParameter("conclusionTime"));
-		contractInfo.setPaymentMethod(request.getParameter("paymentMethod"));
-		contractInfo.setInstallment(check(request.getParameter("installment")));
-		contractInfo.setInsuredKbn(request.getParameter("insuredKbn"));
-		contractInfo.setNameKana1(request.getParameter("nameKana1"));
-		contractInfo.setNameKana2(request.getParameter("nameKana2"));
-		contractInfo.setNameKanji1(request.getParameter("nameKanji1"));
-		contractInfo.setNameKanji2(request.getParameter("nameKanji2"));
-		contractInfo.setPostcode(request.getParameter("postcode"));
-		contractInfo.setAddressKana1(request.getParameter("addressKana1"));
-		contractInfo.setAddressKana2(request.getParameter("addressKana2"));
-		contractInfo.setAddressKanji1(request.getParameter("addressKanji1"));
-		contractInfo.setAddressKanji2(request.getParameter("addressKanji2"));
-		//contractInfo.setBirthday(request.getParameter("birthday"));
-		contractInfo.setGender(request.getParameter("gender"));
-		contractInfo.setTelephoneNo(request.getParameter("telephoneNo"));
-		contractInfo.setMobilephoneNo(request.getParameter("mobilephoneNo"));
-		contractInfo.setFaxNo(request.getParameter("faxNo"));
+		contractInfo.setGender(gender);
+		contractInfo.setTelephoneNo(telephoneNo[index]);
+		contractInfo.setMobilephoneNo(mobilephoneNo[index]);
+		contractInfo.setFaxNo(faxNo[index]);
 
 		//リクエストパラメータを取得し、補償情報オブジェクトにセット
 		compensation.setMaker(request.getParameter("maker"));
@@ -112,7 +142,11 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 		//総額保険料、一回分保険料の算出メソッドの呼び出し
 		Integer premiumAmount = compensation.getPremiumAmountForLabel();
-		Integer premiumInstallment = premiumAmount/contractInfo.getInstallment();
+		Integer premiumInstallment = 0;
+
+		if(contractInfo.getInstallment() != 0) {
+			premiumInstallment = premiumAmount/contractInfo.getInstallment();
+		}
 
 		System.out.println(premiumAmount);
 		System.out.println(premiumInstallment);
@@ -134,29 +168,26 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
 		if(cfc.check(contractInfo).contains(1)) {
 			request.setAttribute("message", cfc.check(contractInfo));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
+			request.setAttribute("tabpage", "1");
 		}else if(comfc.check(compensation).contains(1)) {
 			request.setAttribute("message", comfc.check(compensation));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
-		}else if(dc.inceptionDateCheck(inceptionDate) != null) {
-			request.setAttribute("message", dc.inceptionDateCheck(inceptionDate));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
-		}else if(dc.conclusionDateCheck(conclusionDate) != null) {
-			request.setAttribute("message", dc.conclusionDateCheck(conclusionDate));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
+			request.setAttribute("tabpage", "2");
+//		}else if(dc.inceptionDateCheck(inceptionDate) != null) {
+//			request.setAttribute("message", cfc.check(contractInfo));
+//			request.setAttribute("tabpage", "1");
+//		}else if(dc.conclusionDateCheck(conclusionDate) != null) {
+//			request.setAttribute("message", cfc.check(contractInfo));
+//			request.setAttribute("tabpage", "1");
 		}else if(dc.birthdayCheck(birthday) != null) {
-			request.setAttribute("message", dc.birthdayCheck(birthday));
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-			rd.forward(request, response);
+			request.setAttribute("message", cfc.check(contractInfo));
+			request.setAttribute("tabpage", "1");
 		}else {
-			//申込書印刷確認画面に遷移する
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/AfterInsuranceEstimation.jsp");
-			rd.forward(request, response);
+			request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
+			request.setAttribute("tabpage", "2");
 		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+		rd.forward(request, response);
 	}
 
 	public Integer check(String str) {

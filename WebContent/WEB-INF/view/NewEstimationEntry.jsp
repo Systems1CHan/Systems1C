@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -169,6 +170,8 @@
             <form action="" method="post" class="radiochange" id="application_frm">
                 <button type="button" onclick="toTopMenu();" class="btn">トップへ戻る</button>
 
+                <input type="hidden" name="buttonValue" value="">
+
                 <p id="tabcontrol">
                     <a href="#tabpage1">契約条件</a>
                     <a href="#tabpage2">補償</a>
@@ -213,10 +216,12 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="date" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
+                                        <input type="text" id="inceptionDate" name="inceptionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.inceptionDate}" required>
                                         <c:if test="${requestScope.check.get(0) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
+                                        <p><font size="1">過去の日付は入力できません。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -263,10 +268,12 @@
                                     </th>
                                     <td>
                                         <span class="form-require">必須</span>
-                                        <input type="date" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate}" required>
+                                        <input type="text" id="conclusionDate" name="conclusionDate" size="60" placeholder="YYYY/MM/DD" value="${sessionScope.contractInfo.conclusionDate}" required>
                                         <c:if test="${requestScope.check.get(2) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
+                                        <p><font size="1">過去の日付、保険期間始期日より早い日付は入力できません。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -472,6 +479,7 @@
                                         	<p>入力必須項目です。</p>
                                         </c:if>
                                         <p><font size="1">18歳以下の方は契約できません。</font></p>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -544,6 +552,8 @@
                                         <c:if test="${requestScope.check.get(0) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
+                                        <p><font size="1">過去の日付は入力できません。</font></p>
                                     </td>
                                 </tr>
 
@@ -595,6 +605,8 @@
                                         <c:if test="${requestScope.check.get(2) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">ハイフンなしで入力してください。</font></p>
+                                        <p><font size="1">過去の日付、保険期間始期日より早い日付は入力できません。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -682,6 +694,7 @@
                                         <c:if test="${requestScope.check.get(6) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">全角カナで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -694,6 +707,7 @@
                                         <c:if test="${requestScope.check.get(7) == 1 }">
                                         	<p>入力必須項目です。</p>
                                         </c:if>
+                                        <p><font size="1">全角カナで入力してください。</font></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -830,7 +844,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn" onclick="toAfterEstimationPage();">保険料試算</button>
+                                        <button type="button" class="btn" onclick="toAfterEstimationPage(1);">保険料試算</button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn" onclick="toApplicationConfirmPage();">申込書印刷</button>
@@ -924,35 +938,35 @@
                                 <tr>
                                     <th>車両保険金額</th>
                                     <td>
-                                        <input type="text" value="" name="vehiclePrice" id="vehiclePrice" value="${sessionScope.compensation.vehiclePrice }" required>
+                                        <input type="text" name="vehiclePrice" id="vehiclePrice" value="${sessionScope.compensation.vehiclePrice }" required>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
-                                        <input type="text" value="" name="vehicleRates" id="vehicleRates" value="${sessionScope.compensation.vehicleRates }" required>
+                                        <input type="text" name="vehicleRates" id="vehicleRates" value="${sessionScope.compensation.vehicleRates }" required>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対人</th>
                                     <td>
-                                        <input type="text" value="" name="bodilyRates" id="bodilyRates" value="${sessionScope.compensation.bodilyRates }" required>
+                                        <input type="text" name="bodilyRates" id="bodilyRates" value="${sessionScope.compensation.bodilyRates }" required>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・対物</th>
                                     <td>
-                                        <input type="text" value="" name="propertyDamageRates" id="propertyDamageRates" value="${sessionScope.compensation.propertyDamageRates }" required>
+                                        <input type="text" name="propertyDamageRates" id="propertyDamageRates" value="${sessionScope.compensation.propertyDamageRates }" required>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>料率・車両</th>
                                     <td>
-                                        <input type="text" value="" name="accidentRates" id="accidentRates" value="${sessionScope.compensation.accidentRates }" required>
+                                        <input type="text" name="accidentRates" id="accidentRates" value="${sessionScope.compensation.accidentRates }" required>
                                      </td>
                                 </tr>
 
@@ -1204,7 +1218,7 @@
                         <table align="center">
                             <tr>
                                 <td>
-                                    <button type="button" class="btn" onclick="toAfterEstimationPage();">保険料試算</button>
+                                    <button type="button" class="btn" onclick="toAfterEstimationPage(2);">保険料試算</button>
                                 </td>
                                 <td>
                                     <button type="button" class="btn" onclick="toApplicationConfirmPage();">申込書印刷</button>
@@ -1251,8 +1265,26 @@
                     tabs[i].onclick = changeTab;
                 }
 
-                // 最初は先頭のタブを選択
-                tabs[0].onclick();
+                var val = <%= (String)request.getAttribute("tabpage") %>
+
+                if (val=="1"){
+                	tabs[0].onclick();
+                }else if (val=="2"){
+                	tabs[1].onclick();
+                }else{
+                	tabs[0].onclick();
+                }
+
+                 radio = document.getElementsByName('insuredKbn')
+                 var val = <%= (String)request.getAttribute("radioButtonValue") %>
+
+                 if (val=="1"){
+                     radio[0].checked=true;
+                 }else if (val=="2"){
+                      radio[1].checked=true;
+                 }else{
+                     radio[0].checked=true;
+                 }
 
             </script>
         </main>

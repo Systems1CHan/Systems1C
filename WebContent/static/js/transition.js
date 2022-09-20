@@ -21,7 +21,7 @@
 */
 function toApplicationConfirmPage() {
 	//１．フォーム要素を取得する。
-	var formElement = document.getElementById("application_frm2");
+	var formElement = document.getElementById("application_frm");
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
 	formElement.action="./ToPrintingConfirm"
@@ -61,7 +61,7 @@ function toAfterEstimationPage(param1) {
 	//１．フォーム要素を取得する。
 	var formElement = document.getElementById("application_frm");
 
-	var names = document.getElementByName("buttonValue");
+	var names = document.getElementsByName("buttonValue");
 	names[0].value = param1;
 	//２．フォーム要素のaction属性に、
 	//要求『顧客情報入力画面へ』のURLをセットした上で、
