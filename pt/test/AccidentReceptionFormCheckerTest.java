@@ -12,6 +12,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,7 +67,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -108,7 +110,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -151,7 +153,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -194,7 +196,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -237,7 +239,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -280,7 +282,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -323,7 +325,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -366,7 +368,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -409,7 +411,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -452,7 +454,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -495,7 +497,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -538,7 +540,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -581,7 +583,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -624,7 +626,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -667,7 +669,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -710,7 +712,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -753,7 +755,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -796,7 +798,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -840,7 +842,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -883,7 +885,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -926,7 +928,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -969,7 +971,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1012,7 +1014,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1055,7 +1057,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1098,7 +1100,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1141,7 +1143,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1184,7 +1186,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1227,7 +1229,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1270,7 +1272,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(0);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
@@ -1313,7 +1315,7 @@ public class AccidentReceptionFormCheckerTest {
 		AR.setPaymentPrice(null);
 
 		/* テスト対象メソッドの呼び出し */
-		String actual = ARFC.check(AR);
+		List<Integer> actual = ARFC.check(AR);
 
 		/* 検証 */
 		assertEquals(expected, actual);
