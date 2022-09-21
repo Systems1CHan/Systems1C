@@ -66,7 +66,7 @@ public class TextTypeCheker {
         byte[] bytes = value.getBytes();
 
         if( len != bytes.length) {
-            return ErrorMsgConst.FORM_ERROR0014;
+            return ErrorMsgConst.FORM_ERROR0003;
         }else {
             return null;
         }
