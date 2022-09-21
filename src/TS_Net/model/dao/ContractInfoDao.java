@@ -275,7 +275,7 @@ public class ContractInfoDao {
 			Integer num = Integer.parseInt(number);
 			num++;
 			number=num.toString();
-			while(number.length()<7) {
+			while(number.length()<9) {
 				number = "0"+number;
 			}
 			polNo = alpha + number;

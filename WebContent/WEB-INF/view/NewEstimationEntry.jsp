@@ -1119,7 +1119,7 @@
 									for="licenseNo">車のナンバー</label></th>
 								<td><input type="text"
 									id="licenseNo" name="licenseNo" size="60"
-									placeholder="（例）多摩 12-34" maxlength="24"
+									placeholder="（例）多摩 ま 500 12-34" maxlength="24"
 									value="${compensation.licenseNo }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(7) == 1 }">
 										<p>入力必須項目です。</p>
