@@ -1235,9 +1235,6 @@
                  radio[0].checked=true;
              }
 		</script>
-		<div id="MESSAGE">
-			<c:out value="${requestScope.message }" />
-		</div>
 	</main>
 	<footer>
 		<div class="footer_title">Handy</div>
