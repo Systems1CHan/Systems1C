@@ -40,13 +40,13 @@ public class LoginFormChecker {
 		// TODO 自動生成されたメソッド・スタブ
 		String msg = "";
 
-//		if (iD == null || iD.length() == 0) {
-//			msg = "IDまたはパスワードが未入力です。";
-//		} else if (password == null || password.length() == 0) {
-//			msg = "IDまたはパスワードが未入力です。";
-//		} else {
+		if (iD == null || iD.length() == 0) {
+			msg = "IDまたはパスワードが未入力です。";
+		} else if (password == null || password.length() == 0) {
+			msg = "IDまたはパスワードが未入力です。";
+		} else {
 			msg = null;
-//		}
+		}
 
 		return msg;
 	}
