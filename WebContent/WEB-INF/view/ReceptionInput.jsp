@@ -74,7 +74,7 @@
 								</td>
 								<td class="error_side" id="Form_accidentdate"><c:if
 										test="${requestScope.check.get(0) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -87,7 +87,7 @@
 
 								<td class="error_side" id="Form_accidentlocationkanji1"><c:if
 										test="${requestScope.check.get(1) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" /></td>
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" /></td>
 									</c:if></td>
 							</tr>
 							<tr>
@@ -98,7 +98,7 @@
 								</td>
 								<td class="error_side" id="Form_accidentlocationkana1"><c:if
 										test="${requestScope.check.get(2) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -110,7 +110,7 @@
 								</td>
 								<td class="error_side" id="Form_accidentlocationkanji2"><c:if
 										test="${requestScope.check.get(3) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -122,7 +122,7 @@
 								</td>
 								<td class="error_side" id="Form_accidentlocationkana2"><c:if
 										test="${requestScope.check.get(4) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -134,7 +134,7 @@
 								</td>
 								<td class="error_side" id="Form_accidentsituation"><c:if
 										test="${requestScope.check.get(5) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -146,7 +146,7 @@
 								</td>
 								<td class="error_side" id="Form_ratingblamemyself"><c:if
 										test="${requestScope.check.get(6) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -158,7 +158,7 @@
 								</td>
 								<td class="error_side" id="Form_ratingblameyourself"><c:if
 										test="${requestScope.check.get(7) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -170,7 +170,7 @@
 								</td>
 								<td class="error_side" id="Form_damagecarprice"><c:if
 										test="${requestScope.check.get(8) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -182,7 +182,7 @@
 								</td>
 								<td class="error_side" id="Form_damagecarstate"><c:if
 										test="${requestScope.check.get(9) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -194,7 +194,7 @@
 								</td>
 								<td class="error_side" id="Form_damagebodilyprice"><c:if
 										test="${requestScope.check.get(10) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -206,7 +206,7 @@
 								</td>
 								<td class="error_side" id="Form_damagebodilystate"><c:if
 										test="${requestScope.check.get(11) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -218,7 +218,7 @@
 								</td>
 								<td class="error_side" id="Form_damagepropertyprice"><c:if
 										test="${requestScope.check.get(12) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -230,7 +230,7 @@
 								</td>
 								<td class="error_side" id="Form_damagepropertystate"><c:if
 										test="${requestScope.check.get(13) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -242,7 +242,7 @@
 								</td>
 								<td class="error_side" id="Form_damageaccidentprice"><c:if
 										test="${requestScope.check.get(14) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -254,7 +254,7 @@
 								</td>
 								<td class="error_side" id="Form_damageaccidentstate"><c:if
 										test="${requestScope.check.get(15) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error_side"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
