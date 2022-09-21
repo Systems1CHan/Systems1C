@@ -47,7 +47,7 @@
 						<td class="confirm_table_headline" colspan="3">計上完了</td>
 					</tr>
 					<tr>
-						<td rowspan="4"><c:out value="${sessionScope.contractInfo.statusFlg}" /></td>
+						<td rowspan="4"><c:out value="${sessionScope.contractInfo.getStatusFlgForKeijyou()}" /></td>
 					</tr>
 					<tr>
 						<td class="confirm_table_left">印刷連番</td>
