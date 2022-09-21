@@ -685,10 +685,7 @@
 									value="${contractInfo.addressKana2 }" required class="new_right"></td><td class="error_side" id="Form_addressKana2"> <c:if
 										test="${requestScope.check.get(12) == 1 }">
 										<p>入力必須項目です。</p>
-									</c:if>
-									<p>
-										<font size="1">番地、建物名、部屋名を入力してください。</font>
-									</p></td>
+									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
@@ -1118,7 +1115,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="licenseNo">車のナンバー</label></th>
 								<td><input type="text"
-									id="licenseNo" name="licenseNo" size="60"
+									id="licenseNo" name="licenseNo"
 									placeholder="（例）多摩 ま 400 12-34" maxlength="24"
 									value="${compensation.licenseNo }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(7) == 1 }">

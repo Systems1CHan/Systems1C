@@ -138,16 +138,16 @@
 							<tr>
 								<td class="confirm_table_left">保険料</td>
 								<td class="b"><c:out
-										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+										value="${requestScope.compensation.getPremiumAmountForLabel()}"/>円</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
 								<td><c:out
-										value="${requestScope.compensation.getCarName()}" /></td>
+										value="${requestScope.compensation.getMaker()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車名</td>
-								<td><c:out value="${requestScope.compensation.getMaker()}" /></td>
+								<td><c:out value="${requestScope.compensation.getCarName()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車のナンバー</td>
