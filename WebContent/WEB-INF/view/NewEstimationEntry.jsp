@@ -85,7 +85,7 @@
 									for="inceptionDate">保険期間始期日</label></th>
 								<td> <input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYY/MM/DD"
+									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
@@ -154,7 +154,7 @@
 									for="conclusionDate">保険期間満期日</label></th>
 								<td> <input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYY/MM/DD"
+									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
@@ -369,7 +369,7 @@
 									for="birthday">生年月日</label></th>
 								<td><input type="text"
 									id="birthday" name="birthday" size="60"
-									placeholder="YYYY/MM/DD"
+									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.birthday }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(15) == 1 }">
 										<p>入力必須項目です。</p>
@@ -435,7 +435,7 @@
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }"
+									placeholder="YYYYMMDD" maxlength="8" value="${contractInfo.inceptionDate }"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
@@ -505,7 +505,7 @@
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYY/MM/DD"
+									placeholder="YYYYMMDD" maxlength="8"
 									value="${contractInfo.conclusionDate }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
