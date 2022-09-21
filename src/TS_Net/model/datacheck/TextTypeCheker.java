@@ -36,13 +36,13 @@ public class TextTypeCheker {
         final String HAS_HALF_ALPHANUMERIC = "^[0-9a-zA-Z]+$";
 
         if(!(ci.getPostcode().matches(HAS_HALF_ALPHANUMERIC))) {
-            return ErrorMsgConst.FORM_ERROR0002;
+            return ErrorMsgConst.FORM_ERROR0003;
         }else if(!(ci.getTelephoneNo().matches(HAS_HALF_ALPHANUMERIC))) {
-            return ErrorMsgConst.FORM_ERROR0002;
+            return ErrorMsgConst.FORM_ERROR0003;
         }else if(!(ci.getMobilephoneNo().matches(HAS_HALF_ALPHANUMERIC))) {
-            return ErrorMsgConst.FORM_ERROR0002;
+            return ErrorMsgConst.FORM_ERROR0003;
         }else if(!(ci.getFaxNo().matches(HAS_HALF_ALPHANUMERIC))) {
-            return ErrorMsgConst.FORM_ERROR0002;
+            return ErrorMsgConst.FORM_ERROR0003;
         }else {
             return null;
         }
@@ -163,23 +163,23 @@ public class TextTypeCheker {
         }
     }
 
-    /**
-     * 半角英数字チェックメソッド（番号系）。
-     * <p>
-     * 引数で渡された入力情報に対してチェックを行い、エラーメッセージを返却する。
-     * チェック結果がOKであれば、null値を返却する。
-     * </p>
-     * @param contractInfo 契約情報オブジェクト
-     * @return ErrorMagConst.FORM_ERROR0014 日付が不適切である場合のエラーメッセージ
-     * @return null null値
-     */
-    public String textHalfwidthCheck(String str) {
-        final String HAS_HALF_ALPHANUMERIC = "^[0-9a-zA-Z]+$";
-
-        if(!(str.matches(HAS_HALF_ALPHANUMERIC))) {
-            return ErrorMsgConst.FORM_ERROR0003;
-        }else {
-            return null;
-        }
-    }
+//    /**
+//     * 半角英数字チェックメソッド（番号系）。
+//     * <p>
+//     * 引数で渡された入力情報に対してチェックを行い、エラーメッセージを返却する。
+//     * チェック結果がOKであれば、null値を返却する。
+//     * </p>
+//     * @param contractInfo 契約情報オブジェクト
+//     * @return ErrorMagConst.FORM_ERROR0014 日付が不適切である場合のエラーメッセージ
+//     * @return null null値
+//     */
+//    public String textHalfwidthCheck(String str) {
+//        final String HAS_HALF_ALPHANUMERIC = "^[0-9a-zA-Z]+$";
+//
+//        if(!(str.matches(HAS_HALF_ALPHANUMERIC))) {
+//            return ErrorMsgConst.FORM_ERROR0003;
+//        }else {
+//            return null;
+//        }
+ //   }
 }
