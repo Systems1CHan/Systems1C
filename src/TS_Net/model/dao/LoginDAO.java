@@ -86,7 +86,7 @@ public class LoginDAO {
 		String sql = "SELECT * FROM LOGIN_USER WHERE user = ? and pass = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
-		boolean result = true;
+		boolean result = false;
 
 		try {
 			// PreparedStatementの作成
