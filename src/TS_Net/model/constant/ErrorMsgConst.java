@@ -42,6 +42,7 @@ public class ErrorMsgConst {
     public static final String FORM_ERROR0021 = "過失割合は半角数字で入力してください。";
     public static final String FORM_ERROR0022 = "損害額は半角数字で入力してください。";
 
+
     /** システムエラーが発生した場合のエラーメッセージ */
     public static final String SYSTEM_ERROR = "システムエラーが発生しました。管理者に問い合わせてください。";
 

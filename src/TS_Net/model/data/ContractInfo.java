@@ -242,7 +242,7 @@ public class ContractInfo implements Serializable {
 	 * @return 郵便番号
 	 */
 	public String getPostcodeForLabel() {
-		return "〒" + this.postcode.substring(0, 3) + "-" + this.postcode.substring(3, 6);
+		return "〒" + this.postcode.substring(0, 3) + "-" + this.postcode.substring(3, 7);
 	}
 
 	/**

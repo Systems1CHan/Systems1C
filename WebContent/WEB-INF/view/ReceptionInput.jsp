@@ -118,7 +118,7 @@
 								<th class="form_table_left">事故現場住所2-カナ</th>
 								<td><input type="text" id="accidentlocationkana2"
 									name="accidentlocationkana2" placeholder="○○チョウ○○バンチ" maxlength="48"
-									value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
+									value="${sessionScope.accidentReception.getAccidentLocationKana2()}">
 								</td>
 								<td class="error" id="Form_accidentlocationkana2"><c:if
 										test="${requestScope.check.get(4) == 1}">
@@ -139,7 +139,7 @@
 									</c:if></td>
 							</tr>
 							<tr>
-								<th class="form_table_left">過失割合（非保険者方）</th>
+								<th class="form_table_left">過失割合（被保険者方）</th>
 								<td><input type="text" placeholder="20"
 									id="ratingblamemyself" name="ratingblamemyself" maxlength="48"
 									value="${sessionScope.accidentReception.getRatingBlameMyself()}">
