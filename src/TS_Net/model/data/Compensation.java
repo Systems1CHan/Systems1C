@@ -305,6 +305,23 @@ public class Compensation implements Serializable {
 		return this.licenseNo.substring(0, 2) + " " + this.licenseNo.substring(2, 5) + " " + this.licenseNo.substring(5, 6) + " " + this.licenseNo.substring(6, 8) + "-" + this.licenseNo.substring(8, 10) ;
 	}
 
+	/**
+	 * 円表示メソッド
+	 * <p>
+	 * 画面に表示させるためのナンバーを取得する。
+	 * </p>
+	 * @return 車のナンバー
+	 */
+	public String vehiclePriceForLabel() {
+		return vehiclePrice + "円";
+	}
+
+	public String premiumInstallmentForLabel() {
+		return premiumInstallment + "円";
+	}
+
+
+
 	 /*
      * 以下各メンバ変数のゲッター・セッター
      */

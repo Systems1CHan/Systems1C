@@ -386,7 +386,7 @@
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
 								<td><c:out
-										value="${sessionScope.compensation.getCarName()}" /></td>
+										value="${sessionScope.compensation.getMaker()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車名</td>
@@ -401,7 +401,7 @@
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
 								<td><c:out
-										value="${sessionScope.compensation.getVehiclePrice()}" /></td>
+										value="${sessionScope.compensation.vehiclePriceForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">免許証の色</td>
@@ -436,7 +436,7 @@
 							<tr>
 								<td class="confirm_table_left">１回分保険料</td>
 								<td><c:out
-										value="${sessionScope.compensation.getPremiumInstallment()}" /></td>
+										value="${sessionScope.compensation.premiumInstallmentForLabel()}" /></td>
 							</tr>
 						</table>
 						<table class="button_center_parallel">
