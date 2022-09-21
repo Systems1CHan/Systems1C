@@ -45,4 +45,38 @@ td.b {
 .taboddy{
 width:80%;
 }
+
+/* デフォルトのIDのフォーム（パスワードフォームと大きさを統一するためIDもパスワードフォームに合わせる） */
+.ID_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 180px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
+.ID_form {
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 180px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
+}
+
+
+/* デフォルトのパスワードのフォーム */
+.password_form_default {
+	border: none;						/* デフォルトの枠線を消す */
+	width: 139px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
+	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定。 */
+}
+
+/* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
+.password_form {
+	background-color: #FFFFFF;		/* 背景の色（フォームもどきには色がないため、設定しないと一部が背景の緑になる） */
+	border-width: thin;					/* フォームの枠 */
+	border-style: solid;				/* フォームの枠 */
+	width: 180px;						/* フォームの縦横 */
+	height: 24px;						/* フォームの縦横 */
+}
+
 }
