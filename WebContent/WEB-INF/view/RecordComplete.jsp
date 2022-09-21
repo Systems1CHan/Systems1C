@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>計上完了完了画面</title>
+<title>計上完了</title>
 <%-- css(共通) --%>
 <link rel="stylesheet" href="./static/css/Button.css">
 <link rel="stylesheet" href="./static/css/Layout.css">
@@ -44,7 +44,10 @@
 				<div class="main_subTitle">計上完了</div>
 				<table class="confirm_table" border="1" style="border-collapse: collapse">
 					<tr>
-						<td class="confirm_table_headline" colspan="2">計上完了</td>
+						<td class="confirm_table_headline" colspan="3">計上完了</td>
+					</tr>
+					<tr>
+						<td rowspan="4"><c:out value="${sessionScope.contractInfo.statusFlg}" /></td>
 					</tr>
 					<tr>
 						<td class="confirm_table_left">印刷連番</td>
