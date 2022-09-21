@@ -23,6 +23,7 @@
 		<button type="button" onclick="toTopMenu();" class="button_design_top">トップへ戻る</button>
 		<div class="main_roundedConer">
 			<form action="" id="finishprint_frm" method="post">
+				<div class="main_subTitle">申込書印刷確認</div>
 				<table class="confirm_table" border="1"
 					style="border-collapse: collapse">
 					<tbody>
