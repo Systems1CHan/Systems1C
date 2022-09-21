@@ -381,7 +381,7 @@
 							<tr>
 								<td class="confirm_table_left">保険料</td>
 								<td><c:out
-										value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
+										value="${sessionScope.compensation.premiumAmountForLabel2()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>

@@ -320,6 +320,10 @@ public class Compensation implements Serializable {
 		return premiumInstallment + "円";
 	}
 
+	public String premiumAmountForLabel2() {
+		return getPremiumAmountForLabel() + "円";
+	}
+
 
 
 	 /*
