@@ -57,11 +57,11 @@
 					<tr>
 						<td>
 							<button type="button" class="button_design"
-								onclick="toNewEstimationEntryPage()">戻る</button>
+								onclick="toNewEstimationEntryPage();">戻る</button>
 						</td>
 						<td>
 							<button type="button" class="button_design"
-								onclick="toFinishPrintPage()">印刷</button>
+								onclick="toFinishPrintPage();">印刷</button>
 						</td>
 					</tr>
 				</table>
