@@ -10,33 +10,39 @@ td.b {
 	width: 70％;
 }
 
-
-
 @media screen and (max-width: 375px) {
-.button_design_topMenu {
+	.button_design_topMenu {
 		width: 230px;
 		text-align: center;
 	}
-.button_design_topMenu_last {
+	.button_design_topMenu_last {
 		width: 230px;
 		text-align: center;
 	}
-.form_table th,
-.form_table td {
-	display: block;
-	border-bottom: none;
-	text-align: center;
-}
+	.form_table th, .form_table td {
+		display: block;
+		border-bottom: none;
+		text-align: center;
+	}
+	.form_table_right {
+		width: 230px;
+	}
+	.button_center_parallel th, .button_center_parallel td {
+		display: block;
+		width: 100%;
+		border-bottom: none;
+		text-align: center;
+	}
 
-.form_table_right{
-	width:230px;
+.main_roundedConer_loginTop{
+	 width:90%;
+	 margin: 0 auto;
 }
-
-.button_center_parallel th,
-.button_center_parallel td {
-	display: block;
-	width: 100%;
-	border-bottom: none;
-	text-align: center;
+.main_roundedConer{
+	 width:95%;
+	 margin: 0 auto;
+}
+.taboddy{
+width:80%;
 }
 }
