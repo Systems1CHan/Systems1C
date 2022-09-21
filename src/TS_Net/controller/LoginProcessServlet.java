@@ -83,6 +83,7 @@ public class LoginProcessServlet extends HttpServlet {
 
 		} catch (SQLException | ClassNotFoundException e) {
 			/* セッションスコープにエラーメッセージをセットする。 */
+			e.printStackTrace();
 			request.setAttribute("errorMsg", ErrorMsgConst.SYSTEM_ERROR);
 			/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ErrorPage.jsp");
@@ -92,6 +93,7 @@ public class LoginProcessServlet extends HttpServlet {
 				/* DB切断 */
 				LDAO.close();
 			} catch (SQLException e) {
+				e.printStackTrace();
 				/* セッションスコープにエラーメッセージをセットする。 */
 				request.setAttribute("errorMsg", ErrorMsgConst.SYSTEM_ERROR);
 				/* 契約内容入力ページ（今操作してるページと同じページ）に遷移 */

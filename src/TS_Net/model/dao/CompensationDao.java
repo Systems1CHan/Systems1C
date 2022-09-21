@@ -62,12 +62,12 @@ public class CompensationDao {
 	 * <p>
 	 * 引数で渡された補償情報を、補償テーブルへINSERTする。
 	 * </p>
-	 * @param compensation 予約対象オブジェクト
+	 * @param compensation 予約対象オブジェクトCOVER_TBL
 	 * @throws SQLException SQL実行例外
 	 */
 	public void registCompensation(Compensation compensation) throws SQLException {
 
-		String sql = "INSERT INTO cover_tbl(cover_id, insatsu_renban, premium_amount, premium_installment, maker, car_name, license_no, vehicle_price, vehicle_rates, bodily_rates, property_damage_rates, accident_rates, license_color, age_limit)"
+		String sql = "INSERT INTO COVER_TBL(cover_id, insatsu_renban, premium_amount, premium_installment, maker, car_name, license_no, vehicle_price, vehicle_rates, bodily_rates, property_damage_rates, accident_rates, license_color, age_limit)"
 				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement stmt = null;
@@ -195,7 +195,7 @@ public class CompensationDao {
 		/* 以下はスタブ用変数のため必ず除去すること */
 		/* 返却用スタブデータの生成 */
 
-		String sql = "SELECT * FROM cover_tbl WHERE cover_id = ?";
+		String sql = "SELECT * FROM COVER_TBL WHERE cover_id = ?";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		Compensation compensation = new Compensation();

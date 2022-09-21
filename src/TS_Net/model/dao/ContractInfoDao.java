@@ -55,7 +55,7 @@ public class ContractInfoDao {
 	 */
 	public void registContractInfo(ContractInfo contractInfo) throws SQLException {
 
-		String sql = "INSERT INTO contractinfo_tbl(insatsu_renban, pol_no, status_flg, cancel_flg, inception_date, inception_time, conclusion_date, conclusion_time, payment_method, installment, insured_kbn, name_kana1, name_kana2, name_kanji1, name_kanji2, postcode, address_kana1, address_kana2, address_kanji1,address_kanji2, birthday, gender, telephone_no, mobilephone_no, fax_no)	"
+		String sql = "INSERT INTO CONTRACTINFO_TBL(insatsu_renban, pol_no, status_flg, cancel_flg, inception_date, inception_time, conclusion_date, conclusion_time, payment_method, installment, insured_kbn, name_kana1, name_kana2, name_kanji1, name_kanji2, postcode, address_kana1, address_kana2, address_kanji1,address_kanji2, birthday, gender, telephone_no, mobilephone_no, fax_no)	"
 				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement stmt = null;
@@ -196,7 +196,7 @@ public class ContractInfoDao {
 	 */
 	public ContractInfo getContractInfoByIR(String insatsuRenban) throws SQLException {
 
-		String sql = "SELECT * FROM contractinfo_tbl WHERE insatsu_renban = ?";
+		String sql = "SELECT * FROM CONTRACTINFO_TBL WHERE insatsu_renban = ?";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		ContractInfo contractInfo = new ContractInfo();
@@ -258,7 +258,7 @@ public class ContractInfoDao {
 	 */
 	public String getMaxPolNo() throws SQLException {
 
-		String sql = "SELECT pol_No FROM contractinfo_tbl ORDER BY pol_No DESC LIMIT 1";
+		String sql = "SELECT pol_No FROM CONTRACTINFO_TBL ORDER BY pol_No DESC LIMIT 1";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		String polNo = null;
@@ -303,7 +303,7 @@ public class ContractInfoDao {
 	 */
 	public String getMaxInsatsuRenban() throws SQLException {
 
-		String sql = "SELECT insatsu_renban FROM contractinfo_tbl ORDER BY insatsu_renban DESC LIMIT 1";
+		String sql = "SELECT insatsu_renban FROM CONTRACTINFO_TBL ORDER BY insatsu_renban DESC LIMIT 1";
 		PreparedStatement stmt = null;
 		ResultSet res =  null;
 		String insatsuRenban = null;
@@ -352,7 +352,7 @@ public class ContractInfoDao {
 		/* 返却用スタブデータの生成 */
 		//update文でCancelFlgを0にする。
 
-		String sql = "UPDATE contractinfo_tbl SET cancel_flg = '0' WHERE pol_no = ?";
+		String sql = "UPDATE CONTRACTINFO_TBL SET cancel_flg = '0' WHERE pol_no = ?";
 
 		PreparedStatement stmt = null;
 		try {
@@ -377,7 +377,7 @@ public class ContractInfoDao {
 	 */
 	public void appropriationCompletion(String insatsuRenban) throws SQLException {
 
-		String sql = "UPDATE contractinfo_tbl SET status_flg = '0' WHERE insatsu_renban = ?";
+		String sql = "UPDATE CONTRACTINFO_TBL SET status_flg = '0' WHERE insatsu_renban = ?";
 
 		PreparedStatement stmt = null;
 		try {

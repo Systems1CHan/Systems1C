@@ -80,10 +80,10 @@ public class LoginDAO {
 	 * @param iD  従業員番号
 	 * @param password  パスワード
 	 * @return  検索結果
-	 * @throws  SQLException  データベースエラーが発生した場合
+	 * @throws  SQLException  データベースエラーが発生した場合LOGIN_USER
 	 */
 	public boolean findAccount(String iD, String password) throws SQLException {
-		String sql = "SELECT * FROM login_user WHERE user = ? and pass = ?";
+		String sql = "SELECT * FROM LOGIN_USER WHERE user = ? and pass = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		boolean result = true;

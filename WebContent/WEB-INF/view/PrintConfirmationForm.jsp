@@ -20,7 +20,7 @@
 	<main>
 		<button type="button" onclick="toTopMenu();" class="button_design_top">トップへ戻る</button>
 		<div class="main_roundedConer">
-			<form action="" id="finishprint_frm" method="get">
+			<form action="" id="finishprint_frm" method="post">
 				<table class="confirm_table" border="1"
 					style="border-collapse: collapse">
 					<tbody>
@@ -30,7 +30,7 @@
 						<tr>
 							<th class="confirm_table_left">契約者名</th>
 							<td><c:out
-									value="${sessionScope.contractInfo.getkanaNameForLabel()}" /></td>
+									value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
 						</tr>
 						<tr>
 							<th class="confirm_table_left">払込方法</th>
@@ -44,12 +44,12 @@
 						<tr>
 							<th class="confirm_table_left">総払込保険料</th>
 							<td><c:out
-									value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
+									value="${sessionScope.compensation.premiumAmount}" /></td>
 						</tr>
 						<tr>
 							<th class="confirm_table_left">一回分保険料</th>
 							<td><c:out
-									value="${sessionScope.compensation.getPremiumInstallmentForLabel()}" /></td>
+									value="${sessionScope.compensation.premiumInstallment}" /></td>
 						</tr>
 					</tbody>
 				</table>
@@ -57,11 +57,11 @@
 					<tr>
 						<td>
 							<button type="button" class="button_design"
-								onclick="toNewEstimationEntryPage()">戻る</button>
+								onclick="toNewEstimationEntryPage();">戻る</button>
 						</td>
 						<td>
 							<button type="button" class="button_design"
-								onclick="toFinishPrintPage()">印刷</button>
+								onclick="toFinishPrintPage();">印刷</button>
 						</td>
 					</tr>
 				</table>

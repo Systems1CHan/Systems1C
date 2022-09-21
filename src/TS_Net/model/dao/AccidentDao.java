@@ -76,7 +76,7 @@ public class AccidentDao {
      */
     public AccidentReception getAccidentReceptionByCN(String claimNo) throws SQLException {
 
-        String sql = "SELECT * FROM claim_tbl WHERE claim_no = ?";
+        String sql = "SELECT * FROM CLAIM_TBL WHERE claim_no = ?";
         PreparedStatement stmt = null;
         ResultSet res =  null;
         AccidentReception accidentReception = new AccidentReception();
@@ -173,7 +173,7 @@ public class AccidentDao {
 
 
 
-        String sql = "SELECT * FROM claim_tbl WHERE cover_id = ?";
+        String sql = "SELECT * FROM CLAIM_TBL WHERE cover_id = ?";
         PreparedStatement stmt = null;
         ResultSet res =  null;
         AccidentReception accidentReception = new AccidentReception();
@@ -234,7 +234,7 @@ public class AccidentDao {
     public void registAccidentReception(AccidentReception accidentReception) throws SQLException {
 
 
-        String sql = "INSERT INTO claim_tbl(claim_no,cover_id,claim_status,payment_price,accident_location_kana1,accident_location_kana2,accident_location_kanji1,accident_location_kanji2,accident_situation,rating_blame_myself,rating_blame_yourself,damage_car_price,damage_bodily_price,damage_property_price,damage_accident_price,damage_car_state,damage_bodily_state,damage_property_state,damage_accident_state,accident_date)"
+        String sql = "INSERT INTO CLAIM_TBL(claim_no,cover_id,claim_status,payment_price,accident_location_kana1,accident_location_kana2,accident_location_kanji1,accident_location_kanji2,accident_situation,rating_blame_myself,rating_blame_yourself,damage_car_price,damage_bodily_price,damage_property_price,damage_accident_price,damage_car_state,damage_bodily_state,damage_property_state,damage_accident_state,accident_date)"
                 + " VALUES (?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement stmt = null;
@@ -291,7 +291,7 @@ public class AccidentDao {
      */
     public void updateAccidentReception(AccidentReception accidentReception) throws SQLException {
 
-        String sql = "UPDATE claim_tbl SET damage_accident_state =?, damage_property_state=?, damage_bodily_state=?, damage_car_state=?, damage_accident_price=?, damage_property_price=?, damage_bodily_price=?, damage_car_price=?, rating_blame_yourself=?, rating_blame_myself=?, accident_situation=?, accident_location_kanji2=?, accident_location_kanji1=?, accident_location_kana2=?, accident_location_kana1=?, payment_price=?, claim_status=?, accident_date=?  WHERE claim_no = ?";
+        String sql = "UPDATE CLAIM_TBL SET damage_accident_state =?, damage_property_state=?, damage_bodily_state=?, damage_car_state=?, damage_accident_price=?, damage_property_price=?, damage_bodily_price=?, damage_car_price=?, rating_blame_yourself=?, rating_blame_myself=?, accident_situation=?, accident_location_kanji2=?, accident_location_kanji1=?, accident_location_kana2=?, accident_location_kana1=?, payment_price=?, claim_status=?, accident_date=?  WHERE claim_no = ?";
 
 
 
@@ -351,7 +351,7 @@ public class AccidentDao {
      */
     public String getMaxClaimNo() throws SQLException {
 
-        String sql = "SELECT claim_No FROM claim_tbl ORDER BY claim_No DESC LIMIT 1";
+        String sql = "SELECT claim_No FROM CLAIM_TBL ORDER BY claim_No DESC LIMIT 1";
         PreparedStatement stmt = null;
         ResultSet res =  null;
         String claimNo = null;
