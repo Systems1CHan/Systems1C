@@ -97,6 +97,10 @@ function toFinishPrintPage() {
  *------------------------------------------------------
 */
 function toNextPage() {
+
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言
 	var message = "";
 
@@ -114,6 +118,9 @@ function toNextPage() {
 		targetDiv.innerHTML = message;
 		return false;
 	}
+*/
+
+
 
 	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("cancel_frm");
@@ -151,6 +158,10 @@ function toFinishPrintCancelPage() {
  *------------------------------------------------------
 */
 function toInquiryconfirmPage() {
+
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言する。
 	var message = "";
 
@@ -168,6 +179,9 @@ function toInquiryconfirmPage() {
 		targetDiv.innerHTML = message;
 		return false;
 	}
+*/
+
+
 
 	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("inquiry_frm");
@@ -188,31 +202,36 @@ function toInquiryconfirmPage() {
  *------------------------------------------------------
 */
 function toTypeAccidentPage() {
+
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言
 	var message = "";
 
 	//２．証券番号の入力値を格納
 	var polNo = document.getElementById("polNo").value;
-
-	//３．証券番号の入力値を格納
 	var claimNo = document.getElementById("claimNo").value;
 
-	//４．証券番号と受付番号の両方が未入力の場合、messageに以下を格納
+	//３．証券番号と受付番号の両方が未入力の場合、messageに以下を格納
 	if (polNo.length == 0 && claimNo.length == 0) {
 		message += "<p>証券番号または受付番号が未入力です。</p>";
 	}
 
-	//５．messageが設定された場合、messageを表示し、送信中止
+	//４．messageが設定された場合、messageを表示し、送信中止
 	if (message != "") {
 		var targetDiv = document.getElementById("FORM_ERROR");
 		targetDiv.innerHTML = message;
 		return false;
 	}
+*/
 
-	//６．フォーム要素を取得する。
+
+
+	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("accident_frm");
 
-	//７．フォーム要素のaction属性に、
+	//６．フォーム要素のaction属性に、
 	//要求『事故受付入力画面へ』のURLをセットした上で、
 	formElement.action = "./ToReceptionInput"
 
@@ -245,6 +264,10 @@ function toFinishUpdatePage() {
  *------------------------------------------------------
 */
 function toFinishAcceptPage() {
+
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言
 	var message = "";
 
@@ -370,6 +393,8 @@ function toFinishAcceptPage() {
 	if (message != "") {
 		return false;
 	}
+*/
+
 
 
 	//５．フォーム要素を取得する。
@@ -402,6 +427,10 @@ function toreturnReceptionPage() {
  *------------------------------------------------------
 */
 function toRecordingPage() {
+
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言する。
 	var message = "";
 
@@ -419,6 +448,9 @@ function toRecordingPage() {
 		targetDiv.innerHTML = message;
 		return false;
 	}
+*/
+
+
 
 	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("recording_frm");
@@ -520,6 +552,9 @@ function toTopMenu(){
 */
 function loginProcess() {
 
+//１～４は未実施。５以降実施。
+
+/*
 	//１．messageを宣言する。
 	var message = "";
 
@@ -539,6 +574,9 @@ function loginProcess() {
 		targetDiv.innerHTML = message;
 		return false;
 	}
+*/
+
+
 
 	//５．フォーム要素を取得する。
 	var formElement = document.getElementById("login_process");
