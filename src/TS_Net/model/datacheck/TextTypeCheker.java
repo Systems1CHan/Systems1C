@@ -33,7 +33,7 @@ public class TextTypeCheker {
      */
     public String textHalfwidthCheck(ContractInfo ci) {
         //正規表現(半角英数字)
-        final String HAS_HALF_ALPHANUMERIC = "^[0-9a-zA-Z]+$";
+        final String HAS_HALF_ALPHANUMERIC = "^[0-9]*$";
 
         if(!(ci.getPostcode().matches(HAS_HALF_ALPHANUMERIC))) {
             return ErrorMsgConst.FORM_ERROR0003;

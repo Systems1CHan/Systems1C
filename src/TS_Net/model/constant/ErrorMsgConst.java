@@ -32,9 +32,9 @@ public class ErrorMsgConst {
     public static final String FORM_ERROR0011 = "入力された事故受付番号は処理済みです。";
     public static final String FORM_ERROR0012 = "入力された証券番号は処理済みです。";
     public static final String FORM_ERROR0013 = "カナと書かれたフォームには全角カナで入力してください。";
-    public static final String FORM_ERROR0014 = "入力された日時は適切ではありません。";
-    public static final String FORM_ERROR0015 = "入力された日時は適切ではありません。";
-    public static final String FORM_ERROR0016 = "入力された日時は適切ではありません。";
+    public static final String FORM_ERROR0014 = "入力された保険期間始期日は適切ではありません。";
+    public static final String FORM_ERROR0015 = "入力された保険期間満期日は適切ではありません。";
+    public static final String FORM_ERROR0016 = "入力された生年月日は適切ではありません。";
     public static final String FORM_ERROR0017 = "入力した日付は保険契約期間外です。";
     public static final String FORM_ERROR0018 = "未入力の項目があります。証券番号または事故受け付け番号を入力してください。";
     public static final String FORM_ERROR0019 = "被保険者・被害者の過失割合の合計は100になるように入力してください。";

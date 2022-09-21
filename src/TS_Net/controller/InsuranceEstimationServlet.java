@@ -17,6 +17,7 @@ import TS_Net.model.data.ContractInfo;
 import TS_Net.model.datacheck.CompensationFormChecker;
 import TS_Net.model.datacheck.ContractFormChecker;
 import TS_Net.model.datacheck.DateChecker;
+import TS_Net.model.datacheck.TextTypeCheker;
 
 /**
  * 保険料試算後画面へコントローラ
@@ -164,6 +165,7 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		ContractFormChecker cfc = new ContractFormChecker();
 		CompensationFormChecker comfc = new CompensationFormChecker();
 		DateChecker dc = new DateChecker();
+		TextTypeCheker ttc = new TextTypeCheker();
 
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
 		if(cfc.check(contractInfo).contains(1)) {
@@ -172,14 +174,14 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		}else if(comfc.check(compensation).contains(1)) {
 			request.setAttribute("errorMessage", comfc.check(compensation));
 			request.setAttribute("tabpage", "2");
-//		}else if(dc.inceptionDateCheck(inceptionDate) != null) {
-//			request.setAttribute("message", cfc.check(contractInfo));
-//			request.setAttribute("tabpage", "1");
-//		}else if(dc.conclusionDateCheck(conclusionDate) != null) {
-//			request.setAttribute("message", cfc.check(contractInfo));
-//			request.setAttribute("tabpage", "1");
-		}else if(dc.birthdayCheck(birthday) != null) {
+		}else if(dc.inceptionDateCheck(contractInfo) != null) {
 			request.setAttribute("message", cfc.check(contractInfo));
+			request.setAttribute("tabpage", "1");
+		}else if(ttc.textHalfwidthCheck(contractInfo) != null) {
+			request.setAttribute("message", ttc.textHalfwidthCheck(contractInfo));
+			request.setAttribute("tabpage", "1");
+		}else if(ttc.textFullwidthCheck(contractInfo) != null) {
+			request.setAttribute("message", ttc.textFullwidthCheck(contractInfo));
 			request.setAttribute("tabpage", "1");
 		}else {
 			request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");

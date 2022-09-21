@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import TS_Net.model.constant.ErrorMsgConst;
+import TS_Net.model.data.ContractInfo;
 
 /**
  * 日付データチェッククラス。
@@ -23,86 +24,33 @@ import TS_Net.model.constant.ErrorMsgConst;
  */
 public class DateChecker {
 	/**
-	 * 保険期間始期日チェックメソッド。
+	 * 保険期間始期日、満期日、生年月日チェックメソッド。
 	 * <p>
-	 * 引数で渡された保険期間始期日に対してチェックを行い、エラーメッセージを返却する。
-	 * チェック内容は、保険期間始期日が過去の日付ではないかをチェックする。
+	 * 引数で渡されたオブジェクトに対してチェックを行い、エラーメッセージを返却する。
 	 * チェック結果がOKであれば、null値を返却する。
 	 * </p>
-	 * @param inceptionDate 保険期間始期日
+	 * @param contractInfo 契約情報オブジェクト
 	 * @return ErrorMagConst.FORM_ERROR0014 日付が不適切である場合のエラーメッセージ
 	 * @return null null値
 	 */
-	public String inceptionDateCheck(String inceptionDate) {
+	public String inceptionDateCheck(ContractInfo ci) {
 
 		//保険期間始期日の取得
-		int id = Integer.parseInt(inceptionDate);
+		int inceptionDate = Integer.parseInt(ci.getInceptionDate());
+		int conclusionDate = Integer.parseInt(ci.getConclusionDate());
+		int birthday = Integer.parseInt(ci.getBirthday());
 
 		//現在日時の取得
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		int nowTime = Integer.parseInt(sdf.format(calendar.getTime()));
 
-		if(id < nowTime) {
+		if(inceptionDate < nowTime) {
 			return ErrorMsgConst.FORM_ERROR0014;
-		}else {
-			return null;
-		}
-	}
-
-	/**
-	 * 保険期間満期日チェックメソッド。
-	 * <p>
-	 * 引数で渡された保険期間満期日に対してチェックを行い、エラーメッセージを返却する。
-	 * チェック内容は、保険期間満期日が過去の日付ではないかをチェックする。
-	 * チェック結果がOKであれば、null値を返却する。
-	 * </p>
-	 * @param conclusionDate 保険期間満期日
-	 * @return ErrorMagConst.FORM_ERROR0014 日付が不適切である場合のエラーメッセージ
-	 * @return null null値
-	 */
-	public String conclusionDateCheck(String conclusionDate) {
-
-		//保険期間始期日の取得
-		int id = Integer.parseInt(conclusionDate);
-
-		//現在日時の取得
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		int nowTime = Integer.parseInt(sdf.format(calendar.getTime()));
-
-		if(id < nowTime) {
-			return ErrorMsgConst.FORM_ERROR0014;
-		}else {
-			return null;
-		}
-	}
-
-	/**
-	 * 生年月日チェックメソッド。
-	 * <p>
-	 * 引数で渡された生年月日に対してチェックを行い、エラーメッセージを返却する。
-	 * チェック内容は、生年月日が過去の日付ではないか、現在18歳以上かをチェックする。
-	 * チェック結果がOKであれば、null値を返却する。
-	 * </p>
-	 * @param birthday 生年月日
-	 * @return ErrorMagConst.FORM_ERROR0014 日付が不適切である場合のエラーメッセージ
-	 * @return null null値
-	 */
-	public String birthdayCheck(String bitrhday) {
-
-		//生年月日の取得
-		int bd = Integer.parseInt(bitrhday);
-
-		//現在日時の取得
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		int nowTime = Integer.parseInt(sdf.format(calendar.getTime()));
-
-		if(bd > nowTime) {
-			return ErrorMsgConst.FORM_ERROR0014;
-		}else if((nowTime - bd) < 80000) {
-			return ErrorMsgConst.FORM_ERROR0014;
+		}else if(conclusionDate < nowTime || conclusionDate < inceptionDate){
+			return ErrorMsgConst.FORM_ERROR0015;
+		}else if(birthday > nowTime) {
+			return ErrorMsgConst.FORM_ERROR0016;
 		}else {
 			return null;
 		}
