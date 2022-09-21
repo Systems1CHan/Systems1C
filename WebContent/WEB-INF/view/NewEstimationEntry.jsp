@@ -6,12 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新規試算入力画面</title>
 <%-- css(共通) --%>
 <link rel="stylesheet" href="./static/css/Button.css">
 <link rel="stylesheet" href="./static/css/Layout.css">
 <link rel="stylesheet" href="./static/css/Parts.css">
 <link rel="stylesheet" href="./static/css/Tab.css">
+<link rel="stylesheet" href="./static/css/phone2.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 <script type="text/javascript">
@@ -37,16 +39,16 @@
 			<button type="button" onclick="toTopMenu();"
 				class="button_design_top">トップへ戻る</button>
 
-			<p id="tabcontrol">
+			<p id="tabcontrol" >
 				<a href="#tabpage1">契約条件</a> <a href="#tabpage2">補償</a>
 			</p>
-			<div id="tabbody">
+			<div id="tabbody" class="aa">
 				<div id="tabpage1">
 					<p class="main_subTitle">新規試算入力（契約条件タブ）</p>
 					<table class="form_table_newEstimate">
 						<tr>
 							<td>
-								<h3>
+	                           <h3>
 									被保険者の個人・法人区分&emsp;&emsp; <label> <input type="radio"
 										name="insuredKbn" value="1" onclick="entryChange1();"
 										checked="checked"
@@ -79,10 +81,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td> <input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYY/MM/DD"
-									value="${sessionScope.contractInfo.inceptionDate}" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -90,7 +92,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionTime">保険期間始期時刻</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="inceptionTime" id="inceptionTime" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
@@ -148,10 +150,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td> <input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYY/MM/DD"
-									value="${sessionScope.contractInfo.conclusionDate}" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -159,7 +161,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionTime">保険期間満期時刻</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="conclusionTime" id="conclusionTime" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
@@ -217,7 +219,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="paymentMethod">払込方法</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td> <select
 									name="paymentMethod" id="paymentMethod" required>
 										<option value="">以下の払込方法から選択してください</option>
 										<option value="1"
@@ -233,7 +235,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="installment">払込回数</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="installment" id="installment" required>
 										<option value="">以下の払込回数から選択してください</option>
 										<option value="1"
@@ -255,147 +257,127 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKana1">氏名カナ１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ"
 									maxlength="48" value="${sessionScope.contractInfo.nameKana1}"
-									required> <p style="display:inline;" class="error_side" id="Form_nameKana1"> <c:if
+									required class="new_right"> <p style="display:inline;" class="error_side" id="Form_nameKana1"> <c:if
 										test="${requestScope.check.get(6) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></p>
-									<p>
-										<font size="1">苗字を入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKana2">氏名カナ２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ"
 									maxlength="48" value="${sessionScope.contractInfo.nameKana2}"
-									required></td><td class="error_side" id="Form_nameKana2"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_nameKana2"> <c:if
 										test="${requestScope.check.get(7) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">名前を入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji1">氏名漢字１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海"
 									maxlength="48" value="${sessionScope.contractInfo.nameKanji1}"
-									required></td><td class="error_side" id="Form_nameKanji1"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_nameKanji1"> <c:if
 										test="${requestScope.check.get(8) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">苗字を入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji2">氏名漢字２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎"
 									maxlength="48" value="${sessionScope.contractInfo.nameKanji2}"
-									required></td><td class="error_side" id="Form_nameKanji2"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_nameKanji2"> <c:if
 										test="${requestScope.check.get(9) == 1 }">
 										<p>入力必須項目です。</p>
-									</c:if>
-									<p>
-										<font size="1">名前を入力してください。</font>
-									</p></td>
+										</c:if>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="postcode">郵便番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="postcode" name="postcode" size="60"
 									placeholder="（例）1111111" maxlength="7"
-									value="${sessionScope.contractInfo.postcode}" required></td><td class="error_side" id="Form_postcode">
+									value="${sessionScope.contractInfo.postcode}" required class="new_right"></td><td class="error_side" id="Form_postcode">
 									<c:if test="${requestScope.check.get(10) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKana1">住所カナ１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKana1" name="addressKana1" size="60"
 									placeholder="（例）トウキョウトタマシオチアイ" maxlength="48"
-									value="${sessionScope.contractInfo.addressKana1}" required></td><td class="error_side" id="Form_addressKana1">
+									value="${sessionScope.contractInfo.addressKana1}" required class="new_right"></td><td class="error_side" id="Form_addressKana1">
 									<c:if test="${requestScope.check.get(11) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">都道府県、市区町村まで入力してください。</font>
-									</p></td>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKana2">住所カナ２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKana2" name="addressKana2" size="60"
 									placeholder="（例）12-34" maxlength="48"
-									value="${sessionScope.contractInfo.addressKana2}" required></td><td class="error_side" id="Form_addressKana2">
+									value="${sessionScope.contractInfo.addressKana2}" required class="new_right"></td><td class="error_side" id="Form_addressKana2">
 									<c:if test="${requestScope.check.get(12) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">番地、建物名、部屋番号を入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji1">住所漢字１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKanji1" name="addressKanji1" size="60"
 									placeholder="（例）東京都多摩市落合" maxlength="48"
-									value="${sessionScope.contractInfo.addressKanji1 }" required></td><td class="error_side" id="Form_addressKanji1">
+									value="${sessionScope.contractInfo.addressKanji1 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji1">
 									<c:if test="${requestScope.check.get(13) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">都道府県、市区町村まで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji2">住所漢字２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKanji2" name="addressKanji2" size="60"
 									placeholder="（例）12-34" maxlength="48"
-									value="${sessionScope.contractInfo.addressKanji2 }" required></td><td class="error_side" id="Form_addressKanji2">
+									value="${sessionScope.contractInfo.addressKanji2 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji2">
 									<c:if test="${requestScope.check.get(14) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">番地、建物名、部屋名を入力してください。</font>
-									</p></td>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="birthday" name="birthday" size="60"
 									placeholder="YYYY/MM/DD"
-									value="${sessionScope.contractInfo.birthday }" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.birthday }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(15) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">18歳以下の方は契約できません。</font>
-									</p></td>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label for="gender">性別</label>
 								</th>
-								<td><span class="form-require">必須</span> <label> <input
+								<td><label> <input
 										type="radio" id="gender" name="gender" value="1"
 										<c:if test="${sessionScope.contractInfo.gender == '1'}">checked="checked"</c:if>>男
 										<input type="radio" id="gender" name="gender" value="2"
@@ -407,44 +389,38 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="telephoneNo">電話番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="telephoneNo" name="telephoneNo" size="60"
 									placeholder="（例）0123456789" maxlength="10"
-									value="${sessionScope.contractInfo.telephoneNo }" required></td><td class="error_side" id="Form_telephoneNo">
+									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td><td class="error_side" id="Form_telephoneNo">
 									<c:if test="${requestScope.check.get(17) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="mobliephoneNo">携帯電話番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="mobilephoneNo" name="mobilephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
-									value="${sessionScope.contractInfo.mobilephoneNo }" required></td><td class="error_side" id="Form_mobilephoneNo">
+									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobilephoneNo">
 									<c:if test="${requestScope.check.get(18) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label for="faxNo">FAX番号</label>
 								</th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="faxNo" name="faxNo" size="60" placeholder="（例）123456789"
 									maxlength="10" value="${sessionScope.contractInfo.faxNo }"
-									required></td><td class="error_side" id="Form_faxNo"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_faxNo"> <c:if
 										test="${requestScope.check.get(19) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 						</tbody>
 					</table>
@@ -455,10 +431,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }"
-									required></td><td class="error_side" id="Form_"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -467,7 +443,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionTime">保険期間始期時刻</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="inceptionTime" id="inceptionTime" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
@@ -525,10 +501,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYY/MM/DD"
-									value="${contractInfo.conclusionDate }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${contractInfo.conclusionDate }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -536,7 +512,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionTime">保険期間満期時刻</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="conclusionTime" id="conclusionTime" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
@@ -594,7 +570,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="paymentMethod">払込方法</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="paymentMethod" id="paymentMethod" required>
 										<option value="">以下の払込方法から選択してください</option>
 										<option value="1"
@@ -610,7 +586,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="installment">払込回数</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="installment" id="installment" required>
 										<option value="">以下の払込回数から選択してください</option>
 										<option value="1"
@@ -632,10 +608,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKana1">会社名カナ１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKana1" name="nameKana1" size="60"
 									placeholder="（例）タマホケン" maxlength="48"
-									value="${contractInfo.nameKana1 }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${contractInfo.nameKana1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(6) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -643,10 +619,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKana2">会社名カナ２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKana2" name="nameKana2" size="60"
 									placeholder="（例）カブシキガイシャ" maxlength="48"
-									value="${contractInfo.nameKana2 }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${contractInfo.nameKana2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(7) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -654,10 +630,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji1">会社名漢字１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKanji1" name="nameKanji1" size="60"
 									placeholder="（例）多摩保険" maxlength="48"
-									value="${contractInfo.nameKanji1 }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${contractInfo.nameKanji1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(8) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -665,10 +641,10 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji2">会社名漢字２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="nameKanji2" name="nameKanji2" size="60"
 									placeholder="（例）株式会社" maxlength="48"
-									value="${contractInfo.nameKanji2 }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${contractInfo.nameKanji2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(9) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -676,39 +652,35 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="postcode">郵便番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="postcode" name="postcode" size="60"
 									placeholder="（例）1111111" maxlength="7"
-									value="${contractInfo.postcode }" required></td><td class="error_side" id="Form_postcode"> <c:if
+									value="${contractInfo.postcode }" required class="new_right"></td><td class="error_side" id="Form_postcode"> <c:if
 										test="${requestScope.check.get(10) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKana1">住所カナ１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKana1" name="addressKana1" size="60"
 									placeholder="（例）トウキョウトタマシオチアイ" maxlength="48"
-									value="${contractInfo.addressKana1 }" required></td><td class="error_side" id="Form_addressKana1"> <c:if
+									value="${contractInfo.addressKana1 }" required class="new_right"></td><td class="error_side" id="Form_addressKana1"> <c:if
 										test="${requestScope.check.get(11) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">都道府県、市区町村まで入力してください。</font>
-									</p></td>
+									</td>
 
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKana2">住所カナ２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKana2" name="addressKana2" size="60"
 									placeholder="（例）12-34" maxlength="48"
-									value="${contractInfo.addressKana2 }" required></td><td class="error_side" id="Form_addressKana2"> <c:if
+									value="${contractInfo.addressKana2 }" required class="new_right"></td><td class="error_side" id="Form_addressKana2"> <c:if
 										test="${requestScope.check.get(12) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
@@ -719,71 +691,61 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji1">住所漢字１</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKanji1" name="addressKanji1" size="60"
 									placeholder="（例）東京都多摩市落合" maxlength="48"
-									value="${contractInfo.addressKanji1 }" required></td><td class="error_side" id="Form_addressKanji1"> <c:if
+									value="${contractInfo.addressKanji1 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji1"> <c:if
 										test="${requestScope.check.get(13) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">都道府県、市区町村まで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji2">住所漢字２</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="addressKanji2" name="addressKanji2" size="60"
 									placeholder="（例）12-34" maxlength="48"
-									value="${contractInfo.addressKanji2 }" required></td><td class="error_side" id="Form_addressKanji2"> <c:if
+									value="${contractInfo.addressKanji2 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji2"> <c:if
 										test="${requestScope.check.get(14) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">番地、建物名、部屋名を入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="telephoneNo">電話番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="telephoneNo" name="telephoneNo" size="60"
 									placeholder="（例）0123456789" maxlength="10"
-									value="${contractInfo.telephoneNo }" required></td><td class="error_side" id="Form_telephoneNo"> <c:if
+									value="${contractInfo.telephoneNo }" required class="new_right"></td><td class="error_side" id="Form_telephoneNo"> <c:if
 										test="${requestScope.check.get(15) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="mobliephoneNo">携帯電話番号</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="mobliephoneNo" name="mobliephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
-									value="${contractInfo.mobilephoneNo }" required></td><td class="error_side" id="Form_mobliephoneNo"> <c:if
+									value="${contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobliephoneNo"> <c:if
 										test="${requestScope.check.get(16) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label for="faxNo">FAX番号</label>
 								</th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="faxNo" name="faxNo" size="60" placeholder="（例）123456789"
-									maxlength="10" value="${contractInfo.faxNo }" required></td><td class="error_side" id="Form_faxNo">
+									maxlength="10" value="${contractInfo.faxNo }" required class="new_right"></td><td class="error_side" id="Form_faxNo">
 									<c:if test="${requestScope.check.get(17) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">ハイフンなしで入力してください。</font>
-									</p></td>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -825,7 +787,7 @@
 						<tbody>
 							<tr>
 								<th class="form_table_left">メーカー</th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="maker" id="maker" required>
 										<option value="">以下のメーカーから選択してください</option>
 										<option value="lexus"
@@ -851,7 +813,7 @@
 
 							<tr>
 								<th class="form_table_left">車名</th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="carName" id="carName">
 										<option value="">以下の車名から選択してください</option>
 										<option value="LS"
@@ -905,15 +867,13 @@
 								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check.get(1) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">メーカーに対応した車種を選択してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left">車両保険金額</th>
 								<td><input type="text" value="" name="vehiclePrice"
 									id="vehiclePrice"
-									value="${sessionScope.compensation.vehiclePrice }" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.compensation.vehiclePrice }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -922,7 +882,7 @@
 								<th class="form_table_left">料率・車両</th>
 								<td><input type="text" value="" name="vehicleRates"
 									id="vehicleRates"
-									value="${sessionScope.compensation.vehicleRates }" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.compensation.vehicleRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(3) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -931,7 +891,7 @@
 								<th class="form_table_left">料率・対人</th>
 								<td><input type="text" value="" name="bodilyRates"
 									id="bodilyRates"
-									value="${sessionScope.compensation.bodilyRates }" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.compensation.bodilyRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(4) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -941,7 +901,7 @@
 								<td><input type="text" value="" name="propertyDamageRates"
 									id="propertyDamageRates"
 									value="${sessionScope.compensation.propertyDamageRates }"
-									required></td><td class="error_side" id="Form_"> <c:if
+									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(5) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
@@ -950,12 +910,11 @@
 								<th class="form_table_left">料率・車両</th>
 								<td><input type="text" value="" name="accidentRates"
 									id="accidentRates"
-									value="${sessionScope.compensation.accidentRates }" required></td><td class="error_side" id="Form_">
+									value="${sessionScope.compensation.accidentRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(6) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
-
 							<script>
 								document.getElementById("carName").onchange = function() {
 									var carName = document
@@ -1156,21 +1115,19 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="licenseNo">車のナンバー</label></th>
-								<td><span class="form-require">必須</span> <input type="text"
+								<td><input type="text"
 									id="licenseNo" name="licenseNo" size="60"
 									placeholder="（例）多摩 12-34" maxlength="24"
-									value="${compensation.licenseNo }" required></td><td class="error_side" id="Form_"> <c:if
+									value="${compensation.licenseNo }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(7) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">地域名・分類番号・判別文字・一連指定番号の順に入力してください。</font>
-									</p></td>
+									</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="licenseColor">免許証の色</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="licenseColor" id="licenseColor">
 										<option value="">以下の免許証の色から選択してください</option>
 										<option value="1"
@@ -1182,14 +1139,12 @@
 								</select> <c:if test="${requestScope.check.get(8) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if>
-									<p>
-										<font size="1">今現在の免許証の区分を選択してください。</font>
-									</p></td>
+								</td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="ageLimit">年齢条件</label></th>
-								<td><span class="form-require">必須</span> <select
+								<td><select
 									name="ageLimit" id="ageLimit">
 										<option value="">以下の年齢条件から選択してください</option>
 										<option value="1"
