@@ -13,11 +13,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>照会開始画面</title>
 <%-- css(共通) --%>
 <link rel="stylesheet" href="./static/css/Button.css">
 <link rel="stylesheet" href="./static/css/Layout.css">
 <link rel="stylesheet" href="./static/css/Parts.css">
+<link rel="stylesheet" href="./static/css/phone.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
@@ -44,7 +46,7 @@
 							<th class="form_table_left">証券番号</th>
 							<td><input class="form_table_right" id="polNo" name="polNo" maxlength="10"></td>
 
-						</tr>
+						</tr>6
 					</table>
 				<!-- エラーメッセージ -->
 				<div class="error" id="FORM_ERROR">

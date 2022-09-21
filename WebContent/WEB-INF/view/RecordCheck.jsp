@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="./static/css/Layout.css">
 <link rel="stylesheet" href="./static/css/Parts.css">
 <link rel="stylesheet" href="./static/css/Tab.css">
+<link rel="stylesheet" href="./static/css/phone.css">
 <%-- JavaScript用 --%>
 <script type="text/javascript" src="./static/js/transition.js"></script>
 </head>
