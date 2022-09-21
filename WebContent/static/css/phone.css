@@ -50,7 +50,7 @@ width:80%;
 .ID_form_default {
 	border: none;						/* デフォルトの枠線を消す */
 	width: 180px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
-	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
+	height: 24px;						/* Google Chromeのためにデフォルトフォームの縦を設定 */
 }
 
 /* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
@@ -59,7 +59,7 @@ width:80%;
 	border-width: thin;					/* フォームの枠 */
 	border-style: solid;				/* フォームの枠 */
 	width: 180px;						/* フォームの縦横 */
-	height: 24px;						/* フォームの縦横 */
+	height: 30px;						/* フォームの縦横 */
 }
 
 
@@ -67,7 +67,7 @@ width:80%;
 .password_form_default {
 	border: none;						/* デフォルトの枠線を消す */
 	width: 139px;						/* 目玉の位置調整のためにデフォルトフォームの横を設定 */
-	height: 28px;						/* Google Chromeのためにデフォルトフォームの縦を設定。 */
+	height: 24px;						/* Google Chromeのためにデフォルトフォームの縦を設定。 */
 }
 
 /* 見かけ上のフォーム（実際にそう見えるように作ってるだけで実際のフォームはデフォルトの方） */
@@ -76,7 +76,7 @@ width:80%;
 	border-width: thin;					/* フォームの枠 */
 	border-style: solid;				/* フォームの枠 */
 	width: 180px;						/* フォームの縦横 */
-	height: 24px;						/* フォームの縦横 */
+	height: 30px;						/* フォームの縦横 */
 }
 
 }

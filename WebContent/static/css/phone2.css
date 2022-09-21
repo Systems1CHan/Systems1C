@@ -29,7 +29,7 @@ input.new_right{
 .main_roundedConer{
 	width: 80%;
 }
-.main_table_newEstimate td{
-width: 120px;
+.new_top{
+  margin-left: 50px;
 }
 }

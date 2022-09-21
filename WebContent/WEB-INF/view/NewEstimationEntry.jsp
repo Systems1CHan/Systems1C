@@ -49,14 +49,14 @@
 					<p class="main_subTitle">新規試算入力（契約条件タブ）</p>
 					<table class="form_table_newEstimate">
 						<tr>
-							<td>
+							<td class=>
 	                           <h3>
-									被保険者の個人・法人区分&emsp;&emsp; <label> <input type="radio"
+									被保険者の個人・法人区分<br> <label> <input type="radio"
 										name="insuredKbn" value="1" onclick="entryChange1();"
-										checked="checked"
+										checked="checked" class="new_top"
 										<c:if test="${sessionScope.contractInfo.insuredKbn == '1'}"></c:if>>個人
 									</label> <label> <input type="radio" name="insuredKbn"
-										value="2" onclick="entryChange1();"
+										value="2" onclick="entryChange1();" class = "new_top"
 										<c:if test="${sessionScope.contractInfo.insuredKbn == '2'}"></c:if>>法人
 									</label>
 								</h3>
@@ -85,7 +85,7 @@
 									for="inceptionDate">保険期間始期日</label></th>
 								<td> <input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYY/MM/DD"
 									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
@@ -154,7 +154,7 @@
 									for="conclusionDate">保険期間満期日</label></th>
 								<td> <input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYY/MM/DD"
 									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
@@ -369,7 +369,7 @@
 									for="birthday">生年月日</label></th>
 								<td><input type="text"
 									id="birthday" name="birthday" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYY/MM/DD"
 									value="${sessionScope.contractInfo.birthday }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(15) == 1 }">
 										<p>入力必須項目です。</p>
@@ -435,7 +435,7 @@
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8" value="${contractInfo.inceptionDate }"
+									placeholder="YYYY/MM/DD" value="${contractInfo.inceptionDate }"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(0) == 1 }">
 										<p>入力必須項目です。</p>
@@ -505,7 +505,7 @@
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYY/MM/DD"
 									value="${contractInfo.conclusionDate }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
@@ -1119,7 +1119,7 @@
 									for="licenseNo">車のナンバー</label></th>
 								<td><input type="text"
 									id="licenseNo" name="licenseNo" size="60"
-									placeholder="（例）多摩 ま 500 12-34" maxlength="24"
+									placeholder="（例）多摩 12-34" maxlength="24"
 									value="${compensation.licenseNo }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.check.get(7) == 1 }">
 										<p>入力必須項目です。</p>

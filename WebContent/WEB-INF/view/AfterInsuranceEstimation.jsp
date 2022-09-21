@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<link rel="stylesheet" href="./static/css/phone2.css">
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>保険料試算後画面</title>
 		<style type="text/css">
             .btn {

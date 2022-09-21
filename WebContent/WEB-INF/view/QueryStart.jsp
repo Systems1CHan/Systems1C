@@ -45,8 +45,7 @@
 							<!-- 入力フォーム（証券番号） -->
 							<th class="form_table_left">証券番号</th>
 							<td><input class="form_table_right" id="polNo" name="polNo" maxlength="10"></td>
-
-						</tr>6
+						</tr>
 					</table>
 				<!-- エラーメッセージ -->
 				<div class="error" id="FORM_ERROR">
