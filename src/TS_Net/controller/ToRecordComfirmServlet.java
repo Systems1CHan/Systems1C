@@ -119,7 +119,7 @@ public class ToRecordComfirmServlet extends HttpServlet {
             }
 
             //入力した印刷連番は計上済みの場合
-            if (contract.getCancelFlg().equals("0")) {
+            if (contract.getStatusFlg().equals("0")) {
 				request.setAttribute("message", ErrorMsgConst.FORM_ERROR0005);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
 				rd.forward(request, response);
