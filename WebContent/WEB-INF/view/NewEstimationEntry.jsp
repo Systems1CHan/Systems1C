@@ -39,6 +39,8 @@
 			<button type="button" onclick="toTopMenu();"
 				class="button_design_top">トップへ戻る</button>
 
+			<input type="hidden" name="buttonValue" value="">
+
 			<p id="tabcontrol" >
 				<a href="#tabpage1">契約条件</a> <a href="#tabpage2">補償</a>
 			</p>
@@ -753,7 +755,7 @@
 						<tr>
 							<td>
 								<button type="button" class="button_design"
-									onclick="toAfterEstimationPage();">保険料試算</button>
+									onclick="toAfterEstimationPage(1);">保険料試算</button>
 							</td>
 							<td>
 								<button type="button" class="button_design"
@@ -774,11 +776,11 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">総額保険料</td>
-								<td><c:out value="${compensation.premiumAmount}" />（万円）</td>
+								<td><c:out value="${compensation.premiumAmount}" />（円）</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">一回分保険料</td>
-								<td><c:out value="${compensation.premiumInstallment}" />（万円）
+								<td><c:out value="${compensation.premiumInstallment}" />（円）
 								</td>
 							</tr>
 						</tbody>
@@ -871,16 +873,16 @@
 							</tr>
 							<tr>
 								<th class="form_table_left">車両保険金額</th>
-								<td><input type="text" value="" name="vehiclePrice"
+								<td><input type="text" name="vehiclePrice"
 									id="vehiclePrice"
-									value="${sessionScope.compensation.vehiclePrice }" required class="new_right"></td><td class="error_side" id="Form_">
+									value="${sessionScope.compensation.vehiclePrice }" required class="new_right">（万円）</td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(2) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">料率・車両</th>
-								<td><input type="text" value="" name="vehicleRates"
+								<td><input type="text" name="vehicleRates"
 									id="vehicleRates"
 									value="${sessionScope.compensation.vehicleRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(3) == 1 }">
@@ -889,7 +891,7 @@
 							</tr>
 							<tr>
 								<th class="form_table_left">料率・対人</th>
-								<td><input type="text" value="" name="bodilyRates"
+								<td><input type="text" name="bodilyRates"
 									id="bodilyRates"
 									value="${sessionScope.compensation.bodilyRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(4) == 1 }">
@@ -898,7 +900,7 @@
 							</tr>
 							<tr>
 								<th class="form_table_left">料率・対物</th>
-								<td><input type="text" value="" name="propertyDamageRates"
+								<td><input type="text" name="propertyDamageRates"
 									id="propertyDamageRates"
 									value="${sessionScope.compensation.propertyDamageRates }"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
@@ -908,7 +910,7 @@
 							</tr>
 							<tr>
 								<th class="form_table_left">料率・車両</th>
-								<td><input type="text" value="" name="accidentRates"
+								<td><input type="text" name="accidentRates"
 									id="accidentRates"
 									value="${sessionScope.compensation.accidentRates }" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.check.get(6) == 1 }">
@@ -1163,7 +1165,7 @@
 						<tr>
 							<td>
 								<button type="button" class="button_design"
-									onclick="toAfterEstimationPage();">保険料試算</button>
+									onclick="toAfterEstimationPage(2);">保険料試算</button>
 							</td>
 							<td>
 								<button type="button" class="button_design"
@@ -1212,8 +1214,26 @@
 				tabs[i].onclick = changeTab;
 			}
 
-			// 最初は先頭のタブを選択
-			tabs[0].onclick();
+			var val = <%= (String)request.getAttribute("tabpage") %>
+
+            if (val=="1"){
+            	tabs[0].onclick();
+            }else if (val=="2"){
+            	tabs[1].onclick();
+            }else{
+            	tabs[0].onclick();
+            }
+
+             radio = document.getElementsByName('insuredKbn')
+             var val = <%= (String)request.getAttribute("radioButtonValue") %>
+
+             if (val=="1"){
+                 radio[0].checked=true;
+             }else if (val=="2"){
+                  radio[1].checked=true;
+             }else{
+                 radio[0].checked=true;
+             }
 		</script>
 		<div id="MESSAGE">
 			<c:out value="${requestScope.message }" />
