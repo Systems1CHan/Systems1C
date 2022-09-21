@@ -48,7 +48,7 @@
 					<p class="main_subTitle">計上確認(契約条件タブ)</p>
 					<table class="confirm_table" border="1" style="border-collapse: collapse">
 						<tr>
-							<td class="confirm_table_headline" colspan="2">契約内容照会確認</td>
+							<td class="confirm_table_headline" colspan="2">計上確認</td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">保険期間</td>
@@ -135,20 +135,20 @@
 					<p class="main_subTitle">計上確認(補償タブ)</p>
 					<table class="confirm_table" border="1" style="border-collapse: collapse">
 						<tr>
-							<td class="confirm_table_headline" colspan="2">契約内容照会確認</td>
+							<td class="confirm_table_headline" colspan="2">計上確認</td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">保険料</td>
 							<td><c:out
-									value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
+									value="${sessionScope.compensation.getPremiumAmountForLabel()}" />円</td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">メーカー</td>
-							<td><c:out value="${sessionScope.compensation.getCarName()}" /></td>
+							<td><c:out value="${sessionScope.compensation.getMaker()}" /></td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">車名</td>
-							<td><c:out value="${sessionScope.compensation.getMaker()}" /></td>
+							<td><c:out value="${sessionScope.compensation.getCarName()}" /></td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">車のナンバー</td>

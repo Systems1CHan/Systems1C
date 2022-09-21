@@ -110,11 +110,21 @@ public class ToRecordComfirmServlet extends HttpServlet {
             session.setAttribute("contractInfo", contract);
 
             /*３－１．エラーメッセージが返却された場合、エラーメッセージをrequest領域へ設定した上で、計上開始画面JSPへforwardする。*/
+
+            //存在しない印刷連番を入力した場合
             if ("".equals(contract.getPolNo())) {
-                request.setAttribute("message", ErrorMsgConst.FORM_ERROR0006);
+                request.setAttribute("message", ErrorMsgConst.FORM_ERROR0004);
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
                 rd.forward(request, response);
             }
+
+            //入力した印刷連番は計上済みの場合
+            if (contract.getCancelFlg().equals("0")) {
+				request.setAttribute("message", ErrorMsgConst.FORM_ERROR0005);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordStart.jsp");
+				rd.forward(request, response);
+				return;
+			}
 
                 //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
                 if("2".equals(contract.getInsuredKbn())) {
