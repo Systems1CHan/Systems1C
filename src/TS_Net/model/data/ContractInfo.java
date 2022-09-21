@@ -106,6 +106,24 @@ public class ContractInfo implements Serializable {
     }
 
     /**
+   	 * 計上状態取得メソッド。
+   	 * <p>
+   	 * 画面に表示させるための計上状態を取得する
+   	 * </p>
+   	 * @return 計上状態
+   	 */
+   	public String getStatusFlgForKeijyou() {
+   		if(Objects.equals(statusFlg, "1")) {
+   			return "新規";
+   		}else if(Objects.equals(statusFlg, "5")){
+			return "変更";
+   		}else {
+   			return "解約";
+   		}
+   	}
+
+
+    /**
 	 * 契約状態取得メソッド。
 	 * <p>
 	 * 画面に表示させるための契約状態を取得する
