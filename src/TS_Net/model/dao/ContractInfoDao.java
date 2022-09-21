@@ -270,16 +270,21 @@ public class ContractInfoDao {
 				polNo = res.getString("pol_No");
 			}
 
-			String alpha = polNo.substring(0, 1);
-			String number = polNo.substring(1, polNo.length());
-			Integer num = Integer.parseInt(number);
-			num++;
-			number=num.toString();
-			while(number.length()<9) {
-				number = "0"+number;
-			}
-			polNo = alpha + number;
+			if(polNo == null) {
+                polNo = "B000000001";
 
+            }else {
+
+            	String alpha = polNo.substring(0, 1);
+				String number = polNo.substring(1, polNo.length());
+				Integer num = Integer.parseInt(number);
+				num++;
+				number=num.toString();
+				while(number.length()<9) {
+					number = "0"+number;
+				}
+				polNo = alpha + number;
+            }
 		}finally {
 			if(res != null) {
 				res.close();
@@ -315,16 +320,22 @@ public class ContractInfoDao {
 				insatsuRenban = res.getString("insatsu_renban");
 			}
 
-			String alpha = insatsuRenban.substring(0, 1);
-			String number = insatsuRenban.substring(1, insatsuRenban.length());
-			Integer num = Integer.parseInt(number);
-			num++;
-			number=num.toString();
-			while(number.length()<7) {
-				number = "0"+number;
-			}
-			insatsuRenban = alpha + number;
+			if(insatsuRenban == null) {
+                insatsuRenban = "A0000001";
 
+            }else {
+
+            	String alpha = insatsuRenban.substring(0, 1);
+				String number = insatsuRenban.substring(1, insatsuRenban.length());
+				Integer num = Integer.parseInt(number);
+				num++;
+				number=num.toString();
+				while(number.length()<7) {
+					number = "0"+number;
+				}
+				insatsuRenban = alpha + number;
+
+            }
 		}finally {
 			if(res != null) {
 				res.close();
