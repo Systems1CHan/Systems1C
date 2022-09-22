@@ -93,18 +93,21 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		String[] mobilephoneNo = request.getParameterValues("mobilephoneNo");
 		String[] faxNo = request.getParameterValues("faxNo");
 
-		int index = 0;
-		if(insuredKbn2.equals("1")) {
-			index = 0;
-		}else if(insuredKbn2.equals("2")) {
-			index = 1;
-			if(birthday.equals(null) || birthday.isEmpty()) {
-				birthday = "19990330";
-			}else if(gender.equals(null) || gender.isEmpty()) {
-				gender = "0";
-			}
+		for (String str: inceptionDate){
+			  System.out.println(str);
 		}
 
+		int index = 0;
+		if (insuredKbn2.equals("1")) {
+			System.out.println("個人");
+		}else if(insuredKbn2.equals("2")) {
+			System.out.println("法人");
+			index = 1;
+			if (birthday.equals(null)  || birthday.isEmpty())
+				birthday ="20000101";
+		}
+
+		//リクエストパラメータを取得し、契約情報オブジェクトにセット
 		contractInfo.setInceptionDate(inceptionDate[index]);
 		contractInfo.setInceptionTime(inceptionTime[index]);
 		contractInfo.setConclusionDate(conclusionDate[index]);
@@ -122,24 +125,36 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		contractInfo.setAddressKanji1(addressKanji1[index]);
 		contractInfo.setAddressKanji2(addressKanji2[index]);
 		contractInfo.setBirthday(birthday);
-		contractInfo.setGender(gender);
+		if (gender==null)
+			contractInfo.setGender("0");// 未選択
+		else
+			contractInfo.setGender(gender);
 		contractInfo.setTelephoneNo(telephoneNo[index]);
 		contractInfo.setMobilephoneNo(mobilephoneNo[index]);
 		contractInfo.setFaxNo(faxNo[index]);
 
 		//リクエストパラメータを取得し、補償情報オブジェクトにセット
-		compensation.setMaker(request.getParameter("maker"));
-		compensation.setCarName(request.getParameter("carName"));
-		compensation.setLicenseNo(request.getParameter("licenseNo"));
-		compensation.setVehiclePrice(check(request.getParameter("vehiclePrice")));
-		compensation.setVehicleRates(request.getParameter("vehicleRates"));
-		compensation.setBodilyRates(request.getParameter("bodilyRates"));
-		compensation.setPropertyDamageRates(request.getParameter("propertyDamageRates"));
-		compensation.setAccidentRates(request.getParameter("accidentRates"));
-		compensation.setLicenseColor(request.getParameter("licenseColor"));
-		compensation.setAgeLimit(request.getParameter("ageLimit"));
-		compensation.setPremiumAmount(check(request.getParameter("premiumAmount")));
-		compensation.setPremiumInstallment(check(request.getParameter("premiumInstallment")));
+		String maker = request.getParameter("maker");
+		String carName = request.getParameter("carName");
+		String licenseNo = request.getParameter("licenseNo");
+		String vehiclePrice = request.getParameter("vehiclePrice");
+		String vehicleRates = request.getParameter("vehicleRates");
+		String bodilyRates = request.getParameter("bodilyRates");
+		String propertyDamageRates =request.getParameter("propertyDamageRates");
+		String accidentRates = request.getParameter("accidentRates");
+		String licenseColor = request.getParameter("licenseColor");
+		String ageLimit = request.getParameter("ageLimit");
+
+		compensation.setMaker(maker);
+		compensation.setCarName(carName);
+		compensation.setLicenseNo(licenseNo);
+		compensation.setVehiclePrice(check(vehiclePrice));
+		compensation.setVehicleRates(vehicleRates);
+		compensation.setBodilyRates(bodilyRates);
+		compensation.setPropertyDamageRates(propertyDamageRates);
+		compensation.setAccidentRates(accidentRates);
+		compensation.setLicenseColor(licenseColor);
+		compensation.setAgeLimit(ageLimit);
 
 		//総額保険料、一回分保険料の算出メソッドの呼び出し
 		Integer premiumAmount = compensation.getPremiumAmountForLabel();

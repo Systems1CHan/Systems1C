@@ -21,6 +21,8 @@
 	</header>
 	<main>
 		<button type="button" onclick="toTopMenu();" class="button_design_top">トップへ戻る</button>
+
+		<input type="hidden" name="buttonValue" value="">
 		<div class="main_roundedConer">
 			<form action="" id="finishprint_frm" method="post">
 			<input type="hidden" name="buttonValue" value="">
