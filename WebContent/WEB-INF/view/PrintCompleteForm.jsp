@@ -21,26 +21,33 @@
 	</header>
 	<main>
 		<form action="" method="post">
-			<button type="button" onclick="toTopMenu();" class="button_design_top">トップへ戻る</button>
-			<table class="confirm_table" border="1"
-				style="border-collapse: collapse">
-				<tbody>
-					<tr>
-						<td class="confirm_table_headline" colspan="2">申込書印刷完了</td>
-					</tr>
-					<tr>
-						<td class="confirm_table_left">印刷連番</td>
-						<td><c:out
-								value="${sessionScope.contractInfo.insatsuRenban }" /></td>
-					</tr>
-					<tr>
-						<td class="confirm_table_left">契約者名</td>
-						<td><c:out
-								value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
-					</tr>
-				</tbody>
-			</table>
+			<button type="button" onclick="toTopMenu();"
+				class="button_design_top">トップへ戻る</button>
+			<div class="main_roundedConer">
+				<div class="main_subTitle">申込書印刷完了</div>
+				<table class="confirm_table" border="1"
+					style="border-collapse: collapse">
+					<tbody>
+						<tr>
+							<td class="confirm_table_headline" colspan="2">申込書印刷完了</td>
+						</tr>
+						<tr>
+							<td class="confirm_table_left">印刷連番</td>
+							<td><c:out
+									value="${sessionScope.contractInfo.insatsuRenban }" /></td>
+						</tr>
+						<tr>
+							<td class="confirm_table_left">契約者名</td>
+							<td><c:out
+									value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</form>
 	</main>
+	<footer>
+		<div class="footer_title">Handy</div>
+	</footer>
 </body>
 </html>
