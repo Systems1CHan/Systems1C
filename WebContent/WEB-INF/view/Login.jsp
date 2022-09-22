@@ -76,11 +76,9 @@
 							<td><input type="reset" value="リセット" class="button_design"></td>
 						</tr>
 					</table>
-					<table class="button_center_parallel">
-						<tr>
-							<td><c:out value="${requestScope.message}" /></td>
-						</tr>
-					</table>
+					<div class="error">
+							<c:out value="${requestScope.message}" />
+					</div>
 				</form>
 			</div>
 		</article>
