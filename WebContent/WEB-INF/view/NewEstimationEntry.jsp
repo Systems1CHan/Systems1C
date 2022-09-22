@@ -250,10 +250,10 @@
 								<td><input type="text"
 									id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ"
 									maxlength="48" value="${sessionScope.contractInfo.nameKana1}"
-									required class="new_right"> <p style="display:inline;" class="error_side" id="Form_nameKana1"> <c:if
+									required class="new_right"></td> <td class="error_side" id="Form_nameKana1"> <c:if
 										test="${requestScope.check.get(6) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
-									</c:if></p>
+									</c:if>
 									</td>
 							</tr>
 							<tr>
@@ -1123,7 +1123,7 @@
 											<c:if test="${sessionScope.compensation.licenseColor == '2'}">selected="selected"</c:if>>グリーン</option>
 										<option value="3"
 											<c:if test="${sessionScope.compensation.licenseColor == '3'}">selected="selected"</c:if>>ゴールド</option>
-								</select> <c:if test="${requestScope.check.get(8) == 1 }">
+								</select></td><td class="error_side" id="Form_">  <c:if test="${requestScope.check.get(8) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 								</td>
@@ -1140,7 +1140,7 @@
 											<c:if test="${sessionScope.compensation.ageLimit == '2'}">selected="selected"</c:if>>21歳以上</option>
 										<option value="3"
 											<c:if test="${sessionScope.compensation.ageLimit == '3'}">selected="selected"</c:if>>26歳以上</option>
-								</select> <c:if test="${requestScope.check.get(9) == 1 }">
+								</select> </td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(9) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
