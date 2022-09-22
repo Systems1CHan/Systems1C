@@ -118,7 +118,7 @@
 								<th class="form_table_left">事故現場住所2-カナ</th>
 								<td><input type="text" id="accidentlocationkana2"
 									name="accidentlocationkana2" placeholder="○○チョウ○○バンチ"
-									value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
+									value="${sessionScope.accidentReception.getAccidentLocationKana2()}">
 								</td>
 								<td class="error_side" id="Form_accidentlocationkana2"><c:if
 										test="${requestScope.check.get(4) == 1}">
@@ -139,7 +139,7 @@
 									</c:if></td>
 							</tr>
 							<tr>
-								<th class="form_table_left">過失割合（非保険者方）</th>
+								<th class="form_table_left">過失割合（被保険者方）</th>
 								<td><input type="text" placeholder="20"
 									id="ratingblamemyself" name="ratingblamemyself"
 									value="${sessionScope.accidentReception.getRatingBlameMyself()}">
@@ -282,6 +282,11 @@
 							style="border-collapse: collapse">
 							<tr>
 								<td class="confirm_table_headline" colspan="2">事故受付入力</td>
+							</tr>
+							<tr>
+								<td class="confirm_table_left">保険期間</td>
+								<td class="b"><c:out
+										value="${sessionScope.contractInfo.getInsureanceIntervalForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">証券番号</td>

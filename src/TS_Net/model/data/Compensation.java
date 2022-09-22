@@ -313,7 +313,7 @@ public class Compensation implements Serializable {
 	 * @return 車のナンバー
 	 */
 	public String vehiclePriceForLabel() {
-		return vehiclePrice + "円";
+		return vehiclePrice + "万円";
 	}
 
 	public String premiumInstallmentForLabel() {

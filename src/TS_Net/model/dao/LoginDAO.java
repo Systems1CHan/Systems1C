@@ -52,7 +52,7 @@ public class LoginDAO {
 		try {
 			con = DriverManager.getConnection(SystemConst.JDBC_URL, SystemConst.USER, SystemConst.PASSWORD);
 			/* 自動コミットはオフ */
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 		} catch (SQLException e) {
 		}
 	}
