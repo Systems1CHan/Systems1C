@@ -9,6 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="TS_Net.model.data.AccidentReception"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,14 +68,20 @@
 						</table>
 						<table class="form_table">
 							<tr>
+							<%AccidentReception ar = (AccidentReception)session.getAttribute("accidentReception");%>
+							<%String value = ar.getAccidentDateForLabel(); %>
+							<%value = value.replace("年","-"); %>
+							<%value = value.replace("月","-"); %>
+							<%value = value.replace("日",""); %>
 								<th class="form_table_left">事故日</th>
 								<td><input type="date" id="accidentdate"
-									name="accidentdate" size="60" placeholder="YYYY/MM/DD"
-									value="${sessionScope.accidentReception.getAccidentDate()}">
+									name="accidentdate" placeholder="YYYY/MM/DD"
+									value="<%=value%>">
 								</td>
-								<td class="error_side" id="Form_accidentdate"><c:if
+								<td class="error" id="Form_accidentdate"><c:if
 										test="${requestScope.check.get(0) == 1}">
-										<td><c:out value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out
+												value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -439,7 +446,7 @@
 								<!-- 入力フォーム（お名前） -->
 								<td>
 									<button type="button" onclick="toFinishUpdatePage()"
-										class="button_design">更新完了</button>
+										class="button_design">状況更新</button>
 								</td>
 								<td>
 									<button type="button" onclick="toFinishAcceptPage()"

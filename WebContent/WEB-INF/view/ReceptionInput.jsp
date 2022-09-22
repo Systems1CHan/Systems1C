@@ -300,7 +300,7 @@
 								<!-- 入力フォーム（お名前） -->
 								<td>
 									<button type="button" onclick="toFinishUpdatePage()"
-										class="button_design">更新完了</button>
+										class="button_design">状況更新</button>
 								</td>
 								<td>
 									<button type="button" onclick="toFinishAcceptPage()"

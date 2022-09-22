@@ -51,11 +51,6 @@
 								<td><c:out value="${sessionScope.contractInfo.polNo}" /></td>
 							</tr>
 							<tr>
-								<td class="confirm_table_left">印刷連番</td>
-								<td><c:out
-										value="${sessionScope.contractInfo.insatsuRenban}" /></td>
-							</tr>
-							<tr>
 								<td class="confirm_table_left">契約状態</td>
 								<td><c:out
 										value="${sessionScope.contractInfo.getStatusFlgForLabel()}" /></td>
