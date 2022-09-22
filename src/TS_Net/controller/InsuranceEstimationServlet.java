@@ -169,13 +169,13 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
 		if(cfc.check(contractInfo).contains(1)) {
-			request.setAttribute("errorMessage", cfc.check(contractInfo));
+			request.setAttribute("check", cfc.check(contractInfo));
 			request.setAttribute("tabpage", "1");
 		}else if(comfc.check(compensation).contains(1)) {
-			request.setAttribute("errorMessage", comfc.check(compensation));
+			request.setAttribute("check", comfc.check(compensation));
 			request.setAttribute("tabpage", "2");
 		}else if(dc.inceptionDateCheck(contractInfo) != null) {
-			request.setAttribute("message", cfc.check(contractInfo));
+			request.setAttribute("message", dc.inceptionDateCheck(contractInfo));
 			request.setAttribute("tabpage", "1");
 		}else if(ttc.textHalfwidthCheck(contractInfo) != null) {
 			request.setAttribute("message", ttc.textHalfwidthCheck(contractInfo));
