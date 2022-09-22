@@ -81,7 +81,7 @@ public class DateChecker {
 		if(ad > id && cd > id) {
 			return null;
 		}else {
-			return ErrorMsgConst.FORM_ERROR0014;
+			return ErrorMsgConst.FORM_ERROR0017;
 		}
 	}
 }
