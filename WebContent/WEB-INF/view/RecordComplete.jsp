@@ -5,6 +5,7 @@
   作成者      ：[Akane Nambu/SYS]
  ------------------------------------------------------------------------------
   修正履歴 (修正日 ： 担当者 ： 修正内容)
+  (2022/09/09 ： NarimichiHenmi/SYS ：表の色を一部変更)
  -----------------------------------------------------------------------------%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -47,19 +48,19 @@
 						<td class="confirm_table_headline" colspan="3">計上完了</td>
 					</tr>
 					<tr>
-						<td rowspan="4"><c:out value="${sessionScope.contractInfo.getStatusFlgForKeijyou()}" /></td>
+						<td class="confirm_table_headline" rowspan="4"><c:out value="${sessionScope.contractInfo.getStatusFlgForKeijyou()}" /></td>
 					</tr>
 					<tr>
 						<td class="confirm_table_left">印刷連番</td>
-						<td><c:out value="${sessionScope.contractInfo.insatsuRenban}" /></td>
+						<td class="confirm_table_left"><c:out value="${sessionScope.contractInfo.insatsuRenban}" /></td>
 					</tr>
 					<tr>
 						<td class="confirm_table_left">証券番号</td>
-						<td><c:out value="${sessionScope.contractInfo.polNo}" /></td>
+						<td class="confirm_table_left"><c:out value="${sessionScope.contractInfo.polNo}" /></td>
 					</tr>
 					<tr>
 						<td class="confirm_table_left">契約者名</td>
-						<td><c:out
+						<td class="confirm_table_left"><c:out
 								value="${sessionScope.contractInfo.getNameForLabel()}" /></td>
 					</tr>
 				</table>
