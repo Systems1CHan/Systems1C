@@ -131,7 +131,7 @@
 							<tr>
 								<td class="confirm_table_left">保険料</td>
 								<td class="b"><c:out
-										value="${requestScope.compensation.getPremiumAmountForLabel()}" /></td>
+										value="${requestScope.compensation.getPremiumAmountForLabel()}" />円</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
@@ -150,7 +150,7 @@
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
 								<td><c:out
-										value="${requestScope.compensation.getVehiclePrice()}" /></td>
+										value="${requestScope.compensation.vehiclePriceForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">免許証の色</td>
@@ -185,7 +185,7 @@
 							<tr>
 								<td class="confirm_table_left">１回分保険料</td>
 								<td><c:out
-										value="${requestScope.compensation.getPremiumInstallment()}" /></td>
+										value="${requestScope.compensation.premiumInstallmentForLabel()}" /></td>
 							</tr>
 						</table>
 					</div>

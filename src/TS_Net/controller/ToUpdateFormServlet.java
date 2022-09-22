@@ -235,31 +235,34 @@ import TS_Net.model.datacheck.TextTypeCheker;
             }
 
 
-            TextTypeCheker textTypeCheker = new TextTypeCheker();
-
-            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana1()) != null) {
-
-                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
-
-                page ="/WEB-INF/view/ReceptionInput.jsp";
-                //契約内容入力画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-
-            }
-
-            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana2()) != null) {
-
-                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
-
-                page ="/WEB-INF/view/ReceptionInput.jsp";
-                //契約内容入力画面へforwardする。
-                RequestDispatcher rd = request.getRequestDispatcher(page);
-                rd.forward(request, response);
-                return;
-
-            }
+            //カナチェック
+//            TextTypeCheker textTypeCheker = new TextTypeCheker();
+//
+//            if(accidentReception.getAccidentLocationKana1() == null || accidentReception.getAccidentLocationKana1().equals("")) {
+//
+//            }
+//            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana1()) != null && (accidentReception.getAccidentLocationKana1() != null || !(accidentReception.getAccidentLocationKana1().equals("")))) {
+//
+//                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
+//
+//                page ="/WEB-INF/view/ReceptionInput.jsp";
+//                //契約内容入力画面へforwardする。
+//                RequestDispatcher rd = request.getRequestDispatcher(page);
+//                rd.forward(request, response);
+//                return;
+//
+//            }
+//            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana2()) != null && (accidentReception.getAccidentLocationKana1() != null || !(accidentReception.getAccidentLocationKana1().equals("")))) {
+//
+//                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
+//
+//                page ="/WEB-INF/view/ReceptionInput.jsp";
+//                //契約内容入力画面へforwardする。
+//                RequestDispatcher rd = request.getRequestDispatcher(page);
+//                rd.forward(request, response);
+//                return;
+//
+//            }
 
             //支払金額計算部分
             Integer damageSumPrice = Integer.parseInt(damageCarPrice) + Integer.parseInt(damageBodilyPrice) + Integer.parseInt(damagePropertyPrice) + Integer.parseInt(damageAccidentPrice);

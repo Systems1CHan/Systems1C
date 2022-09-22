@@ -363,7 +363,7 @@ public class ContractInfoDao {
 		/* 返却用スタブデータの生成 */
 		//update文でCancelFlgを0にする。
 
-		String sql = "UPDATE CONTRACTINFO_TBL SET cancel_flg = '1' WHERE pol_no = ?";
+		String sql = "UPDATE CONTRACTINFO_TBL SET cancel_flg = '1', status_flg = '9' WHERE pol_no = ?";
 
 		PreparedStatement stmt = null;
 		try {

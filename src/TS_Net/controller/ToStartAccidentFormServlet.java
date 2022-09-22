@@ -166,6 +166,7 @@ public class ToStartAccidentFormServlet extends HttpServlet {
                 //証券番号と一致している契約情報を取り出す。
                 contractInfo = contractInfoDao.getContractInfoByPN(polNo);
 
+                //証券番号が存在しない場合はエラー
                 if ("".equals(contractInfo.getPolNo())) {
                     request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0006);
 
@@ -176,6 +177,21 @@ public class ToStartAccidentFormServlet extends HttpServlet {
                     return;
 
                 }
+
+
+                //証券番号が解約済みの場合はエラー
+                if (contractInfo.getCancelFlg().equals("1") && contractInfo.getStatusFlg().equals("0") ) {
+                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0007);
+
+                    page ="/WEB-INF/view/ReceptionStart.jsp";
+                    //契約内容入力画面へforwardする。
+                    RequestDispatcher rd = request.getRequestDispatcher(page);
+                    rd.forward(request, response);
+                    return;
+
+                }
+
+
 
                 //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
                 if("2".equals(contractInfo.getInsuredKbn())) {

@@ -311,9 +311,9 @@ public class AccidentDao {
             stmt.setInt(10, accidentReception.getRatingBlameMyself());
             stmt.setString(11, accidentReception.getAccidentSituation());
             stmt.setString(12, accidentReception.getAccidentLocationKanji2());
-            stmt.setString(13, accidentReception.getAccidentLocationKanji2());
-            stmt.setString(14, accidentReception.getAccidentLocationKanji2());
-            stmt.setString(15, accidentReception.getAccidentLocationKanji2());
+            stmt.setString(13, accidentReception.getAccidentLocationKanji1());
+            stmt.setString(14, accidentReception.getAccidentLocationKana2());
+            stmt.setString(15, accidentReception.getAccidentLocationKana1());
             stmt.setInt(16, accidentReception.getPaymentPrice());
             stmt.setString(17, accidentReception.getClaimStatus());
             stmt.setString(18, accidentReception.getAccidentDate().replace("-", ""));

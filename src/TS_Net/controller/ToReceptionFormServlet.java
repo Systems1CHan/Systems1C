@@ -51,285 +51,299 @@ import TS_Net.model.datacheck.TextTypeCheker;
                     rd.forward(request, response);
                     return;
                 }
-                String page = "/WEB-INF/view/ReceptionComplete.jsp";
-                    /* 事故受付完了JSPへforwardする。*/
-
-                //dataオブジェクトを生成する。
-                ContractInfo contractInfo = null;
-                AccidentReception accidentReception = null;
-
-                //DAOを生成する。
-                AccidentDao accidentDao = new AccidentDao();
-
-                //セッションから契約情報オブジェクトを取り出す。
-                contractInfo = (ContractInfo) session.getAttribute("contractInfo");
-                //オブジェクトが空の場合はエラーを表示する。
-                if(contractInfo == null) {
-                    request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-                    // システムエラー画面を戻り値に設定する。
-                    page = "/WEB-INF/view/ErrorPage.jsp";
-                    //システムエラー画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-                }
-
-                accidentReception = (AccidentReception) session.getAttribute("accidentReception");
-                //オブジェクトが空の場合はエラーを表示する。
-                if(accidentReception == null) {
-                    request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
-                    // システムエラー画面を戻り値に設定する。
-                    page = "/WEB-INF/view/ErrorPage.jsp";
-                    //システムエラー画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-                }
-
-
-                // 要求パラメータを受け取り、事故情報オブジェクトにセットする。
-                accidentReception.setAccidentLocationKana1(request.getParameter("accidentlocationkana1"));
-                accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
-                accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
-                accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
-                accidentReception.setAccidentDate(request.getParameter("accidentdate").replace("-",""));
-                accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
-                accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
-                accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
-                accidentReception.setDamageCarPrice(check(request.getParameter("damagecarprice")));
-                accidentReception.setDamageBodilyPrice(check(request.getParameter("damagebodilyprice")));
-                accidentReception.setDamagePropertyPrice(check(request.getParameter("damagepropertyprice")));
-                accidentReception.setDamageAccidentPrice(check(request.getParameter("damageaccidentprice")));
-                accidentReception.setDamageCarState(request.getParameter("damagecarstate"));
-                accidentReception.setDamageBodilyState(request.getParameter("damagebodilystate"));
-                accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
-                accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
-                accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
-
-                AccidentReceptionFormChecker checker = new AccidentReceptionFormChecker();
-                List<Integer> check = checker.check(accidentReception);
-
-                if(check.contains(1)) {
-
-                    request.setAttribute("check", check);
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-                }
-
-                DateChecker datecheck = new DateChecker();
-
-
-                String accidentDate = accidentReception.getAccidentDate();
-                String inceptionDate = contractInfo.getInceptionDate();
-                String conclusionDate = contractInfo.getConclusionDate();
-
-                //事故日が保険期間内かどうか調べる機能。
-                if(datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate) != null) {
-
-                    request.setAttribute("FORM_ERROR", datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate));
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //過失割合が合計100になっているかどうか調べる機能。
-                Integer ratingblamemyself =Integer.parseInt(request.getParameter("ratingblamemyself"));
-                Integer ratingblameyourself =Integer.parseInt(request.getParameter("ratingblameyourself"));
-
-                if(ratingblamemyself + ratingblameyourself != 100) {
-
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0019);
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-
-                //損害額が1000円単位で入力されているか調べる機能。
-                String damageCarPrice =request.getParameter("damagecarprice");
-                String damageBodilyPrice =request.getParameter("damagebodilyprice");
-                String damagePropertyPrice =request.getParameter("damagepropertyprice");
-                String damageAccidentPrice =request.getParameter("damageaccidentprice");
-
-
-                //数字かどうかチェックする。
-                TextTypeCheker textTypeCheker = new TextTypeCheker();
-
-
-                if(textTypeCheker.digitCheck(damageCarPrice) !=null){
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0003);
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-                //被保険者の過失割合半角数字チェック
-                if(0 > accidentReception.getRatingBlameMyself()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0021);
-                    accidentReception.setRatingBlameMyself(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //被害者の過失割合半角数字チェック
-                if(0 > accidentReception.getRatingBlameYourself()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0021);
-                    accidentReception.setRatingBlameYourself(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //損害額・車両半角数字チェック
-                if(0 > accidentReception.getDamageCarPrice()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
-                    accidentReception.setDamageCarPrice(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //損害額・対人半角数字チェック
-                if(0 > accidentReception.getDamageBodilyPrice()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
-                    accidentReception.setDamageBodilyPrice(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //損害額・対物半角数字チェック
-                if(0 > accidentReception.getDamagePropertyPrice()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
-                    accidentReception.setDamagePropertyPrice(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //損害額・傷害半角数字チェック
-                if(0 > accidentReception.getDamageAccidentPrice()) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
-                    accidentReception.setDamageAccidentPrice(0);
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                //千円単位で入力されているかチェック
-
-                if(checker.digitCheck( damageCarPrice) != null) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
-
-                                        page ="/WEB-INF/view/ReceptionInput.jsp";
-                                        //契約内容入力画面へforwardする。
-                                        RequestDispatcher rd = request.getRequestDispatcher(page);
-                                        rd.forward(request, response);
-                                        return;
-                }
-
-                if(checker.digitCheck(damageBodilyPrice) != null) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
-
-                                        page ="/WEB-INF/view/ReceptionInput.jsp";
-                                        //契約内容入力画面へforwardする。
-                                        RequestDispatcher rd = request.getRequestDispatcher(page);
-                                        rd.forward(request, response);
-                                        return;
-                }
-
-                if(checker.digitCheck(damagePropertyPrice) != null) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
-
-                                        page ="/WEB-INF/view/ReceptionInput.jsp";
-                                        //契約内容入力画面へforwardする。
-                                        RequestDispatcher rd = request.getRequestDispatcher(page);
-                                        rd.forward(request, response);
-                                        return;
-                }
-
-                if(checker.digitCheck(damageAccidentPrice) != null) {
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
-
-                                        page ="/WEB-INF/view/ReceptionInput.jsp";
-                                        //契約内容入力画面へforwardする。
-                                        RequestDispatcher rd = request.getRequestDispatcher(page);
-                                        rd.forward(request, response);
-                                        return;
-                }
-
-                //支払い金額計算部分
-                Integer damageSumPrice = Integer.parseInt(damageCarPrice) + Integer.parseInt(damageBodilyPrice) + Integer.parseInt(damagePropertyPrice) + Integer.parseInt(damageAccidentPrice);
-                Integer paymentPrice = check(request.getParameter("ratingblamemyself")) * damageSumPrice/100;
-                accidentReception.setPaymentPrice(paymentPrice);
-
-
-                if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana1()) != null) {
-
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-                if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana2()) != null) {
-
-                    request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
-
-                    page ="/WEB-INF/view/ReceptionInput.jsp";
-                    //契約内容入力画面へforwardする。
-                    RequestDispatcher rd = request.getRequestDispatcher(page);
-                    rd.forward(request, response);
-                    return;
-
-                }
-
-
-
-                //事故受け付けフラグを9完了済みに設定
-                accidentReception.setClaimStatus("9");
-
-                //契約情報オブジェクトをリクエスト領域に格納する。
-                request.setAttribute("contractInfo", contractInfo);
+                String page = "/WEB-INF/view/ReceptionUpdate.jsp";
+                /* 事故受付完了JSPへforwardする。*/
+
+            //dataオブジェクトを生成する。
+            ContractInfo contractInfo = null;
+            AccidentReception accidentReception = null;
+
+            //DAOを生成する。
+            AccidentDao accidentDao = new AccidentDao();
+            //セッションから契約情報オブジェクトを取り出す。
+            contractInfo = (ContractInfo) session.getAttribute("contractInfo");
+            //オブジェクトが空の場合はエラーを表示する。
+            if(contractInfo == null) {
+                request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+                //システムエラー画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+            }
+
+            accidentReception = (AccidentReception) session.getAttribute("accidentReception");
+            //オブジェクトが空の場合はエラーを表示する。
+            if(accidentReception == null) {
+                request.setAttribute("ERROR", ErrorMsgConst.SESSION_ERROR);
+                // システムエラー画面を戻り値に設定する。
+                page = "/WEB-INF/view/ErrorPage.jsp";
+                //システムエラー画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+            }
+
+
+
+            // 要求パラメータを受け取り、事故情報オブジェクトにセットする。
+            accidentReception.setAccidentLocationKana1(request.getParameter("accidentlocationkana1"));
+            accidentReception.setAccidentLocationKana2(request.getParameter("accidentlocationkana2"));
+            accidentReception.setAccidentLocationKanji1(request.getParameter("accidentlocationkanji1"));
+            accidentReception.setAccidentLocationKanji2(request.getParameter("accidentlocationkanji2"));
+            accidentReception.setAccidentDate(request.getParameter("accidentdate").replace("-",""));
+            accidentReception.setAccidentSituation(request.getParameter("accidentsituation"));
+            accidentReception.setRatingBlameMyself(check(request.getParameter("ratingblamemyself")));
+            accidentReception.setRatingBlameYourself(check(request.getParameter("ratingblameyourself")));
+            accidentReception.setDamageCarPrice(check(request.getParameter("damagecarprice")));
+            accidentReception.setDamageBodilyPrice(check(request.getParameter("damagebodilyprice")));
+            accidentReception.setDamagePropertyPrice(check(request.getParameter("damagepropertyprice")));
+            accidentReception.setDamageAccidentPrice(check(request.getParameter("damageaccidentprice")));
+            accidentReception.setDamageCarState(request.getParameter("damagecarstate"));
+            accidentReception.setDamageBodilyState(request.getParameter("damagebodilystate"));
+            accidentReception.setDamagePropertyState(request.getParameter("damagepropertystate"));
+            accidentReception.setDamageAccidentState(request.getParameter("damageaccidentstate"));
+            accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+//            accidentReception.setInsatsuRenban(request.getParameter("damageaccidentstate")));
+//            accidentReception.setPaymentPrice(check(request.getParameter("paymentprice")));
+
+
+//            Integer.parseInt(request.getParameter("insatallment"));
+
+
+
+
+          //空白チェック
+            AccidentReceptionFormChecker checker = new AccidentReceptionFormChecker();
+            List<Integer> check = checker.check(accidentReception);
+
+            if(check.contains(1)) {
+
+                request.setAttribute("check", check);
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+            }
+
+            DateChecker datecheck = new DateChecker();
+
+
+            String accidentDate = accidentReception.getAccidentDate();
+            String inceptionDate = contractInfo.getInceptionDate();
+            String conclusionDate = contractInfo.getConclusionDate();
+
+            //事故日が保険期間内かどうか調べる機能。
+            if(datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate) != null) {
+
+                request.setAttribute("FORM_ERROR", datecheck.accidentDateCheck(accidentDate,inceptionDate,conclusionDate));
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+
+            //被保険者の過失割合半角数字チェック
+            if(0 > accidentReception.getRatingBlameMyself()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0021);
+                accidentReception.setRatingBlameMyself(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+            //被害者の過失割合半角数字チェック
+            if(0 > accidentReception.getRatingBlameYourself()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0021);
+                accidentReception.setRatingBlameYourself(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+            //損害額・車両半角数字チェック
+            if(0 > accidentReception.getDamageCarPrice()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
+                accidentReception.setDamageCarPrice(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
 
+            }
+
+            //損害額・対人半角数字チェック
+            if(0 > accidentReception.getDamageBodilyPrice()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
+                accidentReception.setDamageBodilyPrice(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+            //損害額・対物半角数字チェック
+            if(0 > accidentReception.getDamagePropertyPrice()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
+                accidentReception.setDamagePropertyPrice(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+            //損害額・傷害半角数字チェック
+            if(0 > accidentReception.getDamageAccidentPrice()) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0022);
+                accidentReception.setDamageAccidentPrice(0);
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+
+            //損害額が1000円単位で入力されているか調べる機能。
+            String damageCarPrice =request.getParameter("damagecarprice");
+            String damageBodilyPrice =request.getParameter("damagebodilyprice");
+            String damagePropertyPrice =request.getParameter("damagepropertyprice");
+            String damageAccidentPrice =request.getParameter("damageaccidentprice");
+
+
+
+
+
+
+
+            if(checker.digitCheck( damageCarPrice) != null) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+                                    page ="/WEB-INF/view/ReceptionInput.jsp";
+                                    //契約内容入力画面へforwardする。
+                                    RequestDispatcher rd = request.getRequestDispatcher(page);
+                                    rd.forward(request, response);
+                                    return;
+            }
+
+            if(checker.digitCheck(damageBodilyPrice) != null) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+                                    page ="/WEB-INF/view/ReceptionInput.jsp";
+                                    //契約内容入力画面へforwardする。
+                                    RequestDispatcher rd = request.getRequestDispatcher(page);
+                                    rd.forward(request, response);
+                                    return;
+            }
+
+            if(checker.digitCheck(damagePropertyPrice) != null) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+                                    page ="/WEB-INF/view/ReceptionInput.jsp";
+                                    //契約内容入力画面へforwardする。
+                                    RequestDispatcher rd = request.getRequestDispatcher(page);
+                                    rd.forward(request, response);
+                                    return;
+            }
+
+            if(checker.digitCheck(damageAccidentPrice) != null) {
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0020);
+
+                                    page ="/WEB-INF/view/ReceptionInput.jsp";
+                                    //契約内容入力画面へforwardする。
+                                    RequestDispatcher rd = request.getRequestDispatcher(page);
+                                    rd.forward(request, response);
+                                    return;
+            }
+
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+            //カナチェック
+            TextTypeCheker textTypeCheker = new TextTypeCheker();
+
+            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana1()) != null) {
+
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+            if(textTypeCheker.textFullwidthCheck(accidentReception.getAccidentLocationKana2()) != null) {
+
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0013);
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //過失割合が合計100になっているかどうか調べる機能。
+            Integer ratingblamemyself =Integer.parseInt(request.getParameter("ratingblamemyself"));
+            Integer ratingblameyourself =Integer.parseInt(request.getParameter("ratingblameyourself"));
+
+            if(ratingblamemyself + ratingblameyourself != 100) {
+
+                request.setAttribute("FORM_ERROR", ErrorMsgConst.FORM_ERROR0019);
+
+                page ="/WEB-INF/view/ReceptionInput.jsp";
+                //契約内容入力画面へforwardする。
+                RequestDispatcher rd = request.getRequestDispatcher(page);
+                rd.forward(request, response);
+                return;
+
+            }
+
+
+
+
+
+            //支払金額計算部分
+            Integer damageSumPrice = Integer.parseInt(damageCarPrice) + Integer.parseInt(damageBodilyPrice) + Integer.parseInt(damagePropertyPrice) + Integer.parseInt(damageAccidentPrice);
+            Integer paymentPrice = check(request.getParameter("ratingblamemyself")) * damageSumPrice/100;
+            accidentReception.setPaymentPrice(paymentPrice);
+
+
+
+            //事故受け付けフラグを1受付中に設定
+            accidentReception.setClaimStatus("9");
+
+            //契約情報オブジェクトをリクエスト領域に格納する。
+            request.setAttribute("contractInfo", contractInfo);
 
                 try {
                     accidentDao.connect();

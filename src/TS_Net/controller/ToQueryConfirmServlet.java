@@ -53,7 +53,7 @@ public class ToQueryConfirmServlet extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-        String page = "/WEB-INF/view/QueryConfirmCompany.jsp";
+        String page = "/WEB-INF/view/QueryConfirm.jsp";
         //dataオブジェクトを生成する。
         ContractInfo contractInfo = null;
         Compensation compensation = null;
