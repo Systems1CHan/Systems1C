@@ -382,11 +382,7 @@
 								<td><input type="text"
 									id="telephoneNo" name="telephoneNo" size="60"
 									placeholder="（例）0123456789" maxlength="10"
-									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td><td class="error_side" id="Form_telephoneNo">
-									<c:if test="${requestScope.check.get(17) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
-									</c:if>
-								</td>
+									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
@@ -395,8 +391,8 @@
 									id="mobilephoneNo" name="mobilephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
 									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobilephoneNo">
-									<c:if test="${requestScope.check.get(18) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
+									<c:if test="${requestScope.check.get(17) == 1 }">
+										<p><c:out value="番号は1つ以上入力必須です。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
 							</tr>
@@ -406,11 +402,7 @@
 								<td><input type="text"
 									id="faxNo" name="faxNo" size="60" placeholder="（例）123456789"
 									maxlength="10" value="${sessionScope.contractInfo.faxNo }"
-									required class="new_right"></td><td class="error_side" id="Form_faxNo"> <c:if
-										test="${requestScope.check.get(19) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
-									</c:if>
-									</td>
+									required class="new_right"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -705,11 +697,7 @@
 								<td><input type="text"
 									id="telephoneNo" name="telephoneNo" size="60"
 									placeholder="（例）0123456789" maxlength="10"
-									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td><td class="error_side" id="Form_telephoneNo"> <c:if
-										test="${requestScope.check.get(15) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
-									</c:if>
-									</td>
+									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td>
 							</tr>
 							<tr>
 								<th class="form_table_left" scope="row"><label
@@ -718,8 +706,8 @@
 									id="mobilephoneNo" name="mobilephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
 									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobliephoneNo"> <c:if
-										test="${requestScope.check.get(16) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
+										test="${requestScope.check.get(15) == 1 }">
+										<p><c:out value="番号は1つ以上入力必須です。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
 							</tr>
@@ -728,11 +716,7 @@
 								</th>
 								<td><input type="text"
 									id="faxNo" name="faxNo" size="60" placeholder="（例）123456789"
-									maxlength="10" value="${sessionScope.contractInfo.faxNo }" required class="new_right"></td><td class="error_side" id="Form_faxNo">
-									<c:if test="${requestScope.check.get(17) == 1 }">
-										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
-									</c:if>
-								</td>
+									maxlength="10" value="${sessionScope.contractInfo.faxNo }" required class="new_right"></td>
 							</tr>
 						</tbody>
 					</table>

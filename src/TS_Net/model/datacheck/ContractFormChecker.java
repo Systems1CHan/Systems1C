@@ -110,15 +110,7 @@ public class ContractFormChecker {
 			num.add(1);
 		}else {
 					num.add(0);
-		}if(Objects.equals(ci.getTelephoneNo(), null) || ci.getTelephoneNo().isEmpty()) {
-			num.add(1);
-		}else {
-					num.add(0);
-		}if(Objects.equals(ci.getMobilephoneNo(), null) || ci.getMobilephoneNo().isEmpty()) {
-			num.add(1);
-		}else {
-					num.add(0);
-		}if(Objects.equals(ci.getFaxNo(), null) || ci.getFaxNo().isEmpty()) {
+		}if(Objects.equals(ci.getTelephoneNo(), null) || ci.getTelephoneNo().isEmpty() || Objects.equals(ci.getMobilephoneNo(), null) || ci.getMobilephoneNo().isEmpty() || Objects.equals(ci.getFaxNo(), null) || ci.getFaxNo().isEmpty()) {
 			num.add(1);
 		}else {
 					num.add(0);
