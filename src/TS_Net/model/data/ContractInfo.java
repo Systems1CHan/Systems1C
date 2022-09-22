@@ -100,9 +100,9 @@ public class ContractInfo implements Serializable {
     	addressKanji2 = "";
     	birthday = "";
     	gender = "";
-    	telephoneNo = "";
-    	mobilephoneNo = "";
-    	faxNo = "";
+    	telephoneNo = "0000000000";
+    	mobilephoneNo = "00000000000";
+    	faxNo = "0000000000";
     }
 
     /**
