@@ -62,10 +62,10 @@ public class ContractFormChecker {
 			num.add(1);
 		}else {
 					num.add(0);;
-		}if(Objects.equals(ci.getInsuredKbn(), null) || ci.getInsuredKbn().isEmpty()) {
-			num.add(1);
-		}else {
-					num.add(0);
+//		}if(Objects.equals(ci.getInsuredKbn(), null) || ci.getInsuredKbn().isEmpty()) {
+//			num.add(1);
+//		}else {
+//					num.add(0);}
 		}if(Objects.equals(ci.getNameKana1(), null) || ci.getNameKana1().isEmpty()) {
 			num.add(1);
 		}else {
