@@ -18,7 +18,7 @@
 <script type="text/javascript" src="./static/js/transition.js"></script>
 <script type="text/javascript">
 	function entryChange1() {
-		radio = document.getElementsByName('insuredKbn')
+		//radio = document.getElementsByName('insuredKbn')
 		if (radio[0].checked) {
 			document.getElementById('個人').style.display = "";
 			document.getElementById('法人').style.display = "none";
@@ -63,19 +63,6 @@
 							</td>
 						</tr>
 					</table>
-					<script type="text/javascript">
-						function entryChange1() {
-							radio = document.getElementsByName('insuredKbn')
-							if (radio[0].checked) {
-								document.getElementById('個人').style.display = "";
-								document.getElementById('法人').style.display = "none";
-							} else if (radio[1].checked) {
-								document.getElementById('個人').style.display = "none";
-								document.getElementById('法人').style.display = "";
-							}
-						}
-						window.onload = entryChange1;
-					</script>
 
 					<table id="個人" class="form_table">
 						<tbody>
