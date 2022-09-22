@@ -1218,7 +1218,7 @@
                  radio[0].checked=true;
              }
 		</script>
-		<div align="center" id="MESSAGE">
+		<div class="error" id="MESSAGE">
 			    <c:out value="${requestScope.message }" />
 		</div>
 	</main>
