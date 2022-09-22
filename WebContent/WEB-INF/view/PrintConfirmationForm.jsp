@@ -48,13 +48,11 @@
 						</tr>
 						<tr>
 							<th class="confirm_table_left">総払込保険料</th>
-							<td><c:out
-									value="${sessionScope.compensation.premiumAmount}" /></td>
+							<td>¥<fmt:formatNumber value="${sessionScope.compensation.premiumAmount}" />（円）</td>
 						</tr>
 						<tr>
 							<th class="confirm_table_left">一回分保険料</th>
-							<td><c:out
-									value="${sessionScope.compensation.premiumInstallment}" /></td>
+							<td>¥<fmt:formatNumber value="${sessionScope.compensation.premiumInstallment}" />（円）</td>
 						</tr>
 					</tbody>
 				</table>
