@@ -47,10 +47,6 @@
 						<td class="confirm_table_headline" colspan="2">解約申込書印刷完了</td>
 					</tr>
 					<tr>
-						<td class="confirm_table_left">印刷連番</td>
-						<td><c:out value="${requestScope.contractInfo.insatsuRenban}" /></td>
-					</tr>
-					<tr>
 						<td class="confirm_table_left">証券番号</td>
 						<td><c:out value="${requestScope.contractInfo.polNo}" /></td>
 					</tr>
