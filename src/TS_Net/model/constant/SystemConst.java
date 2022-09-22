@@ -18,8 +18,8 @@ package TS_Net.model.constant;
  */
 public class SystemConst {
 
-//
-//	/** ドライバー名 */
+
+	/** ドライバー名 */
 //	public static final String JDBC_DRIVER_NAME = "com.mysql.jdbc.Driver";
 //
 //	/** JDBC接続文字列 */

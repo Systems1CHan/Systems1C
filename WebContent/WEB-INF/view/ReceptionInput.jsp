@@ -10,6 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="TS_Net.model.data.AccidentReception"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,10 +69,15 @@
 						</table>
 						<table class="form_table">
 							<tr>
+							<%AccidentReception ar = (AccidentReception)session.getAttribute("accidentReception");%>
+							<%String value = ar.getAccidentDateForLabel(); %>
+							<%value = value.replace("年","-"); %>
+							<%value = value.replace("月","-"); %>
+							<%value = value.replace("日",""); %>
 								<th class="form_table_left">事故日</th>
 								<td><input type="date" id="accidentdate"
 									name="accidentdate" placeholder="YYYY/MM/DD"
-									value="${sessionScope.accidentReception.getAccidentDate()}">
+									value="<%=value%>">
 								</td>
 								<td class="error" id="Form_accidentdate"><c:if
 										test="${requestScope.check.get(0) == 1}">
