@@ -36,7 +36,7 @@ import TS_Net.model.constant.SystemConst;
 			request.setCharacterEncoding(SystemConst.CHAR_SET);
 
 			/* １-１．セッション領域から契約情報オブジェクトを除去する。 */
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession(false);
 			//セッションがない場合、エラーページに遷移
 			if(session == null) {
 				request.setAttribute("message", ErrorMsgConst.SESSION_ERROR);
