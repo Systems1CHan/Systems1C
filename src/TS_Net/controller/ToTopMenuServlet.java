@@ -5,6 +5,7 @@
  * 作成者  ：[NarimichiHenmi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/22 ： NarimichiHenmi/SYS ：getSessionとremoveSessionに用いる名前の頭文字を大文字から小文字に変更)
  *------------------------------------------------------------------------------
  */
 
@@ -47,16 +48,16 @@ public class ToTopMenuServlet extends HttpServlet{
 			return;
 		}
 		/* １-１．セッション領域から契約情報オブジェクトを除去する。 */
-		if (session.getAttribute("ContractInfo") != null) {
-			session.removeAttribute("ContractInfo");
+		if (session.getAttribute("contractInfo") != null) {
+			session.removeAttribute("contractInfo");
 		}
 		/* １-２．セッション領域から補償情報オブジェクトを除去する。 */
-		if (session.getAttribute("Compensation") != null) {
-			session.removeAttribute("Compensation");
+		if (session.getAttribute("compensation") != null) {
+			session.removeAttribute("compensation");
 		}
 		/* １-３．セッション領域から事故受付情報オブジェクトを除去する。 */
-		if (session.getAttribute("AccidentReception") != null) {
-			session.removeAttribute("AccidentReception");
+		if (session.getAttribute("accidentReception") != null) {
+			session.removeAttribute("accidentReception");
 		}
 
 		/* ２．契約内容入力ページJSPへforwardする。 */

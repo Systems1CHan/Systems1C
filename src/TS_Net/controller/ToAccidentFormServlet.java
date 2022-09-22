@@ -5,6 +5,7 @@
  * 作成者  ：[KeinaNoguchi/SYS]
  *------------------------------------------------------------------------------
  * 修正履歴 (発注No. ： 修正日 ： 担当者 ： 修正内容)
+ * (2022/09/22 ： NarimichiHenmi/SYS ：getSessionとremoveSessionに用いる名前の頭文字を大文字から小文字に変更)
  *------------------------------------------------------------------------------
  */
 package TS_Net.controller;
@@ -44,16 +45,16 @@ import TS_Net.model.constant.SystemConst;
 				rd.forward(request, response);
 				return;
 			}
-			if (session.getAttribute("ContractInfo") != null) {
-				session.removeAttribute("ContractInfo");
+			if (session.getAttribute("contractInfo") != null) {
+				session.removeAttribute("contractInfo");
 			}
 			/* １-２．セッション領域から補償情報オブジェクトを除去する。 */
-			if (session.getAttribute("Compensation") != null) {
-				session.removeAttribute("Compensation");
+			if (session.getAttribute("compensation") != null) {
+				session.removeAttribute("compensation");
 			}
 			/* １-３．セッション領域から事故受付情報オブジェクトを除去する。 */
-			if (session.getAttribute("AccidentReception") != null) {
-				session.removeAttribute("AccidentReception");
+			if (session.getAttribute("accidentReception") != null) {
+				session.removeAttribute("accidentReception");
 			}
 
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/ReceptionStart.jsp");
