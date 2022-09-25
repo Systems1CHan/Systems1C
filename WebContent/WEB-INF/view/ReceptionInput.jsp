@@ -11,6 +11,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="TS_Net.model.data.AccidentReception"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -417,7 +418,7 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">保険料</td>
-								<td><c:out
+								<td>¥<fmt:formatNumber
 										value="${sessionScope.compensation.premiumAmountForLabel2()}" /></td>
 							</tr>
 							<tr>
@@ -436,7 +437,7 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
-								<td><c:out
+								<td>¥<fmt:formatNumber
 										value="${sessionScope.compensation.vehiclePriceForLabel()}" /></td>
 							</tr>
 							<tr>
@@ -471,7 +472,7 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">１回分保険料</td>
-								<td><c:out
+								<td>¥<fmt:formatNumber
 										value="${sessionScope.compensation.premiumInstallmentForLabel()}" /></td>
 							</tr>
 						</table>
