@@ -257,6 +257,30 @@ public class ContractInfo implements Serializable {
 	 * </p>
 	 * @return 生年月日
 	 */
+	public String getInceptionDateForLabel() {
+		return this.inceptionDate.substring(0, 4) + "年" + this.inceptionDate.substring(4, 6) + "月" + this.inceptionDate.substring(6, 8) + "日";
+	}
+
+	/**
+	 * 生年月日メソッド
+	 * <p>
+	 * 画面に表示させるための生年月日を取得する。
+	 * 西暦でリターンする。
+	 * </p>
+	 * @return 生年月日
+	 */
+	public String getConclusionDateForLabel() {
+		return this.conclusionDate.substring(0, 4) + "年" + this.conclusionDate.substring(4, 6) + "月" + this.conclusionDate.substring(6, 8) + "日";
+	}
+
+	/**
+	 * 生年月日メソッド
+	 * <p>
+	 * 画面に表示させるための生年月日を取得する。
+	 * 西暦でリターンする。
+	 * </p>
+	 * @return 生年月日
+	 */
 	public String getBirthdayForLabel() {
 		return this.birthday.substring(0, 4) + "年" + this.birthday.substring(4, 6) + "月" + this.birthday.substring(6, 8) + "日";
 	}
