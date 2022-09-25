@@ -70,21 +70,12 @@
 						<tbody>
 
 							<tr>
-							<%String value = "20220925"; %>
-						    <%if(session.getAttribute("contractInfo")!=null){ %>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%if(ci.getInceptionDateForLabel() == null){ %>
-							<%value = ci.getInceptionDateForLabel(); %>
-							<%value = value.replace("年","-"); %>
-							<%value = value.replace("月","-"); %>
-							<%value = value.replace("日",""); %>
-							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td> <input type="date"
+								<td> <input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYYMMDD"
-									value="<%=value%>" required class="new_right"></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
@@ -96,73 +87,64 @@
 									name="inceptionTime" id="inceptionTime" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
-											<c:if test="${contractInfo.inceptionTime == '0'}">selected="selected"</c:if>>午前0時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '0'}">selected="selected"</c:if>>午前0時</option>
 										<option value="1"
-											<c:if test="${contractInfo.inceptionTime == '1'}">selected="selected"</c:if>>午前1時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '1'}">selected="selected"</c:if>>午前1時</option>
 										<option value="2"
-											<c:if test="${contractInfo.inceptionTime == '2'}">selected="selected"</c:if>>午前2時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '2'}">selected="selected"</c:if>>午前2時</option>
 										<option value="3"
-											<c:if test="${contractInfo.inceptionTime == '3'}">selected="selected"</c:if>>午前3時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '3'}">selected="selected"</c:if>>午前3時</option>
 										<option value="4"
-											<c:if test="${contractInfo.inceptionTime == '4'}">selected="selected"</c:if>>午前4時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '4'}">selected="selected"</c:if>>午前4時</option>
 										<option value="5"
-											<c:if test="${contractInfo.inceptionTime == '5'}">selected="selected"</c:if>>午前5時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '5'}">selected="selected"</c:if>>午前5時</option>
 										<option value="6"
-											<c:if test="${contractInfo.inceptionTime == '6'}">selected="selected"</c:if>>午前6時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '6'}">selected="selected"</c:if>>午前6時</option>
 										<option value="7"
-											<c:if test="${contractInfo.inceptionTime == '7'}">selected="selected"</c:if>>午前7時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '7'}">selected="selected"</c:if>>午前7時</option>
 										<option value="8"
-											<c:if test="${contractInfo.inceptionTime == '8'}">selected="selected"</c:if>>午前8時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '8'}">selected="selected"</c:if>>午前8時</option>
 										<option value="9"
-											<c:if test="${contractInfo.inceptionTime == '9'}">selected="selected"</c:if>>午前9時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '9'}">selected="selected"</c:if>>午前9時</option>
 										<option value="10"
-											<c:if test="${contractInfo.inceptionTime == '10'}">selected="selected"</c:if>>午前10時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '10'}">selected="selected"</c:if>>午前10時</option>
 										<option value="11"
-											<c:if test="${contractInfo.inceptionTime == '11'}">selected="selected"</c:if>>午前11時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '11'}">selected="selected"</c:if>>午前11時</option>
 										<option value="12"
-											<c:if test="${contractInfo.inceptionTime == '12'}">selected="selected"</c:if>>正午</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '12'}">selected="selected"</c:if>>正午</option>
 										<option value="13"
-											<c:if test="${contractInfo.inceptionTime == '13'}">selected="selected"</c:if>>午後1時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '13'}">selected="selected"</c:if>>午後1時</option>
 										<option value="14"
-											<c:if test="${contractInfo.inceptionTime == '14'}">selected="selected"</c:if>>午後2時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '14'}">selected="selected"</c:if>>午後2時</option>
 										<option value="15"
-											<c:if test="${contractInfo.inceptionTime == '15'}">selected="selected"</c:if>>午後3時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '15'}">selected="selected"</c:if>>午後3時</option>
 										<option value="16"
-											<c:if test="${contractInfo.inceptionTime == '16'}">selected="selected"</c:if>>午後4時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '16'}">selected="selected"</c:if>>午後4時</option>
 										<option value="17"
-											<c:if test="${contractInfo.inceptionTime == '17'}">selected="selected"</c:if>>午後5時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '17'}">selected="selected"</c:if>>午後5時</option>
 										<option value="18"
-											<c:if test="${contractInfo.inceptionTime == '18'}">selected="selected"</c:if>>午後6時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '18'}">selected="selected"</c:if>>午後6時</option>
 										<option value="19"
-											<c:if test="${contractInfo.inceptionTime == '19'}">selected="selected"</c:if>>午後7時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '19'}">selected="selected"</c:if>>午後7時</option>
 										<option value="20"
-											<c:if test="${contractInfo.inceptionTime == '20'}">selected="selected"</c:if>>午後8時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '20'}">selected="selected"</c:if>>午後8時</option>
 										<option value="21"
-											<c:if test="${contractInfo.inceptionTime == '21'}">selected="selected"</c:if>>午後9時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '21'}">selected="selected"</c:if>>午後9時</option>
 										<option value="22"
-											<c:if test="${contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
-											<c:if test="${contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
+											<c:if test="${sessionScope.contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
 								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(1) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
 							<tr>
-							<%String value1 = "20220925"; %>
-						    <%if(session.getAttribute("contractInfo")!=null){ %>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%if(ci.getInceptionDateForLabel() == null){ %>
-							<%value1 = ci.getInceptionDateForLabel(); %>
-							<%value1 = value1.replace("年","-"); %>
-							<%value1 = value1.replace("月","-"); %>
-							<%value1 = value1.replace("日",""); %>
-							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td> <input type="date"
+								<td> <input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD"
-									value="<%=value1 %>" required class="new_right"></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
@@ -174,53 +156,53 @@
 									name="conclusionTime" id="conclusionTime" required>
 										<option value="">保険期間満期時刻を選択してください</option>
 										<option value="0"
-											<c:if test="${contractInfo.conclusionTime == '0'}">selected="selected"</c:if>>午前0時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '0'}">selected="selected"</c:if>>午前0時</option>
 										<option value="1"
-											<c:if test="${contractInfo.conclusionTime == '1'}">selected="selected"</c:if>>午前1時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '1'}">selected="selected"</c:if>>午前1時</option>
 										<option value="2"
-											<c:if test="${contractInfo.conclusionTime == '2'}">selected="selected"</c:if>>午前2時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '2'}">selected="selected"</c:if>>午前2時</option>
 										<option value="3"
-											<c:if test="${contractInfo.conclusionTime == '3'}">selected="selected"</c:if>>午前3時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '3'}">selected="selected"</c:if>>午前3時</option>
 										<option value="4"
-											<c:if test="${contractInfo.conclusionTime == '4'}">selected="selected"</c:if>>午前4時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '4'}">selected="selected"</c:if>>午前4時</option>
 										<option value="5"
-											<c:if test="${contractInfo.conclusionTime == '5'}">selected="selected"</c:if>>午前5時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '5'}">selected="selected"</c:if>>午前5時</option>
 										<option value="6"
-											<c:if test="${contractInfo.conclusionTime == '6'}">selected="selected"</c:if>>午前6時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '6'}">selected="selected"</c:if>>午前6時</option>
 										<option value="7"
-											<c:if test="${contractInfo.conclusionTime == '7'}">selected="selected"</c:if>>午前7時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '7'}">selected="selected"</c:if>>午前7時</option>
 										<option value="8"
-											<c:if test="${contractInfo.conclusionTime == '8'}">selected="selected"</c:if>>午前8時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '8'}">selected="selected"</c:if>>午前8時</option>
 										<option value="9"
-											<c:if test="${contractInfo.conclusionTime == '9'}">selected="selected"</c:if>>午前9時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '9'}">selected="selected"</c:if>>午前9時</option>
 										<option value="10"
-											<c:if test="${contractInfo.conclusionTime == '10'}">selected="selected"</c:if>>午前10時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '10'}">selected="selected"</c:if>>午前10時</option>
 										<option value="11"
-											<c:if test="${contractInfo.conclusionTime == '11'}">selected="selected"</c:if>>午前11時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '11'}">selected="selected"</c:if>>午前11時</option>
 										<option value="12"
-											<c:if test="${contractInfo.conclusionTime == '12'}">selected="selected"</c:if>>正午</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '12'}">selected="selected"</c:if>>正午</option>
 										<option value="13"
-											<c:if test="${contractInfo.conclusionTime == '13'}">selected="selected"</c:if>>午後1時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '13'}">selected="selected"</c:if>>午後1時</option>
 										<option value="14"
-											<c:if test="${contractInfo.conclusionTime == '14'}">selected="selected"</c:if>>午後2時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '14'}">selected="selected"</c:if>>午後2時</option>
 										<option value="15"
-											<c:if test="${contractInfo.conclusionTime == '15'}">selected="selected"</c:if>>午後3時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '15'}">selected="selected"</c:if>>午後3時</option>
 										<option value="16"
-											<c:if test="${contractInfo.conclusionTime == '16'}">selected="selected"</c:if>>午後4時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '16'}">selected="selected"</c:if>>午後4時</option>
 										<option value="17"
-											<c:if test="${contractInfo.conclusionTime == '17'}">selected="selected"</c:if>>午後5時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '17'}">selected="selected"</c:if>>午後5時</option>
 										<option value="18"
-											<c:if test="${contractInfo.conclusionTime == '18'}">selected="selected"</c:if>>午後6時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '18'}">selected="selected"</c:if>>午後6時</option>
 										<option value="19"
-											<c:if test="${contractInfo.conclusionTime == '19'}">selected="selected"</c:if>>午後7時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '19'}">selected="selected"</c:if>>午後7時</option>
 										<option value="20"
-											<c:if test="${contractInfo.conclusionTime == '20'}">selected="selected"</c:if>>午後8時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '20'}">selected="selected"</c:if>>午後8時</option>
 										<option value="21"
-											<c:if test="${contractInfo.conclusionTime == '21'}">selected="selected"</c:if>>午後9時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '21'}">selected="selected"</c:if>>午後9時</option>
 										<option value="22"
-											<c:if test="${contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
-											<c:if test="${contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
+											<c:if test="${sessionScope.contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
 								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(3) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
@@ -372,21 +354,12 @@
 								</td>
 							</tr>
    							<tr>
-	          				<%String value2 = "20220925"; %>
-						    <%if(session.getAttribute("contractInfo")!=null){ %>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%if(ci.getInceptionDateForLabel() == null){ %>
-							<%value2 = ci.getInceptionDateForLabel(); %>
-							<%value2 = value2.replace("年","-"); %>
-							<%value2 = value2.replace("月","-"); %>
-							<%value2 = value2.replace("日",""); %>
-							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
-								<td><input type="date"
+								<td><input type="text"
 									id="birthday" name="birthday" size="60"
 									placeholder="YYYYMMDD"
-									value="<%=value2%>" required class="new_right"></td><td class="error_side" id="Form_">
+									value="${sessionScope.contractInfo.birthday}" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(15) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
@@ -439,20 +412,11 @@
 						<tbody>
 
 							<tr>
-								<%String value3 = "20220925"; %>
-						    <%if(session.getAttribute("contractInfo")!=null){ %>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%if(ci.getInceptionDateForLabel() == null){ %>
-							<%value3 = ci.getInceptionDateForLabel(); %>
-							<%value3 = value3.replace("年","-"); %>
-							<%value3 = value3.replace("月","-"); %>
-							<%value3 = value3.replace("日",""); %>
-							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td><input type="date"
+								<td><input type="text"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD"  value="<%=value3 %>"
+									placeholder="YYYYMMDD"  value="${sessionScope.contractInfo.inceptionDate}"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
@@ -518,21 +482,12 @@
 									</c:if></td>
 							</tr>
 							<tr>
-							<%String value4 = "20220925"; %>
-						    <%if(session.getAttribute("contractInfo")!=null){ %>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%if(ci.getInceptionDateForLabel() == null){ %>
-							<%value4 = ci.getInceptionDateForLabel(); %>
-							<%value4 = value4.replace("年","-"); %>
-							<%value4 = value4.replace("月","-"); %>
-							<%value4 = value4.replace("日",""); %>
-							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td><input type="date"
+								<td><input type="text"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD"
-									value="<%=value4%>" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
+									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
