@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="TS_Net.model.data.ContractInfo"%>
 <!DOCTYPE html>
 
 <html>
@@ -69,13 +70,17 @@
 						<tbody>
 
 							<tr>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%StringBuilder value = new StringBuilder(ci.getInceptionDate()); %>
+							<%value.insert(3,"-"); %>
+							<%value.insert(5,"-"); %>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td> <input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
-									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(0) == 1 }">
+									value="<%=value%>" required class="new_right"></td><td class="error_side" id="Form_">
+									<c:if test="${requestScope.checkKozin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -133,18 +138,21 @@
 											<c:if test="${contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
 											<c:if test="${contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(1) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(1) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
 							<tr>
+							<%StringBuilder value1 = new StringBuilder(ci.getConclusionDate()); %>
+							<%value1.insert(3,"-"); %>
+							<%value1.insert(5,"-"); %>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td> <input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
-									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(2) == 1 }">
+									value="<%=value1%>" required class="new_right"></td><td class="error_side" id="Form_">
+									<c:if test="${requestScope.checkKozin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -202,7 +210,7 @@
 											<c:if test="${contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
 											<c:if test="${contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(3) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(3) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -218,7 +226,7 @@
 											<c:if test="${sessionScope.contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
 										<option value="3"
 											<c:if test="${sessionScope.contractInfo.paymentMethod == '3'}">selected="selected"</c:if>>クレジットカード</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(4) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(4) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -240,7 +248,7 @@
 											<c:if test="${sessionScope.contractInfo.installment == '6'}">selected="selected"</c:if>>6</option>
 										<option value="12"
 											<c:if test="${sessionScope.contractInfo.installment == '12'}">selected="selected"</c:if>>12</option>
-								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check.get(5) == 1 }">
+								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.checkKozin.get(5) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -251,7 +259,7 @@
 									id="nameKana1" name="nameKana1" size="60" placeholder="（例）トウカイ"
 									maxlength="48" value="${sessionScope.contractInfo.nameKana1}"
 									required class="new_right"></td> <td class="error_side" id="Form_nameKana1"> <c:if
-										test="${requestScope.check.get(6) == 1 }">
+										test="${requestScope.checkKozin.get(6) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -263,7 +271,7 @@
 									id="nameKana2" name="nameKana2" size="60" placeholder="（例）タロウ"
 									maxlength="48" value="${sessionScope.contractInfo.nameKana2}"
 									required class="new_right"></td><td class="error_side" id="Form_nameKana2"> <c:if
-										test="${requestScope.check.get(7) == 1 }">
+										test="${requestScope.checkKozin.get(7) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -275,7 +283,7 @@
 									id="nameKanji1" name="nameKanji1" size="60" placeholder="（例）東海"
 									maxlength="48" value="${sessionScope.contractInfo.nameKanji1}"
 									required class="new_right"></td><td class="error_side" id="Form_nameKanji1"> <c:if
-										test="${requestScope.check.get(8) == 1 }">
+										test="${requestScope.checkKozin.get(8) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -287,7 +295,7 @@
 									id="nameKanji2" name="nameKanji2" size="60" placeholder="（例）太郎"
 									maxlength="48" value="${sessionScope.contractInfo.nameKanji2}"
 									required class="new_right"></td><td class="error_side" id="Form_nameKanji2"> <c:if
-										test="${requestScope.check.get(9) == 1 }">
+										test="${requestScope.checkKozin.get(9) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 										</c:if>
 								</td>
@@ -299,7 +307,7 @@
 									id="postcode" name="postcode" size="60"
 									placeholder="（例）1111111" maxlength="7"
 									value="${sessionScope.contractInfo.postcode}" required class="new_right"></td><td class="error_side" id="Form_postcode">
-									<c:if test="${requestScope.check.get(10) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(10) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -311,7 +319,7 @@
 									id="addressKana1" name="addressKana1" size="60"
 									placeholder="（例）トウキョウトタマシオチアイ" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana1}" required class="new_right"></td><td class="error_side" id="Form_addressKana1">
-									<c:if test="${requestScope.check.get(11) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(11) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 								</td>
@@ -323,7 +331,7 @@
 									id="addressKana2" name="addressKana2" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana2}" required class="new_right"></td><td class="error_side" id="Form_addressKana2">
-									<c:if test="${requestScope.check.get(12) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(12) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -335,7 +343,7 @@
 									id="addressKanji1" name="addressKanji1" size="60"
 									placeholder="（例）東京都多摩市落合" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji1 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji1">
-									<c:if test="${requestScope.check.get(13) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(13) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -347,19 +355,23 @@
 									id="addressKanji2" name="addressKanji2" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji2 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji2">
-									<c:if test="${requestScope.check.get(14) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(14) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 								</td>
 							</tr>
 							<tr>
+							<%String value2 = ci.getBirthdayForLabel(); %>
+							<%value2 = value2.replace("年","-"); %>
+							<%value2 = value2.replace("月","-"); %>
+							<%value2 = value2.replace("日",""); %>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
 								<td><input type="date"
 									id="birthday" name="birthday" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
-									value="${sessionScope.contractInfo.birthday }" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(15) == 1 }">
+									value="<%=value2%>" required class="new_right"></td><td class="error_side" id="Form_">
+									<c:if test="${requestScope.checkKozin.get(15) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 								</td>
@@ -372,7 +384,7 @@
 										<c:if test="${sessionScope.contractInfo.gender == '1'}">checked="checked"</c:if>>男
 										<input type="radio" id="gender" name="gender" value="2"
 										<c:if test="${sessionScope.contractInfo.gender == '2'}">checked="checked"</c:if>>女
-								</label></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(16) == 1 }">
+								</label></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkKozin.get(16) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -391,7 +403,7 @@
 									id="mobilephoneNo" name="mobilephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
 									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobilephoneNo">
-									<c:if test="${requestScope.check.get(17) == 1 }">
+									<c:if test="${requestScope.checkKozin.get(17) == 1 }">
 										<p><c:out value="番号は1つ以上入力必須です。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -411,13 +423,16 @@
 						<tbody>
 
 							<tr>
+							<%StringBuilder value3 = new StringBuilder(ci.getInceptionDate()); %>
+							<%value3.insert(3,"-"); %>
+							<%value3.insert(5,"-"); %>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8" value="${sessionScope.contractInfo.inceptionDate }"
+									placeholder="YYYYMMDD" maxlength="8" value="<%=value %>"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(0) == 1 }">
+										test="${requestScope.checkHouzin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -476,18 +491,21 @@
 											<c:if test="${sessionScope.contractInfo.inceptionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
 											<c:if test="${sessionScope.contractInfo.inceptionTime == '23'}">selected="selected"</c:if>>午後11時</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(1) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkHouzin.get(1) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
 							<tr>
+							<%StringBuilder value4 = new StringBuilder(ci.getConclusionDate()); %>
+							<%value4.insert(3,"-"); %>
+							<%value4.insert(5,"-"); %>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
-									value="${sessionScope.contractInfo.conclusionDate }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(2) == 1 }">
+									value="<%=value4 %>" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
+										test="${requestScope.checkHouzin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -545,7 +563,7 @@
 											<c:if test="${sessionScope.contractInfo.conclusionTime == '22'}">selected="selected"</c:if>>午後10時</option>
 										<option value="23"
 											<c:if test="${sessionScope.contractInfo.conclusionTime == '23'}">selected="selected"</c:if>>午後11時</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(3) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkHouzin.get(3) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -561,7 +579,7 @@
 											<c:if test="${sessionScope.contractInfo.paymentMethod == '2'}">selected="selected"</c:if>>口座振替</option>
 										<option value="3"
 											<c:if test="${sessionScope.contractInfo.paymentMethod == '3'}">selected="selected"</c:if>>クレジットカード</option>
-								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check.get(4) == 1 }">
+								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.checkHouzin.get(4) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -583,7 +601,7 @@
 											<c:if test="${sessionScope.contractInfo.installment == '6'}">selected="selected"</c:if>>6</option>
 										<option value="12"
 											<c:if test="${sessionScope.contractInfo.installment == '12'}">selected="selected"</c:if>>12</option>
-								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(5) == 1 }">
+								</select></td><td class="error_side" id="Form_"> <c:if test="${requestScope.checkHouzin.get(5) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -594,7 +612,7 @@
 									id="nameKana1" name="nameKana1" size="60"
 									placeholder="（例）タマホケン" maxlength="48"
 									value="${sessionScope.contractInfo.nameKana1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(6) == 1 }">
+										test="${requestScope.checkHouzin.get(6) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -605,7 +623,7 @@
 									id="nameKana2" name="nameKana2" size="60"
 									placeholder="（例）カブシキガイシャ" maxlength="48"
 									value="${sessionScope.contractInfo.nameKana2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(7) == 1 }">
+										test="${requestScope.checkHouzin.get(7) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -616,7 +634,7 @@
 									id="nameKanji1" name="nameKanji1" size="60"
 									placeholder="（例）多摩保険" maxlength="48"
 									value="${sessionScope.contractInfo.nameKanji1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(8) == 1 }">
+										test="${requestScope.checkHouzin.get(8) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -627,7 +645,7 @@
 									id="nameKanji2" name="nameKanji2" size="60"
 									placeholder="（例）株式会社" maxlength="48"
 									value="${sessionScope.contractInfo.nameKanji2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(9) == 1 }">
+										test="${requestScope.checkHouzin.get(9) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -638,7 +656,7 @@
 									id="postcode" name="postcode" size="60"
 									placeholder="（例）1111111" maxlength="7"
 									value="${sessionScope.contractInfo.postcode }" required class="new_right"></td><td class="error_side" id="Form_postcode"> <c:if
-										test="${requestScope.check.get(10) == 1 }">
+										test="${requestScope.checkHouzin.get(10) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -650,7 +668,7 @@
 									id="addressKana1" name="addressKana1" size="60"
 									placeholder="（例）トウキョウトタマシオチアイ" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana1 }" required class="new_right"></td><td class="error_side" id="Form_addressKana1"> <c:if
-										test="${requestScope.check.get(11) == 1 }">
+										test="${requestScope.checkHouzin.get(11) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -663,7 +681,7 @@
 									id="addressKana2" name="addressKana2" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana2 }" required class="new_right"></td><td class="error_side" id="Form_addressKana2"> <c:if
-										test="${requestScope.check.get(12) == 1 }">
+										test="${requestScope.checkHouzin.get(12) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -674,7 +692,7 @@
 									id="addressKanji1" name="addressKanji1" size="60"
 									placeholder="（例）東京都多摩市落合" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji1 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji1"> <c:if
-										test="${requestScope.check.get(13) == 1 }">
+										test="${requestScope.checkHouzin.get(13) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -686,7 +704,7 @@
 									id="addressKanji2" name="addressKanji2" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji2 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji2"> <c:if
-										test="${requestScope.check.get(14) == 1 }">
+										test="${requestScope.checkHouzin.get(14) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -706,7 +724,7 @@
 									id="mobilephoneNo" name="mobilephoneNo" size="60"
 									placeholder="（例）08012345678" maxlength="11"
 									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobliephoneNo"> <c:if
-										test="${requestScope.check.get(15) == 1 }">
+										test="${requestScope.checkHouzin.get(15) == 1 }">
 										<p><c:out value="番号は1つ以上入力必須です。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -777,7 +795,7 @@
 											<c:if test="${sessionScope.compensation.maker == 'suzuki'}">selected="selected"</c:if>>スズキ</option>
 										<option value="mitsubishi"
 											<c:if test="${sessionScope.compensation.maker == 'mitsubishi'}">selected="selected"</c:if>>三菱</option>
-								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check.get(0) == 1 }">
+								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check2.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
@@ -835,7 +853,7 @@
 											<c:if test="${sessionScope.compensation.carName == 'アウトラウンダーPHEV'}">selected="selected"</c:if>>（三菱）アウトラウンダーPHEV</option>
 										<option value="デリカD:5"
 											<c:if test="${sessionScope.compensation.carName == 'デリカD:5'}">selected="selected"</c:if>>（三菱）デリカD:5</option>
-								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check.get(1) == 1 }">
+								</select> </td><td class="error_side" id="Form_"><c:if test="${requestScope.check2.get(1) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -845,7 +863,7 @@
 								<td><input type="text" name="vehiclePrice"
 									id="vehiclePrice"
 									value="${sessionScope.compensation.vehiclePrice }" required class="new_right">（万円）</td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(2) == 1 }">
+									<c:if test="${requestScope.check2.get(2) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
@@ -854,7 +872,7 @@
 								<td><input type="text" name="vehicleRates"
 									id="vehicleRates"
 									value="${sessionScope.compensation.vehicleRates }" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(3) == 1 }">
+									<c:if test="${requestScope.check2.get(3) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
@@ -863,7 +881,7 @@
 								<td><input type="text" name="bodilyRates"
 									id="bodilyRates"
 									value="${sessionScope.compensation.bodilyRates }" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(4) == 1 }">
+									<c:if test="${requestScope.check2.get(4) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
@@ -873,7 +891,7 @@
 									id="propertyDamageRates"
 									value="${sessionScope.compensation.propertyDamageRates }"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(5) == 1 }">
+										test="${requestScope.check2.get(5) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
@@ -882,7 +900,7 @@
 								<td><input type="text" name="accidentRates"
 									id="accidentRates"
 									value="${sessionScope.compensation.accidentRates }" required class="new_right"></td><td class="error_side" id="Form_">
-									<c:if test="${requestScope.check.get(6) == 1 }">
+									<c:if test="${requestScope.check2.get(6) == 1 }">
 										<p>入力必須項目です。</p>
 									</c:if></td>
 							</tr>
@@ -1090,7 +1108,7 @@
 									id="licenseNo" name="licenseNo"
 									placeholder="（例）多摩 ま 400 12-34" maxlength="24"
 									value="${sessionScope.compensation.licenseNo }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
-										test="${requestScope.check.get(7) == 1 }">
+										test="${requestScope.check2.get(7) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 									</td>
@@ -1107,7 +1125,7 @@
 											<c:if test="${sessionScope.compensation.licenseColor == '2'}">selected="selected"</c:if>>グリーン</option>
 										<option value="3"
 											<c:if test="${sessionScope.compensation.licenseColor == '3'}">selected="selected"</c:if>>ゴールド</option>
-								</select></td><td class="error_side" id="Form_">  <c:if test="${requestScope.check.get(8) == 1 }">
+								</select></td><td class="error_side" id="Form_">  <c:if test="${requestScope.check2.get(8) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if>
 								</td>
@@ -1124,7 +1142,7 @@
 											<c:if test="${sessionScope.compensation.ageLimit == '2'}">selected="selected"</c:if>>21歳以上</option>
 										<option value="3"
 											<c:if test="${sessionScope.compensation.ageLimit == '3'}">selected="selected"</c:if>>26歳以上</option>
-								</select> </td><td class="error_side" id="Form_"> <c:if test="${requestScope.check.get(9) == 1 }">
+								</select> </td><td class="error_side" id="Form_"> <c:if test="${requestScope.check2.get(9) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
 							</tr>
