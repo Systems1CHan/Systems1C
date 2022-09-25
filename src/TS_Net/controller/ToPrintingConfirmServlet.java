@@ -76,6 +76,7 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		}
 
 		String insuredKbn = request.getParameter("insuredKbn");
+		System.out.println(insuredKbn);
 
 		if(insuredKbn.equals("1")) {
 			if(!(request.getParameter("inceptionDate").equals(contractInfo.getInceptionDate()))) {
@@ -334,13 +335,15 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 			if(cfc.checkKozin(contractInfo).contains(1)) {
 				request.setAttribute("checkKozin", cfc.checkKozin(contractInfo));
 				request.setAttribute("tabpage", "1");
-				return;
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
 			}
 		}else if(insuredKbn.equals("2")) {
 			if(cfc.checkHouzin(contractInfo).contains(1)) {
 				request.setAttribute("checkHouzin", cfc.checkHouzin(contractInfo));
 				request.setAttribute("tabpage", "1");
-				return;
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
 			}
 		}else if(comfc.check2(compensation).contains(1)) {
 			request.setAttribute("errorMessage", comfc.check2(compensation));
