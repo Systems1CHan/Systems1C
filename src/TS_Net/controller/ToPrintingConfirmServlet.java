@@ -112,6 +112,17 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 			return;
 		}
 
+		String insuredKbn = request.getParameter("insuredKbn");
+
+		if(insuredKbn.equals("1")) {
+			if(!(request.getParameter("inceptionDate").equals(contractInfo.getInceptionDate()))) {
+				contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
+				request.setAttribute("message", "新しく保険料試算を行ってください。");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+				rd.forward(request, response);
+			}
+		}
+
 		//データチェッククラスの生成
 		ContractFormChecker cfc = new ContractFormChecker();
 		CompensationFormChecker comfc = new CompensationFormChecker();

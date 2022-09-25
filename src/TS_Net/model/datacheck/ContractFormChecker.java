@@ -61,11 +61,7 @@ public class ContractFormChecker {
 		}if(ci.getInstallment() == null || String.valueOf(ci.getInstallment()).isEmpty()){
 			num.add(1);
 		}else {
-					num.add(0);;
-//		}if(Objects.equals(ci.getInsuredKbn(), null) || ci.getInsuredKbn().isEmpty()) {
-//			num.add(1);
-//		}else {
-//					num.add(0);}
+					num.add(0);
 		}if(Objects.equals(ci.getNameKana1(), null) || ci.getNameKana1().isEmpty()) {
 			num.add(1);
 		}else {
@@ -110,7 +106,7 @@ public class ContractFormChecker {
 			num.add(1);
 		}else {
 					num.add(0);
-		}if(Objects.equals(ci.getTelephoneNo(), null) || ci.getTelephoneNo().isEmpty() || Objects.equals(ci.getMobilephoneNo(), null) || ci.getMobilephoneNo().isEmpty() || Objects.equals(ci.getFaxNo(), null) || ci.getFaxNo().isEmpty()) {
+		}if((Objects.equals(ci.getTelephoneNo(), null) || ci.getTelephoneNo().isEmpty()) && (Objects.equals(ci.getMobilephoneNo(), null) || ci.getMobilephoneNo().isEmpty()) && (Objects.equals(ci.getFaxNo(), null) || ci.getFaxNo().isEmpty())) {
 			num.add(1);
 		}else {
 					num.add(0);

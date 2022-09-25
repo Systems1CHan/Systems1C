@@ -87,7 +87,7 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		String[] addressKana2 = request.getParameterValues("addressKana2");
 		String[] addressKanji1 = request.getParameterValues("addressKanji1");
 		String[] addressKanji2 = request.getParameterValues("addressKanji2");
-		String birthday = request.getParameter("birthday");
+		String birthday = request.getParameter("birthday").replace("-", "");
 		String gender = request.getParameter("gender");
 		String[] telephoneNo= request.getParameterValues("telephoneNo");
 		String[] mobilephoneNo = request.getParameterValues("mobilephoneNo");
@@ -108,9 +108,9 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		}
 
 		//リクエストパラメータを取得し、契約情報オブジェクトにセット
-		contractInfo.setInceptionDate(inceptionDate[index]);
+		contractInfo.setInceptionDate(inceptionDate[index].replace("-", ""));
 		contractInfo.setInceptionTime(inceptionTime[index]);
-		contractInfo.setConclusionDate(conclusionDate[index]);
+		contractInfo.setConclusionDate(conclusionDate[index].replace("-", ""));
 		contractInfo.setConclusionTime(conclusionTime[index]);
 		contractInfo.setPaymentMethod(paymentMethod[index]);
 		contractInfo.setInstallment(check(installment[index]));

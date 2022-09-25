@@ -71,7 +71,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td> <input type="text"
+								<td> <input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.inceptionDate}" required class="new_right"></td><td class="error_side" id="Form_">
@@ -140,7 +140,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td> <input type="text"
+								<td> <input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_">
@@ -355,7 +355,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
-								<td><input type="text"
+								<td><input type="date"
 									id="birthday" name="birthday" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.birthday }" required class="new_right"></td><td class="error_side" id="Form_">
@@ -413,7 +413,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
-								<td><input type="text"
+								<td><input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8" value="${sessionScope.contractInfo.inceptionDate }"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
@@ -483,7 +483,7 @@
 							<tr>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
-								<td><input type="text"
+								<td><input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD" maxlength="8"
 									value="${sessionScope.contractInfo.conclusionDate }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
@@ -745,11 +745,11 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">総額保険料</td>
-								<td>¥<fmt:formatNumber value="${sessionScope.compensation.premiumAmount}" />（円）</td>
+								<td><fmt:formatNumber value="${sessionScope.compensation.premiumAmount}" />（円）</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">一回分保険料</td>
-								<td>¥<fmt:formatNumber value="${sessionScope.compensation.premiumInstallment}" />（円）
+								<td><fmt:formatNumber value="${sessionScope.compensation.premiumInstallment}" />（円）
 								</td>
 							</tr>
 						</tbody>
