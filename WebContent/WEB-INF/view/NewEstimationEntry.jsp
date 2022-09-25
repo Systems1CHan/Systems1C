@@ -70,14 +70,15 @@
 						<tbody>
 
 							<tr>
-							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
 							<%String value = "20220925"; %>
-							<%if(ci.getInceptionDateForLabel() != null){ %>
+						    <%if(session.getAttribute("contractInfo")!=null){ %>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%if(ci.getInceptionDateForLabel() == null){ %>
 							<%value = ci.getInceptionDateForLabel(); %>
 							<%value = value.replace("年","-"); %>
 							<%value = value.replace("月","-"); %>
 							<%value = value.replace("日",""); %>
-							<%} %>
+							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td> <input type="date"
@@ -148,12 +149,14 @@
 							</tr>
 							<tr>
 							<%String value1 = "20220925"; %>
-							<%if(ci.getConclusionDateForLabel() != null){%>
-							<%value1 = ci.getConclusionDateForLabel(); %>
+						    <%if(session.getAttribute("contractInfo")!=null){ %>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%if(ci.getInceptionDateForLabel() == null){ %>
+							<%value1 = ci.getInceptionDateForLabel(); %>
 							<%value1 = value1.replace("年","-"); %>
 							<%value1 = value1.replace("月","-"); %>
 							<%value1 = value1.replace("日",""); %>
-							<%} %>
+							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td> <input type="date"
@@ -368,14 +371,16 @@
 									</c:if>
 								</td>
 							</tr>
-							<tr>
-							<%String value2 = "20220925"; %>
-							<%if(ci.getBirthdayForLabel() != null){ %>
-							<%value2 = ci.getBirthdayForLabel(); %>
+   							<tr>
+	          				<%String value2 = "20220925"; %>
+						    <%if(session.getAttribute("contractInfo")!=null){ %>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%if(ci.getInceptionDateForLabel() == null){ %>
+							<%value2 = ci.getInceptionDateForLabel(); %>
 							<%value2 = value2.replace("年","-"); %>
 							<%value2 = value2.replace("月","-"); %>
 							<%value2 = value2.replace("日",""); %>
-							<%} %>
+							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
 								<td><input type="date"
@@ -434,13 +439,15 @@
 						<tbody>
 
 							<tr>
-							<%String value3 = "20220925"; %>
-							<%if(ci.getInceptionDateForLabel() != null){ %>
+								<%String value3 = "20220925"; %>
+						    <%if(session.getAttribute("contractInfo")!=null){ %>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%if(ci.getInceptionDateForLabel() == null){ %>
 							<%value3 = ci.getInceptionDateForLabel(); %>
 							<%value3 = value3.replace("年","-"); %>
 							<%value3 = value3.replace("月","-"); %>
 							<%value3 = value3.replace("日",""); %>
-							<%} %>
+							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="date"
@@ -512,18 +519,20 @@
 							</tr>
 							<tr>
 							<%String value4 = "20220925"; %>
-							<%if(ci.getConclusionDateForLabel() != null){ %>
-							<%value4 = ci.getConclusionDateForLabel(); %>
+						    <%if(session.getAttribute("contractInfo")!=null){ %>
+							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
+							<%if(ci.getInceptionDateForLabel() == null){ %>
+							<%value4 = ci.getInceptionDateForLabel(); %>
 							<%value4 = value4.replace("年","-"); %>
 							<%value4 = value4.replace("月","-"); %>
 							<%value4 = value4.replace("日",""); %>
-							<%} %>
+							<%} }%>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
 									placeholder="YYYYMMDD"
-									value="<%=value4 %>" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
+									value="<%=value4%>" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
