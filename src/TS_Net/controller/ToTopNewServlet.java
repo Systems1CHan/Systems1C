@@ -50,7 +50,7 @@ public class ToTopNewServlet extends HttpServlet {
 		/* １．新規試算入力（契約条件タブ）（個人）ページJSPへforwardする。 */
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 		rd.forward(request, response);
-		}catch(Exception e){
+		}catch(NullPointerException e){
 			e.printStackTrace();
 		}
 

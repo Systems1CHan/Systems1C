@@ -187,27 +187,42 @@ public class InsuranceEstimationServlet extends HttpServlet {
 			if(cfc.checkKozin(contractInfo).contains(1)) {
 				request.setAttribute("checkKozin", cfc.checkKozin(contractInfo));
 				request.setAttribute("tabpage", "1");
+			}else if(comfc.check2(compensation).contains(1)) {
+				request.setAttribute("check2", comfc.check2(compensation));
+				request.setAttribute("tabpage", "2");
+			}else if(dc.inceptionDateCheck(contractInfo) != null) {
+				request.setAttribute("message", dc.inceptionDateCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else if(ttc.textHalfwidthCheck(contractInfo) != null) {
+				request.setAttribute("message", ttc.textHalfwidthCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else if(ttc.textFullwidthCheck(contractInfo) != null) {
+				request.setAttribute("message", ttc.textFullwidthCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else {
+				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
+				request.setAttribute("tabpage", "2");
 			}
 		}else if(insuredKbn.equals("2")) {
 			if(cfc.checkHouzin(contractInfo).contains(1)) {
 				request.setAttribute("checkHouzin", cfc.checkHouzin(contractInfo));
 				request.setAttribute("tabpage", "1");
+			}else if(comfc.check2(compensation).contains(1)) {
+				request.setAttribute("check2", comfc.check2(compensation));
+				request.setAttribute("tabpage", "2");
+			}else if(dc.inceptionDateCheck(contractInfo) != null) {
+				request.setAttribute("message", dc.inceptionDateCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else if(ttc.textHalfwidthCheck(contractInfo) != null) {
+				request.setAttribute("message", ttc.textHalfwidthCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else if(ttc.textFullwidthCheck(contractInfo) != null) {
+				request.setAttribute("message", ttc.textFullwidthCheck(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}else {
+				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
+				request.setAttribute("tabpage", "2");
 			}
-		}else if(comfc.check2(compensation).contains(1)) {
-			request.setAttribute("check2", comfc.check2(compensation));
-			request.setAttribute("tabpage", "2");
-		}else if(dc.inceptionDateCheck(contractInfo) != null) {
-			request.setAttribute("message", dc.inceptionDateCheck(contractInfo));
-			request.setAttribute("tabpage", "1");
-		}else if(ttc.textHalfwidthCheck(contractInfo) != null) {
-			request.setAttribute("message", ttc.textHalfwidthCheck(contractInfo));
-			request.setAttribute("tabpage", "1");
-		}else if(ttc.textFullwidthCheck(contractInfo) != null) {
-			request.setAttribute("message", ttc.textFullwidthCheck(contractInfo));
-			request.setAttribute("tabpage", "1");
-		}else {
-			request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
-			request.setAttribute("tabpage", "2");
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");

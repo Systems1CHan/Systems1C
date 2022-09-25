@@ -82,9 +82,9 @@ public class ContractInfo implements Serializable {
     	polNo = "";
     	statusFlg = "";
     	cancelFlg = "";
-    	inceptionDate = "";
+    	inceptionDate = "00000000";
     	inceptionTime = "";
-    	conclusionDate = "";
+    	conclusionDate = "00000000";
     	conclusionTime = "";
     	paymentMethod = "";
     	installment = 0;
@@ -98,7 +98,7 @@ public class ContractInfo implements Serializable {
     	addressKana2 = "";
     	addressKanji1 = "";
     	addressKanji2 = "";
-    	birthday = "";
+    	birthday = "00000000";
     	gender = "";
     	telephoneNo = "0000000000";
     	mobilephoneNo = "00000000000";
@@ -258,7 +258,7 @@ public class ContractInfo implements Serializable {
 	 * @return 生年月日
 	 */
 	public String getInceptionDateForLabel() {
-		return this.inceptionDate.substring(0, 4) + "年" + this.inceptionDate.substring(4, 6) + "月" + this.inceptionDate.substring(6, 8) + "日";
+		return this.inceptionDate.substring(0, 3) + "年" + this.inceptionDate.substring(3, 5) + "月" + this.inceptionDate.substring(5, 7) + "日";
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class ContractInfo implements Serializable {
 	 * @return 生年月日
 	 */
 	public String getConclusionDateForLabel() {
-		return this.conclusionDate.substring(0, 4) + "年" + this.conclusionDate.substring(4, 6) + "月" + this.conclusionDate.substring(6, 8) + "日";
+		return this.conclusionDate.substring(0, 3) + "年" + this.conclusionDate.substring(3, 5) + "月" + this.conclusionDate.substring(5, 7) + "日";
 	}
 
 	/**
@@ -282,7 +282,7 @@ public class ContractInfo implements Serializable {
 	 * @return 生年月日
 	 */
 	public String getBirthdayForLabel() {
-		return this.birthday.substring(0, 4) + "年" + this.birthday.substring(4, 6) + "月" + this.birthday.substring(6, 8) + "日";
+		return this.birthday.substring(0, 3) + "年" + this.birthday.substring(3, 5) + "月" + this.birthday.substring(5, 7) + "日";
 	}
 
 	/**
