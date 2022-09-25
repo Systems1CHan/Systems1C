@@ -71,14 +71,18 @@
 
 							<tr>
 							<%ContractInfo ci = (ContractInfo)session.getAttribute("contractInfo"); %>
-							<%StringBuilder value = new StringBuilder(ci.getInceptionDate()); %>
-							<%value.insert(3,"-"); %>
-							<%value.insert(5,"-"); %>
+							<%String value = "20220925"; %>
+							<%if(ci.getInceptionDateForLabel() != null){ %>
+							<%value = ci.getInceptionDateForLabel(); %>
+							<%value = value.replace("年","-"); %>
+							<%value = value.replace("月","-"); %>
+							<%value = value.replace("日",""); %>
+							<%} %>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td> <input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYYMMDD"
 									value="<%=value%>" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
@@ -143,15 +147,19 @@
 									</c:if></td>
 							</tr>
 							<tr>
-							<%StringBuilder value1 = new StringBuilder(ci.getConclusionDate()); %>
-							<%value1.insert(3,"-"); %>
-							<%value1.insert(5,"-"); %>
+							<%String value1 = "20220925"; %>
+							<%if(ci.getConclusionDateForLabel() != null){%>
+							<%value1 = ci.getConclusionDateForLabel(); %>
+							<%value1 = value1.replace("年","-"); %>
+							<%value1 = value1.replace("月","-"); %>
+							<%value1 = value1.replace("日",""); %>
+							<%} %>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td> <input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
-									value="<%=value1%>" required class="new_right"></td><td class="error_side" id="Form_">
+									placeholder="YYYYMMDD"
+									value="<%=value1 %>" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
 									</c:if></td>
@@ -361,15 +369,18 @@
 								</td>
 							</tr>
 							<tr>
-							<%String value2 = ci.getBirthdayForLabel(); %>
+							<%String value2 = "20220925"; %>
+							<%if(ci.getBirthdayForLabel() != null){ %>
+							<%value2 = ci.getBirthdayForLabel(); %>
 							<%value2 = value2.replace("年","-"); %>
 							<%value2 = value2.replace("月","-"); %>
 							<%value2 = value2.replace("日",""); %>
+							<%} %>
 								<th class="form_table_left" scope="row"><label
 									for="birthday">生年月日</label></th>
 								<td><input type="date"
 									id="birthday" name="birthday" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYYMMDD"
 									value="<%=value2%>" required class="new_right"></td><td class="error_side" id="Form_">
 									<c:if test="${requestScope.checkKozin.get(15) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
@@ -423,14 +434,18 @@
 						<tbody>
 
 							<tr>
-							<%StringBuilder value3 = new StringBuilder(ci.getInceptionDate()); %>
-							<%value3.insert(3,"-"); %>
-							<%value3.insert(5,"-"); %>
+							<%String value3 = "20220925"; %>
+							<%if(ci.getInceptionDateForLabel() != null){ %>
+							<%value3 = ci.getInceptionDateForLabel(); %>
+							<%value3 = value3.replace("年","-"); %>
+							<%value3 = value3.replace("月","-"); %>
+							<%value3 = value3.replace("日",""); %>
+							<%} %>
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="date"
 									id="inceptionDate" name="inceptionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8" value="<%=value %>"
+									placeholder="YYYYMMDD"  value="<%=value3 %>"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(0) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
@@ -496,14 +511,18 @@
 									</c:if></td>
 							</tr>
 							<tr>
-							<%StringBuilder value4 = new StringBuilder(ci.getConclusionDate()); %>
-							<%value4.insert(3,"-"); %>
-							<%value4.insert(5,"-"); %>
+							<%String value4 = "20220925"; %>
+							<%if(ci.getConclusionDateForLabel() != null){ %>
+							<%value4 = ci.getConclusionDateForLabel(); %>
+							<%value4 = value4.replace("年","-"); %>
+							<%value4 = value4.replace("月","-"); %>
+							<%value4 = value4.replace("日",""); %>
+							<%} %>
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="date"
 									id="conclusionDate" name="conclusionDate" size="60"
-									placeholder="YYYYMMDD" maxlength="8"
+									placeholder="YYYYMMDD"
 									value="<%=value4 %>" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(2) == 1 }">
 										<p><c:out value="未入力の項目があります。入力内容をご確認ください。" /></p>
