@@ -183,11 +183,18 @@ public class InsuranceEstimationServlet extends HttpServlet {
 		TextTypeCheker ttc = new TextTypeCheker();
 
 		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(cfc.check(contractInfo).contains(1)) {
-			request.setAttribute("check", cfc.check(contractInfo));
-			request.setAttribute("tabpage", "1");
-		}else if(comfc.check(compensation).contains(1)) {
-			request.setAttribute("check", comfc.check(compensation));
+		if(insuredKbn.equals("1")) {
+			if(cfc.checkKozin(contractInfo).contains(1)) {
+				request.setAttribute("checkKozin", cfc.checkKozin(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}
+		}else if(insuredKbn.equals("2")) {
+			if(cfc.checkHouzin(contractInfo).contains(1)) {
+				request.setAttribute("checkHouzin", cfc.checkHouzin(contractInfo));
+				request.setAttribute("tabpage", "1");
+			}
+		}else if(comfc.check2(compensation).contains(1)) {
+			request.setAttribute("check2", comfc.check2(compensation));
 			request.setAttribute("tabpage", "2");
 		}else if(dc.inceptionDateCheck(contractInfo) != null) {
 			request.setAttribute("message", dc.inceptionDateCheck(contractInfo));

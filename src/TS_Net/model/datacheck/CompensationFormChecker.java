@@ -34,7 +34,7 @@ public class CompensationFormChecker {
 	 * @return ErrorMagConst.FORM_ERROR0002 フォームに未入力項目がある場合のエラーメッセージ
 	 * @return null null値
 	 */
-	public List<Integer> check(Compensation com) {
+	public List<Integer> check2(Compensation com) {
 
 		List<Integer> num = new ArrayList<Integer>();
 
