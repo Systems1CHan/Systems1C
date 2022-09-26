@@ -116,8 +116,8 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">保険料</td>
-								<td class="b">¥<fmt:formatNumber
-										value="${requestScope.compensation.getPremiumAmountForLabel()}" />円</td>
+								<td class="b"><fmt:formatNumber
+										value="${requestScope.compensation.getPremiumAmount()}" />円</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
@@ -135,8 +135,8 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
-								<td>¥<fmt:formatNumber
-										value="${requestScope.compensation.getVehiclePrice()}" /></td>
+								<td><fmt:formatNumber
+										value="${requestScope.compensation.getVehiclePrice()}" />万円</td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">免許証の色</td>
@@ -171,7 +171,7 @@
 							<tr>
 								<td class="confirm_table_left">１回分保険料</td>
 								<td>¥<fmt:formatNumber
-										value="${requestScope.compensation.premiumInstallmentForLabel()}" /></td>
+										value="${requestScope.compensation.getPremiumInstallment()}" />円</td>
 							</tr>
 						</table>
 					</div>
