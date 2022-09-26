@@ -55,11 +55,11 @@
 	                           <h3>
 									被保険者の個人・法人区分<br> <label> <input type="radio"
 										name="insuredKbn" value="1" onclick="entryChange1();"
-										checked="checked" class="new_top"
-										<c:if test="${sessionScope.contractInfo.insuredKbn == '1'}"></c:if>>個人
+										 class="new_top"
+										<c:if test="${sessionScope.contractInfo.insuredKbn == '1'}">checked="checked"</c:if>>個人
 									</label> <label> <input type="radio" name="insuredKbn"
 										value="2" onclick="entryChange1();" class = "new_top"
-										<c:if test="${sessionScope.contractInfo.insuredKbn == '2'}"></c:if>>法人
+										<c:if test="${sessionScope.contractInfo.insuredKbn == '2'}">checked="checked"</c:if>>法人
 									</label>
 								</h3>
 							</td>
@@ -415,7 +415,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="inceptionDate">保険期間始期日</label></th>
 								<td><input type="text"
-									id="inceptionDate" name="inceptionDate" size="60"
+									id="inceptionDate" name="inceptionDate1" size="60"
 									placeholder="YYYYMMDD"  value="${sessionScope.contractInfo.inceptionDate}"
 									required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(0) == 1 }">
@@ -427,7 +427,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="inceptionTime">保険期間始期時刻</label></th>
 								<td><select
-									name="inceptionTime" id="inceptionTime" required>
+									name="inceptionTime1" id="inceptionTime1" required>
 										<option value="">保険期間始期時刻を選択してください</option>
 										<option value="0"
 											<c:if test="${sessionScope.contractInfo.inceptionTime == '0'}">selected="selected"</c:if>>午前0時</option>
@@ -485,7 +485,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="conclusionDate">保険期間満期日</label></th>
 								<td><input type="text"
-									id="conclusionDate" name="conclusionDate" size="60"
+									id="conclusionDate" name="conclusionDate1" size="60"
 									placeholder="YYYYMMDD"
 									value="${sessionScope.contractInfo.conclusionDate}" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(2) == 1 }">
@@ -496,7 +496,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="conclusionTime">保険期間満期時刻</label></th>
 								<td><select
-									name="conclusionTime" id="conclusionTime" required>
+									name="conclusionTime1" id="conclusionTime" required>
 										<option value="">保険期間満期時刻を選択してください</option>
 										<option value="0"
 											<c:if test="${sessionScope.contractInfo.conclusionTime == '0'}">selected="selected"</c:if>>午前0時</option>
@@ -554,7 +554,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="paymentMethod">払込方法</label></th>
 								<td><select
-									name="paymentMethod" id="paymentMethod" required>
+									name="paymentMethod1" id="paymentMethod" required>
 										<option value="">以下の払込方法から選択してください</option>
 										<option value="1"
 											<c:if test="${sessionScope.contractInfo.paymentMethod == '1'}">selected="selected"</c:if>>直接集金</option>
@@ -570,7 +570,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="installment">払込回数</label></th>
 								<td><select
-									name="installment" id="installment" required>
+									name="installment1" id="installment" required>
 										<option value="">以下の払込回数から選択してください</option>
 										<option value="1"
 											<c:if test="${sessionScope.contractInfo.installment == '1'}">selected="selected"</c:if>>1</option>
@@ -592,7 +592,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="nameKana1">会社名カナ１</label></th>
 								<td><input type="text"
-									id="nameKana1" name="nameKana1" size="60"
+									id="nameKana1" name="nameKana11" size="60"
 									placeholder="（例）タマホケン" maxlength="48"
 									value="${sessionScope.contractInfo.nameKana1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(6) == 1 }">
@@ -603,7 +603,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="nameKana2">会社名カナ２</label></th>
 								<td><input type="text"
-									id="nameKana2" name="nameKana2" size="60"
+									id="nameKana2" name="nameKana21" size="60"
 									placeholder="（例）カブシキガイシャ" maxlength="48"
 									value="${sessionScope.contractInfo.nameKana2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(7) == 1 }">
@@ -614,7 +614,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji1">会社名漢字１</label></th>
 								<td><input type="text"
-									id="nameKanji1" name="nameKanji1" size="60"
+									id="nameKanji1" name="nameKanji11" size="60"
 									placeholder="（例）多摩保険" maxlength="48"
 									value="${sessionScope.contractInfo.nameKanji1 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(8) == 1 }">
@@ -625,7 +625,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="nameKanji2">会社名漢字２</label></th>
 								<td><input type="text"
-									id="nameKanji2" name="nameKanji2" size="60"
+									id="nameKanji2" name="nameKanji21" size="60"
 									placeholder="（例）株式会社" maxlength="48"
 									value="${sessionScope.contractInfo.nameKanji2 }" required class="new_right"></td><td class="error_side" id="Form_"> <c:if
 										test="${requestScope.checkHouzin.get(9) == 1 }">
@@ -636,7 +636,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="postcode">郵便番号</label></th>
 								<td><input type="text"
-									id="postcode" name="postcode" size="60"
+									id="postcode" name="postcode1" size="60"
 									placeholder="（例）1111111" maxlength="7"
 									value="${sessionScope.contractInfo.postcode }" required class="new_right"></td><td class="error_side" id="Form_postcode"> <c:if
 										test="${requestScope.checkHouzin.get(10) == 1 }">
@@ -648,7 +648,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="addressKana1">住所カナ１</label></th>
 								<td><input type="text"
-									id="addressKana1" name="addressKana1" size="60"
+									id="addressKana1" name="addressKana11" size="60"
 									placeholder="（例）トウキョウトタマシオチアイ" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana1 }" required class="new_right"></td><td class="error_side" id="Form_addressKana1"> <c:if
 										test="${requestScope.checkHouzin.get(11) == 1 }">
@@ -661,7 +661,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="addressKana2">住所カナ２</label></th>
 								<td><input type="text"
-									id="addressKana2" name="addressKana2" size="60"
+									id="addressKana2" name="addressKana21" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKana2 }" required class="new_right"></td><td class="error_side" id="Form_addressKana2"> <c:if
 										test="${requestScope.checkHouzin.get(12) == 1 }">
@@ -672,7 +672,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji1">住所漢字１</label></th>
 								<td><input type="text"
-									id="addressKanji1" name="addressKanji1" size="60"
+									id="addressKanji1" name="addressKanji11" size="60"
 									placeholder="（例）東京都多摩市落合" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji1 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji1"> <c:if
 										test="${requestScope.checkHouzin.get(13) == 1 }">
@@ -684,7 +684,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="addressKanji2">住所漢字２</label></th>
 								<td><input type="text"
-									id="addressKanji2" name="addressKanji2" size="60"
+									id="addressKanji2" name="addressKanji21" size="60"
 									placeholder="（例）12-34" maxlength="48"
 									value="${sessionScope.contractInfo.addressKanji2 }" required class="new_right"></td><td class="error_side" id="Form_addressKanji2"> <c:if
 										test="${requestScope.checkHouzin.get(14) == 1 }">
@@ -696,7 +696,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="telephoneNo">電話番号</label></th>
 								<td><input type="text"
-									id="telephoneNo" name="telephoneNo" size="60"
+									id="telephoneNo" name="telephoneNo1" size="60"
 									placeholder="（例）0123456789" maxlength="10"
 									value="${sessionScope.contractInfo.telephoneNo }" required class="new_right"></td>
 							</tr>
@@ -704,7 +704,7 @@
 								<th class="form_table_left" scope="row"><label
 									for="mobilephoneNo">携帯電話番号</label></th>
 								<td><input type="text"
-									id="mobilephoneNo" name="mobilephoneNo" size="60"
+									id="mobilephoneNo" name="mobilephoneNo1" size="60"
 									placeholder="（例）08012345678" maxlength="11"
 									value="${sessionScope.contractInfo.mobilephoneNo }" required class="new_right"></td><td class="error_side" id="Form_mobliephoneNo"> <c:if
 										test="${requestScope.checkHouzin.get(15) == 1 }">
@@ -716,7 +716,7 @@
 								<th class="form_table_left" scope="row"><label for="faxNo">FAX番号</label>
 								</th>
 								<td><input type="text"
-									id="faxNo" name="faxNo" size="60" placeholder="（例）123456789"
+									id="faxNo" name="faxNo1" size="60" placeholder="（例）123456789"
 									maxlength="10" value="${sessionScope.contractInfo.faxNo }" required class="new_right"></td>
 							</tr>
 						</tbody>

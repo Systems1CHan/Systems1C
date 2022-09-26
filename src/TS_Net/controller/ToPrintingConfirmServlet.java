@@ -77,7 +77,7 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 
 		String insuredKbn = request.getParameter("insuredKbn");
 		request.setAttribute("radioButtonValue", insuredKbn);
-		System.out.println(insuredKbn);
+		System.out.println(insuredKbn + "が選択されてる。");
 
 		if(insuredKbn.equals("1")) {
 			if(!(request.getParameter("inceptionDate").equals(contractInfo.getInceptionDate()))) {
@@ -276,110 +276,110 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		}
 
 		if(insuredKbn.equals("2")) {
-			if(!(request.getParameter("inceptionDate").equals(contractInfo.getInceptionDate()))) {
-				contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
+			if(!(request.getParameter("inceptionDate1").equals(contractInfo.getInceptionDate()))) {
+				contractInfo.setInceptionDate(request.getParameter("inceptionDate1"));
 				request.setAttribute("message", "保険料試算後から保険期間始期日が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("inceptionTime").equals(contractInfo.getInceptionTime()))) {
-				contractInfo.setInceptionTime(request.getParameter("inceptionTime"));
+			}else if(!(request.getParameter("inceptionTime1").equals(contractInfo.getInceptionTime()))) {
+				contractInfo.setInceptionTime(request.getParameter("inceptionTime1"));
 				request.setAttribute("message", "保険料試算後から保険期間始期時刻が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("conclusionDate").equals(contractInfo.getConclusionDate()))) {
-				contractInfo.setConclusionDate(request.getParameter("conclusionDate"));
+			}else if(!(request.getParameter("conclusionDate1").equals(contractInfo.getConclusionDate()))) {
+				contractInfo.setConclusionDate(request.getParameter("conclusionDate1"));
 				request.setAttribute("message", "保険料試算後から保険期間満期日が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("conclusionTime").equals(contractInfo.getConclusionTime()))) {
-				contractInfo.setConclusionTime(request.getParameter("conclusionTime"));
+			}else if(!(request.getParameter("conclusionTime1").equals(contractInfo.getConclusionTime()))) {
+				contractInfo.setConclusionTime(request.getParameter("conclusionTime1"));
 				request.setAttribute("message", "保険料試算後から保険期間満期時刻が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("paymentMethod").equals(contractInfo.getPaymentMethod()))) {
-				contractInfo.setPaymentMethod(request.getParameter("paymentMethod"));
+			}else if(!(request.getParameter("paymentMethod1").equals(contractInfo.getPaymentMethod()))) {
+				contractInfo.setPaymentMethod(request.getParameter("paymentMethod1"));
 				request.setAttribute("message", "保険料試算後から払込方法が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(Integer.parseInt(request.getParameter("installment")) == (contractInfo.getInstallment()))) {
-				contractInfo.setInstallment(Integer.parseInt(request.getParameter("installment")));
+			}else if(!(Integer.parseInt(request.getParameter("installment1")) == (contractInfo.getInstallment()))) {
+				contractInfo.setInstallment(Integer.parseInt(request.getParameter("installment1")));
 				request.setAttribute("message", "保険料試算後から払込回数が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("nameKana1").equals(contractInfo.getNameKana1()))) {
-				contractInfo.setNameKana1(request.getParameter("nameKana1"));
+			}else if(!(request.getParameter("nameKana11").equals(contractInfo.getNameKana1()))) {
+				contractInfo.setNameKana1(request.getParameter("nameKana11"));
 				request.setAttribute("message", "保険料試算後から会社名カナ１が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("nameKana2").equals(contractInfo.getNameKana2()))) {
-				contractInfo.setNameKana2(request.getParameter("nameKana2"));
+			}else if(!(request.getParameter("nameKana21").equals(contractInfo.getNameKana2()))) {
+				contractInfo.setNameKana2(request.getParameter("nameKana21"));
 				request.setAttribute("message", "保険料試算後から会社名カナ２が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("nameKanji1").equals(contractInfo.getNameKanji1()))) {
-				contractInfo.setNameKanji1(request.getParameter("nameKanji1"));
+			}else if(!(request.getParameter("nameKanji11").equals(contractInfo.getNameKanji1()))) {
+				contractInfo.setNameKanji1(request.getParameter("nameKanji11"));
 				request.setAttribute("message", "保険料試算後から会社名漢字１が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("nameKanji2").equals(contractInfo.getNameKanji2()))) {
-				contractInfo.setNameKanji2(request.getParameter("nameKanji2"));
+			}else if(!(request.getParameter("nameKanji21").equals(contractInfo.getNameKanji2()))) {
+				contractInfo.setNameKanji2(request.getParameter("nameKanji21"));
 				request.setAttribute("message", "保険料試算後から会社名漢字２が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("postcode").equals(contractInfo.getPostcode()))) {
-				contractInfo.setPostcode(request.getParameter("postcode"));
+			}else if(!(request.getParameter("postcode1").equals(contractInfo.getPostcode()))) {
+				contractInfo.setPostcode(request.getParameter("postcode1"));
 				request.setAttribute("message", "保険料試算後から郵便番号が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("addressKana1").equals(contractInfo.getAddressKana1()))) {
-				contractInfo.setAddressKana1(request.getParameter("addressKana1"));
+			}else if(!(request.getParameter("addressKana11").equals(contractInfo.getAddressKana1()))) {
+				contractInfo.setAddressKana1(request.getParameter("addressKana11"));
 				request.setAttribute("message", "保険料試算後から住所カナ１が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("addressKana2").equals(contractInfo.getAddressKana2()))) {
-				contractInfo.setAddressKana2(request.getParameter("addressKana2"));
+			}else if(!(request.getParameter("addressKana21").equals(contractInfo.getAddressKana2()))) {
+				contractInfo.setAddressKana2(request.getParameter("addressKana21"));
 				request.setAttribute("message", "保険料試算後から住所カナ２が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("addressKanji1").equals(contractInfo.getAddressKanji1()))) {
-				contractInfo.setAddressKanji1(request.getParameter("addressKanji1"));
+			}else if(!(request.getParameter("addressKanji11").equals(contractInfo.getAddressKanji1()))) {
+				contractInfo.setAddressKanji1(request.getParameter("addressKanji11"));
 				request.setAttribute("message", "保険料試算後から住所漢字１が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("addressKanji2").equals(contractInfo.getAddressKanji2()))) {
-				contractInfo.setAddressKanji2(request.getParameter("addressKanji2"));
+			}else if(!(request.getParameter("addressKanji21").equals(contractInfo.getAddressKanji2()))) {
+				contractInfo.setAddressKanji2(request.getParameter("addressKanji21"));
 				request.setAttribute("message", "保険料試算後から住所漢字２が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("telephoneNo").equals(contractInfo.getTelephoneNo()))) {
-				contractInfo.setTelephoneNo(request.getParameter("telephoneNo"));
+			}else if(!(request.getParameter("telephoneNo1").equals(contractInfo.getTelephoneNo()))) {
+				contractInfo.setTelephoneNo(request.getParameter("telephoneNo1"));
 				request.setAttribute("message", "保険料試算後から電話番号が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("mobilephoneNo").equals(contractInfo.getMobilephoneNo()))) {
-				contractInfo.setMobilephoneNo(request.getParameter("mobilephoneNo"));
+			}else if(!(request.getParameter("mobilephoneNo1").equals(contractInfo.getMobilephoneNo()))) {
+				contractInfo.setMobilephoneNo(request.getParameter("mobilephoneNo1"));
 				request.setAttribute("message", "保険料試算後から携帯電話番号が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
-			}else if(!(request.getParameter("faxNo").equals(contractInfo.getFaxNo()))) {
-				contractInfo.setFaxNo(request.getParameter("faxNo"));
+			}else if(!(request.getParameter("faxNo1").equals(contractInfo.getFaxNo()))) {
+				contractInfo.setFaxNo(request.getParameter("faxNo1"));
 				request.setAttribute("message", "保険料試算後からFAX番号が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");

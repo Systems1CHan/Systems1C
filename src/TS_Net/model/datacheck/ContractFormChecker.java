@@ -58,7 +58,7 @@ public class ContractFormChecker {
 			num.add(1);
 		}else {
 					num.add(0);
-		}if(ci.getInstallment() == null || String.valueOf(ci.getInstallment()).isEmpty()){
+		}if(ci.getInstallment() == 0 || String.valueOf(ci.getInstallment()).isEmpty()){
 			num.add(1);
 		}else {
 					num.add(0);

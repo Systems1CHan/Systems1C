@@ -33,8 +33,8 @@ public class InsuranceEstimationServlet extends HttpServlet {
 
 		request.setCharacterEncoding(SystemConst.CHAR_SET);
 
-		String insuredKbn2 = request.getParameter("insuredKbn");
-		request.setAttribute("radioButtonValue", insuredKbn2);
+		String insuredKbn = request.getParameter("insuredKbn");
+		request.setAttribute("radioButtonValue", insuredKbn);
 
 		//セッションの生成
 		HttpSession session = request.getSession(false);
@@ -71,67 +71,98 @@ public class InsuranceEstimationServlet extends HttpServlet {
 			compensation = (Compensation) session.getAttribute("compensation");
 		}
 
-		String[] inceptionDate = request.getParameterValues("inceptionDate");
-		String[] inceptionTime = request.getParameterValues("inceptionTime");
-		String[] conclusionDate = request.getParameterValues("conclusionDate");
-		String[] conclusionTime = request.getParameterValues("conclusionTime");
-		String[] paymentMethod = request.getParameterValues("paymentMethod");
-		String[] installment = request.getParameterValues("installment");
-		String insuredKbn = request.getParameter("insuredKbn");
-		String[] nameKana1 = request.getParameterValues("nameKana1");
-		String[] nameKana2 = request.getParameterValues("nameKana2");
-		String[] nameKanji1 = request.getParameterValues("nameKanji1");
-		String[] nameKanji2= request.getParameterValues("nameKanji2");
-		String[] postcode = request.getParameterValues("postcode");
-		String[] addressKana1 = request.getParameterValues("addressKana1");
-		String[] addressKana2 = request.getParameterValues("addressKana2");
-		String[] addressKanji1 = request.getParameterValues("addressKanji1");
-		String[] addressKanji2 = request.getParameterValues("addressKanji2");
-		String birthday = request.getParameter("birthday").replace("-", "");
-		String gender = request.getParameter("gender");
-		String[] telephoneNo= request.getParameterValues("telephoneNo");
-		String[] mobilephoneNo = request.getParameterValues("mobilephoneNo");
-		String[] faxNo = request.getParameterValues("faxNo");
 
-		for (String str: inceptionDate){
-			  System.out.println(str);
-		}
 
-		int index = 0;
-		if (insuredKbn2.equals("1")) {
+		if (insuredKbn.equals("1")) {
 			System.out.println("個人");
-		}else if(insuredKbn2.equals("2")) {
-			System.out.println("法人");
-			index = 1;
-			if (birthday.equals(null)  || birthday.isEmpty())
-				birthday ="20000101";
-		}
+			String inceptionDate = request.getParameter("inceptionDate");
+			String inceptionTime = request.getParameter("inceptionTime");
+			String conclusionDate = request.getParameter("conclusionDate");
+			String conclusionTime = request.getParameter("conclusionTime");
+			String paymentMethod = request.getParameter("paymentMethod");
+			String installment = request.getParameter("installment");
+			String insuredKbn2 = request.getParameter("insuredKbn");
+			String nameKana1 = request.getParameter("nameKana1");
+			String nameKana2 = request.getParameter("nameKana2");
+			String nameKanji1 = request.getParameter("nameKanji1");
+			String nameKanji2= request.getParameter("nameKanji2");
+			String postcode = request.getParameter("postcode");
+			String addressKana1 = request.getParameter("addressKana1");
+			String addressKana2 = request.getParameter("addressKana2");
+			String addressKanji1 = request.getParameter("addressKanji1");
+			String addressKanji2 = request.getParameter("addressKanji2");
+			String birthday = request.getParameter("birthday").replace("-", "");
+			String gender = request.getParameter("gender");
+			String telephoneNo= request.getParameter("telephoneNo");
+			String mobilephoneNo = request.getParameter("mobilephoneNo");
+			String faxNo = request.getParameter("faxNo");
 
-		//リクエストパラメータを取得し、契約情報オブジェクトにセット
-		contractInfo.setInceptionDate(inceptionDate[index].replace("-", ""));
-		contractInfo.setInceptionTime(inceptionTime[index]);
-		contractInfo.setConclusionDate(conclusionDate[index].replace("-", ""));
-		contractInfo.setConclusionTime(conclusionTime[index]);
-		contractInfo.setPaymentMethod(paymentMethod[index]);
-		contractInfo.setInstallment(check(installment[index]));
-		contractInfo.setInsuredKbn(insuredKbn);
-		contractInfo.setNameKana1(nameKana1[index]);
-		contractInfo.setNameKana2(nameKana2[index]);
-		contractInfo.setNameKanji1(nameKanji1[index]);
-		contractInfo.setNameKanji2(nameKanji2[index]);
-		contractInfo.setPostcode(postcode[index]);
-		contractInfo.setAddressKana1(addressKana1[index]);
-		contractInfo.setAddressKana2(addressKana2[index]);
-		contractInfo.setAddressKanji1(addressKanji1[index]);
-		contractInfo.setAddressKanji2(addressKanji2[index]);
-		contractInfo.setBirthday(birthday);
-		if (gender==null)
-			contractInfo.setGender("0");// 未選択
-		else
-			contractInfo.setGender(gender);
-		contractInfo.setTelephoneNo(telephoneNo[index]);
-		contractInfo.setMobilephoneNo(mobilephoneNo[index]);
-		contractInfo.setFaxNo(faxNo[index]);
+			contractInfo.setInceptionDate(inceptionDate.replace("-", ""));
+			contractInfo.setInceptionTime(inceptionTime);
+			contractInfo.setConclusionDate(conclusionDate.replace("-", ""));
+			contractInfo.setConclusionTime(conclusionTime);
+			contractInfo.setPaymentMethod(paymentMethod);
+			contractInfo.setInstallment(check(installment));
+			contractInfo.setInsuredKbn(insuredKbn2);
+			contractInfo.setNameKana1(nameKana1);
+			contractInfo.setNameKana2(nameKana2);
+			contractInfo.setNameKanji1(nameKanji1);
+			contractInfo.setNameKanji2(nameKanji2);
+			contractInfo.setPostcode(postcode);
+			contractInfo.setAddressKana1(addressKana1);
+			contractInfo.setAddressKana2(addressKana2);
+			contractInfo.setAddressKanji1(addressKanji1);
+			contractInfo.setAddressKanji2(addressKanji2);
+			contractInfo.setBirthday(birthday);
+		    contractInfo.setGender(gender);
+			contractInfo.setTelephoneNo(telephoneNo);
+			contractInfo.setMobilephoneNo(mobilephoneNo);
+			contractInfo.setFaxNo(faxNo);
+
+		}else if(insuredKbn.equals("2")) {
+			System.out.println("法人");
+
+			String inceptionDate = request.getParameter("inceptionDate1");
+			String inceptionTime = request.getParameter("inceptionTime1");
+			String conclusionDate = request.getParameter("conclusionDate1");
+			String conclusionTime = request.getParameter("conclusionTime1");
+			String paymentMethod = request.getParameter("paymentMethod1");
+			String installment = request.getParameter("installment1");
+			String insuredKbn2 = request.getParameter("insuredKbn");
+			String nameKana1 = request.getParameter("nameKana11");
+			String nameKana2 = request.getParameter("nameKana21");
+			String nameKanji1 = request.getParameter("nameKanji11");
+			String nameKanji2= request.getParameter("nameKanji21");
+			String postcode = request.getParameter("postcode1");
+			String addressKana1 = request.getParameter("addressKana11");
+			String addressKana2 = request.getParameter("addressKana21");
+			String addressKanji1 = request.getParameter("addressKanji11");
+			String addressKanji2 = request.getParameter("addressKanji21");
+			String telephoneNo= request.getParameter("telephoneNo1");
+			String mobilephoneNo = request.getParameter("mobilephoneNo1");
+			String faxNo = request.getParameter("faxNo1");
+
+			contractInfo.setInceptionDate(inceptionDate.replace("-", ""));
+			contractInfo.setInceptionTime(inceptionTime);
+			contractInfo.setConclusionDate(conclusionDate.replace("-", ""));
+			contractInfo.setConclusionTime(conclusionTime);
+			contractInfo.setPaymentMethod(paymentMethod);
+			contractInfo.setInstallment(check(installment));
+			contractInfo.setInsuredKbn(insuredKbn2);
+			contractInfo.setNameKana1(nameKana1);
+			contractInfo.setNameKana2(nameKana2);
+			contractInfo.setNameKanji1(nameKanji1);
+			contractInfo.setNameKanji2(nameKanji2);
+			contractInfo.setPostcode(postcode);
+			contractInfo.setAddressKana1(addressKana1);
+			contractInfo.setAddressKana2(addressKana2);
+			contractInfo.setAddressKanji1(addressKanji1);
+			contractInfo.setAddressKanji2(addressKanji2);
+			contractInfo.setTelephoneNo(telephoneNo);
+			contractInfo.setMobilephoneNo(mobilephoneNo);
+			contractInfo.setFaxNo(faxNo);
+
+		}
 
 		//リクエストパラメータを取得し、補償情報オブジェクトにセット
 		String maker = request.getParameter("maker");
