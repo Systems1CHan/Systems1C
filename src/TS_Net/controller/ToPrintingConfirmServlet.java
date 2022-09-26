@@ -263,6 +263,8 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 			}else {
 				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
 				request.setAttribute("tabpage", "2");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+				rd.forward(request, response);
 			}
 
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
@@ -442,6 +444,8 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 			}else {
 				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
 				request.setAttribute("tabpage", "2");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+				rd.forward(request, response);
 			}
 
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
