@@ -126,11 +126,11 @@ public class ToRecordComfirmServlet extends HttpServlet {
 				return;
 			}
 
-                //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
-                if("2".equals(contract.getInsuredKbn())) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
-                    rd.forward(request, response);
-                }
+//                //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+//                if("2".equals(contract.getInsuredKbn())) {
+//                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
+//                    rd.forward(request, response);
+//                }
 
 
 
@@ -169,6 +169,14 @@ public class ToRecordComfirmServlet extends HttpServlet {
             compensation = cpDao.getCompensationByIR(insatsuRenban);
             //リクエスト領域に格納する。
             session.setAttribute("compensation", compensation);
+
+
+
+            //オブジェクト内の法人個人区分をチェックし、法人である２が格納されている場合は法人ページをセットする。
+            if("2".equals(contract.getInsuredKbn())) {
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/RecordCheckCompany.jsp");
+                rd.forward(request, response);
+            }
 
         } catch (ClassNotFoundException | SQLException e) {
 
