@@ -5,13 +5,12 @@
 作成者			：SYS KEINA NOGUCHI
 --------------------------------------------------------------------------------------------
 修正履歴（修正日：担当者：修正内容）
-(2022/09/22 ： NarimichiHenmi/SYS ：契約条件タブに保険期間が表示されるように変更)
 -------------------------------------------------------------------------------------------->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="TS_Net.model.data.AccidentReception"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<%@ page import="TS_Net.model.data.AccidentReception"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,56 +89,48 @@
 							<tr>
 								<th class="form_table_left">事故現場住所1-漢字</th>
 								<td><input type="text" id="accidentlocationkanji1"
-									name="accidentlocationkanji1" placeholder="東京都多摩市"
-									maxlength="48"
+									name="accidentlocationkanji1" placeholder="東京都多摩市" maxlength="48"
 									value="${sessionScope.accidentReception.getAccidentLocationKanji1()}">
 								</td>
 
 								<td class="error" id="Form_accidentlocationkanji1"><c:if
 										test="${requestScope.check.get(1) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" /></td>
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" /></td>
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">事故現場住所1-カナ</th>
 								<td><input type="text" id="accidentlocationkana1"
-									name="accidentlocationkana1" placeholder="トウキョウトタマシ"
-									maxlength="48"
+									name="accidentlocationkana1" placeholder="トウキョウトタマシ" maxlength="48"
 									value="${sessionScope.accidentReception.getAccidentLocationKana1()}">
 								</td>
 								<td class="error" id="Form_accidentlocationkana1"><c:if
 										test="${requestScope.check.get(2) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">事故現場住所2-漢字</th>
 								<td><input type="text" id="accidentlocationkanji2"
-									name="accidentlocationkanji2" placeholder="○○町○○番地"
-									maxlength="48"
+									name="accidentlocationkanji2" placeholder="○○町○○番地" maxlength="48"
 									value="${sessionScope.accidentReception.getAccidentLocationKanji2()}">
 								</td>
 								<td class="error" id="Form_accidentlocationkanji2"><c:if
 										test="${requestScope.check.get(3) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">事故現場住所2-カナ</th>
 								<td><input type="text" id="accidentlocationkana2"
-									name="accidentlocationkana2" placeholder="○○チョウ○○バンチ"
-									maxlength="48"
+									name="accidentlocationkana2" placeholder="○○チョウ○○バンチ" maxlength="48"
 									value="${sessionScope.accidentReception.getAccidentLocationKana2()}">
 								</td>
 								<td class="error" id="Form_accidentlocationkana2"><c:if
 										test="${requestScope.check.get(4) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -151,8 +142,7 @@
 								</td>
 								<td class="error" id="Form_accidentsituation"><c:if
 										test="${requestScope.check.get(5) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -164,22 +154,19 @@
 								</td>
 								<td class="error" id="Form_ratingblamemyself"><c:if
 										test="${requestScope.check.get(6) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">過失割合（相手方）</th>
 								<td><input type="text" placeholder="80"
-									id="ratingblameyourself" name="ratingblameyourself"
-									maxlength="48"
+									id="ratingblameyourself" name="ratingblameyourself" maxlength="48"
 									value="${sessionScope.accidentReception.getRatingBlameYourself()}">
 								</td>
 								<td class="error" id="Form_ratingblameyourself"><c:if
 										test="${requestScope.check.get(7) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -191,8 +178,7 @@
 								</td>
 								<td class="error" id="Form_damagecarprice"><c:if
 										test="${requestScope.check.get(8) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -204,8 +190,7 @@
 								</td>
 								<td class="error" id="Form_damagecarstate"><c:if
 										test="${requestScope.check.get(9) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -217,8 +202,7 @@
 								</td>
 								<td class="error" id="Form_damagebodilyprice"><c:if
 										test="${requestScope.check.get(10) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -230,64 +214,55 @@
 								</td>
 								<td class="error" id="Form_damagebodilystate"><c:if
 										test="${requestScope.check.get(11) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">損害額・対物</th>
 								<td><input type="text" placeholder="A0000001"
-									id="damagepropertyprice" name="damagepropertyprice"
-									maxlength="48"
+									id="damagepropertyprice" name="damagepropertyprice" maxlength="48"
 									value="${sessionScope.accidentReception.getDamagePropertyPrice()}">(円)
 								</td>
 								<td class="error" id="Form_damagepropertyprice"><c:if
 										test="${requestScope.check.get(12) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">損害状況・対物</th>
 								<td><input type="text" placeholder="あり"
-									id="damagepropertystate" name="damagepropertystate"
-									maxlength="48"
+									id="damagepropertystate" name="damagepropertystate" maxlength="48"
 									value="${sessionScope.accidentReception.getDamagePropertyState()}">
 								</td>
 								<td class="error" id="Form_damagepropertystate"><c:if
 										test="${requestScope.check.get(13) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">損害額・傷害</th>
 								<td><input type="text" placeholder="4000円"
-									id="damageaccidentprice" name="damageaccidentprice"
-									maxlength="48"
+									id="damageaccidentprice" name="damageaccidentprice" maxlength="48"
 									value="${sessionScope.accidentReception.getDamageAccidentPrice()}">(円)
 								</td>
 								<td class="error" id="Form_damageaccidentprice"><c:if
 										test="${requestScope.check.get(14) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
 							<tr>
 								<th class="form_table_left">損害状況・傷害</th>
 								<td><input type="text" placeholder="左脚捻挫"
-									id="damageaccidentstate" name="damageaccidentstate"
-									maxlength="48"
+									id="damageaccidentstate" name="damageaccidentstate" maxlength="48"
 									value="${sessionScope.accidentReception.getDamageAccidentState()}">
 								</td>
 								<td class="error" id="Form_damageaccidentstate"><c:if
 										test="${requestScope.check.get(15) == 1}">
-										<td class="error"><c:out
-												value="未入力の項目があります。入力内容をご確認ください。" />
+										<td class="error"><c:out value="未入力の項目があります。入力内容をご確認ください。" />
 										<td />
 									</c:if></td>
 							</tr>
@@ -301,7 +276,7 @@
 								<!-- 入力フォーム（お名前） -->
 								<td>
 									<button type="button" onclick="toFinishUpdatePage()"
-										class="button_design">状況更新</button>
+										class="button_design">更新完了</button>
 								</td>
 								<td>
 									<button type="button" onclick="toFinishAcceptPage()"
@@ -315,11 +290,6 @@
 							style="border-collapse: collapse">
 							<tr>
 								<td class="confirm_table_headline" colspan="2">事故受付入力</td>
-							</tr>
-							<tr>
-								<td class="confirm_table_left">保険期間</td>
-								<td class="b"><c:out
-										value="${sessionScope.contractInfo.getInsureanceIntervalForLabel()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">証券番号</td>
@@ -423,7 +393,8 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>
-								<td><c:out value="${sessionScope.compensation.getMaker()}" /></td>
+								<td><c:out
+										value="${sessionScope.compensation.getMaker()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車名</td>

@@ -138,7 +138,7 @@
 							</tr>
 							<tr>
 								<td class="confirm_table_left">保険料</td>
-								<td class="b">¥<fmt:formatNumber
+								<td class="b"><fmt:formatNumber
 										value="${requestScope.compensation.getPremiumAmount()}"/>円</td>
 							</tr>
 							<tr>
