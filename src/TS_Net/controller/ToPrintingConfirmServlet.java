@@ -177,7 +177,7 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				request.setAttribute("tabpage", "1");
 				rd.forward(request, response);
 			}else if(!(request.getParameter("gender").equals(contractInfo.getGender()))) {
-				contractInfo.setGender(request.getParameter("inceptionTime"));
+				contractInfo.setGender(request.getParameter("gender"));
 				request.setAttribute("message", "保険料試算後から性別が変更されています。新しく保険料試算を行ってください。");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "1");
@@ -260,11 +260,17 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "2");
 				rd.forward(request, response);
+			}else {
+				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
+				request.setAttribute("tabpage", "2");
 			}
 
-			return;
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+			rd.forward(request, response);
 
-		}else if(insuredKbn.equals("2")) {
+		}
+
+		if(insuredKbn.equals("2")) {
 			if(!(request.getParameter("inceptionDate").equals(contractInfo.getInceptionDate()))) {
 				contractInfo.setInceptionDate(request.getParameter("inceptionDate"));
 				request.setAttribute("message", "保険料試算後から保険期間始期日が変更されています。新しく保険料試算を行ってください。");
@@ -433,54 +439,61 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 				request.setAttribute("tabpage", "2");
 				rd.forward(request, response);
+			}else {
+				request.setAttribute("message", "全ての項目が入力されています。申込書印刷ボタンを押してください。");
+				request.setAttribute("tabpage", "2");
 			}
 
-			return;
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+			rd.forward(request, response);
 		}
 
-		System.out.println("ここまで来てる。");
-		//データチェッククラスの生成
-		ContractFormChecker cfc = new ContractFormChecker();
-		CompensationFormChecker comfc = new CompensationFormChecker();
 
-		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
-		if(insuredKbn.equals("1")) {
-			if(cfc.checkKozin(contractInfo).contains(1)) {
-				request.setAttribute("checkKozin", cfc.checkKozin(contractInfo));
-				request.setAttribute("tabpage", "1");
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる1。");
-			}else if(comfc.check2(compensation).contains(1)) {
-				request.setAttribute("errorMessage", comfc.check2(compensation));
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる3。");
-			}else {
-				//申込書印刷確認画面に遷移する
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる4。");
-			}
-		}else if(insuredKbn.equals("2")) {
-			if(cfc.checkHouzin(contractInfo).contains(1)) {
-				request.setAttribute("checkHouzin", cfc.checkHouzin(contractInfo));
-				request.setAttribute("tabpage", "1");
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる2。");
-			}else if(comfc.check2(compensation).contains(1)) {
-				request.setAttribute("errorMessage", comfc.check2(compensation));
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる3。");
-			}else {
-				//申込書印刷確認画面に遷移する
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
-				rd.forward(request, response);
-				System.out.println("ここまで来てる4。");
-			}
-		}
+//		System.out.println("ここまで来てる。");
+//		//データチェッククラスの生成
+//		ContractFormChecker cfc = new ContractFormChecker();
+//		CompensationFormChecker comfc = new CompensationFormChecker();
+//
+//		//契約情報、補償情報オブジェクトをデータチェッククラスに渡してチェックを実施
+//		if(insuredKbn.equals("1")) {
+//			if(cfc.checkKozin(contractInfo).contains(1)) {
+//				request.setAttribute("checkKozin", cfc.checkKozin(contractInfo));
+//				request.setAttribute("tabpage", "1");
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる1。");
+//			}else if(comfc.check2(compensation).contains(1)) {
+//				request.setAttribute("errorMessage", comfc.check2(compensation));
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる3。");
+//			}else {
+//				//申込書印刷確認画面に遷移する
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる4。");
+//			}
+//		}
+//
+//		if(insuredKbn.equals("2")) {
+//			if(cfc.checkHouzin(contractInfo).contains(1)) {
+//				request.setAttribute("checkHouzin", cfc.checkHouzin(contractInfo));
+//				request.setAttribute("tabpage", "1");
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる2。");
+//			}else if(comfc.check2(compensation).contains(1)) {
+//				request.setAttribute("errorMessage", comfc.check2(compensation));
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる3。");
+//			}else {
+//				//申込書印刷確認画面に遷移する
+//				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+//				rd.forward(request, response);
+//				System.out.println("ここまで来てる4。");
+//			}
+//		}
 
 	}
 
