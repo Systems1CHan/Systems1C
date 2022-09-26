@@ -141,7 +141,7 @@
 						<tr>
 							<td class="confirm_table_left">保険料</td>
 							<td>¥<fmt:formatNumber
-									value="${sessionScope.compensation.getPremiumAmountForLabel()}" />円</td>
+									value="${sessionScope.compensation.getPremiumAmountForLabel()}" /></td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">メーカー</td>
