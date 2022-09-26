@@ -68,7 +68,7 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 		}
 
 		//保険料試算がされていないとき、エラーを表示する
-		if(compensation.getPremiumAmount() == null || compensation.getPremiumInstallment() == null) {
+		if(compensation.getPremiumAmount() == 0 || compensation.getPremiumInstallment() == 0) {
 			request.setAttribute("message", "保険料試算を行ってください。");
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/NewEstimationEntry.jsp");
 			rd.forward(request, response);
@@ -266,9 +266,12 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
 				rd.forward(request, response);
 			}
+//
+//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+//			rd.forward(request, response);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
-			rd.forward(request, response);
+			return;
+
 
 		}
 
@@ -447,9 +450,12 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
 				rd.forward(request, response);
 			}
+//
+//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
+//			rd.forward(request, response);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/PrintConfirmationForm.jsp");
-			rd.forward(request, response);
+				return;
+			}
 		}
 
 
@@ -499,7 +505,7 @@ public class ToPrintingConfirmServlet extends HttpServlet {
 //			}
 //		}
 
-	}
+
 
 	public Integer check(String str) {
 		if(str == null) {

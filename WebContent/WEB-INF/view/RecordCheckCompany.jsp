@@ -120,11 +120,18 @@
 								<td class="confirm_table_headline" colspan="2">計上確認</td>
 							</tr>
 							<tr>
+<<<<<<< HEAD
 								<td class="confirm_table_left">保険料</td>
 
+=======
+								<td class="confirm_table_left">保険料</td>
+>>>>>>> branch 'master' of https://github.com/Systems1CHan/Systems1C.git
 								<td class="b"><fmt:formatNumber
 										value="${sessionScope.compensation.getPremiumAmount()}" />円</td>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Systems1CHan/Systems1C.git
 							</tr>
 							<tr>
 								<td class="confirm_table_left">メーカー</td>

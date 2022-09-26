@@ -282,7 +282,7 @@ public class ContractInfo implements Serializable {
 	 * @return 生年月日
 	 */
 	public String getBirthdayForLabel() {
-		return this.birthday.substring(0, 3) + "年" + this.birthday.substring(3, 5) + "月" + this.birthday.substring(5, 7) + "日";
+		return this.birthday.substring(0, 4) + "年" + this.birthday.substring(4, 6) + "月" + this.birthday.substring(6, 8) + "日";
 	}
 
 	/**
