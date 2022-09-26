@@ -404,7 +404,7 @@
 							<tr>
 								<td class="confirm_table_left">車のナンバー</td>
 								<td><c:out
-										value="${sessionScope.compensation.getCarNameForLabel()}" /></td>
+										value="${sessionScope.compensation.getLicenseNo()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>

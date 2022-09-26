@@ -139,20 +139,9 @@
 							<td class="confirm_table_headline" colspan="2">計上確認</td>
 						</tr>
 						<tr>
-<<<<<<< HEAD
 							<td class="confirm_table_left">保険料</td>
-
-=======
-							<td class="confirm_table_left">保険料</td>
->>>>>>> branch 'master' of https://github.com/Systems1CHan/Systems1C.git
 							<td><fmt:formatNumber
-<<<<<<< HEAD
 									value="${sessionScope.compensation.getPremiumAmount()}" />円</td>
-
-
-=======
-									value="${sessionScope.compensation.getPremiumAmount()}" />円</td>
->>>>>>> branch 'master' of https://github.com/Systems1CHan/Systems1C.git
 						</tr>
 						<tr>
 							<td class="confirm_table_left">メーカー</td>
@@ -165,7 +154,7 @@
 						<tr>
 							<td class="confirm_table_left">車のナンバー</td>
 							<td><c:out
-									value="${sessionScope.compensation.getCarNameForLabel()}" /></td>
+									value="${sessionScope.compensation.getLicenseNo()}" /></td>
 						</tr>
 						<tr>
 							<td class="confirm_table_left">車両保険金額</td>

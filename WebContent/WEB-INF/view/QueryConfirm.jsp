@@ -153,7 +153,7 @@
 							<tr>
 								<td class="confirm_table_left">車のナンバー</td>
 								<td><c:out
-										value="${requestScope.compensation.getCarNameForLabel()}" /></td>
+										value="${requestScope.compensation.getLicenseNo()}" /></td>
 							</tr>
 							<tr>
 								<td class="confirm_table_left">車両保険金額</td>
