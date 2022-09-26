@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <td class="confirm_table_left">支払金額</td>
-                        <td>¥<fmt:formatNumber
+                        <td><fmt:formatNumber
                                 value="${requestScope.accidentReception.getPaymentPrice()}" />円</td>
                     </tr>
                 </table>
